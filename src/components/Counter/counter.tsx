@@ -9,14 +9,14 @@ export const Counter = () => {
     }
 
     function dec() {
-        setCount(count - 1);
+        if (count > 0) setCount(count - 1);
     }
 
     return (
         <div className={classes.counter}>
             <p>{count}</p>
-            <button onClick={inc}>+</button>
-            <button onClick={dec}>-</button>
+            <button className={classes.btn} onClick={inc}>+</button>
+            <button className={classes.btn} onClick={dec}>-</button>
         </div>
     );
 }
