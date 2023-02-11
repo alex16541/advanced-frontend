@@ -2,9 +2,10 @@ import 'app/styles/index.scss';
 import { Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { AboutPage } from 'pages/AboutPage';
-import { useTheme } from './providers/ThemeProvider';
+import { useTheme } from './providers/themeProvider';
 import { MainPage } from 'pages/MainPage';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppRouter } from './providers/router/ui/AppRouter';
 
 
 const App = () => {
@@ -19,12 +20,7 @@ const App = () => {
                 </nav>
             </header>
 
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path='/' element={<MainPage />} />
-                    <Route path='/about' element={<AboutPage />} />
-                </Routes>
-            </Suspense>
+            <AppRouter />
         </div>
     )
 }
