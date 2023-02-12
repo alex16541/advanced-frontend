@@ -13,9 +13,13 @@
 }
 
 .primary {
-    background-color: var(--reveted-bg-color);
+    background-color: var(--inveted-bg-color);
+    color: var(--primary-color);
+    padding: 0.5rem;
 }
 
 .secondary {
-    background-color: var(--reveted-bg-color);
+    background-color: var(--bg-color);
+    color: var(--inveted-primary-color);
+    padding: 0.5rem;
 }
