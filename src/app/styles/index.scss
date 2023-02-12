@@ -10,16 +10,3 @@
 
     min-height: 100vh;
 }
-
-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    border-bottom: 2px solid var(--secondary-color);
-    padding: 10px;
-
-    a {
-        color: var(--primary-color);
-        text-decoration: none;
-    }
-}

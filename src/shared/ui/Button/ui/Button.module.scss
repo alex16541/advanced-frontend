@@ -1,0 +1,21 @@
+.Button {
+    border-radius: 3px;
+    padding: 0.25rem;
+
+    &:hover {
+    }
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.primary {
+    background-color: var(--reveted-bg-color);
+}
+
+.secondary {
+    background-color: var(--reveted-bg-color);
+}
