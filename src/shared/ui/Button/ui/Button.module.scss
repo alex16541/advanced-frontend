@@ -6,15 +6,20 @@
     }
 }
 
-.clear {
+.clear,
+.clear-invert {
     margin: 0;
     padding: 0;
     background-color: transparent;
 }
 
+.clear-invert {
+    color: var(--inverted-primary-color);
+}
+
 .primary {
     background-color: var(--inveted-bg-color);
-    color: var(--primary-color);
+    color: var(--inverted-primary-color);
     padding: 0.5rem;
 }
 

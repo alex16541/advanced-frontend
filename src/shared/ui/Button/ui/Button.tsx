@@ -4,8 +4,9 @@ import { ButtonHTMLAttributes, FC } from 'react';
 
 export enum ButtonThemes {
     CLEAR = 'clear',
+    CLEAR_INVERT = 'clear-invert',
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
+
 const MainPage = () => {
+    const { t } = useTranslation();
     return (
         <div className="page">
-            MAIN PAGE
+            <div>{t('main-page-title')}</div>
         </div>
     );
 }
