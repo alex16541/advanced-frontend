@@ -6,11 +6,11 @@ function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         extensions: ['.tsx', '.ts', '.js'],
         preferAbsolute: true,
         modules: [
-            options.paths.src, 'node_modules'
+            options.paths.src, 'node_modules',
         ],
         mainFiles: ['index'],
-        alias: {}
-    }
+        alias: {},
+    };
 }
 
 export default buildResolvers;

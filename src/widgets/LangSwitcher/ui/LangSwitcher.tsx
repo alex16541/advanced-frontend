@@ -13,7 +13,7 @@ export const TranslateSwitcher = (props: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
     function toggleTranslate() {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     }
 
     return (
@@ -25,4 +25,4 @@ export const TranslateSwitcher = (props: LangSwitcherProps) => {
             {t('Language')}
         </Button>
     );
-}
+};

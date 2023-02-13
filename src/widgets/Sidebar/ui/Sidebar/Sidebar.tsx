@@ -14,7 +14,7 @@ export const Sidebar = (props: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     function onToggle() {
-        setCollapsed(value => !value);
+        setCollapsed((value) => !value);
     }
 
     return (
@@ -31,4 +31,4 @@ export const Sidebar = (props: SidebarProps) => {
             </div>
         </div>
     );
-}
+};

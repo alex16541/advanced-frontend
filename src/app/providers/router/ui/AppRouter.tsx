@@ -1,6 +1,6 @@
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import { routeConfig } from "shared/config/routeConfig/routeConfig";
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppRouter.module.scss';
 
@@ -22,6 +22,6 @@ export const AppRouter = (props: AppRouterProps) => {
             </Suspense>
         </div>
     );
-}
+};
 
 export default AppRouter;
