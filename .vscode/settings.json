@@ -1,4 +1,14 @@
 {
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "less",
+        "postcss"
+    ],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "scss.format.enable": false,
     "i18n-ally.localesPaths": [
         "public/locales",
         "src/shared/config/i18n"

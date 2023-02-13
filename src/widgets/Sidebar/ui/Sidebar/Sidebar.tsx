@@ -23,7 +23,7 @@ export const Sidebar = (props: SidebarProps) => {
                 theme={ButtonThemes.SECONDARY}
                 onClick={onToggle}
             >
-                toggle
+                +
             </Button>
             <div className={cls.actions}>
                 <ThemeSwitcher />
