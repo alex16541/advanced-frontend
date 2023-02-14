@@ -1,0 +1,24 @@
+.Loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.LoaderSvg {
+    animation: rotate infinite linear 1.75s;
+    color: var(--inverted-bg-color);
+    width: 50px;
+    height: 50px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

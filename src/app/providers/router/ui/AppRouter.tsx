@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { PageLoader } from 'widgets/PageLoader';
 import cls from './AppRouter.module.scss';
 
 interface AppRouterProps {
@@ -13,7 +14,7 @@ export const AppRouter = (props: AppRouterProps) => {
 
     return (
         <div className={classNames(cls.AppRouter, {}, [className])}>
-            <Suspense fallback={<div>...</div>}>
+            <Suspense fallback={<PageLoader />}>
                 <Routes>
                     {Object.values(routeConfig).map(({ element, path }) => (
                         <Route key={path} element={element} path={path} />

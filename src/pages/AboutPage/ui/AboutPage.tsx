@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonThemes } from 'shared/ui/Button';
 
 const AboutPage = () => {
     const { t } = useTranslation();
