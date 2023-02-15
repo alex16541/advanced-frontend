@@ -3,14 +3,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     width: 100%;
 }
 
 .LoaderSvg {
-    animation: rotate infinite linear 1.75s;
-    color: var(--inverted-bg-color);
     width: 50px;
     height: 50px;
+    color: var(--inverted-bg-color);
+    animation: rotate infinite linear 1.75s;
 }
 
 @keyframes rotate {

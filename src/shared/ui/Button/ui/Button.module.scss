@@ -1,6 +1,6 @@
 .Button {
-    border-radius: 3px;
     padding: 0.25rem;
+    border-radius: 3px;
 
     &:hover {}
 }
@@ -17,13 +17,13 @@
 }
 
 .primary {
-    background-color: var(--inveted-bg-color);
-    color: var(--inverted-primary-color);
     padding: 0.5rem;
+    color: var(--inverted-primary-color);
+    background-color: var(--inveted-bg-color);
 }
 
 .secondary {
-    background-color: var(--bg-color);
-    color: var(--inveted-primary-color);
     padding: 0.5rem;
+    color: var(--inveted-primary-color);
+    background-color: var(--bg-color);
 }
