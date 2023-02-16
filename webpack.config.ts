@@ -7,6 +7,7 @@ export default (env: BuildEnv) => {
     const mode: BuildMode = env.mode || 'development';
     const isDev = mode === 'development';
     const port = env.port || 3000;
+    const isAnalyze = env.analyze || false;
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'build'),
@@ -18,6 +19,7 @@ export default (env: BuildEnv) => {
         mode,
         paths,
         isDev,
+        isAnalyze,
         port,
     });
 
