@@ -3,5 +3,7 @@
   "Hello-world": "Привет мир!",
   "main-page-title": "Главная",
   "about-page-title": "О сайте",
-  "page-loader-text": "Загрузка страницы..."
+  "page-loader-text": "Загрузка страницы...",
+  "page-logading-error-text": "Упс... Произошла ошибка во время загрузки страницы.",
+  "reload-page": "Обновить страницу"
 }

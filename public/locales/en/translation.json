@@ -3,5 +3,7 @@
   "Hello-world": "Hello world!",
   "about-page-title": "About us",
   "main-page-title": "Main",
-  "page-loader-text": "Page loading..."
+  "page-loader-text": "Page loading...",
+  "page-logading-error-text": "Oops... An error occurred while loading the page.",
+  "reload-page": "Refresh the page"
 }

@@ -32,7 +32,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'i18next/no-literal-string': [
             2,
-            { ignoreAttribute: ['to'], markupOnly: true },
+            { ignore: ['test'], ignoreAttribute: ['to'], markupOnly: true },
         ],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -50,6 +50,7 @@ module.exports = {
         'no-shadow': 'off',
         'no-unused-vars': 'off',
         'no-underscore-dangle': 'off',
+        'no-console': 'off',
     },
     globals: {
         __IS_DEV__: 'readonly',

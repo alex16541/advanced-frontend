@@ -18,3 +18,9 @@
     flex-grow: 1;
     padding: 14px;
 }
+
+.title {
+    margin: 0 0 1rem;
+    font: var(--font-l);
+    border-bottom: 2px solid var(--inverted-bg-color);
+}
