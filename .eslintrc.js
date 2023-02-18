@@ -32,7 +32,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'i18next/no-literal-string': [
             2,
-            { ignore: ['test'], ignoreAttribute: ['to'], markupOnly: true },
+            { ignore: ['test'], ignoreAttribute: ['to', 'data-testid'], markupOnly: true },
         ],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -56,4 +56,12 @@ module.exports = {
         __IS_DEV__: 'readonly',
         React: 'readonly',
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
