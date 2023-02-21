@@ -1,4 +1,5 @@
 .AppLink {
+    line-height: 1;
     color: var(--primary-color);
     text-decoration: none;
 }
@@ -8,5 +9,5 @@
 }
 
 .secondary {
-    color: var(--inverted-primary-color);
+    color: var(--contrast-color);
 }

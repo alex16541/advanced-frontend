@@ -7,16 +7,17 @@
 
     height: 100vh;
 
+    font: var(--font-l);
     font-size: 2rem;
-    color: #fff;
+    color: var(--primary-color);
 
     button {
-        border: 1px solid #fff;
+        border: 1px solid var(--primary-color);
 
         &:hover,
         &:active {
-            color: #333;
-            background-color: #fff;
+            color: var(--primary-color);
+            background-color: var(--contrast-color);
         }
     }
 }

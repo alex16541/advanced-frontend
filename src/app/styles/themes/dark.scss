@@ -1,10 +1,17 @@
 .app.dark {
-    --bg-color: #333;
-    --inverted-bg-color: #d8d8d8;
-    --primary-color: #fff;
-    --secondary-color: #ccc;
-    --inverted-primary-color: #111;
-    --inverted-secondary-color: #333;
-    --accent-color: #00daae;
-    --accent-color-20: #00daae33;
+    // background
+    --primary-bg-color: #222;
+    --secondary-bg-color: #d8d8d8;
+
+    // text
+    --primary-color: #eee;
+    --secondary-color: #474747;
+    --contrast-color: #000;
+
+    // buttns
+    --success-color: #4dff8b;
+    --default-color: #4dc7ff;
+    --danger-color: #ff4d4d;
+    --warn-color: #ffe14d;
+    --dark-color: #111;
 }

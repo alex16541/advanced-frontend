@@ -1,29 +1,33 @@
 .Button {
-    padding: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    border: none;
     border-radius: 3px;
-
-    &:hover {}
-}
-
-.clear,
-.clear-invert {
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-}
-
-.clear-invert {
-    color: var(--inverted-primary-color);
 }
 
 .primary {
-    padding: 0.5rem;
-    color: var(--inverted-primary-color);
-    background-color: var(--inverted-bg-color);
+    color: var(--contrast-color);
+    background-color: var(--primary-color);
 }
 
 .secondary {
-    padding: 0.5rem;
+    color: var(--contrast-color);
+    background-color: var(--secondary-color);
+}
+
+.outlined {
     color: var(--primary-color);
-    background-color: var(--bg-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+
+    &:hover {
+        color: var(--contrast-color);
+        background-color: var(--primary-color);
+    }
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
 }

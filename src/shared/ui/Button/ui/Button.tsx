@@ -3,10 +3,10 @@ import { FC, ButtonHTMLAttributes } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonThemes {
-    CLEAR = 'clear',
-    CLEAR_INVERT = 'clear-invert',
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    CLEAR = 'clear',
+    OUTLINED = 'outlined',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

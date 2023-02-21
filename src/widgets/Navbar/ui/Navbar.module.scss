@@ -2,9 +2,7 @@
     width: 100%;
     height: var(--navbar-height);
     padding: 0 15px;
-
-    background-color: var(--inverted-bg-color);
-    border-bottom: 2px solid var(--secondary-color);
+    background-color: var(--secondary-bg-color);
 }
 
 .links {
@@ -14,4 +12,6 @@
     align-items: center;
 
     height: 100%;
+
+    font: var(--font-l);
 }

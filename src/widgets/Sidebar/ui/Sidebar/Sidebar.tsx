@@ -24,13 +24,13 @@ export const Sidebar = (props: SidebarProps) => {
         >
             <Button
                 data-testid="sidebar-toggle"
-                theme={ButtonThemes.SECONDARY}
+                theme={ButtonThemes.PRIMARY}
                 onClick={onToggle}
             >
-                +
+                {collapsed ? '+' : 'test toggle sidebar btn'}
             </Button>
             <div className={cls.actions}>
-                <ThemeSwitcher />
+                <ThemeSwitcher data-testid="theme-switcher" />
                 <TranslateSwitcher />
             </div>
         </div>

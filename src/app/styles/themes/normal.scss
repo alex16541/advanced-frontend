@@ -1,10 +1,17 @@
-.app.light {
-    --bg-color: #d8d8d8;
-    --inverted-bg-color: #333;
+:root {
+    // background
+    --primary-bg-color: #d8d8d8;
+    --secondary-bg-color: #222;
+
+    // text
     --primary-color: #111;
-    --secondary-color: #333;
-    --inverted-primary-color: #fff;
-    --inverted-secondary-color: #ccc;
-    --accent-color: #972626;
-    --accent-color-20: #000fba33;
+    --secondary-color: #474747;
+    --contrast-color: #fff;
+
+    // buttns
+    --success-color: #4dff8b;
+    --default-color: #4dc7ff;
+    --danger-color: #ff4d4d;
+    --warn-color: #ffe14d;
+    --dark-color: #111;
 }

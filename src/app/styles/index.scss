@@ -7,7 +7,7 @@
     min-height: 100vh;
     font: var(--font-m);
     color: var(--secondary-color);
-    background-color: var(--bg-color);
+    background-color: var(--primary-bg-color);
 }
 
 .content-page {
@@ -22,5 +22,6 @@
 .title {
     margin: 0 0 1rem;
     font: var(--font-l);
-    border-bottom: 2px solid var(--inverted-bg-color);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-bg-color);
 }
