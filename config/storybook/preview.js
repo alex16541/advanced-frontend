@@ -3,7 +3,6 @@ import { Theme } from '../../src/app/providers/ThemeProvider';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
-import 'loki/configure-react-native';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
