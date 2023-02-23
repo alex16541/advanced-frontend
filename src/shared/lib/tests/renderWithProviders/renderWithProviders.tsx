@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { render } from '@testing-library/react';
 import i18n from 'shared/config/i18n/i18nForTests';
-import { ThemeProvider } from 'app/providers/themeProvider';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 export function renderWithProviders(component: ReactNode) {
     return render(
