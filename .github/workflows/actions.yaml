@@ -1,3 +1,5 @@
+name: CI
+
 on:
   push:
     branches: [master]
@@ -5,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,8 +19,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm i
-      - run: test:unit
-      - run: lint:ts
-      - run: lint:scss
-      - run: npm run build:prod
+
+      - name: install modules
+        run: npm i
+
+      - name: production build
+        run: npm run build:prod
+
+      - name: testing
+        run: npm run test:unit
+
+      - name: linting ts
+        run: npm run lint:ts
+
+      - name: linting scss
+        run: npm run lint:scss
