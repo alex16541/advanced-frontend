@@ -1,10 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+on: [push]
 
 jobs:
   pipeline:
@@ -26,7 +22,7 @@ jobs:
       - name: production build
         run: npm run build:prod
 
-      - name: testing
+      - name: unit testing
         run: npm run test:unit
 
       - name: linting ts
