@@ -1,19 +1,19 @@
 .Sidebar {
     position: relative;
 
+    overflow: hidden;
+    display: grid;
+    grid-template: 1fr/1fr;
+
     width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));
-    padding: 1rem;
+    padding: 1rem 30px 1rem 2rem;
 
     color: var(--contrast-color);
 
     background-color: var(--secondary-bg-color);
 
     transition: width ease-in-out 0.3s;
-}
-
-.collapsed {
-    width: var(--sidebar-width-collapsed);
 }
 
 .actions {
@@ -28,4 +28,56 @@
 
     width: 100%;
     padding: 1rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    width: 100%;
+    min-width: 250px;
+    height: 40px;
+
+    font: var(--font-l);
+}
+
+.link {
+    transition: opacity 0.2s;
+}
+
+.toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    height: calc(100vh - var(--navbar-height));
+
+    background-color: var(--secondary-bg-color);
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.icon {
+    width: var(--font-line-m);
+    min-width: var(--font-line-m);
+    height: var(--font-line-m);
+    min-height: var(--font-line-m);
+
+    fill: var(--contrast-color);
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .link {
+        opacity: 0;
+    }
 }

@@ -1,6 +1,6 @@
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Button, ButtonThemes } from './Button';
+import { Button, ButtonSize, ButtonThemes } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -60,3 +60,21 @@ OutlinedDark.args = {
     theme: ButtonThemes.OUTLINED,
 };
 OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    ...Primary.args,
+    size: ButtonSize.M,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    ...Primary.args,
+    size: ButtonSize.L,
+};
+
+export const SizeXL = Template.bind({});
+SizeXL.args = {
+    ...Primary.args,
+    size: ButtonSize.XL,
+};

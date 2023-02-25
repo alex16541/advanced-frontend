@@ -27,6 +27,5 @@ describe('Sidebar tests', () => {
         fireEvent.click(themeSwitcher);
         const sidebar = screen.getByTestId('sidebar');
         expect(sidebar).toBeInTheDocument();
-        screen.debug();
     });
 });
