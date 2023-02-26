@@ -1,9 +1,8 @@
 import {
-    ReactNode, useState, useEffect, useRef, useCallback,
+    ReactNode, useEffect, useCallback,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -12,8 +11,6 @@ interface ModalProps {
     onClose?: () => void;
     children: ReactNode;
 }
-
-const ANIMATION_DURATION = 300;
 
 export const Modal = (props: ModalProps) => {
     const {
@@ -24,21 +21,13 @@ export const Modal = (props: ModalProps) => {
         onClose,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
     const mods = {
         [cls.isOpen]: isOpen,
-        [cls.isClosing]: isClosing,
     };
 
     const closeHendler = useCallback(() => {
         if (onClose) {
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DURATION);
+            onClose();
         }
     }, [onClose]);
 
@@ -54,11 +43,10 @@ export const Modal = (props: ModalProps) => {
                 window.addEventListener('keydown', onKeyDown);
             }
             return () => {
-                clearTimeout(timerRef.current);
                 window.removeEventListener('keydown', onKeyDown);
             };
         },
-        [timerRef, isOpen, onKeyDown],
+        [isOpen, onKeyDown],
     );
 
     function onContentClick(e: React.MouseEvent) {

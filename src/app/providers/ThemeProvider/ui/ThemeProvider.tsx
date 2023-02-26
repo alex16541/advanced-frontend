@@ -21,10 +21,10 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         setTheme,
     }), [theme, setTheme]);
 
-    // useEffect(() => {
-    // document.getElementById('root').className = theme;
-    // localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
-    // }, [theme]);
+    useEffect(() => {
+        document.getElementById('root').className = theme;
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+    }, [theme]);
 
     return (
         <ThemeContext.Provider value={defaultProps}>

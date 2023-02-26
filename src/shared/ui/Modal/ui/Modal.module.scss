@@ -10,7 +10,8 @@
 
     opacity: 0;
 
-    transition: opacity 0.3s;
+    transition: all 0.3s;
+    transition-property: opacity, z-index;
 }
 
 .backdrop {
@@ -46,8 +47,4 @@
     pointer-events: all;
     z-index: var(--modal-z-index);
     opacity: 1;
-}
-
-.isClosing {
-    opacity: 0;
 }
