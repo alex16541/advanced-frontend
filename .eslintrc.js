@@ -9,6 +9,7 @@ module.exports = {
     extends: [
         'plugin:i18next/recommended',
         'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
         'airbnb',
     ],
     parser: '@typescript-eslint/parser',
@@ -21,6 +22,7 @@ module.exports = {
     },
     plugins: [
         'react',
+        'react-hooks',
         '@typescript-eslint',
         'i18next',
     ],
@@ -51,6 +53,10 @@ module.exports = {
         'no-unused-vars': 'off',
         'no-underscore-dangle': 'off',
         'no-console': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
     },
     globals: {
         __IS_DEV__: 'readonly',
@@ -58,9 +64,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
+                'max-len': 'off',
             },
         },
     ],

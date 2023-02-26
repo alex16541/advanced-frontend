@@ -5,5 +5,6 @@
   "about-page-title": "О сайте",
   "page-loader-text": "Загрузка страницы...",
   "page-logading-error-text": "Упс... Произошла ошибка во время загрузки страницы.",
-  "reload-page": "Обновить страницу"
+  "reload-page": "Обновить страницу",
+  "login": "Войти"
 }
