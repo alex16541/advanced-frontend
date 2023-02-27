@@ -11,7 +11,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Sidebar = (props: SidebarProps) => {
@@ -26,11 +26,11 @@ export const Sidebar = (props: SidebarProps) => {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
-            <div
-                className={cls.content}
-            >
+            <div className={cls.content}>
                 <AppLink
                     className={cls.item}
                     to={RoutePath.main}

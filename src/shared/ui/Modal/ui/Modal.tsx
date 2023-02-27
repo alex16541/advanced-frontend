@@ -1,15 +1,13 @@
-import {
-    ReactNode, useEffect, useCallback,
-} from 'react';
+import { ReactNode, useEffect, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string;
-    isOpen?: boolean;
-    onClose?: () => void;
-    children: ReactNode;
+  className?: string;
+  isOpen?: boolean;
+  onClose?: () => void;
+  children: ReactNode;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -31,23 +29,23 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHendler();
-        }
-    }, [closeHendler]);
-
-    useEffect(
-        () => {
-            if (isOpen) {
-                window.addEventListener('keydown', onKeyDown);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeHendler();
             }
-            return () => {
-                window.removeEventListener('keydown', onKeyDown);
-            };
         },
-        [isOpen, onKeyDown],
+        [closeHendler],
     );
+
+    useEffect(() => {
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
+        }
+        return () => {
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, [isOpen, onKeyDown]);
 
     function onContentClick(e: React.MouseEvent) {
         e.stopPropagation();

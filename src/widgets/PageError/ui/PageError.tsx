@@ -4,7 +4,7 @@ import { Button, ButtonThemes } from 'shared/ui/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
-    className?: string;
+  className?: string;
 }
 
 export const PageError = (props: PageErrorProps) => {
@@ -12,14 +12,16 @@ export const PageError = (props: PageErrorProps) => {
     const { t } = useTranslation();
 
     function reloadPage() {
-        // eslint-disable-next-line no-restricted-globals
+    // eslint-disable-next-line no-restricted-globals
         location.reload();
     }
 
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             {t('page-logading-error-text')}
-            <Button onClick={reloadPage} theme={ButtonThemes.PRIMARY}>{t('reload-page')}</Button>
+            <Button onClick={reloadPage} theme={ButtonThemes.PRIMARY}>
+                {t('reload-page')}
+            </Button>
         </div>
     );
 };

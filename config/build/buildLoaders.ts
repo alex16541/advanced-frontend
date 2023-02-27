@@ -33,13 +33,7 @@ function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     };
 
-    return [
-        babelLoader,
-        typescriptLoader,
-        cssLoader,
-        svgLoader,
-        fileLoader,
-    ];
+    return [babelLoader, typescriptLoader, cssLoader, svgLoader, fileLoader];
 }
 
 export default buildLoaders;

@@ -4,13 +4,13 @@ import { FC } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkThemes {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
 interface AppLinkProps extends LinkProps {
-    className?: string;
-    theme?: AppLinkThemes;
+  className?: string;
+  theme?: AppLinkThemes;
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {

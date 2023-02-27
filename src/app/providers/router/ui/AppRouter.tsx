@@ -6,7 +6,7 @@ import { PageLoader } from 'widgets/PageLoader';
 import cls from './AppRouter.module.scss';
 
 interface AppRouterProps {
-    className?: string
+  className?: string;
 }
 
 export const AppRouter = (props: AppRouterProps) => {

@@ -6,7 +6,7 @@ import { Button, ButtonThemes } from 'shared/ui/Button';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-    className?: string;
+  className?: string;
 }
 
 export const ThemeSwitcher = (props: ThemeSwitcherProps) => {

@@ -12,7 +12,8 @@ const Template: typeof Modal = (args) => <Modal {...args} />;
 export const Light = Template.bind({});
 Light.args = {
     // eslint-disable-next-line i18next/no-literal-string
-    children: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, quis',
+    children:
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, quis',
     isOpen: true,
 };
 export const Dark = Template.bind({});

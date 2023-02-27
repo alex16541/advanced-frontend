@@ -7,7 +7,9 @@ export const ThemeDecorator = (
     isRootDecorator: boolean = false,
 ) => (StoryComponent: Story) => {
     if (!isRootDecorator) {
-        setTimeout(() => { document.getElementById('root').className = theme; }, 1);
+        setTimeout(() => {
+            document.getElementById('root').className = theme;
+        }, 1);
     } else {
         document.getElementById('root').className = theme;
     }

@@ -7,7 +7,7 @@ import { Modal } from 'shared/ui/Modal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Navbar = (props: NavbarProps) => {
@@ -25,16 +25,11 @@ export const Navbar = (props: NavbarProps) => {
                 >
                     {t('login')}
                 </Button>
-                <Modal
-                    isOpen={isAuthModal}
-                    onClose={() => setIsAuthModal(false)}
-                >
+                <Modal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)}>
                     <div>
-                        test lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit.
-                        Perspiciatis ipsa similique ipsum saepe
-                        assumenda aliquam eaque fugiat quasi
-                        voluptatem facere.
+                        test lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Perspiciatis ipsa similique ipsum saepe assumenda aliquam eaque
+                        fugiat quasi voluptatem facere.
                     </div>
                 </Modal>
             </nav>

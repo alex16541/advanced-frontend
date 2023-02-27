@@ -1,5 +1,3 @@
-const fileTransformer = () => (
-    <div className="jestSvg" />
-);
+const fileTransformer = () => <div className="jestSvg" />;
 
 export default fileTransformer;

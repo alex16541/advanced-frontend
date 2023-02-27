@@ -1,15 +1,9 @@
 {
-    "extends": [
-        "stylelint-config-standard-scss",
-        "stylelint-config-clean-order"
-    ],
-    "ignoreFiles": [
-        "build/**/*.css",
-        "src/app/styles/reset.scss"
-    ],
-    "rules": {
-       "indentation": 4,
-       "block-no-empty": null,
-       "selector-class-pattern": null
-    }
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-clean-order"],
+  "ignoreFiles": ["build/**/*.css", "src/app/styles/reset.scss"],
+  "rules": {
+    "indentation": 4,
+    "block-no-empty": null,
+    "selector-class-pattern": null
+  }
 }

@@ -4,11 +4,11 @@ import {
 import { PageError } from 'widgets/PageError';
 
 interface ErrorBoundaryProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-    hasError: boolean;
+  hasError: boolean;
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -29,7 +29,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         const { hasError } = this.state;
         const { children } = this.props;
         if (hasError) {
-            return <Suspense fallback=""><PageError /></Suspense>;
+            return (
+                <Suspense fallback="">
+                    <PageError />
+                </Suspense>
+            );
         }
 
         return children;
