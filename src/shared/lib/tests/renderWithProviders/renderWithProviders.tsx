@@ -14,7 +14,7 @@ export interface renderWithProvidersOptions {
 
 export function renderWithProviders(
     component: ReactNode,
-    options: renderWithProvidersOptions,
+    options: renderWithProvidersOptions = {},
 ) {
     const {
         initialEntrie = '/',

@@ -3,7 +3,6 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { fireEvent } from '@testing-library/react';
 import { Counter } from './Counter';
-import { CounterSchema } from '../types/counterSchema';
 
 describe('Counter', () => {
     test('To be in document', () => {
@@ -34,7 +33,7 @@ describe('Counter', () => {
     });
 
     test('Should work with empty state', () => {
-        const renderRes = renderWithProviders(<Counter />, {});
+        const renderRes = renderWithProviders(<Counter />);
         const decBtn = renderRes.getByTestId('decrement-btn');
         fireEvent.click(decBtn);
 

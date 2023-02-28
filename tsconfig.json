@@ -11,7 +11,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     }
   },
   "ts-node": {
@@ -19,6 +21,11 @@
       "module": "CommonJS"
     }
   },
-  "include": ["**/*"],
-  "exclude": ["scripts/*"]
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "scripts/*",
+    "node_modules/"
+  ]
 }
