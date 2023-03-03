@@ -1,31 +1,37 @@
-import { ReactNode, useEffect, useCallback } from 'react';
+import {
+    ReactNode, useEffect, useCallback, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
+const ANIMATION_DURATION = 200;
+
 interface ModalProps {
-  className?: string;
-  isOpen?: boolean;
-  onClose?: () => void;
-  children: ReactNode;
+    className?: string;
+    isOpen?: boolean;
+    onClose?: () => void;
+    children: ReactNode;
 }
 
 export const Modal = (props: ModalProps) => {
+    const [isMounted, setIsMounted] = useState(false);
+
     const {
         className,
         children,
         isOpen = false,
-        // eslint-disable-next-line no-use-before-define
         onClose,
     } = props;
 
     const mods = {
-        [cls.isOpen]: isOpen,
+        [cls.showModal]: isMounted && isOpen,
     };
 
     const closeHendler = useCallback(() => {
         if (onClose) {
-            onClose();
+            setIsMounted(false);
+            setTimeout(onClose, ANIMATION_DURATION);
         }
     }, [onClose]);
 
@@ -37,6 +43,10 @@ export const Modal = (props: ModalProps) => {
         },
         [closeHendler],
     );
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
         if (isOpen) {

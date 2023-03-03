@@ -6,5 +6,7 @@
   "page-loader-text": "Page loading...",
   "page-logading-error-text": "Oops... An error occurred while loading the page.",
   "reload-page": "Refresh the page",
-  "login": "Login"
+  "login": "Login",
+  "password": "Password",
+  "username": "User name"
 }

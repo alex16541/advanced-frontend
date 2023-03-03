@@ -6,5 +6,8 @@
   "page-loader-text": "Загрузка страницы...",
   "page-logading-error-text": "Упс... Произошла ошибка во время загрузки страницы.",
   "reload-page": "Обновить страницу",
-  "login": "Войти"
+  "login": "Войти",
+  "username": "Логин",
+  "password": "Пароль",
+  "authorization": "Авторизация"
 }
