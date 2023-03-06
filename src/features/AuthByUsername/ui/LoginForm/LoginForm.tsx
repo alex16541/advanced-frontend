@@ -49,6 +49,7 @@ export const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                 <Input
                     className={cls.input}
                     value={password}
+                    type="password"
                     onChange={onChangePassword}
                     placeholder={t('password')}
                 />
