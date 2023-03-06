@@ -46,7 +46,7 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/function-component-definition': 'off',
-        'max-len': [2, { ignoreComments: true, code: 100 }],
+        'max-len': [2, { ignoreComments: true, code: 120 }],
         'new-cap': 'off',
         'no-shadow': 'off',
         'no-unused-vars': 'off',

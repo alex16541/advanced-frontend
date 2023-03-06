@@ -1,0 +1,29 @@
+.Text{
+
+}
+
+.title {
+    font: var(--font-l);
+    color: var(--primary-color);
+}
+
+.text {
+    font: var(--font-m);
+    color: var(--secondary-color);
+}
+
+.error * {
+    color: var(--danger-color);
+}
+
+.align-start {
+    text-align: start;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-end {
+    text-align: end;
+}

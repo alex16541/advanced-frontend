@@ -1,14 +1,11 @@
 .LoginForm {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 300px;
 }
 
 .title {
-    font: var(--font-l);
-    color: var(--primary-color);
-    text-align: center;
 }
 
 .inputs {
@@ -22,4 +19,8 @@
 }
 
 .btn {
+}
+
+.errorMsg {
+    text-align: center;
 }

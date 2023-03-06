@@ -5,6 +5,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { Modal } from 'shared/ui/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthData, userActions } from 'entity/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,6 +17,28 @@ export const Navbar = (props: NavbarProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useSelector(getAuthData);
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch(userActions.logout());
+    };
+
+    if (authData) {
+        return (
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <nav className={cls.links}>
+                    <div>/</div>
+                    <Button
+                        theme={ButtonThemes.PRIMARY}
+                        onClick={logout}
+                    >
+                        {t('logout')}
+                    </Button>
+                </nav>
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
@@ -26,6 +50,7 @@ export const Navbar = (props: NavbarProps) => {
                 >
                     {t('login')}
                 </Button>
+
                 <LoginModal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)} />
             </nav>
         </div>

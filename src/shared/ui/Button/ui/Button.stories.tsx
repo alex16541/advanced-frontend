@@ -78,3 +78,11 @@ SizeXL.args = {
     ...Primary.args,
     size: ButtonSize.XL,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Button',
+    theme: ButtonThemes.PRIMARY,
+    disabled: true,
+};
+Disabled.decorators = [ThemeDecorator(Theme.DARK)];

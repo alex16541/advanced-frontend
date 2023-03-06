@@ -18,6 +18,7 @@
     },
     "users": [
         {
+            "id": 1,
             "username": "root",
             "password": "123"
         }

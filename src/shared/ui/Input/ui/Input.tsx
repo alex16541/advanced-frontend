@@ -11,7 +11,7 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     theme?: InputThemes;
     value?: string
-    onChange?: (valeu: string) => string;
+    onChange?: (value: string) => void;
 }
 
 export const Input = (props: InputProps) => {

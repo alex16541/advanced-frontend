@@ -3,22 +3,22 @@ import { FC, ButtonHTMLAttributes } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonThemes {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  CLEAR = 'clear',
-  OUTLINED = 'outlined',
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    CLEAR = 'clear',
+    OUTLINED = 'outlined',
 }
 
 export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  theme?: ButtonThemes;
-  size?: ButtonSize;
+    className?: string;
+    theme?: ButtonThemes;
+    size?: ButtonSize;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
@@ -31,7 +31,8 @@ export const Button: FC<ButtonProps> = (props) => {
         ...otherProps
     } = props;
 
-    const mods = {};
+    const mods = {
+    };
 
     return (
         <button
