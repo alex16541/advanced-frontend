@@ -1,6 +1,6 @@
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
 
 export default {
