@@ -12,5 +12,6 @@
   "authorization": "Авторизация",
   "wrong-login-or-password": "Неверный лигин или пароль",
   "unknow-auth-error": "Неизвестная ошибка авторизации",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "your-profile-page-title": "Ваш профиль"
 }

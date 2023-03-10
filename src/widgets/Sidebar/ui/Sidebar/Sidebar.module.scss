@@ -36,22 +36,6 @@
     gap: 1rem;
 }
 
-.item {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-
-    width: 100%;
-    min-width: 250px;
-    height: 40px;
-
-    font: var(--font-l);
-}
-
-.link {
-    transition: opacity 0.2s;
-}
-
 .toggle {
     position: absolute;
     top: 0;
@@ -65,19 +49,6 @@
     border-radius: 0;
 }
 
-.icon {
-    width: var(--font-line-m);
-    min-width: var(--font-line-m);
-    height: var(--font-line-m);
-    min-height: var(--font-line-m);
-
-    fill: var(--contrast-color);
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
-
-    .link {
-        opacity: 0;
-    }
 }

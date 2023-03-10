@@ -14,7 +14,13 @@
         }
     ],
     "profile": {
-        "name": "typicode"
+        "name": "Aleksey",
+        "age": "21",
+        "country": "Russia",
+        "city": "Saint-Petersburg",
+        "currency": "RUB",
+        "phone": "",
+        "email": ""
     },
     "users": [
         {
