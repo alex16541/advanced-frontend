@@ -1,7 +1,7 @@
-import { configureStore, ReducersMapObject, DeepPartial } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { couterReducer } from 'entity/Counter';
 import { userReducer } from 'entity/User';
-import { StateSchema, ReducerManager } from './StateSchema';
+import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
@@ -27,3 +27,5 @@ export function createReduxStore(
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

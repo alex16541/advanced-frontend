@@ -31,6 +31,7 @@ export const Sidebar = (props: SidebarProps) => {
             <div className={cls.content}>
                 {sidebarItems.map((item) => (
                     <SidebarItem
+                        key={item.path}
                         path={item.path}
                         title={t(item.title)}
                         Icon={item.Icon}

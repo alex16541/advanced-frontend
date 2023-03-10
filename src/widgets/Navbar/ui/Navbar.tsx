@@ -2,9 +2,7 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonThemes } from 'shared/ui/Button';
-import { Modal } from 'shared/ui/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entity/User';
 import cls from './Navbar.module.scss';
@@ -51,7 +49,11 @@ export const Navbar = (props: NavbarProps) => {
                     {t('login')}
                 </Button>
 
-                <LoginModal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)} />
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={() => setIsAuthModal(false)}
+                    onSuccess={() => setIsAuthModal(false)}
+                />
             </nav>
         </div>
     );
