@@ -11,5 +11,6 @@ export default {
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/fileTransformer.tsx',
+        '^axios$': require.resolve('axios'),
     },
 };
