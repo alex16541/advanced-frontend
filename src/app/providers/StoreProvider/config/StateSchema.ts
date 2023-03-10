@@ -3,6 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { CounterSchema } from 'entity/Counter';
+import { ProfileSchema } from 'entity/Profile';
 import { UserSchema } from 'entity/User';
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
 
@@ -12,6 +13,7 @@ export interface StateSchema {
 
     // Async
     loginForm?: LoginSchema,
+    profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
