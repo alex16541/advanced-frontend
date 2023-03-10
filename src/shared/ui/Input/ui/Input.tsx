@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { InputHTMLAttributes } from 'react';
+import React, { FC, InputHTMLAttributes, memo } from 'react';
 import cls from './Input.module.scss';
 
 export enum InputThemes {
@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export const Input = (props: InputProps) => {
+export const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
         className,
         theme,
@@ -36,4 +36,4 @@ export const Input = (props: InputProps) => {
             {...otherProps}
         />
     );
-};
+});
