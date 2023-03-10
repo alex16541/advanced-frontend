@@ -5,7 +5,7 @@ const ProfilePage = () => {
 
     return (
         <div>
-            <div className="title">{t('your-profile-page-title')}</div>
+            <div className="title">{t('your profile page title')}</div>
         </div>
     );
 };

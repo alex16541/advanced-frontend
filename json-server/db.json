@@ -14,13 +14,16 @@
         }
     ],
     "profile": {
-        "name": "Aleksey",
+        "firstname": "Aleksey",
+        "lastname": "",
+        "username": "alex123",
         "age": "21",
         "country": "Russia",
         "city": "Saint-Petersburg",
         "currency": "RUB",
-        "phone": "",
-        "email": ""
+        "phone": "89991112233",
+        "email": "aleksey@gamil.com",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
     },
     "users": [
         {

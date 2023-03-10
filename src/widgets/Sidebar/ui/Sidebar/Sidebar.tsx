@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { TranslateSwitcher } from 'widgets/LangSwitcher';
 import { useTranslation } from 'react-i18next';
-import { sidebarItems } from 'shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { sidebarItems } from '../../model/types/items';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = (props: SidebarProps) => {
+export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
@@ -32,9 +32,7 @@ export const Sidebar = (props: SidebarProps) => {
                 {sidebarItems.map((item) => (
                     <SidebarItem
                         key={item.path}
-                        path={item.path}
-                        title={t(item.title)}
-                        Icon={item.Icon}
+                        item={item}
                         collapsed={collapsed}
                     />
                 ))}
@@ -53,4 +51,4 @@ export const Sidebar = (props: SidebarProps) => {
             </div>
         </div>
     );
-};
+});

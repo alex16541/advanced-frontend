@@ -6,7 +6,7 @@ const MainPage = () => {
 
     return (
         <div className="page">
-            <div className="title">{t('main-page-title')}</div>
+            <div className="title">{t('main page title')}</div>
             <BugButton />
         </div>
     );

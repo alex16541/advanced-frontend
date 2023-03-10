@@ -83,7 +83,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                     <Text
                         className={cls.errorMsg}
                         theme={TextThemes.ERROR}
-                        text={error === 0 ? t('wrong-login-or-password') : t('unknow-auth-error')}
+                        text={error === 0 ? t('wrong login or password') : t('unknow auth error')}
                     />
                 )}
             </div>

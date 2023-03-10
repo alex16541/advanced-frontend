@@ -1,16 +1,16 @@
 {
-  "Language": "Рус",
-  "main-page-title": "Главная",
-  "about-page-title": "О сайте",
-  "page-loader-text": "Загрузка страницы...",
-  "page-logading-error-text": "Упс... Произошла ошибка во время загрузки страницы.",
-  "reload-page": "Обновить страницу",
+  "language": "Рус",
+  "main page title": "Главная",
+  "about page title": "О сайте",
+  "page loader text": "Загрузка страницы...",
+  "page logading error text": "Упс... Произошла ошибка во время загрузки страницы.",
+  "reload page": "Обновить страницу",
   "login": "Войти",
   "username": "Логин",
   "password": "Пароль",
   "authorization": "Авторизация",
-  "wrong-login-or-password": "Неверный лигин или пароль",
-  "unknow-auth-error": "Неизвестная ошибка авторизации",
+  "wrong login or password": "Неверный лигин или пароль",
+  "unknow auth error": "Неизвестная ошибка авторизации",
   "logout": "Выйти",
-  "your-profile-page-title": "Ваш профиль"
+  "your profile page title": "Ваш профиль"
 }

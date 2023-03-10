@@ -1,16 +1,16 @@
 {
-  "Language": "Eng",
-  "about-page-title": "About us",
-  "main-page-title": "Main",
-  "page-loader-text": "Page loading...",
-  "page-logading-error-text": "Oops... An error occurred while loading the page.",
-  "reload-page": "Refresh the page",
+  "language": "Eng",
+  "about page title": "About us",
+  "main page title": "Main",
+  "page loader text": "Page loading...",
+  "page logading error text": "Oops... An error occurred while loading the page.",
+  "reload page": "Refresh the page",
   "login": "Login",
   "password": "Password",
   "username": "User name",
   "authorization": "Authorization",
-  "unknow-auth-error": "Unknown authorization error",
-  "wrong-login-or-password": "Wrong login or password",
+  "unknow auth error": "Unknown authorization error",
+  "wrong login or password": "Wrong login or password",
   "logout": "Logout",
-  "your-profile-page-title": "Your profile"
+  "your profile page title": "Your profile"
 }

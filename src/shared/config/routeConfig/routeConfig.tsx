@@ -3,10 +3,6 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
-import { SidebarItemType } from 'widgets/Sidebar';
-import ListIcon from 'shared/assets/svg/list.svg';
-import HomeIcon from 'shared/assets/svg/home.svg';
-import ProfileIcon from 'shared/assets/svg/profile.svg';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -46,21 +42,3 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
         element: <NotFoundPage />,
     },
 };
-
-export const sidebarItems: SidebarItemType[] = [
-    {
-        Icon: HomeIcon,
-        path: RoutePath.main,
-        title: 'main-page-title',
-    },
-    {
-        Icon: ListIcon,
-        path: RoutePath.about,
-        title: 'about-page-title',
-    },
-    {
-        Icon: ProfileIcon,
-        path: RoutePath.profile,
-        title: 'your-profile-page-title',
-    },
-];
