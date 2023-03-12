@@ -20,7 +20,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
             /svg/.test(rule.test as string) ? { ...rule, exclude: /\.svg$/i } : rule),
     );
 
-    config.plugins.push(new DefinePlugin({ __IS_DEV__: true }));
+    config.plugins.push(new DefinePlugin({
+        __IS_DEV__: true,
+        __API__: '',
+    }));
 
     config.module.rules.push(buildSvgLoader());
 

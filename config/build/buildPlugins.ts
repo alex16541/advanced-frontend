@@ -8,6 +8,7 @@ function buildPlugins({
     paths,
     isDev,
     isAnalyze,
+    apiUrl,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins: WebpackPluginInstance[] = [
         new htmlWebpackPlugin({
@@ -20,6 +21,7 @@ function buildPlugins({
         }),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 

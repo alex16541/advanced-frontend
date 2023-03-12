@@ -1,5 +1,3 @@
-const { off } = require('process');
-
 module.exports = {
     env: {
         browser: true,
@@ -60,6 +58,7 @@ module.exports = {
     },
     globals: {
         __IS_DEV__: 'readonly',
+        __API__: 'readonly',
         React: 'readonly',
     },
     overrides: [
