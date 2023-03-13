@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
@@ -8,7 +9,7 @@ export default {
     component: Navbar,
 };
 
-const Template: typeof Navbar = (args) => <Navbar {...args} />;
+const Template: Story = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
 Light.decorators = [

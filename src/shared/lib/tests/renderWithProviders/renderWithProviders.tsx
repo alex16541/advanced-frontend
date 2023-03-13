@@ -5,7 +5,6 @@ import i18n from 'shared/config/i18n/i18nForTests';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { MemoryRouter } from 'react-router-dom';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 export interface renderWithProvidersOptions {
     initialEntrie?: string,
@@ -23,13 +22,13 @@ export function renderWithProviders(
     } = options;
 
     return render(
-        <StoreProvider initialState={initialState}>
-            <MemoryRouter initialEntries={[initialEntrie]}>
+        <MemoryRouter initialEntries={[initialEntrie]}>
+            <StoreProvider initialState={initialState}>
                 <ThemeProvider>
                     <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
                 </ThemeProvider>
-            </MemoryRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </MemoryRouter>
         ,
     );
 }

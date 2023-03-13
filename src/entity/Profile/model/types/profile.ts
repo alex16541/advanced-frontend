@@ -1,6 +1,6 @@
 import { Countries, Currency } from 'shared/const/common';
 
-export interface Profiel {
+export interface Profile {
     'firstname': string,
     'lastname': string,
     'username': string,
@@ -13,9 +13,13 @@ export interface Profiel {
     'photo': string,
 }
 
+export enum ProfileErrors {
+    UNKNOWN_ERROR
+}
+
 export interface ProfileSchema {
-    data?: Profiel,
+    data?: Profile,
     isLoading: boolean,
-    error?: string,
+    error?: ProfileErrors,
     readonly: boolean
 }

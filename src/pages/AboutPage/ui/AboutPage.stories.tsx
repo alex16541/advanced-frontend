@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import AboutPage from './AboutPage';
@@ -7,7 +8,7 @@ export default {
     component: AboutPage,
 };
 
-const Template: typeof AboutPage = () => <AboutPage />;
+const Template: Story = () => <AboutPage />;
 
 export const Light = Template.bind({});
 export const Dark = Template.bind({});

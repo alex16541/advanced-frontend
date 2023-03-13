@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
@@ -8,7 +9,7 @@ export default {
     component: LoginModal,
 };
 
-const Template: typeof LoginModal = (args) => <LoginModal {...args} />;
+const Template: Story = (args) => <LoginModal {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {

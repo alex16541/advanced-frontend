@@ -8,10 +8,12 @@ export const ThemeDecorator = (
 ) => (StoryComponent: Story) => {
     if (!isRootDecorator) {
         setTimeout(() => {
-            document.getElementById('root').className = theme;
+            const root = document.getElementById('root');
+            if (root) root.className = theme;
         }, 1);
     } else {
-        document.getElementById('root').className = theme;
+        const root = document.getElementById('root');
+        if (root) root.className = theme;
     }
 
     return (

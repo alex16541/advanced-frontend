@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Button, ButtonSize, ButtonThemes } from './Button';
@@ -7,7 +8,7 @@ export default {
     component: Button,
 };
 
-const Template: typeof Button = (args) => <Button {...args} />;
+const Template: Story = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Text, TextThemes } from './Text';
@@ -7,7 +8,7 @@ export default {
     component: Text,
 };
 
-const Template: typeof Text = (args) => <Text {...args} />;
+const Template: Story = (args) => <Text {...args} />;
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {

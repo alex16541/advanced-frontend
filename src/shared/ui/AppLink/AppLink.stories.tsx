@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { AppLink, AppLinkThemes } from './AppLink';
@@ -7,11 +8,10 @@ export default {
     component: AppLink,
 };
 
-const Template: typeof AppLink = (args) => <AppLink {...args} />;
+const Template: Story = (args) => <AppLink to="#" {...args} />;
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {
-    to: '#',
     children: 'app link',
 };
 export const PrimaryDark = Template.bind({});
@@ -22,7 +22,6 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SecondaryLight = Template.bind({});
 SecondaryLight.args = {
-    to: '#',
     children: 'app link',
     theme: AppLinkThemes.SECONDARY,
 };

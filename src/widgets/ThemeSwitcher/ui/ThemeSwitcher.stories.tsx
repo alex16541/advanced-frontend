@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ThemeSwitcher } from './ThemeSwitcher';
@@ -7,7 +8,7 @@ export default {
     component: ThemeSwitcher,
 };
 
-const Template: typeof ThemeSwitcher = (args) => <ThemeSwitcher {...args} />;
+const Template: Story = (args) => <ThemeSwitcher {...args} />;
 
 export const Light = Template.bind({});
 export const Dark = Template.bind({});

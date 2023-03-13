@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Loader } from './Loader';
@@ -7,7 +8,7 @@ export default {
     component: Loader,
 };
 
-const Template: typeof Loader = (args) => <Loader {...args} />;
+const Template: Story = (args) => <Loader {...args} />;
 
 export const Light = Template.bind({});
 export const Dark = Template.bind({});

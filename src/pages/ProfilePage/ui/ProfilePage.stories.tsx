@@ -1,6 +1,7 @@
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { Story } from '@storybook/react';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -8,7 +9,7 @@ export default {
     component: ProfilePage,
 };
 
-const Template: typeof ProfilePage = () => <ProfilePage />;
+const Template: Story = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.decorators = [StoreDecorator({})];

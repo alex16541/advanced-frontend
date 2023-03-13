@@ -1,5 +1,4 @@
 import { renderWithProviders } from 'shared/lib/tests/renderWithProviders/renderWithProviders';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { fireEvent } from '@testing-library/react';
 import { Counter } from './Counter';

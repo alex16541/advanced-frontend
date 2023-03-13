@@ -3,6 +3,7 @@ import React, { FC, InputHTMLAttributes, memo } from 'react';
 import cls from './Input.module.scss';
 
 export enum InputThemes {
+    PRIMARY = 'primary',
 }
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>
@@ -17,7 +18,7 @@ interface InputProps extends HTMLInputProps {
 export const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
         className,
-        theme,
+        theme = InputThemes.PRIMARY,
         value,
         onChange,
         ...otherProps

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { NotFoundPage } from './NotFoundPage';
@@ -7,7 +8,7 @@ export default {
     component: NotFoundPage,
 };
 
-const Template: typeof NotFoundPage = () => <NotFoundPage />;
+const Template: Story = () => <NotFoundPage />;
 
 export const Light = Template.bind({});
 export const Dark = Template.bind({});

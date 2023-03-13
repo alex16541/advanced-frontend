@@ -1,5 +1,6 @@
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Story } from '@storybook/react';
 import LoginForm from './LoginForm';
 import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
 
@@ -8,7 +9,7 @@ export default {
     component: LoginForm,
 };
 
-const Template: typeof LoginForm = (args) => <LoginForm {...args} />;
+const Template: Story = (args) => <LoginForm {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {

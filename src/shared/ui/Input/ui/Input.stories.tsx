@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Input, InputThemes } from './Input';
@@ -7,7 +8,7 @@ export default {
     component: Input,
 };
 
-const Template: typeof Input = (args) => <Input {...args} />;
+const Template: Story = (args) => <Input {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
