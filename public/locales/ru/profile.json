@@ -3,5 +3,10 @@
   "edit": "Редактировать",
   "age": "Возраст",
   "email": "Почта",
-  "your profile page title": "Профиль"
+  "your profile page title": "Профиль",
+  "firstname": "Имя",
+  "lastname": "Фамилия",
+  "profile loading error": "Ошибка загрузки профиля",
+  "Cancel": "Отмена",
+  "Save": "Сохранить"
 }

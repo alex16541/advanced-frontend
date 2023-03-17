@@ -3,5 +3,8 @@
   "edit": "Edit",
   "email": "Mail",
   "profile": "Profile",
-  "your profile page title": "Profile"
+  "your profile page title": "Profile",
+  "firstname": "Name",
+  "lastname": "Lastname",
+  "profile loading error": "Profile loading error"
 }

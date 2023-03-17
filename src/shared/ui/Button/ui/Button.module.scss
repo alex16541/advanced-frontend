@@ -25,7 +25,8 @@
 
     &:hover {
         color: var(--contrast-color);
-        background-color: var(--primary-color);
+        background-color: var(--secondary-bg-color);
+        border-color: var(--secondary-bg-color);
     }
 }
 
@@ -46,4 +47,20 @@
 
 .size_xl {
     font: var(--font-xl);
+}
+
+.red.primary {
+    color: var(--dark-color);
+    background-color: var(--danger-color);
+    border-color: var(--dark-color);
+}
+
+.red.outlined {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+
+    &:hover {
+        color: var(--dark-color);
+        background-color: var(--danger-color);
+    }
 }

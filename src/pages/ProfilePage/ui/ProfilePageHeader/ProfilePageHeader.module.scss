@@ -1,0 +1,14 @@
+.ProfilePageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+    padding-bottom: 5px;
+}
+
+.actions {
+    *:not(:last-child) {
+        margin-right: 0.5rem;
+    }
+}

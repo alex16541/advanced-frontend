@@ -1,16 +1,16 @@
 import { Countries, Currency } from 'shared/const/common';
 
 export interface Profile {
-    'firstname': string,
-    'lastname': string,
-    'username': string,
-    'age': number,
-    'country': Countries,
-    'city': string,
-    'currency': Currency,
-    'phone': string,
-    'email': string,
-    'photo': string,
+    firstname?: string,
+    lastname?: string,
+    username?: string,
+    age?: number,
+    country?: Countries,
+    city?: string,
+    currency?: Currency,
+    phone?: string,
+    email?: string,
+    photo?: string,
 }
 
 export enum ProfileErrors {

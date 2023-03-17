@@ -1,45 +1,78 @@
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonThemes } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly/getProfileIsReadonly';
+import { Loader } from 'shared/ui/Loader/ui/Loader';
+import { Profile, ProfileErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: ProfileErrors;
+    readonly?: boolean;
+    onChangeFirstname?: (value: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    const { className } = props;
+    const {
+        className,
+        data,
+        error,
+        isLoading = false,
+        readonly = true,
+        onChangeFirstname,
+    } = props;
 
     const { t } = useTranslation('profile');
 
-    const data = useSelector(getProfileData);
-    const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
-    const readonly = useSelector(getProfileIsReadonly);
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ProfileCard, mods, [className, cls.isLoading])}>
+                <Loader />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
+                <Text
+                    title={`${t('profile loading error')}:`}
+                    text={error}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
 
     return (
-        <div className={classNames(cls.ProfileCard, {}, [className])}>
-            <div className={cls.header}>
-                <Text title={t('profile')} />
-                <Button theme={ButtonThemes.OUTLINED}>{t('edit')}</Button>
-            </div>
+        <div className={classNames(cls.ProfileCard, mods, [className])}>
+
             <div className={cls.data}>
                 <Input
                     className={cls.input}
-                    value={data?.username}
-                    placeholder={t('username')}
+                    value={data?.firstname}
+                    placeholder={t('firstname')}
+                    readonly={readonly}
+                    onChange={onChangeFirstname}
+                />
+                <Input
+                    className={cls.input}
+                    value={data?.lastname || ''}
+                    placeholder={t('lastname')}
+                    readonly={readonly}
                 />
                 <Input
                     className={cls.input}
                     value={data?.email}
                     placeholder={t('email')}
+                    readonly={readonly}
                 />
             </div>
         </div>

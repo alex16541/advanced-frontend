@@ -15,10 +15,16 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
+export enum ButtonColor {
+    DEFAULT = 'default',
+    RED = 'red',
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonThemes;
     size?: ButtonSize;
+    color?: ButtonColor;
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
@@ -28,6 +34,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         theme = ButtonThemes.PRIMARY,
         type,
         size = ButtonSize.M,
+        color = ButtonColor.DEFAULT,
         ...otherProps
     } = props;
 
@@ -41,6 +48,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
                 className,
                 cls[theme],
                 cls[size],
+                cls[color],
             ])}
             {...otherProps}
         >

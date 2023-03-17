@@ -13,3 +13,11 @@
         border-bottom: 2px solid (var(--primary-color));
     }
 }
+
+.readonly {
+    border-bottom-color: transparent;
+
+    &:focus {
+        border-bottom-color: transparent;
+    }
+}
