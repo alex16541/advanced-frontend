@@ -11,7 +11,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | '
 interface InputProps extends HTMLInputProps {
     className?: string;
     theme?: InputThemes;
-    value?: string;
+    value?: string | number;
     readonly?: boolean;
     onChange?: (value: string) => void;
 }

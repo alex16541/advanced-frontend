@@ -6,5 +6,11 @@
   "your profile page title": "Profile",
   "firstname": "Name",
   "lastname": "Lastname",
-  "profile loading error": "Profile loading error"
+  "profile loading error": "Profile loading error",
+  "Save": "Save",
+  "city": "City",
+  "country": "A country",
+  "phone": "Telephone",
+  "Cancel": "Cancel",
+  "photo": "Photo"
 }

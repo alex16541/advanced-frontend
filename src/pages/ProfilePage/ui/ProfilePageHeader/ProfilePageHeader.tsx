@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonColor, ButtonThemes } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
-import { getProfileIsReadonly, profileActions } from 'entity/Profile';
+import { getProfileIsReadonly, profileActions, updateProfileData } from 'entity/Profile';
 import { useSelector } from 'react-redux';
 import { FC, memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
@@ -25,11 +25,11 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: Profil
     }, [dispatch]);
 
     const onCalcelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
+        dispatch(profileActions.cancelEdit());
     }, [dispatch]);
 
     const onSave = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
+        dispatch(updateProfileData());
     }, [dispatch]);
 
     return (
