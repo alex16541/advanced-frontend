@@ -33,16 +33,24 @@ const ProfilePage = () => {
         dispatch(fetchProfileData());
     }, [dispatch]);
 
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({
+            username: value || '',
+        }));
+    }, [dispatch]);
+
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
             firstname: value || '',
         }));
     }, [dispatch]);
+
     const onChangeLastname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
             lastname: value || '',
         }));
     }, [dispatch]);
+
     const onChangeEmail = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
             email: value || '',
@@ -95,6 +103,7 @@ const ProfilePage = () => {
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
+                    onChangeUsername={onChangeUsername}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeEmail={onChangeEmail}

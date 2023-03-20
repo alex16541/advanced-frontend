@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
 import { Countries, Currency } from 'shared/const/common';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Profile, ProfileErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -13,6 +14,7 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: ProfileErrors;
     readonly?: boolean;
+    onChangeUsername?: (value: string) => void;
     onChangeFirstname?: (value: string) => void;
     onChangeLastname?: (value: string) => void;
     onChangeEmail?: (value: string) => void;
@@ -31,6 +33,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         error,
         isLoading = false,
         readonly = true,
+        onChangeUsername,
         onChangeFirstname,
         onChangeLastname,
         onChangeEmail,
@@ -38,7 +41,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCity,
         onChangeCountry,
         onChangePhone,
-        onChangePhoto, onChangeCurrency,
+        onChangePhoto,
+        onChangeCurrency,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -69,8 +73,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
-
             <div className={cls.data}>
+                {data?.photo && <Avatar size={100} src={data?.photo} alt={t('user avatar')} />}
+
+                <Input
+                    className={cls.input}
+                    value={data?.username}
+                    placeholder={t('username')}
+                    readonly={readonly}
+                    onChange={onChangeUsername}
+                />
                 <Input
                     className={cls.input}
                     value={data?.firstname}
