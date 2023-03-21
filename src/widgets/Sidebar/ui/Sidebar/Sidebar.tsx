@@ -1,4 +1,6 @@
-import { FC, memo, useState } from 'react';
+import {
+    FC, memo, useMemo, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -21,6 +23,14 @@ export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
         setCollapsed((value) => !value);
     }
 
+    const itemList = useMemo(() => sidebarItems.map((item) => (
+        <SidebarItem
+            key={item.path}
+            item={item}
+            collapsed={collapsed}
+        />
+    )), [collapsed]);
+
     return (
         <div
             data-testid="sidebar"
@@ -29,13 +39,7 @@ export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
             ])}
         >
             <div className={cls.content}>
-                {sidebarItems.map((item) => (
-                    <SidebarItem
-                        key={item.path}
-                        item={item}
-                        collapsed={collapsed}
-                    />
-                ))}
+                {itemList}
             </div>
             <Button
                 data-testid="sidebar-toggle"
