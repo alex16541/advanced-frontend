@@ -15,7 +15,16 @@ export interface Profile {
 }
 
 export enum ProfileErrors {
-    UNKNOWN_ERROR = 'unknown error',
+    UNKNOWN_ERROR = 'UNKNOWN_ERROR',
+    SERVER_ERROR = 'SERVER_ERROR',
+}
+
+export enum ProfileValidateErrors {
+    NO_DATA = 'NO_DATA',
+    INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
+    INCORRECT_AGE = 'INCORRECT_AGE',
+    INCORRECT_EMAIL = 'INCORRECT_EMAIL',
+    SERVER_ERROR = 'SERVER_ERROR',
 }
 
 export interface ProfileSchema {
@@ -24,4 +33,5 @@ export interface ProfileSchema {
     isLoading: boolean;
     error?: ProfileErrors;
     readonly: boolean;
+    validateErrors?: ProfileValidateErrors[];
 }

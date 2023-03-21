@@ -13,5 +13,11 @@
   "country": "Страна",
   "phone": "Телефон",
   "photo": "Фото",
-  "user avatar": "Аватар пользователя"
+  "user avatar": "Аватар пользователя",
+  "profile no data": "Нет данных профиля",
+  "server error": "Ошибка сервера",
+  "incorrect user data": "Некорректные данные пользователя",
+  "incorrect age": "Некорректный возраст",
+  "incorrect email": "Некорректная почта",
+  "unknown error": "Неизвестная ошибка"
 }

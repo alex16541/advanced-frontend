@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
@@ -7,7 +7,8 @@ import { Country } from 'entity/Country/model/types/country';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entity/Currency';
 import { CountrySelect } from 'entity/Country';
-import { Profile, ProfileErrors } from '../../model/types/profile';
+import { FC, memo, useMemo } from 'react';
+import { Profile, ProfileErrors, ProfileValidateErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -15,6 +16,7 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     error?: ProfileErrors;
+    validationErrors?: ProfileValidateErrors[];
     readonly?: boolean;
     onChangeUsername?: (value: string) => void;
     onChangeFirstname?: (value: string) => void;
@@ -28,11 +30,12 @@ interface ProfileCardProps {
     onChangeCurrency?: (value: Currency) => void;
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) => {
     const {
         className,
         data,
         error,
+        validationErrors = [],
         isLoading = false,
         readonly = true,
         onChangeUsername,
@@ -53,6 +56,19 @@ export const ProfileCard = (props: ProfileCardProps) => {
         [cls.readonly]: readonly,
     };
 
+    const validationError = useMemo(() => ({
+        [ProfileValidateErrors.NO_DATA]: t('profile no data'),
+        [ProfileErrors.SERVER_ERROR]: t('server error'),
+        [ProfileValidateErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
+        [ProfileValidateErrors.INCORRECT_AGE]: t('incorrect age'),
+        [ProfileValidateErrors.INCORRECT_EMAIL]: t('incorrect email'),
+    }), [t]);
+
+    const profileError = useMemo(() => ({
+        [ProfileErrors.SERVER_ERROR]: t('server error'),
+        [ProfileErrors.UNKNOWN_ERROR]: t('unknown error'),
+    }), [t]);
+
     if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.isLoading])}>
@@ -61,13 +77,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    // todo: Add switch to errors. Mayby need create one global AppError type. (Translation of errors - is main problem)
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
                 <Text
                     title={`${t('profile loading error')}:`}
-                    text={t(error)}
+                    text={profileError[error]}
                     align={TextAlign.CENTER}
                 />
             </div>
@@ -76,6 +91,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
+            {validationErrors.map((err) => (
+                <Text
+                    key={err}
+                    theme={TextThemes.ERROR}
+                    text={validationError[err]}
+                />
+            ))}
             <div className={cls.data}>
                 {data?.photo && (
                     <div className={cls.avatarWrapper}>
@@ -160,4 +182,4 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </div>
         </div>
     );
-};
+});

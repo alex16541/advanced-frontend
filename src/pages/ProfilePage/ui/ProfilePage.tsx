@@ -9,6 +9,7 @@ import {
     ProfileCard,
     profileReducer,
     getProfileForm,
+    getProfileValidatationErrors,
 } from 'entity/Profile';
 import { useEffect, useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
@@ -28,6 +29,7 @@ const ProfilePage = () => {
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
+    const validationErrors = useSelector(getProfileValidatationErrors);
     const readonly = useSelector(getProfileIsReadonly);
 
     useEffect(() => {
@@ -103,6 +105,7 @@ const ProfilePage = () => {
                     data={form}
                     isLoading={isLoading}
                     error={error}
+                    validationErrors={validationErrors}
                     readonly={readonly}
                     onChangeUsername={onChangeUsername}
                     onChangeFirstname={onChangeFirstname}
