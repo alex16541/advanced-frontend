@@ -13,7 +13,8 @@ import {
 import { useEffect, useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Countries, Currency } from 'shared/const/common';
+import { Country } from 'entity/Country/model/types/country';
+import { Currency } from 'entity/Currency/model/types/currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -71,12 +72,6 @@ const ProfilePage = () => {
         }));
     }, [dispatch]);
 
-    const onChangeCountry = useCallback((value: Countries) => {
-        dispatch(profileActions.updateProfile({
-            country: value || undefined,
-        }));
-    }, [dispatch]);
-
     const onChangePhone = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
             phone: value || '',
@@ -89,9 +84,15 @@ const ProfilePage = () => {
         }));
     }, [dispatch]);
 
+    const onChangeCountry = useCallback((value: Country) => {
+        dispatch(profileActions.updateProfile({
+            country: value || undefined,
+        }));
+    }, [dispatch]);
+
     const onChangeCurrency = useCallback((value: Currency) => {
         dispatch(profileActions.updateProfile({
-            currency: value || '',
+            currency: value || undefined,
         }));
     }, [dispatch]);
     return (

@@ -1,11 +1,12 @@
-import { Countries, Currency } from 'shared/const/common';
+import { Country } from 'entity/Country/model/types/country';
+import { Currency } from 'entity/Currency/model/types/currency';
 
 export interface Profile {
     firstname?: string;
     lastname?: string;
     username?: string;
     age?: number;
-    country?: Countries;
+    country?: Country;
     city?: string;
     currency?: Currency;
     phone?: string;
@@ -14,7 +15,7 @@ export interface Profile {
 }
 
 export enum ProfileErrors {
-    UNKNOWN_ERROR,
+    UNKNOWN_ERROR = 'unknown error',
 }
 
 export interface ProfileSchema {

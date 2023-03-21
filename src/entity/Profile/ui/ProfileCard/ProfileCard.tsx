@@ -3,8 +3,10 @@ import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
-import { Countries, Currency } from 'shared/const/common';
+import { Country } from 'entity/Country/model/types/country';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from 'entity/Currency';
+import { CountrySelect } from 'entity/Country';
 import { Profile, ProfileErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -20,7 +22,7 @@ interface ProfileCardProps {
     onChangeEmail?: (value: string) => void;
     onChangeAge?: (value: string) => void;
     onChangeCity?: (value: string) => void;
-    onChangeCountry?: (value: Countries) => void;
+    onChangeCountry?: (value: Country) => void;
     onChangePhone?: (value: string) => void;
     onChangePhoto?: (value: string) => void;
     onChangeCurrency?: (value: Currency) => void;
@@ -59,12 +61,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
+    // todo: Add switch to errors. Mayby need create one global AppError type. (Translation of errors - is main problem)
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
                 <Text
                     title={`${t('profile loading error')}:`}
-                    text={error}
+                    text={t(error)}
                     align={TextAlign.CENTER}
                 />
             </div>
@@ -74,7 +77,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
-                {data?.photo && <Avatar size={100} src={data?.photo} alt={t('user avatar')} />}
+                {data?.photo && (
+                    <div className={cls.avatarWrapper}>
+                        <Avatar
+                            size={100}
+                            src={data?.photo}
+                            alt={t('user avatar')}
+                        />
+                    </div>
+                )}
 
                 <Input
                     className={cls.input}
@@ -118,12 +129,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     onChange={onChangeCity}
                 />
-                <Input
+                <CountrySelect
                     className={cls.input}
                     value={data?.country}
                     placeholder={t('country')}
                     readonly={readonly}
-                // onChange={onChangeCountry}
+                    onChangeValue={onChangeCountry}
                 />
                 <Input
                     className={cls.input}
@@ -139,12 +150,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     onChange={onChangePhoto}
                 />
-                <Input
+                <CurrencySelect
                     className={cls.input}
                     value={data?.currency}
                     placeholder={t('photo')}
                     readonly={readonly}
-                // onChange={onChangeCurrency}
+                    onChangeValue={onChangeCurrency}
                 />
             </div>
         </div>

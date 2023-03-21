@@ -1,4 +1,4 @@
-import { CSSProperties, StyleHTMLAttributes } from 'react';
+import { CSSProperties, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
@@ -19,10 +19,10 @@ export const Avatar = (props: AvatarProps) => {
         rounded = false,
     } = props;
 
-    const avatarStyle: CSSProperties = {
+    const avatarStyle = useMemo<CSSProperties>(() => ({
         height: size,
         width: size,
-    };
+    }), [size]);
 
     return (
         <img

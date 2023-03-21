@@ -3,11 +3,13 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { AppLink, AppLinkThemes } from './AppLink';
 
+// todo: add ComponentMeta type
 export default {
     title: 'shared/AppLink',
     component: AppLink,
 };
 
+// todo: Change Story to StoryComponent
 const Template: Story = (args) => <AppLink to="#" {...args} />;
 
 export const PrimaryLight = Template.bind({});
