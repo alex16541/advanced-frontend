@@ -9,7 +9,7 @@ import {
     ProfileCard,
     profileReducer,
     getProfileForm,
-    getProfileValidatationErrors,
+    getProfileValidationErrors,
 } from 'entity/Profile';
 import { useEffect, useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
@@ -29,7 +29,7 @@ const ProfilePage = () => {
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
-    const validationErrors = useSelector(getProfileValidatationErrors);
+    const validationErrors = useSelector(getProfileValidationErrors);
     const readonly = useSelector(getProfileIsReadonly);
 
     useEffect(() => {
