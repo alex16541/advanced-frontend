@@ -60,6 +60,7 @@ module.exports = {
     globals: {
         __IS_DEV__: 'readonly',
         __API__: 'readonly',
+        __PROJECT__: 'writable',
         React: 'readonly',
     },
     overrides: [

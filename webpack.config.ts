@@ -15,6 +15,7 @@ export default (env: BuildEnv) => {
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
     };
+    const project = 'frontend';
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
@@ -23,6 +24,7 @@ export default (env: BuildEnv) => {
         isAnalyze,
         port,
         apiUrl,
+        project,
     });
 
     return config;

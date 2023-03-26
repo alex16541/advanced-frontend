@@ -1,6 +1,4 @@
-import {
-    FC, memo, useMemo, useState,
-} from 'react';
+import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -14,7 +12,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
+export const Sidebar = memo((props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();

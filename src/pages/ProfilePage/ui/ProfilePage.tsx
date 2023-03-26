@@ -33,7 +33,9 @@ const ProfilePage = () => {
     const readonly = useSelector(getProfileIsReadonly);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ === 'frontend') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeUsername = useCallback((value: string) => {

@@ -30,7 +30,7 @@ interface ProfileCardProps {
     onChangeCurrency?: (value: Currency) => void;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) => {
+export const ProfileCard = memo((props: ProfileCardProps) => {
     const {
         className,
         data,

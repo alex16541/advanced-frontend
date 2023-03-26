@@ -1,4 +1,4 @@
-export { Profile as Profiel, ProfileSchema } from './model/types/profile';
+export * from './model/types/profile';
 
 export { profileActions, profileReducer } from './model/slices/profileSlice';
 

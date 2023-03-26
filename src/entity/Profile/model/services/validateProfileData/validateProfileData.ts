@@ -16,7 +16,7 @@ export const validateProfileData = (profile?: ProfileSchema) => {
         errors.push(ProfileValidateErrors.INCORRECT_AGE);
     }
 
-    if (emailRegex.test(form?.email || '')) {
+    if (!emailRegex.test(form?.email || '')) {
         errors.push(ProfileValidateErrors.INCORRECT_EMAIL);
     }
 
