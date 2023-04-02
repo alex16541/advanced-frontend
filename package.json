@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently 'start:*' -c 'bgGreen,bgBlue'",
+    "start": "concurrently 'npm:start:*' -c 'bgGreen,bgBlue'",
     "start:app": "webpack serve --env port=3000 apiUrl=http://localhost:3001",
     "start:db": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production",
