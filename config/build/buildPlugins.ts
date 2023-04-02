@@ -2,14 +2,11 @@ import htmlWebpackPlugin from 'html-webpack-plugin';
 import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 function buildPlugins({
-    paths,
-    isDev,
-    isAnalyze,
-    apiUrl,
-    project,
+    paths, isDev, isAnalyze, apiUrl, project,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins: WebpackPluginInstance[] = [
         new htmlWebpackPlugin({
@@ -28,6 +25,7 @@ function buildPlugins({
     ];
 
     if (isAnalyze) plugins.push(new BundleAnalyzerPlugin());
+    if (isDev) plugins.push(new ReactRefreshPlugin());
 
     return plugins;
 }
