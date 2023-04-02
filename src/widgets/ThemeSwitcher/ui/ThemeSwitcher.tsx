@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/svg/sun.svg';
-import DurkIcon from 'shared/assets/svg/moon.svg';
+import DarkIcon from 'shared/assets/svg/moon.svg';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { FC, memo } from 'react';
 import cls from './ThemeSwitcher.module.scss';
@@ -21,7 +21,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo((props: ThemeSwitcherP
             className={classNames(cls.ThemeSwitcher, {}, [className])}
             {...otherProps}
         >
-            {theme === Theme.LIGHT ? <LightIcon /> : <DurkIcon />}
+            {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
         </Button>
     );
 });
