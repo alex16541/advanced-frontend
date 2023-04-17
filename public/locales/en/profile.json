@@ -14,5 +14,11 @@
   "Cancel": "Cancel",
   "photo": "Photo",
   "user avatar": "User avatar",
-  "username": "User name"
+  "username": "User name",
+  "incorrect age": "Incorrect age",
+  "incorrect email": "Incorrect mail",
+  "incorrect user data": "Incorrect user data",
+  "profile no data": "No profile data",
+  "server error": "server error",
+  "unknown error": "Unknown error"
 }
