@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entity/User';
+import { Text } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -26,7 +27,7 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>
                 <nav className={cls.links}>
-                    <div>/</div>
+                    <Button theme={ButtonThemes.PRIMARY}>/</Button>
                     <Button
                         theme={ButtonThemes.PRIMARY}
                         onClick={logout}

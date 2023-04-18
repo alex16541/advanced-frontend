@@ -4,7 +4,6 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from 'entity/User';
-import { PageLoader } from 'widgets/PageLoader';
 import { AppRouter } from './providers/router/ui/AppRouter';
 
 const App = () => {
@@ -18,17 +17,13 @@ const App = () => {
     return (
         <div className={classNames('app', {})}>
             <Suspense fallback="">
-                {inited ? (
-                    <div className="app-wrapper">
-                        <Navbar />
-                        <div className="content-page">
-                            <Sidebar />
-                            <AppRouter className="page-wrapper" />
-                        </div>
+                <div className="app-wrapper">
+                    <Navbar />
+                    <div className="content-page">
+                        <Sidebar />
+                        {inited && <AppRouter className="page-wrapper" />}
                     </div>
-                ) : (
-                    <PageLoader />
-                )}
+                </div>
             </Suspense>
         </div>
     );

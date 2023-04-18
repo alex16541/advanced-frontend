@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'shared/ui/Loader';
+import { Text } from 'shared/ui/Text/Text';
 import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
@@ -14,7 +15,7 @@ export const PageLoader = (props: PageLoaderProps) => {
     return (
         <div className={classNames(cls.PageLoader, {}, [className])}>
             <Loader />
-            <p>{t('page loader text')}</p>
+            <Text text={t('page loader text')} />
         </div>
     );
 };
