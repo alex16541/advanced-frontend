@@ -1,11 +1,10 @@
-import { memo, Suspense, useMemo } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { PageLoader } from 'widgets/PageLoader';
-import { useSelector } from 'react-redux';
-import { getAuthData } from 'entity/User';
 import cls from './AppRouter.module.scss';
+import { RequireAuth } from './RequireAuth';
 
 interface AppRouterProps {
     className?: string;
@@ -14,28 +13,27 @@ interface AppRouterProps {
 export const AppRouter = (props: AppRouterProps) => {
     const { className } = props;
 
-    const isAuth = useSelector(getAuthData);
+    const renderWithWrapper = useCallback(({ authOnly, path, element }: AppRoutesProps) => {
+        const routeElement = authOnly ? (
+            <RequireAuth>{element}</RequireAuth>
+        ) : element;
 
-    const routes = useMemo(() => Object
-        .values(routeConfig)
-        .filter((route) => {
-            if (route.authOnly) {
-                return isAuth;
-            }
-            return true;
-        }), [isAuth]);
+        const route = (
+            <Route
+                key={path}
+                element={routeElement}
+                path={path}
+            />
+        );
+
+        return route;
+    }, []);
 
     return (
         <div className={classNames(cls.AppRouter, {}, [className])}>
             <Suspense fallback={<PageLoader />}>
                 <Routes>
-                    {routes.map(({ element, path }) => (
-                        <Route
-                            key={path}
-                            element={element}
-                            path={path}
-                        />
-                    ))}
+                    {Object.values(routeConfig).map(renderWithWrapper)}
                 </Routes>
             </Suspense>
         </div>
