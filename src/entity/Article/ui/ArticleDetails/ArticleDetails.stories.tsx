@@ -1,17 +1,17 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import ArticlePage from './ArticlePage';
+import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'folder/ArticlePage',
-    component: ArticlePage,
-    args: {
+    title: 'folder/ArticleDetails',
+    component: ArticleDetails,
+    args: {},
+} as ComponentMeta<typeof ArticleDetails>;
 
-    },
-} as ComponentMeta<typeof ArticlePage>;
-
-const Template: ComponentStory<typeof ArticlePage> = (args) => <ArticlePage {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+    <ArticleDetails {...args} />
+);
 
 export const Light = Template.bind({});
 

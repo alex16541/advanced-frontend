@@ -1,0 +1,23 @@
+.ArticleDetails {
+    min-height: 100%;
+}
+
+.loaderColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.loaderRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: end;
+
+    width: 100%;
+}
