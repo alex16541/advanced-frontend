@@ -4,6 +4,7 @@
     overflow: hidden;
     display: grid;
     grid-template: 1fr/1fr;
+    flex: none;
 
     width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));

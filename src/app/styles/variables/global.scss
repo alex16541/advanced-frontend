@@ -1,6 +1,11 @@
 :root {
     --font-family-main: consolas, monaco, "Times New Roman", serif;
 
+    // small
+    --font-size-s: 8px;
+    --font-line-s: 16px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
     // medium
     --font-size-m: 16px;
     --font-line-m: 24px;
@@ -26,4 +31,11 @@
 
     // colors
     --backdrop-color: #0008;
+
+    // borders
+    --border-radius-xs: 1px;
+    --border-radius-s: 5px;
+    --border-radius-m: 10px;
+    --border-radius-l: 15px;
+    --border-radius-xl: 20px;
 }

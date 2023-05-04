@@ -4,6 +4,12 @@
     text-decoration: none;
 }
 
+@media (pointer: fine) {
+    .AppLink:hover {
+        opacity: 0.8;
+    }
+}
+
 .primary {
     color: var(--primary-color);
 }

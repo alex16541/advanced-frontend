@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Text, TextThemes } from './Text';
+import { Text, TextSize, TextThemes } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -16,6 +16,7 @@ PrimaryLight.args = {
     text: 'Some text....',
     theme: TextThemes.PRIMARY,
 };
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
     ...PrimaryLight.args,
@@ -40,8 +41,21 @@ OnlyTitle.args = {
     title: 'Text tiele',
     theme: TextThemes.PRIMARY,
 };
+
 export const OnlyText = Template.bind({});
 OnlyText.args = {
     text: 'Some text....',
     theme: TextThemes.PRIMARY,
+};
+
+export const SizeS = Template.bind({});
+SizeS.args = {
+    ...PrimaryLight.args,
+    size: TextSize.S,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    ...PrimaryLight.args,
+    size: TextSize.L,
 };

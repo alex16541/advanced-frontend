@@ -4,10 +4,12 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slices/loginSlice';
 import { profileReducer } from 'entity/Profile';
+import { articleDetailsReducer } from 'entity/Article/model/slices/articleDetailsSlice';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator = (
