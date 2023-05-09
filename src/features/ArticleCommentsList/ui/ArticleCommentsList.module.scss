@@ -1,0 +1,19 @@
+.ArticleCommentsList {
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+.loader {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

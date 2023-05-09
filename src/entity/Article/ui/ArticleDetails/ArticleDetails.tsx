@@ -13,6 +13,7 @@ import CalendarIcon from 'shared/assets/svg/calendar.svg';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { ArticleBlock, ArticleBlockType } from 'entity/Article/model/types/article';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { useOnInit } from 'shared/hooks/useOnInit';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -46,20 +47,16 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const fetchArticle = useCallback(
         async (id: string) => {
-            dispatch(fetchArticleById(id));
+            await dispatch(fetchArticleById(id));
         },
         [dispatch],
     );
 
-    const getArticle = () => {};
-
-    useEffect(() => {
-        if (__PROJECT__ === 'frontend') {
-            if (id) {
-                fetchArticle(id);
-            }
+    useOnInit(() => {
+        if (id) {
+            fetchArticle(id);
         }
-    }, [dispatch, fetchArticle, id]);
+    });
 
     let content!: ReactElement<any, any>;
 

@@ -1,0 +1,23 @@
+.CommentCard {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment {
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.avatar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.username {
+}
+
+.text {
+}

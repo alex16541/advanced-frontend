@@ -16,6 +16,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Country } from 'entity/Country/model/types/country';
 import { Currency } from 'entity/Currency/model/types/currency';
+import { useOnInit } from 'shared/hooks/useOnInit';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -32,73 +33,121 @@ const ProfilePage = () => {
     const validationErrors = useSelector(getProfileValidationErrors);
     const readonly = useSelector(getProfileIsReadonly);
 
-    useEffect(() => {
-        if (__PROJECT__ === 'frontend') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useOnInit(() => {
+        dispatch(fetchProfileData());
+    });
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            username: value || '',
-        }));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    username: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeFirstname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            firstname: value || '',
-        }));
-    }, [dispatch]);
+    const onChangeFirstname = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    firstname: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeLastname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            lastname: value || '',
-        }));
-    }, [dispatch]);
+    const onChangeLastname = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    lastname: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeEmail = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            email: value || '',
-        }));
-    }, [dispatch]);
+    const onChangeEmail = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    email: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeAge = useCallback((value: string) => {
-        if (/^\d+$/.test(value || '0')) {
-            dispatch(profileActions.updateProfile({
-                age: Number(value || 0),
-            }));
-        }
-    }, [dispatch]);
+    const onChangeAge = useCallback(
+        (value: string) => {
+            if (/^\d+$/.test(value || '0')) {
+                dispatch(
+                    profileActions.updateProfile({
+                        age: Number(value || 0),
+                    }),
+                );
+            }
+        },
+        [dispatch],
+    );
 
-    const onChangeCity = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            city: value || '',
-        }));
-    }, [dispatch]);
+    const onChangeCity = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    city: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangePhone = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            phone: value || '',
-        }));
-    }, [dispatch]);
+    const onChangePhone = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    phone: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangePhoto = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({
-            photo: value || '',
-        }));
-    }, [dispatch]);
+    const onChangePhoto = useCallback(
+        (value: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    photo: value || '',
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeCountry = useCallback((value: Country) => {
-        dispatch(profileActions.updateProfile({
-            country: value || undefined,
-        }));
-    }, [dispatch]);
+    const onChangeCountry = useCallback(
+        (value: Country) => {
+            dispatch(
+                profileActions.updateProfile({
+                    country: value || undefined,
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeCurrency = useCallback((value: Currency) => {
-        dispatch(profileActions.updateProfile({
-            currency: value || undefined,
-        }));
-    }, [dispatch]);
+    const onChangeCurrency = useCallback(
+        (value: Currency) => {
+            dispatch(
+                profileActions.updateProfile({
+                    currency: value || undefined,
+                }),
+            );
+        },
+        [dispatch],
+    );
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div>
