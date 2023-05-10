@@ -8,15 +8,14 @@ import { Comment } from '../../model/types/comment';
 interface CommentCardProps {
     className?: string;
     comment: Comment;
-    isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const { className, comment, isLoading } = props;
+    const { className, comment } = props;
 
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
-            {comment.user.avatar && <Avatar src={comment.user.avatar} size={70} alt={comment.user.username} />}
+            {comment.user.avatar && <Avatar src={comment.user.avatar} alt={comment.user.username} />}
             <div className="comment__body">
                 <Text text={comment.user.username} size={TextSize.L} />
                 <Text text={comment.text} />

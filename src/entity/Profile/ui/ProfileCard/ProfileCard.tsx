@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
 import { Country } from 'entity/Country/model/types/country';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entity/Currency';
 import { CountrySelect } from 'entity/Country';
 import { FC, memo, useMemo } from 'react';
@@ -56,18 +56,24 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         [cls.readonly]: readonly,
     };
 
-    const validationError = useMemo(() => ({
-        [ProfileValidateErrors.NO_DATA]: t('profile no data'),
-        [ProfileErrors.SERVER_ERROR]: t('server error'),
-        [ProfileValidateErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
-        [ProfileValidateErrors.INCORRECT_AGE]: t('incorrect age'),
-        [ProfileValidateErrors.INCORRECT_EMAIL]: t('incorrect email'),
-    }), [t]);
+    const validationError = useMemo(
+        () => ({
+            [ProfileValidateErrors.NO_DATA]: t('profile no data'),
+            [ProfileErrors.SERVER_ERROR]: t('server error'),
+            [ProfileValidateErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
+            [ProfileValidateErrors.INCORRECT_AGE]: t('incorrect age'),
+            [ProfileValidateErrors.INCORRECT_EMAIL]: t('incorrect email'),
+        }),
+        [t],
+    );
 
-    const profileError = useMemo(() => ({
-        [ProfileErrors.SERVER_ERROR]: t('server error'),
-        [ProfileErrors.UNKNOWN_ERROR]: t('unknown error'),
-    }), [t]);
+    const profileError = useMemo(
+        () => ({
+            [ProfileErrors.SERVER_ERROR]: t('server error'),
+            [ProfileErrors.UNKNOWN_ERROR]: t('unknown error'),
+        }),
+        [t],
+    );
 
     if (isLoading) {
         return (
@@ -80,11 +86,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
-                <Text
-                    title={`${t('profile loading error')}:`}
-                    text={profileError[error]}
-                    align={TextAlign.CENTER}
-                />
+                <Text title={`${t('profile loading error')}:`} text={profileError[error]} align={TextAlign.CENTER} />
             </div>
         );
     }
@@ -92,20 +94,12 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             {validationErrors.map((err) => (
-                <Text
-                    key={err}
-                    theme={TextThemes.ERROR}
-                    text={validationError[err]}
-                />
+                <Text key={err} theme={TextThemes.ERROR} text={validationError[err]} />
             ))}
             <div className={cls.data}>
                 {data?.photo && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar
-                            size={100}
-                            src={data?.photo}
-                            alt={t('user avatar')}
-                        />
+                        <Avatar size={AvatarSize.L} src={data?.photo} alt={t('user avatar')} />
                     </div>
                 )}
 

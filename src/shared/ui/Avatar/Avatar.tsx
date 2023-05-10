@@ -2,27 +2,32 @@ import { CSSProperties, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
+export enum AvatarSize {
+    S = 50,
+    M = 70,
+    L = 100,
+}
+
 interface AvatarProps {
     className?: string;
     src: string;
-    size: number;
+    size?: number | AvatarSize;
     alt: string;
     rounded?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
     const {
-        className,
-        src,
-        alt,
-        size = 50,
-        rounded = false,
+        className, src, alt, size = AvatarSize.M, rounded = false,
     } = props;
 
-    const avatarStyle = useMemo<CSSProperties>(() => ({
-        height: size,
-        width: size,
-    }), [size]);
+    const avatarStyle = useMemo<CSSProperties>(
+        () => ({
+            height: size,
+            width: size,
+        }),
+        [size],
+    );
 
     return (
         <img

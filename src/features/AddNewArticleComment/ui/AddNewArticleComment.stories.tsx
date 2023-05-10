@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import ArticleCommentsList from './ArticleCommentsList';
+import { AddNewArticleComment } from './AddNewArticleComment';
 
 export default {
-    title: 'folder/ArticleCommentsList',
-    component: ArticleCommentsList,
+    title: 'folder/AddNewArticleComment',
+    component: AddNewArticleComment,
     args: {},
-} as ComponentMeta<typeof ArticleCommentsList>;
+} as ComponentMeta<typeof AddNewArticleComment>;
 
-const Template: ComponentStory<typeof ArticleCommentsList> = (args) => (
-    <ArticleCommentsList {...args} />
+const Template: ComponentStory<typeof AddNewArticleComment> = (args) => (
+    <AddNewArticleComment {...args} />
 );
 
 export const Light = Template.bind({});

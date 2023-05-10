@@ -9,21 +9,18 @@ import { CommentCard } from '../CommentCard/CommentCard';
 interface CommentListProps {
     className?: string;
     comments?: Comment[];
-    isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const { className, comments, isLoading } = props;
+    const { className, comments } = props;
     const { t } = useTranslation();
 
     const commentCards = useMemo(
-        () => comments?.map((comment: Comment) => <CommentCard className={cls.commentCard} comment={comment} />),
+        () => comments?.map((comment: Comment) => (
+            <CommentCard className={cls.commentCard} comment={comment} key={comment.id} />
+        )),
         [comments],
     );
-
-    if (isLoading) {
-        return <Text text="test loading..." />;
-    }
 
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>

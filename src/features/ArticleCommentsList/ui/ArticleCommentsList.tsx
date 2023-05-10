@@ -13,7 +13,7 @@ import { articleCommentsReducer, articleCommentsSelectors } from '../model/slice
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsListError, getArticleCommentsListIsLoading } from '../model/selectors/articleCommentsList';
 
-interface ArticleCommentsListProps {
+export interface ArticleCommentsListProps {
     className?: string;
     articleId: string;
 }
@@ -22,7 +22,7 @@ const reducers: ReducersList = {
     articleComments: articleCommentsReducer,
 };
 
-export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
+const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
@@ -70,10 +70,9 @@ export const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout>
-            <div className={classNames(cls.ArticleCommentsList, {}, [className])}>
-                <Text className={cls.title} title={t('Comments')} />
-                {content}
-            </div>
+            <div className={classNames(cls.ArticleCommentsList, {}, [className])}>{content}</div>
         </DynamicModuleLoader>
     );
 });
+
+export default ArticleCommentsList;
