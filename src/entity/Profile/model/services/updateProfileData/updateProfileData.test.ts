@@ -4,6 +4,7 @@ import { updateProfileData } from './updateProfileData';
 
 describe('updateProfileData', () => {
     const data = {
+        id: '1',
         username: 'user123',
         firstname: 'firstname',
         lastname: 'userLastname',
@@ -12,14 +13,11 @@ describe('updateProfileData', () => {
         email: 'user@mail.com',
     };
     test('update success', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData,
-            {
-                profile: {
-                    form: data,
-                },
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            profile: {
+                form: data,
             },
-        );
+        });
 
         thunk.api.put.mockResolvedValue({
             data,
@@ -43,18 +41,17 @@ describe('updateProfileData', () => {
     });
 
     test('validate error', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData,
-            {
-                profile: {
-                    form: { ...data, email: 'email' },
-                },
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            profile: {
+                form: { ...data, email: 'email' },
             },
-        );
+        });
 
         const actionResult = await thunk.callThunk();
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([ProfileValidateErrors.INCORRECT_EMAIL]);
+        expect(actionResult.payload).toEqual([
+            ProfileValidateErrors.INCORRECT_EMAIL,
+        ]);
     });
 });

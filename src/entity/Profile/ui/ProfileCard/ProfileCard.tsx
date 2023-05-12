@@ -7,7 +7,7 @@ import { Country } from 'entity/Country/model/types/country';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entity/Currency';
 import { CountrySelect } from 'entity/Country';
-import { FC, memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Profile, ProfileErrors, ProfileValidateErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 

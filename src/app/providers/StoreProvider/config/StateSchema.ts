@@ -7,8 +7,8 @@ import { ArticleDetailsSchema } from 'entity/Article';
 import { CounterSchema } from 'entity/Counter';
 import { ProfileSchema } from 'entity/Profile';
 import { UserSchema } from 'entity/User';
-import { ArticleCommentsSchema } from 'features/ArticleCommentsList/';
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
+import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
+import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateFunction } from 'react-router-dom';
 
 export interface StateSchema {

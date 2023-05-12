@@ -13,8 +13,10 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const { className } = props;
-    const { id } = useParams<{ id: string }>();
+    let { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
+
+    if (__PROJECT__ === 'storybook') id = '1';
 
     if (!id) {
         return (

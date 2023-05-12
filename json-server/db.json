@@ -45,24 +45,6 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
       "text": "(づ￣ 3￣)づ",
       "userId": "1",
       "articleId": "1",
@@ -93,43 +75,62 @@
       "id": "o863s8X"
     },
     {
-      "text": "123",
-      "articleId": "1",
-      "userId": "1",
-      "id": "niZDuqL"
-    },
-    {
       "text": "(///￣皿￣)○～",
       "articleId": "1",
       "userId": "1",
       "id": "kFD1FL2"
+    },
+    {
+      "text": "^_____^",
+      "articleId": "1",
+      "userId": "2",
+      "id": "GBstPHa"
     }
   ],
-  "profile": {
-    "firstname": "Aleksey",
-    "lastname": "Dov",
-    "username": "alex123",
-    "age": 22,
-    "country": "Russia",
-    "city": "Saint-Petersburg",
-    "currency": "RUB",
-    "phone": "89991112233",
-    "email": "aleksey@gamil.com",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Aleksey",
+      "lastname": "Dov",
+      "username": "alex123",
+      "age": 22,
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "currency": "RUB",
+      "phone": "89991112233",
+      "email": "aleksey@gamil.com",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
+    },
+    {
+      "id": "2",
+      "firstname": "Alex",
+      "lastname": "16541",
+      "username": "alex16541",
+      "age": 21,
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "currency": "RUB",
+      "phone": "89991112255",
+      "email": "aleksey123@gamil.com",
+      "photo": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
+    }
+  ],
   "users": [
     {
       "id": "1",
       "username": "root",
       "password": "123",
+      "profileId": "1",
       "role": "ADMIN",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
     },
     {
       "id": "2",
+      "profileId": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
     }
   ]
 }

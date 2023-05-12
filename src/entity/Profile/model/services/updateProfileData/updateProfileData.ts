@@ -3,6 +3,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile, ProfileValidateErrors } from '../../types/profile';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
+import { getProfileData } from '../../selectors/getProfileData/getProfileData';
 
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ProfileValidateErrors[]>>(
     'profile/updateProfileData',
@@ -15,9 +16,9 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Pro
             if (validationErrors.length > 0) {
                 return rejectWithValue(validationErrors);
             }
-
+            const formData = getProfileData(state);
             const data = getProfileForm(state);
-            const response = await extra.api.put<Profile>('/profile', data);
+            const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, data);
 
             if (!response.data) {
                 throw new Error();

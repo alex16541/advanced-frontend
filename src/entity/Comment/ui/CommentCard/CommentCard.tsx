@@ -2,6 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 
@@ -15,9 +17,15 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
-            {comment.user.avatar && <Avatar src={comment.user.avatar} alt={comment.user.username} />}
+            {comment.user.avatar && (
+                <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
+                    <Avatar src={comment.user.avatar} alt={comment.user.username} />
+                </AppLink>
+            )}
             <div className="comment__body">
-                <Text text={comment.user.username} size={TextSize.L} />
+                <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
+                    <Text text={comment.user.username} size={TextSize.L} />
+                </AppLink>
                 <Text text={comment.text} />
             </div>
         </div>

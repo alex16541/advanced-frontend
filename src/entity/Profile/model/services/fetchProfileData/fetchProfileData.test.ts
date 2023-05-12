@@ -14,7 +14,7 @@ describe('fetchProfileData', () => {
         thunk.api.get.mockResolvedValue({
             data: returnValue,
         });
-        const actionResult = await thunk.callThunk();
+        const actionResult = await thunk.callThunk('1');
 
         expect(actionResult.meta.requestStatus).toBe('fulfilled');
         expect(actionResult.payload).toEqual(returnValue);
@@ -26,7 +26,7 @@ describe('fetchProfileData', () => {
             status: 403,
         });
 
-        const actionResult = await thunk.callThunk();
+        const actionResult = await thunk.callThunk('1');
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
         expect(actionResult.payload).toEqual(ProfileErrors.UNKNOWN_ERROR);

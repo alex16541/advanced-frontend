@@ -10,7 +10,7 @@ import {
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entity/ArticleDetails',
+    title: 'entity/Article/ArticleDetails',
     component: ArticleDetails,
     args: {},
 } as ComponentMeta<typeof ArticleDetails>;

@@ -11,12 +11,13 @@ import {
     getProfileForm,
     getProfileValidationErrors,
 } from 'entity/Profile';
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Country } from 'entity/Country/model/types/country';
-import { Currency } from 'entity/Currency/model/types/currency';
+import { Country } from 'entity/Country';
+import { Currency } from 'entity/Currency';
 import { useOnInit } from 'shared/hooks/useOnInit';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -26,6 +27,7 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+    const { id: profileId } = useParams<{ id: string }>();
 
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -34,7 +36,9 @@ const ProfilePage = () => {
     const readonly = useSelector(getProfileIsReadonly);
 
     useOnInit(() => {
-        dispatch(fetchProfileData());
+        if (profileId) {
+            dispatch(fetchProfileData(profileId));
+        }
     });
 
     const onChangeUsername = useCallback(

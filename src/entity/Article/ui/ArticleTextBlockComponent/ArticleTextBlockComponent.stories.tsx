@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticleTextBlockComponent } from './ArticleTextBlockComponent';
 
 export default {
-    title: 'entity/ArticleTextBlockComponent',
+    title: 'entity/Article/ArticleTextBlockComponent',
     component: ArticleTextBlockComponent,
     args: {
         articleBlock: {
