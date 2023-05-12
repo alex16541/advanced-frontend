@@ -1,5 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, ButtonHTMLAttributes, memo } from 'react';
+import {
+    FC, ButtonHTMLAttributes, memo, ReactNode, ReactElement,
+} from 'react';
+import { Loader } from 'shared/ui/Loader';
 import cls from './Button.module.scss';
 
 export enum ButtonThemes {
@@ -25,6 +28,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonThemes;
     size?: ButtonSize;
     color?: ButtonColor;
+    isLoading?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
@@ -35,24 +39,26 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         type,
         size = ButtonSize.M,
         color = ButtonColor.DEFAULT,
+        isLoading,
+        disabled,
         ...otherProps
     } = props;
 
     const mods = {
+        [cls.loading]: isLoading,
     };
 
     return (
         <button
             type="button"
-            className={classNames(cls.Button, mods, [
-                className,
-                cls[theme],
-                cls[size],
-                cls[color],
-            ])}
+            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
+            disabled={disabled || isLoading}
             {...otherProps}
         >
-            {children}
+            <div className={cls.body}>
+                <div className={cls.content}>{children}</div>
+                {isLoading && <Loader className={cls.loader} />}
+            </div>
         </button>
     );
 });

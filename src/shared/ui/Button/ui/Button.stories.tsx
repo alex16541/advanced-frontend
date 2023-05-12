@@ -87,3 +87,11 @@ Disabled.args = {
     disabled: true,
 };
 Disabled.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.args = {
+    children: 'Button',
+    theme: ButtonThemes.PRIMARY,
+    isLoading: true,
+};
+Loading.decorators = [ThemeDecorator(Theme.DARK)];

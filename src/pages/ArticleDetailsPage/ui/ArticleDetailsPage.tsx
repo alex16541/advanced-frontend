@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleCommentsList } from 'features/ArticleCommentsList';
-import { AddNewArticleComment } from 'features/AddNewArticleComment';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -28,8 +27,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <ArticleDetails id={id} />
-            <Text className={cls.comments__title} title={t('Comments')} />
-            <AddNewArticleComment className={cls.comments__form} />
             <ArticleCommentsList className={cls.comments__list} articleId={id} />
         </div>
     );

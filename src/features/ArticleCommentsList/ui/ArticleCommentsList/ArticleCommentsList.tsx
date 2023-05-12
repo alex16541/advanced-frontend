@@ -8,10 +8,14 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { useOnInit } from 'shared/hooks/useOnInit';
+import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsList';
+import {
+    getArticleCommentsListIsLoading,
+    getArticleCommentsListError,
+} from '../../model/selectors/articleCommentsList';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleCommentsList.module.scss';
-import { articleCommentsReducer, articleCommentsSelectors } from '../model/slices/articleCommentsList';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleCommentsListError, getArticleCommentsListIsLoading } from '../model/selectors/articleCommentsList';
+import { NewArticleCommentForm } from '../NewArticleCommentForm/NewArticleCommentForm';
 
 export interface ArticleCommentsListProps {
     className?: string;
@@ -37,6 +41,8 @@ const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
         },
         [dispatch],
     );
+
+    const onCommentAdded = useCallback(() => fetchComments(articleId), [articleId, fetchComments]);
 
     useOnInit(() => {
         fetchComments(articleId);
@@ -65,12 +71,20 @@ const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     } else if (error.length > 0) {
         content = <Text text={t('Article commets loading error')} theme={TextThemes.ERROR} />;
     } else {
-        content = <CommentList comments={commentsData} />;
+        content = (
+            <>
+                <NewArticleCommentForm onCommentAdded={onCommentAdded} />
+                <CommentList comments={commentsData} />
+            </>
+        );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout>
-            <div className={classNames(cls.ArticleCommentsList, {}, [className])}>{content}</div>
+            <div className={classNames(cls.ArticleCommentsList, {}, [className])}>
+                <Text className={cls.title} title={t('Comments')} />
+                {content}
+            </div>
         </DynamicModuleLoader>
     );
 });
