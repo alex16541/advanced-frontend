@@ -36,18 +36,9 @@ export const articleCommentsSlice = createSlice({
                 state.isLoading = false;
                 state.error = actions.payload;
             })
-            .addCase(addNewCommentToArticle.pending, (state, actions) => {
-                // state.error = undefined;
-                // state.isLoading = true;
-            })
-            .addCase(addNewCommentToArticle.fulfilled, (state, actions: PayloadAction<void>) => {
-                // state.text = '';
-                // state.isLoading = false;
-            })
-            .addCase(addNewCommentToArticle.rejected, (state, actions) => {
-                // state.isLoading = false;
-                // state.error = actions.payload;
-            });
+            .addCase(addNewCommentToArticle.pending, (state, actions) => {})
+            .addCase(addNewCommentToArticle.fulfilled, (state, actions: PayloadAction<void>) => {})
+            .addCase(addNewCommentToArticle.rejected, (state, actions) => {});
     },
 });
 export const { reducer: articleCommentsReducer } = articleCommentsSlice;

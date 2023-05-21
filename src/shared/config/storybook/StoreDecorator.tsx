@@ -5,7 +5,7 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slices/loginSlice';
 import { profileReducer } from 'entity/Profile';
 import { articleDetailsReducer } from 'entity/Article/model/slices/articleDetailsSlice';
-import { articleCommentsReducer } from 'features/ArticleCommentsList/model/slices/articleCommentsList';
+import { articleCommentsReducer } from 'features/ArticleCommentsList/model/slices/articleCommentsListSlice';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
