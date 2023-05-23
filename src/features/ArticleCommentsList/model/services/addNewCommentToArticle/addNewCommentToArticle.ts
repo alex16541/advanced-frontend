@@ -14,7 +14,7 @@ export const addNewCommentToArticle = createAsyncThunk<void, string, ThunkConfig
             const articleId = state.articleDetails?.data?.id;
 
             if (!text || !userId || !articleId) {
-                throw new Error();
+                throw new Error(ArticleCommentsErrors.INVALID_DATA);
             }
 
             const data = {
@@ -24,15 +24,15 @@ export const addNewCommentToArticle = createAsyncThunk<void, string, ThunkConfig
             };
             const response = await extra.api.post<void>('/comments', data);
 
-            if (!response) {
-                throw new Error();
+            if (response.status) {
+                throw new Error(ArticleCommentsErrors.SERVER_ERROR);
             }
 
             fetchCommentsByArticleId(articleId);
 
             return response.data;
-        } catch (error) {
-            return rejectWithValue([ArticleCommentsErrors.SERVER_ERROR]);
+        } catch (error: any) {
+            return rejectWithValue([error.message as ArticleCommentsErrors]);
         }
     },
 );

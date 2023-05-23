@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { useOnInit } from 'shared/hooks/useOnInit';
-import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsList';
+import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsListSlice';
 import {
     getArticleCommentsListIsLoading,
     getArticleCommentsListError,
