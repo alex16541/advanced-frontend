@@ -4,22 +4,19 @@ import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entity/User';
-import { SidebarItemType } from '../../model/types/items';
+import { SidebarItemType } from '../../model/types/sidebarItem';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
     className?: string;
-    item: SidebarItemType
+    item: SidebarItemType;
     theme?: AppLinkThemes;
     collapsed: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
     const {
-        className,
-        item,
-        theme = AppLinkThemes.SECONDARY,
-        collapsed,
+        className, item, theme = AppLinkThemes.SECONDARY, collapsed,
     } = props;
 
     const { t } = useTranslation();
