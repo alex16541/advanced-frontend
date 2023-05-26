@@ -13,6 +13,7 @@ export enum ButtonThemes {
 }
 
 export enum ButtonSize {
+    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
     XL = 'size_xl',

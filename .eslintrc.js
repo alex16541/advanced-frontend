@@ -20,7 +20,7 @@ module.exports = {
     },
     plugins: ['react', 'react-hooks', '@typescript-eslint', 'i18next'],
     rules: {
-        indent: [2, 4],
+        indent: [2, 4, { SwitchCase: 1 }],
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',

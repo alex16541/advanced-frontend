@@ -62,6 +62,12 @@ OutlinedDark.args = {
 };
 OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+    ...Primary.args,
+    size: ButtonSize.M,
+};
+
 export const SizeM = Template.bind({});
 SizeM.args = {
     ...Primary.args,

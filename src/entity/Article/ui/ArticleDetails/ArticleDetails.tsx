@@ -62,32 +62,32 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const renderArticleBlock = useCallback((articleBlock: ArticleBlock) => {
         switch (articleBlock.type) {
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    className={cls.articleBlock}
-                    key={articleBlock.id}
-                    articleBlock={articleBlock}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    className={cls.articleBlock}
-                    key={articleBlock.id}
-                    articleBlock={articleBlock}
-                />
-            );
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    className={cls.articleBlock}
-                    key={articleBlock.id}
-                    articleBlock={articleBlock}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        className={cls.articleBlock}
+                        key={articleBlock.id}
+                        articleBlock={articleBlock}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        className={cls.articleBlock}
+                        key={articleBlock.id}
+                        articleBlock={articleBlock}
+                    />
+                );
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        className={cls.articleBlock}
+                        key={articleBlock.id}
+                        articleBlock={articleBlock}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
 

@@ -1,0 +1,18 @@
+.ArticlesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+    margin: 0 auto;
+}
+
+.card {
+}
+
+.grid_view {
+}
+
+.list_view {
+    max-width: 900px;
+}
