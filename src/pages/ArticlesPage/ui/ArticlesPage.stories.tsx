@@ -10,7 +10,10 @@ export default {
     args: {},
 } as ComponentMeta<typeof ArticlesPage>;
 
-const articles = new Array(9).fill(article);
+const articles = new Array(9).fill(0).map((item, index) => ({
+    ...article,
+    id: index.toString(),
+}));
 const Template: ComponentStory<typeof ArticlesPage> = (args) => (
     <ArticlesPage {...args} />
 );

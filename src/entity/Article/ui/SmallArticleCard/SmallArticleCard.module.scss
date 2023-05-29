@@ -73,6 +73,25 @@
     }
 }
 
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 300px;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .content {
+        display: flex;
+        gap: 10px;
+    }
+}
+
 @media (pointer: fine) {
     .SmallArticleCard:hover {
         transform: scale(1.05);

@@ -4,7 +4,10 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticlesList } from './ArticlesList';
 import { article } from '../../mock/data';
 
-const articles = new Array(9).fill(article);
+const articles = new Array(9).fill(0).map((item, index) => ({
+    ...article,
+    id: index.toString(),
+}));
 
 export default {
     title: 'folder/ArticlesList',

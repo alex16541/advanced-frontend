@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './ArticlesList.module.scss';
 import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
@@ -22,6 +22,10 @@ const itemSizeByView: Record<ArticlesListView, ArticlesListItemSize> = {
     [ArticlesListView.LIST]: ArticlesListItemSize.L,
 };
 
+const getSkeleton = (size: ArticlesListItemSize) => new Array(size === ArticlesListItemSize.S ? 9 : 3)
+    .fill(0)
+    .map((item, index) => <ArticlesListItem key={index} className={cls.card} size={size} isLoading />);
+
 export const ArticlesList = memo((props: ArticlesListProps) => {
     const {
         className, view = ArticlesListView.LIST, articles, isLoading = false,
@@ -32,6 +36,12 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
     const renderArticle = (article: Article) => (
         <ArticlesListItem className={cls.card} article={article} size={listItemSize} />
     );
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>{getSkeleton(listItemSize)}</div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>

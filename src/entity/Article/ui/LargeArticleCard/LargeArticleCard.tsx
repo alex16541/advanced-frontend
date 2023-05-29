@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
-import { t } from 'i18next';
 import { Button, ButtonSize } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -9,14 +8,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './LargeArticleCard.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { LargeArticleCardSkeleton } from './LargeArticleCardSkeleton';
 
 interface LargeArticleCardProps {
     className?: string;
-    article: Article;
+    article?: Article;
     isLoading?: boolean;
 }
 
@@ -25,7 +23,7 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
     const { t } = useTranslation('article');
     const navigate = useNavigate();
     const firstParagraph = useMemo(() => {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as
+        const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as
             | ArticleTextBlock
             | undefined;
 
@@ -34,14 +32,20 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
         }
 
         return textBlock;
-    }, [article.blocks]);
+    }, [article?.blocks]);
 
     const onReadMore = useCallback(() => {
-        navigate(article.id);
-    }, [navigate, article.id]);
+        if (article) {
+            navigate(article.id);
+        }
+    }, [article, navigate]);
 
     if (isLoading) {
         return <LargeArticleCardSkeleton />;
+    }
+
+    if (!article) {
+        return null;
     }
 
     return (

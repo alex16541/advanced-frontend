@@ -6,48 +6,27 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
+import { Skeleton } from 'shared/ui/Skeleton';
 import cls from './SmallArticleCard.module.scss';
 import { Article } from '../../model/types/article';
 
 interface SmallArticleCardProps {
     className?: string;
-    article: Article;
-    isLoading?: boolean;
 }
 
 export const SmallArticleCardSkeleton = memo((props: SmallArticleCardProps) => {
-    const { className, article, isLoading = false } = props;
+    const { className } = props;
 
     return (
-        <Card className={classNames(cls.SmallArticleCard, {}, [className])}>
-            <div className={cls.imageWrapper}>
-                <img className={cls.img} src={article.img} alt="test mountains" />
-                <div className={cls.dateWrapper}>
-                    <Button className={cls.date} size={ButtonSize.S} disabled>
-                        {article.createdAt}
-                    </Button>
-                </div>
-                <div className={cls.tags}>
-                    {article.type.map((tag) => (
-                        <Button key={tag} size={ButtonSize.S}>
-                            {tag}
-                        </Button>
-                    ))}
-                </div>
-            </div>
+        <Card className={classNames(cls.skeleton, {}, [className, cls.skeleton])}>
+            <Skeleton width="100%" height="150px" />
 
             <div className={cls.content}>
-                <AppLink to={article.id}>
-                    <Text
-                        className={cls.title}
-                        title="Some test title voluptate temporibus tempora voluptates"
-                        size={TextSize.S}
-                    />
-                </AppLink>
-                <div className={cls.views}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text text={article.views.toString()} size={TextSize.M} />
+                <div className={cls.column}>
+                    <Skeleton width="100%" height="30px" />
+                    <Skeleton width="70%" height="30px" />
                 </div>
+                <Skeleton width="100px" height="30px" />
             </div>
         </Card>
     );

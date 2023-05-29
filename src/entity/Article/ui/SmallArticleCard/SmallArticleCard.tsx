@@ -8,15 +8,24 @@ import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
 import cls from './SmallArticleCard.module.scss';
 import { Article } from '../../model/types/article';
+import { SmallArticleCardSkeleton } from './SmallArticleCardSkeleton';
 
 interface SmallArticleCardProps {
     className?: string;
-    article: Article;
+    article?: Article;
     isLoading?: boolean;
 }
 
 export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
     const { className, article, isLoading = false } = props;
+
+    if (isLoading) {
+        return <SmallArticleCardSkeleton />;
+    }
+
+    if (!article) {
+        return null;
+    }
 
     return (
         <Card className={classNames(cls.SmallArticleCard, {}, [className])}>

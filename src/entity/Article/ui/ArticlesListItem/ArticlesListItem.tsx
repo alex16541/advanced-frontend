@@ -10,8 +10,8 @@ export enum ArticlesListItemSize {
 
 interface ArticlesListItemProps {
     className?: string;
-    size: ArticlesListItemSize;
-    article: Article;
+    size?: ArticlesListItemSize;
+    article?: Article;
     isLoading?: boolean;
 }
 
@@ -22,10 +22,10 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
 
     switch (size) {
         case ArticlesListItemSize.S:
-            return <SmallArticleCard className={className} article={article} />;
+            return <SmallArticleCard className={className} article={article} isLoading={isLoading} />;
 
         case ArticlesListItemSize.L:
-            return <LargeArticleCard className={className} article={article} />;
+            return <LargeArticleCard className={className} article={article} isLoading={isLoading} />;
 
         default:
             return null;

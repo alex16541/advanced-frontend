@@ -17,7 +17,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const [view, setView] = useState(ArticlesListView.LIST);
     const { t } = useTranslation('article');
-    const articles = new Array(view === ArticlesListView.GRID ? 9 : 3).fill(article);
+
+    const articles = new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index.toString(),
+    }));
 
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>

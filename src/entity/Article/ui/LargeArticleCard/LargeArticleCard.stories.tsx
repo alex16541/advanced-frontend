@@ -20,3 +20,7 @@ export const Light = Template.bind({});
 
 export const Dark = Template.bind({});
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.decorators = [ThemeDecorator(Theme.DARK)];
+Loading.args = { ...Loading.args, isLoading: true };
