@@ -27,10 +27,6 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
             | ArticleTextBlock
             | undefined;
 
-        if (textBlock) {
-            textBlock.paragraphs = [textBlock.paragraphs[0]];
-        }
-
         return textBlock;
     }, [article?.blocks]);
 

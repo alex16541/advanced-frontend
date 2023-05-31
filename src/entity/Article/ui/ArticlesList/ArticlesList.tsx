@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { article } from 'entity/Article/mock/data';
 import cls from './ArticlesList.module.scss';
 import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
 import { Article } from '../../model/types/article';
@@ -34,7 +35,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
     const { t } = useTranslation('article');
 
     const renderArticle = (article: Article) => (
-        <ArticlesListItem className={cls.card} article={article} size={listItemSize} />
+        <ArticlesListItem key={article.id} className={cls.card} article={article} size={listItemSize} />
     );
 
     if (isLoading) {
