@@ -5,6 +5,5 @@ import { ArticlesPageErrors } from './articlesPage';
 export interface ArticlesPageSchema extends EntityState<Article> {
     isLoading?: boolean;
     error?: ArticlesPageErrors[];
-
     view: ArticlesListView;
 }

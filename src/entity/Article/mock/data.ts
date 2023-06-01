@@ -27,6 +27,7 @@ export const article: Article = {
         id: '1',
         profileId: '1',
         username: 'Caaat!',
+        // eslint-disable-next-line max-len
         avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
     },
     createdAt: '10.10.2000',

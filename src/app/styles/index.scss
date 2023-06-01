@@ -24,7 +24,7 @@
 }
 
 .page-wrapper {
-    overflow-y: auto;
+    overflow-y: scroll;
     flex-grow: 1;
     height: calc(100vh - var(--navbar-height));
     padding: 20px;

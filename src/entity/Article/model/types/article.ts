@@ -31,9 +31,9 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
 export enum ArticleType {
-    IT = 'IT',
-    ART = 'ART',
-    LIFE = 'LIFE',
+    IT = 'it',
+    ART = 'art',
+    LIFE = 'life',
 }
 
 export interface Article {
