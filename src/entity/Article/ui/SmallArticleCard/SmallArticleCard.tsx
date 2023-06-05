@@ -47,11 +47,7 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
 
             <div className={cls.content}>
                 <AppLink to={article.id}>
-                    <Text
-                        className={cls.title}
-                        title="Some test title voluptate temporibus tempora voluptates"
-                        size={TextSize.S}
-                    />
+                    <Text className={cls.title} title={article.title} size={TextSize.S} />
                 </AppLink>
                 <div className={cls.views}>
                     <Icon Svg={EyeIcon} className={cls.icon} />

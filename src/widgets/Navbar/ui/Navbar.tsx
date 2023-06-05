@@ -1,11 +1,10 @@
+import { getAuthData, userActions } from 'entity/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { FC, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAuthData, userActions } from 'entity/User';
-import { Text } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -25,28 +24,22 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <nav className={cls.links}>
                     <Button theme={ButtonThemes.PRIMARY}>/</Button>
-                    <Button
-                        theme={ButtonThemes.PRIMARY}
-                        onClick={logout}
-                    >
+                    <Button theme={ButtonThemes.PRIMARY} onClick={logout}>
                         {t('logout')}
                     </Button>
                 </nav>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <nav className={cls.links}>
                 <div>/</div>
-                <Button
-                    theme={ButtonThemes.PRIMARY}
-                    onClick={() => setIsAuthModal(true)}
-                >
+                <Button theme={ButtonThemes.PRIMARY} onClick={() => setIsAuthModal(true)}>
                     {t('login')}
                 </Button>
 
@@ -56,6 +49,6 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
                     onSuccess={() => setIsAuthModal(false)}
                 />
             </nav>
-        </div>
+        </header>
     );
 });

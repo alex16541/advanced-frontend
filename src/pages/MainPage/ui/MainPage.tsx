@@ -1,12 +1,13 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
-import { Text, TextThemes } from 'shared/ui/Text/Text';
+import { Page } from 'shared/ui/Page/Page';
+import { Text } from 'shared/ui/Text/Text';
 
 const MainPage = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="page">
+        <Page className="page">
             <div className="title">{t('main page title')}</div>
             <Text
                 text="test Lorem ipsum dolor
@@ -14,7 +15,7 @@ const MainPage = () => {
                 elit. Numquam, quidem?"
             />
             <BugButton />
-        </div>
+        </Page>
     );
 };
 

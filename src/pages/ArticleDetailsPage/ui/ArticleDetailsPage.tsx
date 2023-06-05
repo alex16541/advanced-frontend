@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleCommentsList } from 'features/ArticleCommentsList';
 import { Button } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -34,13 +35,15 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <header className={cls.header}>
-                <Button onClick={onBack}>{t('back')}</Button>
-            </header>
-            <ArticleDetails id={id} />
-            <ArticleCommentsList className={cls.comments__list} articleId={id} />
-        </div>
+        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <div className={cls.container}>
+                <header className={cls.header}>
+                    <Button onClick={onBack}>{t('back')}</Button>
+                </header>
+                <ArticleDetails id={id} />
+                <ArticleCommentsList className={cls.comments__list} articleId={id} />
+            </div>
+        </Page>
     );
 });
 

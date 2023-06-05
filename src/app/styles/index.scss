@@ -23,11 +23,9 @@
     display: flex;
 }
 
-.page-wrapper {
-    overflow-y: scroll;
+.router {
     flex-grow: 1;
     height: calc(100vh - var(--navbar-height));
-    padding: 20px;
 }
 
 .title {

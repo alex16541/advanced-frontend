@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { article } from 'entity/Article/mock/data';
 import cls from './ArticlesList.module.scss';
 import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
 import { Article } from '../../model/types/article';
@@ -23,7 +22,7 @@ const itemSizeByView: Record<ArticlesListView, ArticlesListItemSize> = {
     [ArticlesListView.LIST]: ArticlesListItemSize.L,
 };
 
-const getSkeleton = (size: ArticlesListItemSize) => new Array(size === ArticlesListItemSize.S ? 9 : 3)
+const getSkeleton = (size: ArticlesListItemSize) => new Array(size === ArticlesListItemSize.S ? 12 : 3)
     .fill(0)
     .map((item, index) => <ArticlesListItem key={index} className={cls.card} size={size} isLoading />);
 
@@ -38,15 +37,10 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         <ArticlesListItem key={article.id} className={cls.card} article={article} size={listItemSize} />
     );
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>{getSkeleton(listItemSize)}</div>
-        );
-    }
-
     return (
         <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-            {articles.length > 0 ? articles.map(renderArticle) : t('no articles')}
+            {articles.length > 0 ? articles.map(renderArticle) : !isLoading && t('no articles')}
+            {isLoading && getSkeleton(listItemSize)}
         </div>
     );
 });

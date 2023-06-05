@@ -61,7 +61,7 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
                     ))}
                 </div>
             </div>
-            <Text className={cls.title} title="Some test title voluptate temporibus tempora voluptates" />
+            <Text className={cls.title} title={article.title} />
             {firstParagraph && <ArticleTextBlockComponent className={cls.text} articleBlock={firstParagraph} />}
             <div className={cls.actions}>
                 <Button className={cls.button} onClick={onReadMore}>

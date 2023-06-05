@@ -18,6 +18,7 @@ import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
 import { useOnInit } from 'shared/hooks/useOnInit';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -154,7 +155,7 @@ const ProfilePage = () => {
     );
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div>
+            <Page>
                 <ProfilePageHeader />
                 <ProfileCard
                     data={form}
@@ -173,7 +174,7 @@ const ProfilePage = () => {
                     onChangePhoto={onChangePhoto}
                     onChangeCurrency={onChangeCurrency}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

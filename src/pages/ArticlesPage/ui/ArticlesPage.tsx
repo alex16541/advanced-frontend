@@ -1,20 +1,21 @@
-import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleViewSwitcher, ArticlesList, ArticlesListView } from 'entity/Article';
-import { Text } from 'shared/ui/Text/Text';
+import { ReactNode, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useOnInit } from 'shared/hooks/useOnInit';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import cls from './ArticlesPage.module.scss';
-import { articlesPageActions, articlesPageReducer, articlesPageSelectors } from '../model/slices/articlesPageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useOnInit } from 'shared/hooks/useOnInit';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from 'shared/ui/Page/Page';
+import { Text } from 'shared/ui/Text/Text';
 import {
     selectArticlesPageErrors,
     selectArticlesPageIsLoading,
     selectArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { articlesPageActions, articlesPageReducer, articlesPageSelectors } from '../model/slices/articlesPageSlice';
+import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -33,10 +34,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useSelector(selectArticlesPageView);
     const errors = useSelector(selectArticlesPageErrors);
 
-    useOnInit(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList());
-    });
+    const loadNextPage = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
     const onViewSwitch = useCallback(
         (view: ArticlesListView) => {
@@ -45,15 +45,26 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         [dispatch],
     );
 
+    useOnInit(() => {
+        dispatch(articlesPageActions.initState());
+        loadNextPage();
+    });
+
+    let content: ReactNode = <ArticlesList view={view} articles={articles} isLoading={isLoading} />;
+
+    if (errors.length > 0) {
+        content = <Text title={t('Articles page loading error')} />;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page className={classNames(cls.ArticlesPage, {}, [className])} onEndOfPage={loadNextPage}>
                 <div className={cls.header}>
                     <Text title={t('Article list')} />
                     <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
                 </div>
-                <ArticlesList view={view} articles={articles} isLoading={isLoading} />
-            </div>
+                {content}
+            </Page>
         </DynamicModuleLoader>
     );
 };

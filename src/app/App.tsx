@@ -23,7 +23,7 @@ const App = () => {
                         <Navbar />
                         <div className="content-page">
                             <Sidebar />
-                            <AppRouter className="page-wrapper" />
+                            <AppRouter className="router" />
                         </div>
                     </div>
                 ) : (
