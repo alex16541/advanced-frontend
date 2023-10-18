@@ -6,7 +6,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useOnInit } from 'shared/hooks/useOnInit';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
 import {
     selectArticlesPageErrors,
@@ -14,6 +14,7 @@ import {
     selectArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageActions, articlesPageReducer, articlesPageSelectors } from '../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 
@@ -46,8 +47,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     );
 
     useOnInit(() => {
-        dispatch(articlesPageActions.initState());
-        loadNextPage();
+        dispatch(initArticlesPage());
     });
 
     let content: ReactNode = <ArticlesList view={view} articles={articles} isLoading={isLoading} />;
@@ -57,7 +57,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
             <Page className={classNames(cls.ArticlesPage, {}, [className])} onEndOfPage={loadNextPage}>
                 <div className={cls.header}>
                     <Text title={t('Article list')} />

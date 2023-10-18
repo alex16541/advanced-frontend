@@ -4,19 +4,16 @@ import {
 import { couterReducer } from 'entity/Counter';
 import { userReducer } from 'entity/User';
 import { $api } from 'shared/api/api';
-import { NavigateFunction } from 'react-router-dom';
+import { ScrollReducer } from 'widgets/Page';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(
-    initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: NavigateFunction,
-) {
+export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: couterReducer,
         user: userReducer,
+        scroll: ScrollReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -29,7 +26,6 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     api: $api,
-                    navigate,
                 },
             },
         }),

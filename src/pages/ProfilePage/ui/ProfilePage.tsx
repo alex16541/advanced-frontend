@@ -18,7 +18,7 @@ import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
 import { useOnInit } from 'shared/hooks/useOnInit';
 import { useParams } from 'react-router-dom';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {

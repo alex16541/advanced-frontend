@@ -10,11 +10,12 @@ import { UserSchema } from 'entity/User';
 import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { NavigateFunction } from 'react-router-dom';
+import { ScrollSchema } from 'widgets/Page';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scroll: ScrollSchema;
 
     // Async
     loginForm?: LoginSchema;
@@ -25,7 +26,6 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema;
-
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (state: StateSchema, actions: AnyAction) => CombinedState<StateSchema>;
@@ -39,7 +39,6 @@ export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T> {

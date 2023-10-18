@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleCommentsList } from 'features/ArticleCommentsList';
 import { Button } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
