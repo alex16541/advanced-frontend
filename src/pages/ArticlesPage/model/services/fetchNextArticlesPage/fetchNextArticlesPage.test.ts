@@ -20,7 +20,15 @@ describe('fetchNextArticlesPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(3);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3, limit: 3 });
+        expect(fetchArticlesList).toHaveBeenCalledWith({
+            page: 3,
+            limit: 3,
+            order: 'asc',
+            sort: 'title',
+            type: undefined,
+            query: undefined,
+            replace: false,
+        });
     });
 
     test('fetchArticlesList not called', async () => {

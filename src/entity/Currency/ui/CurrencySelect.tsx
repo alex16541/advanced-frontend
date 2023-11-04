@@ -11,7 +11,7 @@ interface CurrencySelectProps {
     onChangeValue?: (value: Currency) => void;
 }
 
-const currencyOptions: SelectOption[] = [
+const currencyOptions: SelectOption<Currency>[] = [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
     { value: Currency.USD, content: Currency.USD },
@@ -19,18 +19,15 @@ const currencyOptions: SelectOption[] = [
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props: CurrencySelectProps) => {
     const {
-        className,
-        label,
-        placeholder,
-        readonly,
-        value,
-        onChangeValue,
-        ...otherProps
+        className, label, placeholder, readonly, value, onChangeValue, ...otherProps
     } = props;
 
-    const onChangeHendler = useCallback((value: string) => {
-        onChangeValue?.(value as Currency);
-    }, [onChangeValue]);
+    const onChangeHendler = useCallback(
+        (value: string) => {
+            onChangeValue?.(value as Currency);
+        },
+        [onChangeValue],
+    );
 
     return (
         <Select

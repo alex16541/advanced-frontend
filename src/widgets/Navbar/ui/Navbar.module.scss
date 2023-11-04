@@ -2,7 +2,11 @@
     width: 100%;
     height: var(--navbar-height);
     padding: 0 15px;
+
     background-color: var(--secondary-bg-color);
+
+    transition: var(--transition);
+    transition-duration: var(--transition-duration);
 }
 
 .links {

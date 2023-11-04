@@ -1,7 +1,11 @@
 .Button {
     padding: 0.5rem 1rem;
-    border: none;
+
+    border: 1px solid transparent;
     border-radius: 3px;
+
+    transition: var(--transition);
+    transition-duration: var(--transition-duration);
 
     &:disabled {
         cursor: auto;
@@ -46,7 +50,7 @@
 .outlined {
     color: var(--primary-color);
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border-color: var(--primary-color);
 
     &:not(:disabled):hover {
         color: var(--contrast-color);

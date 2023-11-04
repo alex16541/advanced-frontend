@@ -29,6 +29,10 @@
     // z-indexes
     --modal-z-index: 10;
 
+    // transition
+    --transition: background-color, color, border, opacity;
+    --transition-duration: 0.2s;
+
     // colors
     --backdrop-color: #0008;
 

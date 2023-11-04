@@ -1,4 +1,9 @@
 .Select {
+    width: 100%;
+}
+
+.input {
+    width: 100%;
     min-width: 278px;
     padding: 0 5px;
 
@@ -18,7 +23,7 @@
     }
 }
 
-.readonly {
+.readonly .input {
     color: var(--primary-color);
     border-bottom: 2px solid transparent;
 
@@ -29,10 +34,6 @@
     &:disabled {
         opacity: 1;
     }
-}
-
-.wrapper{
-
 }
 
 .label {

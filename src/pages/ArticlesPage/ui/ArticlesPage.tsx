@@ -8,6 +8,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
+import { ArticleSearch } from 'features/ArticleSearch';
+import { ArticlesFilters } from 'features/ArticlesFilters';
+import { useSearchParams } from 'react-router-dom';
 import {
     selectArticlesPageErrors,
     selectArticlesPageIsLoading,
@@ -34,6 +37,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(selectArticlesPageIsLoading);
     const view = useSelector(selectArticlesPageView);
     const errors = useSelector(selectArticlesPageErrors);
+    const [searchParams] = useSearchParams();
 
     const loadNextPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -47,7 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     );
 
     useOnInit(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     let content: ReactNode = <ArticlesList view={view} articles={articles} isLoading={isLoading} />;
@@ -62,6 +66,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 <div className={cls.header}>
                     <Text title={t('Article list')} />
                     <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
+                </div>
+                <div className={cls.filters}>
+                    <ArticleSearch />
+                    <ArticlesFilters />
                 </div>
                 {content}
             </Page>

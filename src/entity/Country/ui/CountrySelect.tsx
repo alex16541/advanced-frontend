@@ -11,7 +11,7 @@ interface CountrySelectProps {
     onChangeValue?: (value: Country) => void;
 }
 
-const countryOptions: SelectOption[] = [
+const countryOptions: SelectOption<Country>[] = [
     { value: Country.Franc, content: Country.Franc },
     { value: Country.Italy, content: Country.Italy },
     { value: Country.Russia, content: Country.Russia },
@@ -21,18 +21,15 @@ const countryOptions: SelectOption[] = [
 
 export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectProps) => {
     const {
-        className,
-        label,
-        placeholder,
-        readonly,
-        value,
-        onChangeValue,
-        ...otherProps
+        className, label, placeholder, readonly, value, onChangeValue, ...otherProps
     } = props;
 
-    const onChangeHendler = useCallback((value: string) => {
-        onChangeValue?.(value as Country);
-    }, [onChangeValue]);
+    const onChangeHendler = useCallback(
+        (value: string) => {
+            onChangeValue?.(value as Country);
+        },
+        [onChangeValue],
+    );
 
     return (
         <Select

@@ -11,12 +11,15 @@ export type ReducersList = {
 type ReducersListEntry = [name: StateSchemaKey, reducer: Reducer];
 
 interface DynamicModuleLoaderProps {
-    reducers: ReducersList;
+    className?: string;
     removeAfterUnmout?: boolean;
+    reducers: ReducersList;
 }
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
-    const { reducers, children, removeAfterUnmout = true } = props;
+    const {
+        className, reducers, children, removeAfterUnmout = true,
+    } = props;
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
 
@@ -42,5 +45,5 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         };
     });
 
-    return <div>{children}</div>;
+    return <div className={className}>{children}</div>;
 };
