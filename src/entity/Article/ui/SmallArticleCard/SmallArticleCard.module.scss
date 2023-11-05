@@ -1,6 +1,7 @@
 .SmallArticleCard {
     min-width: 300px;
     max-width: 300px;
+    transition-duration: var(--transition-duration);
 
     .imageWrapper {
         position: relative;
@@ -29,7 +30,7 @@
 
         opacity: 0;
 
-        transition: 0.2s;
+        transition-duration: var(--transition-duration);
     }
 
     .date {
@@ -47,7 +48,7 @@
 
         opacity: 0;
 
-        transition: 0.2s;
+        transition-duration: var(--transition-duration);
     }
 
     .content {
@@ -101,10 +102,6 @@
 
         .tags {
             opacity: 1;
-        }
-
-        .img {
-            transform: scale(1.05);
         }
     }
 }
