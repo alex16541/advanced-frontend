@@ -4,12 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:i18next/recommended',
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:i18next/recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'airbnb'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -29,16 +24,13 @@ module.exports = {
             2,
             {
                 ignore: ['test'],
-                ignoreAttribute: ['to', 'reducerKey', 'data-testid'],
+                ignoreAttribute: ['to', 'reducerKey', 'data-testid', 'target'],
                 markupOnly: true,
             },
         ],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/jsx-no-bind': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',

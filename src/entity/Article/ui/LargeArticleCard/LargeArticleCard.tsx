@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Button, ButtonSize } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './LargeArticleCard.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { LargeArticleCardSkeleton } from './LargeArticleCardSkeleton';
@@ -29,12 +30,6 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
 
         return textBlock;
     }, [article?.blocks]);
-
-    const onReadMore = useCallback(() => {
-        if (article) {
-            navigate(article.id);
-        }
-    }, [article, navigate]);
 
     if (isLoading) {
         return <LargeArticleCardSkeleton />;
@@ -64,9 +59,9 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
             <Text className={cls.title} title={article.title} />
             {firstParagraph && <ArticleTextBlockComponent className={cls.text} articleBlock={firstParagraph} />}
             <div className={cls.actions}>
-                <Button className={cls.button} onClick={onReadMore}>
-                    {t('read more')}
-                </Button>
+                <AppLink hover={false} to={`/articles/${article.id}`}>
+                    <Button className={cls.button}>{t('read more')}</Button>
+                </AppLink>
                 <div className={cls.views}>
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <Text text={article.views.toString()} size={TextSize.M} />

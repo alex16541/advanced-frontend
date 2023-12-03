@@ -1,12 +1,14 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Article, ArticlesListView } from 'entity/Article';
+import { Article, ArticlesListCountPeerView, ArticlesListView } from 'entity/Article';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ARTICLES_PAGE_VIEW } from 'shared/const/localstorage';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { initArticlesPage } from '../services/initArticlesPage/initArticlesPage';
 
 const initialState: ArticlesPageSchema = {
     isLoading: false,
+    isInitialLoading: false,
     entities: {},
     ids: [],
     error: [],
@@ -39,14 +41,17 @@ export const articlesPageSlice = createSlice({
         setHasMore(state, action: PayloadAction<boolean>) {
             state.hasMore = action.payload;
         },
-        setView(state, action: PayloadAction<ArticlesListView>) {
-            state.view = action.payload;
-            localStorage.setItem(ARTICLES_PAGE_VIEW, action.payload);
+        setView(state, { payload }: PayloadAction<ArticlesListView>) {
+            state.view = payload;
+            state.limit = ArticlesListCountPeerView[payload];
+            state.page = 0;
+            articlesPageAdapter.removeAll(state);
+            localStorage.setItem(ARTICLES_PAGE_VIEW, payload);
         },
         initState(state) {
             const view = localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticlesListView;
             state.view = view;
-            state.limit = view === ArticlesListView.LIST ? 3 : 12;
+            state.limit = ArticlesListCountPeerView[view];
             state._inited = true;
         },
     },
@@ -70,6 +75,15 @@ export const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
+            })
+            .addCase(initArticlesPage.pending, (state) => {
+                state.isInitialLoading = true;
+            })
+            .addCase(initArticlesPage.fulfilled, (state) => {
+                state.isInitialLoading = false;
+            })
+            .addCase(initArticlesPage.rejected, (state) => {
+                state.isInitialLoading = false;
             });
     },
 });

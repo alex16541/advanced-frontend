@@ -22,7 +22,6 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
             const sort = searchParams.get('sort') as ArticleSortField;
             const type = searchParams.get('type') as ArticleType;
             const search = searchParams.get('search');
-            console.log('init', type);
             dispatch(articlesFiltersActions.initFilters({ order, sort, type }));
             dispatch(articleSearchActions.setValue(search ?? ''));
             dispatch(articlesPageActions.initState());

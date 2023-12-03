@@ -11,6 +11,7 @@ import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
 import { ArticleSearchSchema } from 'features/ArticleSearch/model/types/articleSearchSchema';
 import { ArticlesFiltersSchema } from 'features/ArticlesFilters/model/types/ArticlesFiltersSchema';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSchema } from 'widgets/Page';
 
@@ -22,8 +23,11 @@ export interface StateSchema {
     // Async
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
+
+    // Article
     articleDetails?: ArticleDetailsSchema;
     articleComments?: ArticleCommentsSchema;
+    articleRecommendations?: ArticleDetailsRecommendationsSchema;
     articlesPage?: ArticlesPageSchema;
     articleSearch?: ArticleSearchSchema;
     articlesFilters?: ArticlesFiltersSchema;

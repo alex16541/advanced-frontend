@@ -11,6 +11,28 @@
     background-color: var(--primary-bg-color);
 }
 
+* {
+    &::-webkit-scrollbar {
+        width: 15px;
+        height: 12px;
+
+        &-thumb {
+            background-color: var(--secondary-bg-color);
+        }
+
+        &-track {
+            background-color: var(--card-bg-color);
+            border-radius: 3px;
+        }
+
+        // &-button {
+        //     content: ">";
+        //     color: var(--primary-color);
+        //     background-color: var(--secondary-bg-color);
+        // }
+    }
+}
+
 .app {
     height: 100vh;
 }

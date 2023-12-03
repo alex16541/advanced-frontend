@@ -13,6 +13,7 @@ import { ArticlesFilters } from 'features/ArticlesFilters';
 import { useSearchParams } from 'react-router-dom';
 import {
     selectArticlesPageErrors,
+    selectArticlesPageIsInitialLoading,
     selectArticlesPageIsLoading,
     selectArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
@@ -35,6 +36,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(articlesPageSelectors.selectAll);
     const isLoading = useSelector(selectArticlesPageIsLoading);
+    const isInitialLoading = useSelector(selectArticlesPageIsInitialLoading);
     const view = useSelector(selectArticlesPageView);
     const errors = useSelector(selectArticlesPageErrors);
     const [searchParams] = useSearchParams();
@@ -68,7 +70,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
                 </div>
                 <div className={cls.filters}>
-                    <ArticleSearch />
+                    <ArticleSearch isLoading={isInitialLoading} />
                     <ArticlesFilters />
                 </div>
                 {content}

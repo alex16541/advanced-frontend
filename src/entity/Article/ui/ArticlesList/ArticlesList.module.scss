@@ -16,3 +16,12 @@
 .list_view {
     max-width: 900px;
 }
+
+.carusel_view {
+    overflow: auto hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    width: 100%;
+    padding: 15px 10px;
+}
