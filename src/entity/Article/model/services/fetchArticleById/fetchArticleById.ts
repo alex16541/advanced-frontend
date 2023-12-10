@@ -10,10 +10,9 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<Ar
         try {
             const state = getState();
 
-            const data = {};
             const response = await extra.api.get<Article>(`/articles/${id}`, {
                 params: {
-                    _extend: 'user',
+                    _expand: 'user',
                 },
             });
 

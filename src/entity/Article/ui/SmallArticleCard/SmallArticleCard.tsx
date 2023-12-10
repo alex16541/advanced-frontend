@@ -36,7 +36,7 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
             target={target}
             className={classNames(cls.SmallArticleCard, {}, [className])}
         >
-            <Card>
+            <Card className={cls.cardWrapper}>
                 <div className={cls.imageWrapper}>
                     <img className={cls.img} src={article.img} alt="test mountains" />
                     <div className={cls.dateWrapper}>

@@ -1,28 +1,26 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { ArticleDetails, ArticlesList, ArticlesListView } from 'entity/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleCommentsList } from 'features/ArticleCommentsList';
-import { Button } from 'shared/ui/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
-import { SmallArticleCard } from 'entity/Article/ui/SmallArticleCard/SmallArticleCard';
 import { useOnInit } from 'shared/hooks/useOnInit';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import cls from './ArticleDetailsPage.module.scss';
 import {
     articleDetailsRecommendationsReducer,
     getArticleRecommendations,
-} from '../model/slices/articleDetailsRecommendations';
+} from '../../model/slices/articleDetailsRecommendations';
 import {
     selectArticleRecommendationsIsLoading,
     selectArticleRecommendationsError,
-} from '../model/selectors/recommendations';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
+} from '../../model/selectors/recommendations';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -36,7 +34,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const { className } = props;
     let { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
-    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const isRecommendationsLoading = useAppSelector(selectArticleRecommendationsIsLoading);
     const recommendationsError = useAppSelector(selectArticleRecommendationsError);
@@ -45,10 +42,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     useOnInit(() => {
         dispatch(fetchArticleRecommendations());
     });
-
-    const onBack = () => {
-        navigate(RoutePath.articles);
-    };
 
     if (__PROJECT__ === 'storybook') id = '1';
 
@@ -64,9 +57,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
                 <div className={cls.container}>
-                    <header className={cls.header}>
-                        <Button onClick={onBack}>{t('back')}</Button>
-                    </header>
+                    <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <div className={cls.recommendations}>
                         <Text title={t('recommendations')} />

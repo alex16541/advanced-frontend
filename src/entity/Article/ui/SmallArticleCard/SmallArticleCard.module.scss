@@ -2,7 +2,11 @@
     width: 300px;
     min-width: 300px;
     max-width: 300px;
-    transition-duration: var(--transition-duration);
+    transition: transform var(--transition-duration);
+
+    .cardWrapper {
+        height: 100%;
+    }
 
     .imageWrapper {
         position: relative;
