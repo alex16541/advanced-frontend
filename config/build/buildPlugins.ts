@@ -1,15 +1,16 @@
-import htmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
+import CopyPlugin from 'copy-webpack-plugin';
 
 function buildPlugins({
     paths, isDev, isAnalyze, apiUrl, project,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins: WebpackPluginInstance[] = [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: paths.html,
         }),
         new ProgressPlugin(),
@@ -21,6 +22,11 @@ function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+        }),
+        new CopyPlugin({
+            patterns: [
+                {from: 'public/locales', to: 'locales'}
+            ]
         }),
     ];
 
