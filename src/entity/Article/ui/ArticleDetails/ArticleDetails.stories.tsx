@@ -6,7 +6,7 @@ import {
     ArticleType,
     ArticleBlockType,
     ArticleErrors,
-} from 'entity/Article/model/types/article';
+} from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {

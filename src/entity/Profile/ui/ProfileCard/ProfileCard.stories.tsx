@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
-import { ProfileErrors } from 'entity/Profile/model/types/profile';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import AvatarImg from 'shared/assets/tests/Avatar.jpeg';
 import { ProfileCard } from './ProfileCard';
+import { ProfileErrors } from '../../model/types/profile';
 
 export default {
     title: 'entity/ProfileCard',

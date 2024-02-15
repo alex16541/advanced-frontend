@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ProfileSchema } from 'entity/Profile';
-import { ProfileErrors } from '../../types/profile';
+import { ProfileErrors, ProfileSchema } from '../../types/profile';
 import { getProfileForm } from './getProfileForm';
 
 describe('getProfileForm', () => {

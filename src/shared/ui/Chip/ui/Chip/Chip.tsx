@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback } from 'react';
-import { Button, ButtonThemes } from 'shared/ui/Button';
+import { Button, ButtonThemes } from '../../../../ui/Button';
 import cls from './Chip.module.scss';
 
 export interface ChipProps<T> {

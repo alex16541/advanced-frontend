@@ -1,5 +1,5 @@
 import { ArticleType } from 'entity/Article';
-import { ArticleTypeChip } from 'features/ArticlesFilters/ui/ArticlesFilters';
+import { ArticleTypeChip } from '../../ui/ArticlesFilters';
 
 export const typeOptions: ArticleTypeChip[] = [
     { value: ArticleType.ALL, label: 'Все темы' },

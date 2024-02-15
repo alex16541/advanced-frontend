@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    FC, ButtonHTMLAttributes, memo, ReactNode, ReactElement,
+    FC, ButtonHTMLAttributes, memo,
 } from 'react';
-import { Loader } from 'shared/ui/Loader';
+import { Loader } from '../../../ui/Loader';
 import cls from './Button.module.scss';
 
 export enum ButtonThemes {

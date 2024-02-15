@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ProfileSchema } from 'entity/Profile';
+import { ProfileSchema } from '../../../model/types/profile';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData', () => {

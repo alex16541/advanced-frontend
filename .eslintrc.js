@@ -13,7 +13,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', 'react-hooks', '@typescript-eslint', 'i18next'],
+    plugins: ['react', 'react-hooks', '@typescript-eslint', 'i18next', 'alex16541-fsd-imports-path-checker'],
     rules: {
         indent: [2, 4, { SwitchCase: 1 }],
         'import/extensions': 'off',
@@ -50,6 +50,7 @@ module.exports = {
         'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
+        'alex16541-fsd-imports-path-checker/relative-path-checker': 'error',
     },
     globals: {
         __IS_DEV__: 'readonly',

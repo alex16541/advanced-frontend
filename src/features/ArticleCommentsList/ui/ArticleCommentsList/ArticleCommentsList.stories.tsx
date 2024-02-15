@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ArticleCommentsErrors } from 'features/ArticleCommentsList/model/types/articleCommentList';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import ArticleCommentsList from './ArticleCommentsList';
+import { ArticleCommentsErrors } from '../../model/types/articleCommentList';
 
 export default {
     title: 'features/ArticleCommentsList',

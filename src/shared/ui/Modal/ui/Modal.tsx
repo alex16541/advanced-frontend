@@ -2,7 +2,7 @@ import {
     ReactNode, useEffect, useCallback, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal';
+import { Portal } from '../../../ui/Portal';
 import cls from './Modal.module.scss';
 
 const ANIMATION_DURATION = 200;

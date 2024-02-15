@@ -3,8 +3,8 @@ import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import { BuildOptions } from './types/config';
 import CopyPlugin from 'copy-webpack-plugin';
+import { BuildOptions } from './types/config';
 
 function buildPlugins({
     paths, isDev, isAnalyze, apiUrl, project,
@@ -25,8 +25,8 @@ function buildPlugins({
         }),
         new CopyPlugin({
             patterns: [
-                {from: 'public/locales', to: 'locales'}
-            ]
+                { from: 'public/locales', to: 'locales' },
+            ],
         }),
     ];
 
