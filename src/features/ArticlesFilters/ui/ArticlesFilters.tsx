@@ -45,7 +45,6 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
     const order = useAppSelector(selectArticlesFiltersOrder);
     const sort = useAppSelector(selectArticlesFiltersSort);
     const type = useAppSelector(selectArticlesFiltersType);
-    console.log('cmp', type);
 
     const fetchDatat = useCallback(() => {
         dispatch(fetchNextArticlesPage({ replace: true }));

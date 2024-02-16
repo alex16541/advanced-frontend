@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useMemo } from 'react';
 import { useSet } from 'shared/hooks/useSet';
-import cls from './ChipList.module.scss';
+import { HStack } from '../../../Stack';
 import { Chip, ChipProps } from '../Chip/Chip';
 
 export type ChipListOption<T> = Omit<ChipProps<T>, 'onClick'>;
@@ -46,7 +46,7 @@ function ChipList<T extends string>(props: ChipListProps<T>) {
         [onClickHandler, options, selectedOptions],
     );
 
-    return <div className={classNames(cls.ChipList, {}, [className])}>{chips}</div>;
+    return <HStack gap="10" justify="Start" className={classNames('', {}, [className])}>{chips}</HStack>;
 }
 
 export { ChipList };
