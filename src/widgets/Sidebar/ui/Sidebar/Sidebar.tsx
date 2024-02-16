@@ -28,15 +28,15 @@ export const Sidebar = memo((props: SidebarProps) => {
     }
 
     return (
-        <menu data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+        <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <VStack gap="16" justify="Start">{itemList}</VStack>
             <Button data-testid="sidebar-toggle" theme={ButtonThemes.PRIMARY} onClick={onToggle} className={cls.toggle}>
                 {collapsed ? '>' : '<'}
             </Button>
-            <VStack gap="10" max className={cls.actions}>
+            <VStack gap="10" max role="navigation" className={cls.actions}>
                 <ThemeSwitcher data-testid="theme-switcher" />
                 <TranslateSwitcher />
             </VStack>
-        </menu>
+        </aside>
     );
 });
