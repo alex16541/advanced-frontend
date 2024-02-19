@@ -1,5 +1,5 @@
-import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { FC, memo, useCallback } from 'react';
+import { ListBoxOption, ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../model/types/currency';
 
 interface CurrencySelectProps {
@@ -11,7 +11,7 @@ interface CurrencySelectProps {
     onChangeValue?: (value: Currency) => void;
 }
 
-const currencyOptions: SelectOption<Currency>[] = [
+const currencyOptions: ListBoxOption<Currency>[] = [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
     { value: Currency.USD, content: Currency.USD },
@@ -19,26 +19,31 @@ const currencyOptions: SelectOption<Currency>[] = [
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props: CurrencySelectProps) => {
     const {
-        className, label, placeholder, readonly, value, onChangeValue, ...otherProps
+        className,
+        label,
+        placeholder,
+        readonly,
+        value,
+        onChangeValue,
     } = props;
 
     const onChangeHendler = useCallback(
-        (value: string) => {
-            onChangeValue?.(value as Currency);
+        (value: Currency) => {
+            onChangeValue?.(value);
         },
         [onChangeValue],
     );
 
     return (
-        <Select
+        <ListBox
             className={className}
-            placeholder={placeholder}
+            defaultValue={placeholder}
             options={currencyOptions}
-            readonly={readonly}
+            disabled={readonly}
             label={label}
             value={value}
-            onChangeValue={onChangeHendler}
-            {...otherProps}
+            onChange={onChangeHendler}
         />
+
     );
 });

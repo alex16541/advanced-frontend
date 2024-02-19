@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -9,6 +9,7 @@ import { ArticleSortField, ArticleType } from 'entity/Article/model/types/articl
 import { SortOrder } from 'shared/types';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
 import { ChipList, ChipListOption } from 'shared/ui/Chip';
+import { ListBoxOption, ListBox } from 'shared/ui/ListBox/ListBox';
 import cls from './ArticlesFilters.module.scss';
 import { articlesFiltersActions, articlesFiltersReducer } from '../model/slices/articlesFiltersSlice';
 import {
@@ -26,13 +27,13 @@ interface ArticlesFilterProps {
     className?: string;
 }
 
-const sortOptions: SelectOption<ArticleSortField>[] = [
+const sortOptions: ListBoxOption<ArticleSortField>[] = [
     { value: ArticleSortField.CREATED, content: 'дате создания' },
     { value: ArticleSortField.TITLE, content: 'названию' },
     { value: ArticleSortField.VIEWS, content: 'просмотрам' },
 ];
 
-const orderOptions: SelectOption<SortOrder>[] = [
+const orderOptions: ListBoxOption<SortOrder>[] = [
     { value: 'asc', content: 'возрастанию' },
     { value: 'desc', content: 'убыванию' },
 ];
@@ -51,7 +52,7 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
     }, [dispatch]);
 
     const sortChange = useCallback(
-        (val) => {
+        (val: ArticleSortField) => {
             dispatch(articlesFiltersActions.setSort(val));
             fetchDatat();
         },
@@ -59,7 +60,7 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
     );
 
     const orderChange = useCallback(
-        (val) => {
+        (val: SortOrder) => {
             dispatch(articlesFiltersActions.setOrder(val));
             fetchDatat();
         },
@@ -85,19 +86,19 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
             removeAfterUnmout={false}
         >
             <div className={cls.row}>
-                <Select
-                    className={cls.field}
+                <ListBox
+                    wrapperClassName={cls.field}
+                    options={sortOptions}
                     value={sort}
                     label={t('Sort by')}
-                    options={sortOptions}
-                    onChangeValue={sortChange}
+                    onChange={sortChange}
                 />
-                <Select
-                    className={cls.field}
+                <ListBox
+                    wrapperClassName={cls.field}
+                    options={orderOptions}
                     value={order}
                     label={t('Sort by')}
-                    options={orderOptions}
-                    onChangeValue={orderChange}
+                    onChange={orderChange}
                 />
             </div>
             {type && <ChipList options={typeOptions} value={type} onClick={typeChange} />}

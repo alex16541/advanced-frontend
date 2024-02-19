@@ -49,7 +49,7 @@ export interface FlexProps extends HTMLDivElementType {
     children?: ReactNode
 }
 
-const Flex = (props: FlexProps) => {
+export const Flex = (props: FlexProps) => {
     const {
         className,
         align = 'Center',
@@ -79,7 +79,3 @@ const Flex = (props: FlexProps) => {
         </div>
     );
 };
-
-const Memoized = memo(Flex);
-
-export { Memoized as Flex };

@@ -1,5 +1,5 @@
-import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { FC, memo, useCallback } from 'react';
+import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../model/types/country';
 
 interface CountrySelectProps {
@@ -11,7 +11,7 @@ interface CountrySelectProps {
     onChangeValue?: (value: Country) => void;
 }
 
-const countryOptions: SelectOption<Country>[] = [
+const countryOptions: ListBoxOption<Country>[] = [
     { value: Country.Franc, content: Country.Franc },
     { value: Country.Italy, content: Country.Italy },
     { value: Country.Russia, content: Country.Russia },
@@ -21,7 +21,12 @@ const countryOptions: SelectOption<Country>[] = [
 
 export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectProps) => {
     const {
-        className, label, placeholder, readonly, value, onChangeValue, ...otherProps
+        className,
+        label,
+        placeholder,
+        readonly,
+        value,
+        onChangeValue,
     } = props;
 
     const onChangeHendler = useCallback(
@@ -32,15 +37,14 @@ export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectP
     );
 
     return (
-        <Select
+        <ListBox
             className={className}
-            placeholder={placeholder}
+            defaultValue={placeholder}
             options={countryOptions}
-            readonly={readonly}
+            disabled={readonly}
             label={label}
             value={value}
-            onChangeValue={onChangeHendler}
-            {...otherProps}
+            onChange={onChangeHendler}
         />
     );
 });
