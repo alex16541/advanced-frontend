@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'folder/ListBox',
+    title: 'shared/ListBox',
     component: ListBox,
     args: {
         options: [

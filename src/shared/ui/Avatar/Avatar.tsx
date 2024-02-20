@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
 export enum AvatarSize {
+    XS= 30,
     S = 50,
     M = 70,
     L = 100,

@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -13,7 +15,7 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('navbar');
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getAuthData);
     const dispatch = useDispatch();
@@ -27,9 +29,20 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <nav className={cls.links}>
                     <Button theme={ButtonThemes.PRIMARY}>/</Button>
-                    <Button theme={ButtonThemes.PRIMARY} onClick={logout}>
-                        {t('logout')}
-                    </Button>
+                    <Dropdown
+                        target={(
+                            <Avatar
+                                src={authData.avatar ?? ''}
+                                alt={authData.username}
+                                size={AvatarSize.XS}
+                            />
+                        )}
+                        direction="bottom left"
+                        items={[
+                            { content: t('profile'), href: `/profile/${authData.id}` },
+                            { content: t('logout'), onClick: logout },
+                        ]}
+                    />
                 </nav>
             </header>
         );

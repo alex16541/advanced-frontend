@@ -4,7 +4,6 @@ import { Button, ButtonSize } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
@@ -22,7 +21,6 @@ interface LargeArticleCardProps {
 export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
     const { className, article, isLoading = false } = props;
     const { t } = useTranslation('article');
-    const navigate = useNavigate();
     const firstParagraph = useMemo(() => {
         const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as
             | ArticleTextBlock
