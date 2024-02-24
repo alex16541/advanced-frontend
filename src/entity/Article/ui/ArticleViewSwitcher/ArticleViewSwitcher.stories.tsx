@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticleViewSwitcher } from './ArticleViewSwitcher';
 
 export default {
-    title: 'folder/ArticleViewSwitcher',
+    title: 'entity/Article/ArticleViewSwitcher',
     component: ArticleViewSwitcher,
     args: {},
 } as ComponentMeta<typeof ArticleViewSwitcher>;

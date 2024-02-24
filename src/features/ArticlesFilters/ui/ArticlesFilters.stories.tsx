@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticlesFilters } from './ArticlesFilters';
 
 export default {
-    title: 'folder/ArticlesFilter',
+    title: 'features/ArticlesFilter',
     component: ArticlesFilters,
     args: {},
 } as ComponentMeta<typeof ArticlesFilters>;

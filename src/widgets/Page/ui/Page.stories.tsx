@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Page } from './Page';
 
 export default {
-    title: 'folder/Page',
+    title: 'widgets/Page',
     component: Page,
     args: {},
 } as ComponentMeta<typeof Page>;

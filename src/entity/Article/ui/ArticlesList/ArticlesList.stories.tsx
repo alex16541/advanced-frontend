@@ -10,7 +10,7 @@ const articles = new Array(9).fill(0).map((item, index) => ({
 }));
 
 export default {
-    title: 'folder/ArticlesList',
+    title: 'entity/Article/ArticlesList',
     component: ArticlesList,
     args: {
         articles,

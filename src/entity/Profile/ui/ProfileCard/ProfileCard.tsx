@@ -8,7 +8,8 @@ import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entity/Currency';
 import { CountrySelect } from 'entity/Country';
 import { memo, useMemo } from 'react';
-import { Profile, ProfileErrors, ProfileValidateErrors } from '../../model/types/profile';
+import { ProfileValidateErrors } from 'features/EditableProfileCard/model/types/editableProfileCardSchema';
+import { Profile, ProfileErrors } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -30,7 +31,7 @@ interface ProfileCardProps {
     onChangeCurrency?: (value: Currency) => void;
 }
 
-export const ProfileCard = memo((props: ProfileCardProps) => {
+const ProfileCard = (props: ProfileCardProps) => {
     const {
         className,
         data,
@@ -176,4 +177,8 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             </div>
         </div>
     );
-});
+};
+
+const Memoized = memo(ProfileCard);
+
+export { Memoized as ProfileCard };

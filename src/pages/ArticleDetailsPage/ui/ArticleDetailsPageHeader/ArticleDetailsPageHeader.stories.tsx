@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
-    title: 'folder/ArticleDetailsPageHeader',
+    title: 'pages/ArticleDetails/ArticleDetailsPageHeader',
     component: ArticleDetailsPageHeader,
     args: {},
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;

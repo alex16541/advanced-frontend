@@ -28,7 +28,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 
 interface ArticleDetailsProps {
     className?: string;
-    id: string;
+    articleId: string;
 }
 
 const reducers: ReducersList = {
@@ -36,7 +36,7 @@ const reducers: ReducersList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const { className, id } = props;
+    const { className, articleId } = props;
 
     const dispatch = useAppDispatch();
 
@@ -53,8 +53,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
 
     useOnInit(() => {
-        if (id) {
-            fetchArticle(id);
+        if (articleId) {
+            fetchArticle(articleId);
         }
     });
 

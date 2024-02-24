@@ -32,7 +32,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
+const Button: FC<ButtonProps> = (props: ButtonProps) => {
     const {
         className,
         children,
@@ -62,4 +62,8 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
             </div>
         </button>
     );
-});
+};
+
+const Memoized = memo(Button);
+
+export { Memoized as Button };

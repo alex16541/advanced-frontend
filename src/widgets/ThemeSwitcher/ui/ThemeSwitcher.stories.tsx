@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
-    title: 'widget/ThemeSwitcher',
+    title: 'widgets/ThemeSwitcher',
     component: ThemeSwitcher,
 };
 

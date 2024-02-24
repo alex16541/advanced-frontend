@@ -15,7 +15,7 @@ import {
 } from '../../model/selectors/articleCommentsList';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleCommentsList.module.scss';
-import { NewArticleCommentForm } from '../NewArticleCommentForm/NewArticleCommentForm';
+import { ArticleCommentsListForm } from '../ArticleCommentsListForm/ArticleCommentsListForm';
 
 export interface ArticleCommentsListProps {
     className?: string;
@@ -73,7 +73,7 @@ const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     } else {
         content = (
             <>
-                <NewArticleCommentForm onCommentAdded={onCommentAdded} />
+                <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
                 <CommentList comments={commentsData} />
             </>
         );

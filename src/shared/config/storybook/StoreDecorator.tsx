@@ -3,13 +3,14 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slices/loginSlice';
-import { profileReducer } from 'entity/Profile';
+
 import { articleDetailsReducer } from 'entity/Article/model/slices/articleDetailsSlice';
 import { articleCommentsReducer } from 'features/ArticleCommentsList/model/slices/articleCommentsListSlice';
+import { editableProfileCardReducer } from 'features/EditableProfileCard';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
-    profile: profileReducer,
+    editableProfileCard: editableProfileCardReducer,
     articleDetails: articleDetailsReducer,
     articleComments: articleCommentsReducer,
 };

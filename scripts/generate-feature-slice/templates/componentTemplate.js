@@ -9,7 +9,7 @@ interface ${featureName}Props {
     className?: string;
 }
 
-export const ${featureName} = memo((props: ${featureName}Props) => {
+const ${featureName} = (props: ${featureName}Props) => {
     const { className } = props;
 
     return (
@@ -18,6 +18,10 @@ export const ${featureName} = memo((props: ${featureName}Props) => {
         </div>
     );
 });
+
+const Memoized = memo(${featureName});
+
+export { Memoized as ${featureName} }
 `;
 }
 

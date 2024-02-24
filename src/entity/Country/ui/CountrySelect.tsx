@@ -19,7 +19,7 @@ const countryOptions: ListBoxOption<Country>[] = [
     { value: Country.Japan, content: Country.Japan },
 ];
 
-export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectProps) => {
+const CountrySelect: FC<CountrySelectProps> = (props: CountrySelectProps) => {
     const {
         className,
         label,
@@ -47,4 +47,8 @@ export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectP
             onChange={onChangeHendler}
         />
     );
-});
+};
+
+const Memoized = memo(CountrySelect);
+
+export { Memoized as CountrySelect };

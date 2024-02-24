@@ -1,8 +1,8 @@
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Story } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import LoginForm from './LoginForm';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'features/LoginForm',

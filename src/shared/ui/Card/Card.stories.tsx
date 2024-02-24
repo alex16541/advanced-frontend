@@ -5,7 +5,7 @@ import { Text } from '../Text/Text';
 import { Card } from './Card';
 
 export default {
-    title: 'folder/Card',
+    title: 'shared/Card',
     component: Card,
     args: {
         children: <Text text="Some card with text" />,

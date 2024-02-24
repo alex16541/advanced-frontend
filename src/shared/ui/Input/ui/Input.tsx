@@ -16,7 +16,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export const Input: FC<InputProps> = memo((props: InputProps) => {
+const Input: FC<InputProps> = (props: InputProps) => {
     const {
         className,
         theme = InputThemes.PRIMARY,
@@ -44,4 +44,8 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
             {...otherProps}
         />
     );
-});
+};
+
+const Memoized = memo(Input);
+
+export { Memoized as Input };

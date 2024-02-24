@@ -17,7 +17,7 @@ const currencyOptions: ListBoxOption<Currency>[] = [
     { value: Currency.USD, content: Currency.USD },
 ];
 
-export const CurrencySelect: FC<CurrencySelectProps> = memo((props: CurrencySelectProps) => {
+const CurrencySelect: FC<CurrencySelectProps> = (props: CurrencySelectProps) => {
     const {
         className,
         label,
@@ -46,4 +46,8 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo((props: CurrencySele
         />
 
     );
-});
+};
+
+const Memoized = memo(CurrencySelect);
+
+export { Memoized as CurrencySelect };

@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ArticleSearch } from './ArticleSearch';
 
 export default {
-    title: 'folder/ArticleSearch',
+    title: 'features/ArticleSearch',
     component: ArticleSearch,
     args: {},
 } as ComponentMeta<typeof ArticleSearch>;

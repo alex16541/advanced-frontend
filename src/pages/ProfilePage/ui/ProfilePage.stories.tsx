@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.decorators = [StoreDecorator({
-    profile: {
+    editableProfileCard: {
         form: {
             username: 'MarkLi!993',
             firstname: 'Mark',
