@@ -28,6 +28,7 @@ interface TextProps {
     align?: TextAlign;
     size?: TextSize;
     HeaderTag?: HeaderTagType;
+    dataTestId?: string;
 }
 
 export const Text = (props: TextProps) => {
@@ -39,13 +40,17 @@ export const Text = (props: TextProps) => {
         align = TextAlign.START,
         size = TextSize.M,
         HeaderTag = 'h4',
+        dataTestId = 'Text',
         ...otherProps
     } = props;
 
     return (
-        <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+        <div
+            className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}
+            data-testid={dataTestId}
+        >
+            {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
+            {text && <p className={cls.text} data-testid={`${dataTestId}.Text`}>{text}</p>}
         </div>
     );
 };

@@ -25,7 +25,17 @@ module.exports = {
             {
                 ignore: ['test'],
                 ignoreAttribute: [
-                    'as', 'role', 'to', 'reducerKey', 'data-testid', 'target', 'gap', 'direction', 'align', 'justify',
+                    'as',
+                    'role',
+                    'to',
+                    'reducerKey',
+                    'data-testid',
+                    'dataTestId',
+                    'target',
+                    'gap',
+                    'direction',
+                    'align',
+                    'justify',
                 ],
                 markupOnly: true,
             },

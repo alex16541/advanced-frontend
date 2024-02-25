@@ -5,10 +5,12 @@ import i18n from 'shared/config/i18n/i18nForTests';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { MemoryRouter } from 'react-router-dom';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 
 export interface renderWithProvidersOptions {
     initialEntrie?: string,
     initialState?: DeepPartial<StateSchema>,
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
 }
 
 export function renderWithProviders(
@@ -18,12 +20,13 @@ export function renderWithProviders(
     const {
         initialEntrie = '/',
         initialState,
+        asyncReducers,
         ...otherOptions
     } = options;
 
     return render(
         <MemoryRouter initialEntries={[initialEntrie]}>
-            <StoreProvider initialState={initialState}>
+            <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
                 <ThemeProvider>
                     <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
                 </ThemeProvider>

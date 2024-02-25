@@ -4,13 +4,15 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useOnInit } from 'shared/hooks/useOnInit';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from 'shared/ui/Stack';
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
 import {
     featchProfileData,
 } from '../model/services/featchProfileData/featchProfileData';
 import { editableProfileCardReducer } from '../model/slices/editableProfileCardSlice';
 import cls from './EditableProfileCard.module.scss';
-import { EditableProfileCardHeader } from './ProfilePageHeader/EditableProfileCardHeader';
+import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
+import { EditableProfileCardErrors } from './EditableProfileCardErrors/EditableProfileCardErrors';
 
 const reducers: ReducersList = {
     editableProfileCard: editableProfileCardReducer,
@@ -30,6 +32,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
         isLoading,
         error,
         validationErrors,
+        profileError,
         readonly,
         onChangeAge,
         onChangeCity,
@@ -50,25 +53,35 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
     });
 
     return (
-        <DynamicModuleLoader reducers={reducers} className={classNames(cls.EditableProfileCard, {}, [className])}>
-            <EditableProfileCardHeader />
-            <ProfileCard
-                data={form}
-                isLoading={isLoading}
-                error={error}
-                validationErrors={validationErrors}
-                readonly={readonly}
-                onChangeUsername={onChangeUsername}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeEmail={onChangeEmail}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeCountry={onChangeCountry}
-                onChangePhone={onChangePhone}
-                onChangePhoto={onChangePhoto}
-                onChangeCurrency={onChangeCurrency}
-            />
+        <DynamicModuleLoader
+            reducers={reducers}
+            dataTestId="EditableProfileCard"
+        >
+            <VStack
+                className={classNames(cls.EditableProfileCard, {}, [className])}
+                max
+                gap="10"
+            >
+                <EditableProfileCardHeader />
+                <EditableProfileCardErrors validationErrors={validationErrors} />
+                <ProfileCard
+                    data={form}
+                    isLoading={isLoading}
+                    error={error && profileError[error]}
+                    readonly={readonly}
+                    onChangeUsername={onChangeUsername}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeEmail={onChangeEmail}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeCountry={onChangeCountry}
+                    onChangePhone={onChangePhone}
+                    onChangePhoto={onChangePhoto}
+                    onChangeCurrency={onChangeCurrency}
+                />
+            </VStack>
+
         </DynamicModuleLoader>
     );
 };

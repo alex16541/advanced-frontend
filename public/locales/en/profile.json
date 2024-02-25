@@ -6,7 +6,6 @@
   "your profile page title": "Profile",
   "firstname": "Name",
   "lastname": "Lastname",
-  "profile loading error": "Profile loading error",
   "Save": "Save",
   "city": "City",
   "country": "A country",
@@ -20,5 +19,7 @@
   "incorrect user data": "Incorrect user data",
   "profile no data": "No profile data",
   "server error": "server error",
-  "unknown error": "Unknown error"
+  "unknown error": "Unknown error",
+  "profile error": "Profile error",
+  "currency": "Currency"
 }

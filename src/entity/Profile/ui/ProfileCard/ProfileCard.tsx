@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
@@ -7,17 +7,15 @@ import { Country } from 'entity/Country/model/types/country';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entity/Currency';
 import { CountrySelect } from 'entity/Country';
-import { memo, useMemo } from 'react';
-import { ProfileValidateErrors } from 'features/EditableProfileCard/model/types/editableProfileCardSchema';
-import { Profile, ProfileErrors } from '../../model/types/profile';
+import { memo } from 'react';
+import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
     data?: Profile;
     isLoading?: boolean;
-    error?: ProfileErrors;
-    validationErrors?: ProfileValidateErrors[];
+    error?: string;
     readonly?: boolean;
     onChangeUsername?: (value: string) => void;
     onChangeFirstname?: (value: string) => void;
@@ -36,7 +34,6 @@ const ProfileCard = (props: ProfileCardProps) => {
         className,
         data,
         error,
-        validationErrors = [],
         isLoading = false,
         readonly = true,
         onChangeUsername,
@@ -57,25 +54,6 @@ const ProfileCard = (props: ProfileCardProps) => {
         [cls.readonly]: readonly,
     };
 
-    const validationError = useMemo(
-        () => ({
-            [ProfileValidateErrors.NO_DATA]: t('profile no data'),
-            [ProfileErrors.SERVER_ERROR]: t('server error'),
-            [ProfileValidateErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
-            [ProfileValidateErrors.INCORRECT_AGE]: t('incorrect age'),
-            [ProfileValidateErrors.INCORRECT_EMAIL]: t('incorrect email'),
-        }),
-        [t],
-    );
-
-    const profileError = useMemo(
-        () => ({
-            [ProfileErrors.SERVER_ERROR]: t('server error'),
-            [ProfileErrors.UNKNOWN_ERROR]: t('unknown error'),
-        }),
-        [t],
-    );
-
     if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.isLoading])}>
@@ -87,94 +65,99 @@ const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
-                <Text title={`${t('profile loading error')}:`} text={profileError[error]} align={TextAlign.CENTER} />
+                <Text title={`${t('profile error')}:`} text={error} align={TextAlign.CENTER} />
             </div>
         );
     }
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
-            {validationErrors.map((err) => (
-                <Text key={err} theme={TextThemes.ERROR} text={validationError[err]} />
-            ))}
-            <div className={cls.data}>
-                {data?.photo && (
-                    <div className={cls.avatarWrapper}>
-                        <Avatar size={AvatarSize.L} src={data?.photo} alt={t('user avatar')} />
-                    </div>
-                )}
+        <div className={classNames(cls.ProfileCard, mods, [className, cls.data])}>
+            {data?.photo && (
+                <div className={cls.avatarWrapper}>
+                    <Avatar size={AvatarSize.L} src={data?.photo} alt={t('user avatar')} />
+                </div>
+            )}
 
-                <Input
-                    className={cls.input}
-                    value={data?.username}
-                    placeholder={t('username')}
-                    readonly={readonly}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.firstname}
-                    placeholder={t('firstname')}
-                    readonly={readonly}
-                    onChange={onChangeFirstname}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.lastname || ''}
-                    placeholder={t('lastname')}
-                    readonly={readonly}
-                    onChange={onChangeLastname}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.email}
-                    placeholder={t('email')}
-                    readonly={readonly}
-                    onChange={onChangeEmail}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.age?.toString()}
-                    placeholder={t('age')}
-                    readonly={readonly}
-                    onChange={onChangeAge}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.city}
-                    placeholder={t('city')}
-                    readonly={readonly}
-                    onChange={onChangeCity}
-                />
-                <CountrySelect
-                    className={cls.input}
-                    value={data?.country}
-                    placeholder={t('country')}
-                    readonly={readonly}
-                    onChangeValue={onChangeCountry}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.phone}
-                    placeholder={t('phone')}
-                    readonly={readonly}
-                    onChange={onChangePhone}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.photo}
-                    placeholder={t('photo')}
-                    readonly={readonly}
-                    onChange={onChangePhoto}
-                />
-                <CurrencySelect
-                    className={cls.input}
-                    value={data?.currency}
-                    placeholder={t('photo')}
-                    readonly={readonly}
-                    onChangeValue={onChangeCurrency}
-                />
-            </div>
+            <Input
+                className={cls.input}
+                value={data?.username}
+                placeholder={t('username')}
+                readonly={readonly}
+                onChange={onChangeUsername}
+                data-testid="ProfileCard.Username"
+            />
+            <Input
+                className={cls.input}
+                value={data?.firstname}
+                placeholder={t('firstname')}
+                readonly={readonly}
+                onChange={onChangeFirstname}
+                data-testid="ProfileCard.Firstname"
+            />
+            <Input
+                className={cls.input}
+                value={data?.lastname || ''}
+                placeholder={t('lastname')}
+                readonly={readonly}
+                onChange={onChangeLastname}
+                data-testid="ProfileCard.Lastname"
+            />
+            <Input
+                className={cls.input}
+                value={data?.email}
+                placeholder={t('email')}
+                readonly={readonly}
+                onChange={onChangeEmail}
+                data-testid="ProfileCard.Email"
+            />
+            <Input
+                className={cls.input}
+                value={data?.age?.toString()}
+                placeholder={t('age')}
+                readonly={readonly}
+                onChange={onChangeAge}
+                data-testid="ProfileCard.Age"
+            />
+            <Input
+                className={cls.input}
+                value={data?.city}
+                placeholder={t('city')}
+                readonly={readonly}
+                onChange={onChangeCity}
+                data-testid="ProfileCard.City"
+            />
+            <CountrySelect
+                className={cls.input}
+                value={data?.country}
+                placeholder={t('country')}
+                readonly={readonly}
+                onChangeValue={onChangeCountry}
+                data-testid="ProfileCard.Country"
+            />
+            <Input
+                className={cls.input}
+                value={data?.phone}
+                placeholder={t('phone')}
+                readonly={readonly}
+                onChange={onChangePhone}
+                data-testid="ProfileCard.Phone"
+            />
+            <Input
+                className={cls.input}
+                value={data?.photo}
+                placeholder={t('photo')}
+                readonly={readonly}
+                onChange={onChangePhoto}
+                data-testid="ProfileCard.Photo"
+            />
+            <CurrencySelect
+                className={cls.input}
+                value={data?.currency}
+                placeholder={t('currency')}
+                readonly={readonly}
+                onChangeValue={onChangeCurrency}
+                data-testid="ProfileCard.Currency"
+            />
         </div>
     );
 };

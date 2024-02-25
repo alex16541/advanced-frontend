@@ -1,8 +1,10 @@
 import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { ProfileErrors } from 'entity/Profile';
+import { useTranslation } from 'react-i18next';
 import { getProfileError } from '../selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../selectors/getProfileIsLoading/getProfileIsLoading';
@@ -17,6 +19,16 @@ export const useEditableProfileCard = () => {
     const error = useSelector(getProfileError);
     const validationErrors = useSelector(getProfileValidationErrors);
     const readonly = useSelector(getProfileIsReadonly);
+
+    const { t } = useTranslation('profile');
+
+    const profileError = useMemo(
+        () => ({
+            [ProfileErrors.SERVER_ERROR]: t('server error'),
+            [ProfileErrors.UNKNOWN_ERROR]: t('unknown error'),
+        }),
+        [t],
+    );
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -135,6 +147,7 @@ export const useEditableProfileCard = () => {
         isLoading,
         error,
         validationErrors,
+        profileError,
         readonly,
         onChangeAge,
         onChangeCity,

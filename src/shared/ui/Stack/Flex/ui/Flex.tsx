@@ -9,6 +9,7 @@ const FlexAlignClassNames: Record<FlexAlign, string> = {
     Start: cls.AlignStart,
     Center: cls.AlignCenter,
     End: cls.AlignEnd,
+    Stretch: cls.AlignStretch,
 };
 
 const FlexJustifyClassNames: Record<FlexJustify, string> = {
