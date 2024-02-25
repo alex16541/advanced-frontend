@@ -17,4 +17,15 @@ export default {
         '\\.svg$': '<rootDir>/config/jest/fileTransformer.tsx',
         '^axios$': require.resolve('axios'),
     },
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters', {
+                publicPath: '<rootDir>/reports/unit/',
+                filename: 'report.html',
+                includeConsoleLog: true,
+                inlineSource: true,
+            },
+        ],
+    ],
 };
