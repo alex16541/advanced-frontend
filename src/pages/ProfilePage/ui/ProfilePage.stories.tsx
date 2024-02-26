@@ -10,27 +10,29 @@ import ProfilePage from './ProfilePage';
 export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
+    decorators: [
+        StoreDecorator({
+            editableProfileCard: {
+                form: {
+                    username: 'MarkLi!993',
+                    firstname: 'Mark',
+                    lastname: 'Li',
+                    age: 30,
+                    email: 'mark@gamil.com',
+                    phone: '398759384',
+                    city: 'Uolden',
+                    country: Country.USA,
+                    currency: Currency.USD,
+                    photo: AvatarImg,
+                },
+            },
+        }),
+    ],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
-Light.decorators = [StoreDecorator({
-    editableProfileCard: {
-        form: {
-            username: 'MarkLi!993',
-            firstname: 'Mark',
-            lastname: 'Li',
-            age: 30,
-            email: 'mark@gamil.com',
-            phone: '398759384',
-            city: 'Uolden',
-            country: Country.USA,
-            currency: Currency.USD,
-            photo: AvatarImg,
-        },
-    },
-})];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), ...Light.decorators];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

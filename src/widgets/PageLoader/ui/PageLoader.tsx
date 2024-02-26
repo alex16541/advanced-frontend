@@ -6,16 +6,17 @@ import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
     className?: string;
+    text?: string;
 }
 
 export const PageLoader = (props: PageLoaderProps) => {
-    const { className } = props;
+    const { className, text } = props;
     const { t } = useTranslation();
 
     return (
         <div className={classNames(cls.PageLoader, {}, [className])}>
             <Loader />
-            <Text text={t('page loader text')} />
+            <Text text={text || t('page loader text')} />
         </div>
     );
 };

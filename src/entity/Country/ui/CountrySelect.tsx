@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../model/types/country';
 
@@ -19,7 +19,7 @@ const countryOptions: ListBoxOption<Country>[] = [
     { value: Country.Japan, content: Country.Japan },
 ];
 
-const CountrySelect: FC<CountrySelectProps> = (props: CountrySelectProps) => {
+const CountrySelect = (props: CountrySelectProps) => {
     const {
         className,
         label,

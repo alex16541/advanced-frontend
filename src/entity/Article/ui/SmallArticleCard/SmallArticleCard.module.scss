@@ -1,7 +1,10 @@
 .SmallArticleCard {
+    display: block;
+
     width: 300px;
     min-width: 300px;
     max-width: 300px;
+
     transition: transform var(--transition-duration);
 
     .cardWrapper {

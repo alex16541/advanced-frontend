@@ -1,14 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { AdminPage } from './AdminPage';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import AdminPage from './AdminPage';
 
 export default {
-    title: 'folder/AdminPage',
+    title: 'pages/AdminPage',
     component: AdminPage,
-    args: {
-
-    },
+    args: {},
+    decorators: [
+        StoreDecorator({}),
+    ],
 } as ComponentMeta<typeof AdminPage>;
 
 const Template: ComponentStory<typeof AdminPage> = (args) => <AdminPage {...args} />;

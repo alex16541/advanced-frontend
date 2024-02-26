@@ -1,12 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import ArticleEditPage from './ArticleEditPage';
 
 export default {
     title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
     args: {},
+    decorators: [
+        StoreDecorator({}),
+    ],
 } as ComponentMeta<typeof ArticleEditPage>;
 
 const Template: ComponentStory<typeof ArticleEditPage> = (args) => (

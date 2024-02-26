@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    FC, ButtonHTMLAttributes, memo,
+    ButtonHTMLAttributes, memo, ReactNode,
 } from 'react';
 import { Loader } from '../../../ui/Loader';
 import cls from './Button.module.scss';
@@ -30,9 +30,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     color?: ButtonColor;
     isLoading?: boolean;
+    children?: ReactNode;
 }
 
-const Button: FC<ButtonProps> = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
     const {
         className,
         children,

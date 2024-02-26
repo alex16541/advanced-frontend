@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { ListBoxOption, ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../model/types/currency';
 
@@ -17,7 +17,7 @@ const currencyOptions: ListBoxOption<Currency>[] = [
     { value: Currency.USD, content: Currency.USD },
 ];
 
-const CurrencySelect: FC<CurrencySelectProps> = (props: CurrencySelectProps) => {
+const CurrencySelect = (props: CurrencySelectProps) => {
     const {
         className,
         label,

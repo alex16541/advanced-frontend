@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    memo, useCallback, useMemo, useState,
+    memo, useCallback, useMemo,
 } from 'react';
 import { Input } from 'shared/ui/Input';
 import { useTranslation } from 'react-i18next';
@@ -32,7 +32,7 @@ export const ArticleSearch = memo((props: ArticleSearchProps) => {
     const fetchData = useDebounce(() => dispatch(fetchNextArticlesPage({ replace: true })), 500);
 
     const onChange = useCallback(
-        (str) => {
+        (str: string) => {
             dispatch(articleSearchActions.setValue(str));
             fetchData();
         },

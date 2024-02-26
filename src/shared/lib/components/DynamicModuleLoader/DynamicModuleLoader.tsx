@@ -1,6 +1,6 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { useStore, useDispatch } from 'react-redux';
 import { useOnInit } from 'shared/hooks/useOnInit';
 
@@ -15,9 +15,10 @@ interface DynamicModuleLoaderProps {
     removeAfterUnmout?: boolean;
     reducers: ReducersList;
     dataTestId?: string;
+    children: ReactNode;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     const {
         className, reducers, children, removeAfterUnmout = true, dataTestId,
     } = props;

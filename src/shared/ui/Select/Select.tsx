@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, FC, HTMLAttributes, memo, useMemo,
+    ChangeEvent, HTMLAttributes, useMemo,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
@@ -14,14 +14,13 @@ interface SelectProps<T extends string> extends HTMLAttributes<HTMLSelectElement
     label?: string;
     options: SelectOption<T>[];
     readonly?: boolean;
-    placeholder?: string;
     value?: T;
     onChangeValue?: (value: T) => void;
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
-        className, label, options, readonly, placeholder, value, onChangeValue, ...otherProps
+        className, label, options, readonly, defaultValue, value, onChangeValue, ...otherProps
     } = props;
 
     const mods: Mods = {
@@ -46,11 +45,16 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             {label && <div className={cls.label}>{label}</div>}
             <select
                 className={cls.input}
-                placeholder={placeholder}
+                defaultValue={defaultValue}
                 value={value}
                 disabled={readonly}
                 onChange={onChangeHendler}
             >
+                {defaultValue && (
+                    <option className={cls.option} key={defaultValue.toString()} value={defaultValue}>
+                        {defaultValue}
+                    </option>
+                )}
                 {optionList}
             </select>
         </div>

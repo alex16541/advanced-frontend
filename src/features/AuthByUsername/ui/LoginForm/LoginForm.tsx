@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
 import { useSelector } from 'react-redux';
 import {
-    useCallback, memo, FC,
+    useCallback, memo,
 } from 'react';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
@@ -24,7 +24,7 @@ export interface LoginFormProps {
 
 const initialReucers = { loginForm: loginReducer };
 
-const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
+const LoginForm = memo((props: LoginFormProps) => {
     const {
         className,
         onSuccess,

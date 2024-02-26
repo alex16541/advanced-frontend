@@ -2,18 +2,30 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { article } from 'entity/Article/mock/data';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import ArticlesPage from './ArticlesPage';
 
 export default {
     title: 'pages/ArticlesPage',
     component: ArticlesPage,
     args: {},
+    decorators: [
+        StoreDecorator({
+            articlesPage: {
+                ids: ['1', '2', '3'],
+                entities: {
+                    1: { ...article, id: '1' },
+                    2: { ...article, id: '2' },
+                    3: { ...article, id: '3' },
+                },
+            },
+        }, {
+            articlesPage: articlesPageReducer,
+        }),
+    ],
 } as ComponentMeta<typeof ArticlesPage>;
 
-const articles = new Array(9).fill(0).map((item, index) => ({
-    ...article,
-    id: index.toString(),
-}));
 const Template: ComponentStory<typeof ArticlesPage> = (args) => (
     <ArticlesPage {...args} />
 );
