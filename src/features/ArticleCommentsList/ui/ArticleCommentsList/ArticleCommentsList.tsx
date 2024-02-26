@@ -80,11 +80,15 @@ const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmout>
-            <div className={classNames(cls.ArticleCommentsList, {}, [className])}>
+        <DynamicModuleLoader
+            className={classNames(cls.ArticleCommentsList, {}, [className])}
+            reducers={reducers}
+            removeAfterUnmout
+        >
+            <>
                 <Text className={cls.title} title={t('Comments')} />
                 {content}
-            </div>
+            </>
         </DynamicModuleLoader>
     );
 });
