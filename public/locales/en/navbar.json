@@ -1,5 +1,6 @@
 {
-    "profile": "Profile",
-    "login": "Login",
-    "logout": "Logout"
+  "profile": "Profile",
+  "login": "Login",
+  "logout": "Logout",
+  "admin": "Admin"
 }

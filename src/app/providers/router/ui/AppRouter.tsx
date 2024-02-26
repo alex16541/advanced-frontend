@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { PageLoader } from 'widgets/PageLoader';
 import cls from './AppRouter.module.scss';
 import { RequireAuth } from './RequireAuth';
+import { RequireRoles } from './RequireRoles';
 
 interface AppRouterProps {
     className?: string;
@@ -13,9 +14,15 @@ interface AppRouterProps {
 export const AppRouter = (props: AppRouterProps) => {
     const { className } = props;
 
-    const renderWithWrapper = useCallback(({ authOnly, path, element }: AppRoutesProps) => {
+    const renderWithWrapper = useCallback(({
+        authOnly, path, element, roles,
+    }: AppRoutesProps) => {
         const routeElement = authOnly ? (
-            <RequireAuth>{element}</RequireAuth>
+            <RequireAuth>
+                <RequireRoles roles={roles}>
+                    {element}
+                </RequireRoles>
+            </RequireAuth>
         ) : element;
 
         const route = (

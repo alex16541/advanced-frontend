@@ -517,7 +517,9 @@
       "username": "root",
       "password": "123",
       "profileId": "1",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
     },
     {
@@ -525,7 +527,9 @@
       "profileId": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
     }
   ]

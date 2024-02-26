@@ -17,11 +17,11 @@ const ${featureName} = (props: ${featureName}Props) => {
             -
         </div>
     );
-});
+};
 
 const Memoized = memo(${featureName});
 
-export { Memoized as ${featureName} }
+export { Memoized as ${featureName} };
 `;
 }
 
