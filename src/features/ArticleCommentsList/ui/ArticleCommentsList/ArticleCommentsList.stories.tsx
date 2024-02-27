@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import ArticleCommentsList from './ArticleCommentsList';
-import { ArticleCommentsErrors } from '../../model/types/articleCommentList';
+import { ArticleCommentsErrors } from '../../model/consts/articleCommentList';
 
 export default {
     title: 'features/ArticleCommentsList',

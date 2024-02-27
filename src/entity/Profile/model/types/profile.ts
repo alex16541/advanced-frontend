@@ -1,5 +1,5 @@
-import { Country } from 'entity/Country/model/types/country';
-import { Currency } from 'entity/Currency/model/types/currency';
+import { Country } from 'entity/Country';
+import { Currency } from 'entity/Currency';
 
 export interface Profile {
     id?: string;
@@ -13,9 +13,4 @@ export interface Profile {
     phone?: string;
     email?: string;
     photo?: string;
-}
-
-export enum ProfileErrors {
-    UNKNOWN_ERROR = 'UNKNOWN_ERROR',
-    SERVER_ERROR = 'SERVER_ERROR',
 }

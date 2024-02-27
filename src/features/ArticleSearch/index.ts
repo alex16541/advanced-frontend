@@ -1,3 +1,3 @@
-export * from './ui/ArticleSearch';
-export * from './model/selectors/articleSearchSelectors';
-export { ArticleSearchSchema } from './model/types/articleSearchSchema';
+export { ArticleSearch } from './ui/ArticleSearch';
+export { selectArticleSearchValue } from './model/selectors/articleSearchSelectors';
+export type { ArticleSearchSchema } from './model/types/articleSearchSchema';

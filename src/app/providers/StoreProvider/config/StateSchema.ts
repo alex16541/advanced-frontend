@@ -14,6 +14,7 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSchema } from 'widgets/Page';
 import { rtkApi } from 'shared/api/rtkApi';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { createReduxStore } from './store';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -54,3 +55,5 @@ export interface ThunkConfig<T> {
     extra: ThunkExtraArg;
     state: StateSchema;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

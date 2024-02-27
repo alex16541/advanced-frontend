@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ArticleErrors } from '../../types/article';
+import { ArticleErrors } from '../../consts/article';
 import { fetchArticleById } from './fetchArticleById';
 
 describe('fetchProfileData', () => {

@@ -1,5 +1,5 @@
-export * from './ui/EditableProfileCard';
+export { EditableProfileCard } from './ui/EditableProfileCard';
 
 export { editableProfileCardReducer } from './model/slices/editableProfileCardSlice';
 
-export { EditableProfileCardSchema } from './model/types/editableProfileCardSchema';
+export type { EditableProfileCardSchema } from './model/types/editableProfileCardSchema';

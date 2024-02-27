@@ -7,9 +7,10 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/svg/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ArticleBlockType } from '../../model/consts/article';
 import cls from './LargeArticleCard.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { LargeArticleCardSkeleton } from './LargeArticleCardSkeleton';
 
 interface LargeArticleCardProps {

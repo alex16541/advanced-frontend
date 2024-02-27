@@ -1,1 +1,1 @@
-export * from './ui/ForbiddenPage';
+export { ForbiddenPage } from './ui/ForbiddenPage';

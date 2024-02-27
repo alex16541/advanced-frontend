@@ -4,12 +4,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './ArticlesList.module.scss';
 import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
 import { Article } from '../../model/types/article';
-
-export enum ArticlesListView {
-    GRID = 'grid_view',
-    LIST = 'list_view',
-    CARUSEL = 'carusel_view',
-}
+import { ArticlesListView } from '../../model/consts/article';
 
 export const ArticlesListCountPeerView: Record<ArticlesListView, number> = {
     [ArticlesListView.GRID]: 12,

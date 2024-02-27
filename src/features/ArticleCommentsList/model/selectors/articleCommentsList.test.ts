@@ -3,7 +3,7 @@ import {
     getArticleCommentsListError,
     getArticleCommentsListIsLoading,
 } from './articleCommentsList';
-import { ArticleCommentsErrors } from '../types/articleCommentList';
+import { ArticleCommentsErrors } from '../consts/articleCommentList';
 
 describe('getArticleCommentsListIsLoading', () => {
     test('should return is loading', () => {

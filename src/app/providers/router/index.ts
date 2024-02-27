@@ -1,2 +1,2 @@
-export * from './ui/AppRouter';
-export * from './ui/RequireAuth';
+export { AppRouter } from './ui/AppRouter';
+export { RequireAuth } from './ui/RequireAuth';

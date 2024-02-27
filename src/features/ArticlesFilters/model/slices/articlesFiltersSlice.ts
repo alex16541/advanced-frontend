@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticleSortField, ArticleType } from 'entity/Article/model/types/article';
+import { ArticleSortField, ArticleType } from 'entity/Article/';
 import { SortOrder } from 'shared/types';
-import { ArticleTypeChip } from '../../ui/ArticlesFilters';
+import { ArticleTypeChip } from '../types/ariclesFilters';
 import { ArticlesFiltersSchema } from '../types/ArticlesFiltersSchema';
 import { typeOptions } from '../consts/articlesFiltersConsts';
 

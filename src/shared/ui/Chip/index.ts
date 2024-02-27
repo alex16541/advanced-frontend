@@ -1,2 +1,3 @@
-export * from './ui/Chip/Chip';
-export * from './ui/ChipList/ChipList';
+export { Chip } from './ui/Chip/Chip';
+export { ChipList } from './ui/ChipList/ChipList';
+export type { ChipListOption } from './model/types/chip';

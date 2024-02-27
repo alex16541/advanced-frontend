@@ -1,5 +1,5 @@
 function indexTemplate(featureName) {
-    return `export * from './ui/${featureName}';
+    return `export { ${featureName} } from './ui/${featureName}';
 `;
 }
 

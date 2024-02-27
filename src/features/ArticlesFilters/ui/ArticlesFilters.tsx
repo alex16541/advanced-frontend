@@ -5,7 +5,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { ArticleSortField, ArticleType } from 'entity/Article/model/types/article';
+import { ArticleSortField, ArticleType } from 'entity/Article';
 import { SortOrder } from 'shared/types';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
 import { ChipList, ChipListOption } from 'shared/ui/Chip';

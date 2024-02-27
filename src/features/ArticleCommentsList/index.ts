@@ -1,2 +1,2 @@
 export { ArticleCommentsListAsync as ArticleCommentsList } from './ui/ArticleCommentsList/ArticleCommentsList.async';
-export * from './model/types/ArticleCommentsSchema';
+export type { ArticleCommentsSchema } from './model/types/ArticleCommentsSchema';

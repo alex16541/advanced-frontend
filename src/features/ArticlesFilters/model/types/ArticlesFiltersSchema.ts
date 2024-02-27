@@ -1,6 +1,6 @@
-import { ArticleSortField } from 'entity/Article/model/types/article';
+import { ArticleSortField } from 'entity/Article';
 import { SortOrder } from 'shared/types';
-import { ArticleTypeChip } from '../../ui/ArticlesFilters';
+import { ArticleTypeChip } from './ariclesFilters';
 
 export interface ArticlesFiltersSchema {
     order: SortOrder;

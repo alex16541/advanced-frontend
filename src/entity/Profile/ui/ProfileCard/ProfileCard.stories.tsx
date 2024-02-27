@@ -4,8 +4,8 @@ import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import AvatarImg from 'shared/assets/tests/Avatar.jpeg';
+import { ProfileErrors } from '../../model/consts/profile';
 import { ProfileCard } from './ProfileCard';
-import { ProfileErrors } from '../../model/types/profile';
 
 export default {
     title: 'entity/ProfileCard',

@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import GridIcon from 'shared/assets/svg/grid.svg';
 import LayoutListIcon from 'shared/assets/svg/layoutList.svg';
-import { ArticlesListView } from '../..';
+import { ArticlesListView } from '../../model/consts/article';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface ArticleViewSwitcherProps {

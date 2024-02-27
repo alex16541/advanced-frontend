@@ -1,2 +1,3 @@
-export * from './ui/ArticlesFilters';
-export { ArticlesFiltersSchema } from './model/types/ArticlesFiltersSchema';
+export { ArticlesFilters } from './ui/ArticlesFilters';
+export type { ArticleTypeChip } from './model/types/ariclesFilters';
+export type { ArticlesFiltersSchema } from './model/types/ArticlesFiltersSchema';

@@ -1,4 +1,5 @@
-import { EditableProfileCardSchema, ProfileValidateErrors } from '../../types/editableProfileCardSchema';
+import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
+import { ProfileValidateErrors } from '../../consts/profile';
 
 const emailRegex = /\S+@\S+\.\S+/;
 

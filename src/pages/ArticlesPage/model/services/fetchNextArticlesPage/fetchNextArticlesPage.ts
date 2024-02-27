@@ -13,7 +13,7 @@ import {
     selectArticlesPageLimit,
     selectArticlesPagePage,
 } from '../../selectors/articlesPageSelectors';
-import { ArticlesPageErrors } from '../../types/articlesPage';
+import { ArticlesPageErrors } from '../../consts/articlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 

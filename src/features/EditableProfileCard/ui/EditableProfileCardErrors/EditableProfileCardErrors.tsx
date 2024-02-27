@@ -3,7 +3,7 @@ import { memo, useMemo } from 'react';
 import { TextThemes, Text } from 'shared/ui/Text/Text';
 import { ProfileErrors } from 'entity/Profile';
 import { useTranslation } from 'react-i18next';
-import { ProfileValidateErrors } from '../../model/types/editableProfileCardSchema';
+import { ProfileValidateErrors } from '../../model/consts/profile';
 import cls from './EditableProfileCardErrors.module.scss';
 
 interface EditableProfileCardErrorsProps {

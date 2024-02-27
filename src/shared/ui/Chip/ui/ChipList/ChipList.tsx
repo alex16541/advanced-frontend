@@ -2,9 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useMemo } from 'react';
 import { useSet } from 'shared/hooks/useSet';
 import { HStack } from '../../../Stack';
-import { Chip, ChipProps } from '../Chip/Chip';
-
-export type ChipListOption<T> = Omit<ChipProps<T>, 'onClick'>;
+import { Chip } from '../Chip/Chip';
+import { ChipListOption } from '../../model/types/chip';
 
 interface ChipListProps<T> {
     className?: string;
