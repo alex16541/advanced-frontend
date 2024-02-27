@@ -2,19 +2,19 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ArticleSearch } from './ArticleSearch';
+import { ArticlesFilters } from './ArticlesFilters';
 
 export default {
-    title: 'features/ArticleSearch',
-    component: ArticleSearch,
+    title: 'features/ArticlesFilters',
+    component: ArticlesFilters,
     args: {},
     decorators: [
         StoreDecorator({}),
     ],
-} as ComponentMeta<typeof ArticleSearch>;
+} as ComponentMeta<typeof ArticlesFilters>;
 
-const Template: ComponentStory<typeof ArticleSearch> = (args) => (
-    <ArticleSearch {...args} />
+const Template: ComponentStory<typeof ArticlesFilters> = (args) => (
+    <ArticlesFilters {...args} />
 );
 
 export const Light = Template.bind({});

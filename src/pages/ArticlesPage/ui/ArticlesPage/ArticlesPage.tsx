@@ -1,6 +1,4 @@
 import { ArticleViewSwitcher, ArticlesListView } from 'entity/Article';
-import { ArticleSearch } from 'features/ArticleSearch';
-import { ArticlesFilters } from 'features/ArticlesFilters';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -11,6 +9,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page';
+import { useDebounce } from 'shared/hooks/useDebounce';
+import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 import {
     selectArticlesPageIsInitialLoading, selectArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
@@ -40,6 +40,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
+    const onSearch = useDebounce(() => dispatch(fetchNextArticlesPage({ replace: true })), 500);
+
     const onViewSwitch = useCallback(
         (view: ArticlesListView) => {
             dispatch(articlesPageActions.setView(view));
@@ -59,8 +61,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
                 </div>
                 <div className={cls.filters}>
-                    <ArticleSearch isLoading={isInitialLoading} />
-                    <ArticlesFilters />
+                    <ArticlesFilters isLoading={isInitialLoading} onLoadData={onSearch} />
                 </div>
                 <ArticlesInfiniteList />
             </Page>

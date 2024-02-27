@@ -1,10 +1,15 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Article, ArticlesListCountPeerView, ArticlesListView } from 'entity/Article';
+import {
+    Article, ArticlesListCountPeerView, ArticlesListView, ArticleSortField, ArticleType,
+} from 'entity/Article';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ARTICLES_PAGE_VIEW } from 'shared/const/localstorage';
+import { SortOrder } from 'shared/types';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { initArticlesPage } from '../services/initArticlesPage/initArticlesPage';
+import { ArticleTypeChip } from '../types/ariclesFilters';
+import { typeOptions } from '../consts/articlesFilters';
 
 const initialState: ArticlesPageSchema = {
     isLoading: false,
@@ -17,6 +22,10 @@ const initialState: ArticlesPageSchema = {
     limit: 3,
     hasMore: true,
     _inited: false,
+    sort: ArticleSortField.CREATED,
+    order: 'asc',
+    type: { value: ArticleType.ALL, label: 'Все темы', selected: true },
+    search: '',
 };
 
 const articlesPageAdapter = createEntityAdapter<Article>();
@@ -48,14 +57,42 @@ export const articlesPageSlice = createSlice({
             articlesPageAdapter.removeAll(state);
             localStorage.setItem(ARTICLES_PAGE_VIEW, payload);
         },
-        initState(state) {
+        initState(state, { payload }: PayloadAction<{
+            order?: SortOrder | null;
+            sort?: ArticleSortField | null;
+            type?: ArticleType | null;
+            search?: string;
+        }>) {
             const view = localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticlesListView;
             state.view = view;
             state.limit = ArticlesListCountPeerView[view];
             state._inited = true;
+
+            if (payload.order) state.order = payload.order;
+            if (payload.sort) state.sort = payload.sort;
+            if (payload.search) state.search = payload.search;
+            if (payload.type) {
+                const type = typeOptions.find((opt) => opt.value === payload.type);
+                if (type) state.type = type;
+            }
         },
         resetErrors(state) {
             state.errors = [];
+        },
+        setSort: (state, { payload }: PayloadAction<ArticleSortField>) => {
+            state.sort = payload;
+        },
+        setOrder: (state, { payload }: PayloadAction<SortOrder>) => {
+            state.order = payload;
+        },
+        setType: (state, { payload }: PayloadAction<ArticleTypeChip>) => {
+            state.type = payload;
+        },
+        setSearch: (state, { payload }: PayloadAction<string>) => {
+            state.search = payload;
+        },
+        setInitialLoading: (state, { payload }: PayloadAction<boolean>) => {
+            state.isInitialLoading = payload;
         },
     },
     extraReducers(builder) {
@@ -78,15 +115,6 @@ export const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.errors = action.payload;
-            })
-            .addCase(initArticlesPage.pending, (state) => {
-                state.isInitialLoading = true;
-            })
-            .addCase(initArticlesPage.fulfilled, (state) => {
-                state.isInitialLoading = false;
-            })
-            .addCase(initArticlesPage.rejected, (state) => {
-                state.isInitialLoading = false;
             });
     },
 });

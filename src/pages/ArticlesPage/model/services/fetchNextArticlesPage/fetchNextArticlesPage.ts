@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { selectArticleSearchValue } from 'features/ArticleSearch';
 import {
     selectArticlesFiltersOrder,
     selectArticlesFiltersSort,
     selectArticlesFiltersType,
-} from 'features/ArticlesFilters/model/selectors/articlesFiltersSlice';
+    selectArticlesFiltersSearch,
+} from '../../selectors/articlesFiltersSlice';
 import {
     selectArticlesPageErrors,
     selectArticlesPageHasMore,
@@ -38,7 +38,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
     const state = getState();
     const page = selectArticlesPagePage(state);
     const limit = selectArticlesPageLimit(state);
-    const query = selectArticleSearchValue(state);
+    const query = selectArticlesFiltersSearch(state);
     const hasMore = selectArticlesPageHasMore(state);
     const isLoading = selectArticlesPageIsLoading(state);
     const sort = selectArticlesFiltersSort(state);

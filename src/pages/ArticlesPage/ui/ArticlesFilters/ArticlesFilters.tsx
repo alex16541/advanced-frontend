@@ -1,30 +1,27 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticleSortField, ArticleType } from 'entity/Article';
 import { SortOrder } from 'shared/types';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
 import { ChipList, ChipListOption } from 'shared/ui/Chip';
 import { ListBoxOption, ListBox } from 'shared/ui/ListBox/ListBox';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ArticlesFilters.module.scss';
-import { articlesFiltersActions, articlesFiltersReducer } from '../model/slices/articlesFiltersSlice';
 import {
     selectArticlesFiltersOrder,
     selectArticlesFiltersSort,
     selectArticlesFiltersType,
-} from '../model/selectors/articlesFiltersSlice';
-import { typeOptions } from '../model/consts/articlesFiltersConsts';
-
-const reducers: ReducersList = {
-    articlesFilters: articlesFiltersReducer,
-};
+} from '../../model/selectors/articlesFiltersSlice';
+import { typeOptions } from '../../model/consts/articlesFilters';
+import { ArticlesFiltersSearch } from '../ArticlesFiltersSearch/ArticlesFiltersSearch';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 interface ArticlesFilterProps {
     className?: string;
+    isLoading?: boolean;
+    onLoadData?: () => void;
 }
 
 const sortOptions: ListBoxOption<ArticleSortField>[] = [
@@ -39,32 +36,28 @@ const orderOptions: ListBoxOption<SortOrder>[] = [
 ];
 export type ArticleTypeChip = ChipListOption<ArticleType>;
 
-export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
-    const { className } = props;
+const ArticlesFilters = (props: ArticlesFilterProps) => {
+    const { className, isLoading, onLoadData } = props;
     const dispatch = useAppDispatch();
     const { t } = useTranslation('article');
     const order = useAppSelector(selectArticlesFiltersOrder);
     const sort = useAppSelector(selectArticlesFiltersSort);
     const type = useAppSelector(selectArticlesFiltersType);
 
-    const fetchDatat = useCallback(() => {
-        dispatch(fetchNextArticlesPage({ replace: true }));
-    }, [dispatch]);
-
     const sortChange = useCallback(
         (val: ArticleSortField) => {
-            dispatch(articlesFiltersActions.setSort(val));
-            fetchDatat();
+            dispatch(articlesPageActions.setSort(val));
+            onLoadData?.();
         },
-        [dispatch, fetchDatat],
+        [dispatch, onLoadData],
     );
 
     const orderChange = useCallback(
         (val: SortOrder) => {
-            dispatch(articlesFiltersActions.setOrder(val));
-            fetchDatat();
+            dispatch(articlesPageActions.setOrder(val));
+            onLoadData?.();
         },
-        [dispatch, fetchDatat],
+        [dispatch, onLoadData],
     );
 
     const typeChange = useCallback(
@@ -73,19 +66,20 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
             // написать какой формат где используется во всём алгоритме (компонент, стэйт, url)
             // ChipOption <-mapper-> typeOption <-> string
 
-            dispatch(articlesFiltersActions.setType(chip));
-            fetchDatat();
+            dispatch(articlesPageActions.setType(chip));
+            onLoadData?.();
         },
-        [dispatch, fetchDatat],
+        [dispatch, onLoadData],
     );
 
     return (
-        <DynamicModuleLoader
+        <VStack
+            max
+            gap="10"
             className={classNames(cls.ArticlesFilters, {}, [className])}
-            reducers={reducers}
-            removeAfterUnmout={false}
         >
-            <div className={cls.row}>
+            <ArticlesFiltersSearch isLoading={isLoading} onSearch={onLoadData} />
+            <HStack gap="10">
                 <ListBox
                     wrapperClassName={cls.field}
                     options={sortOptions}
@@ -100,8 +94,12 @@ export const ArticlesFilters = memo((props: ArticlesFilterProps) => {
                     label={t('Sort by')}
                     onChange={orderChange}
                 />
-            </div>
+            </HStack>
             {type && <ChipList options={typeOptions} value={type} onClick={typeChange} />}
-        </DynamicModuleLoader>
+        </VStack>
     );
-});
+};
+
+const Memoized = memo(ArticlesFilters);
+
+export { Memoized as ArticlesFilters };

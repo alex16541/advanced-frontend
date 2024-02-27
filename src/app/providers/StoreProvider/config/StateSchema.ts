@@ -7,8 +7,6 @@ import { ArticleDetailsSchema } from 'entity/Article';
 import { CounterSchema } from 'entity/Counter';
 import { UserSchema } from 'entity/User';
 import { ArticleCommentsSchema } from 'features/ArticleCommentsList';
-import { ArticleSearchSchema } from 'features/ArticleSearch';
-import { ArticlesFiltersSchema } from 'features/ArticlesFilters';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSchema } from 'widgets/Page';
@@ -30,8 +28,6 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleComments?: ArticleCommentsSchema;
     articlesPage?: ArticlesPageSchema;
-    articleSearch?: ArticleSearchSchema;
-    articlesFilters?: ArticlesFiltersSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { articlesFiltersActions } from 'features/ArticlesFilters/model/slices/articlesFiltersSlice';
 import { SortOrder } from 'shared/types';
 import { ArticleSortField, ArticleType } from 'entity/Article';
-import { articleSearchActions } from 'features/ArticleSearch/model/slieces/articleSearchSlice';
 import { ArticlesPageErrors } from '../../consts/articlesPage';
 import { selectArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
@@ -18,13 +16,15 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
         const inited = selectArticlesPageInited(state);
 
         if (!inited) {
+            dispatch(articlesPageActions.setInitialLoading(true));
             const order = searchParams.get('order') as SortOrder;
             const sort = searchParams.get('sort') as ArticleSortField;
             const type = searchParams.get('type') as ArticleType;
-            const search = searchParams.get('search');
-            dispatch(articlesFiltersActions.initFilters({ order, sort, type }));
-            dispatch(articleSearchActions.setValue(search ?? ''));
-            dispatch(articlesPageActions.initState());
+            const search = searchParams.get('search') ?? '';
+            dispatch(articlesPageActions.initState({
+                order, sort, type, search,
+            }));
+            dispatch(articlesPageActions.setInitialLoading(false));
             dispatch(fetchNextArticlesPage());
         }
     },
