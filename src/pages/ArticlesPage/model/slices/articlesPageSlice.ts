@@ -11,7 +11,7 @@ const initialState: ArticlesPageSchema = {
     isInitialLoading: false,
     entities: {},
     ids: [],
-    error: [],
+    errors: [],
     view: ArticlesListView.LIST,
     page: 0,
     limit: 3,
@@ -54,11 +54,14 @@ export const articlesPageSlice = createSlice({
             state.limit = ArticlesListCountPeerView[view];
             state._inited = true;
         },
+        resetErrors(state) {
+            state.errors = [];
+        },
     },
     extraReducers(builder) {
         builder
             .addCase(fetchArticlesList.pending, (state, action) => {
-                state.error = undefined;
+                state.errors = undefined;
                 state.isLoading = true;
 
                 if (action.meta.arg.replace) {
@@ -74,7 +77,7 @@ export const articlesPageSlice = createSlice({
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.errors = action.payload;
             })
             .addCase(initArticlesPage.pending, (state) => {
                 state.isInitialLoading = true;

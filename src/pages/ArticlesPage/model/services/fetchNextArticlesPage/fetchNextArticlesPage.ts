@@ -7,6 +7,7 @@ import {
     selectArticlesFiltersType,
 } from 'features/ArticlesFilters/model/selectors/articlesFiltersSlice';
 import {
+    selectArticlesPageErrors,
     selectArticlesPageHasMore,
     selectArticlesPageIsLoading,
     selectArticlesPageLimit,
@@ -43,8 +44,9 @@ export const fetchNextArticlesPage = createAsyncThunk<
     const sort = selectArticlesFiltersSort(state);
     const order = selectArticlesFiltersOrder(state);
     const type = selectArticlesFiltersType(state)?.value;
+    const errors = selectArticlesPageErrors(state);
 
-    if (hasMore && !isLoading) {
+    if (hasMore && !isLoading && !errors.length) {
         dispatch(
             fetchArticlesList({
                 page: page + 1,
