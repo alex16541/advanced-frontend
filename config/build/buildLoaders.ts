@@ -7,17 +7,8 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader();
     const cssLoader = buildCssLoader(isDev);
-    const babelLoader = buildBabelLoader(isDev);
-    // {
-    //     test: /\.(ts|tsx|js|jsx)$/,
-    //     exclude: /node_modules/,
-    //     use: {
-    //         loader: 'babel-loader',
-    //         options: {
-    //             presets: ['@babel/preset-env'],
-    //         },
-    //     },
-    // };
+    const babelTsxLoader = buildBabelLoader(isDev, true);
+    const babelCodeLoader = buildBabelLoader(isDev, false);
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
@@ -28,13 +19,13 @@ function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
-    return [babelLoader, typescriptLoader, cssLoader, svgLoader, fileLoader];
+    return [babelTsxLoader, babelCodeLoader, cssLoader, svgLoader, fileLoader];
 }
 
 export default buildLoaders;

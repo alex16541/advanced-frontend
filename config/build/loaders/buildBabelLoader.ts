@@ -1,11 +1,24 @@
-export const buildBabelLoader = (isDev: boolean) => ({
-    test: /\.(ts|tsx|js|jsx)$/,
+import BabelTsxPreparePlugin from '../../babel/BabelTsxPreparePlugin';
+
+export const buildBabelLoader = (isDev: boolean, isTSX: boolean) => ({
+    test: isTSX ? /\.(tsx|jsx)$/ : /\.(ts|js)$/,
     exclude: /node_modules/,
     use: {
         loader: 'babel-loader',
         options: {
             presets: ['@babel/preset-env'],
-            // plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+            plugins: [
+                [
+                    '@babel/plugin-transform-typescript',
+                    {
+                        isJSX: isTSX,
+                    },
+                ],
+                ['@babel/plugin-transform-runtime'],
+                isTSX && !isDev && [BabelTsxPreparePlugin, {
+                    props: ['data-testid'],
+                }],
+            ].filter(Boolean),
         },
     },
 });
