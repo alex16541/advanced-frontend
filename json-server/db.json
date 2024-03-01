@@ -532,5 +532,43 @@
       ],
       "avatar": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "text": "(///￣皿￣)○～",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "text": "(づ￣ 3￣)づ",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "text": "┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻",
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "text": "(///￣皿￣)○～",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 1",
+      "text": "(///￣皿￣)○～",
+      "userId": "2"
+    },
+    {
+      "id": "6",
+      "title": "Уведомление 2",
+      "text": "(///￣皿￣)○～",
+      "userId": "2"
+    }
   ]
 }

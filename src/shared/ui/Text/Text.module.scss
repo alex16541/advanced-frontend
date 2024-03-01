@@ -13,6 +13,10 @@
     color: var(--danger-color);
 }
 
+.contrast * {
+    color: var(--contrast-color);
+}
+
 // align
 .align-start {
     text-align: start;

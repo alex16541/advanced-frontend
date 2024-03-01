@@ -1,0 +1,10 @@
+.NotificationsItem {
+    padding: 7px;
+    border-radius: var(--border-radius-s);
+}
+
+@media (pointer: fine) {
+    .Link:hover {
+        opacity: 0.7;
+    }
+}

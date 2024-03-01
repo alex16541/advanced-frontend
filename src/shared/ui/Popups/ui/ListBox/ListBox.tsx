@@ -1,17 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
 import CheckSvg from 'shared/assets/svg/check.svg';
+import { PopupDirection } from 'shared/types/ui';
 import cls from './ListBox.module.scss';
-import { Button } from '../Button';
-import { Text } from '../Text/Text';
-import { Icon } from '../Icon/Icon';
-
-export interface ListBoxOption<T> {
-    value: T;
-    content: ReactNode;
-    disabled?: boolean;
-}
+import clsPopup from '../../styles/popup.module.scss';
+import { Button } from '../../../Button';
+import { Text } from '../../../Text/Text';
+import { Icon } from '../../../Icon/Icon';
+import { ListBoxOption } from '../../types/listBox';
+import { directionClassName } from '../../styles/consts';
 
 interface ListBoxProps<T> {
     className?: string;
@@ -22,6 +20,7 @@ interface ListBoxProps<T> {
     onChange?: (value: T) => void;
     label?: string;
     disabled?: boolean;
+    direction?: PopupDirection;
 }
 
 const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
@@ -34,30 +33,32 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
         onChange = (value: T) => {},
         label,
         disabled = false,
+        direction = 'bottom right',
     } = props;
 
+    const directionClass = directionClassName[direction];
     const displayValue = useMemo(() => options.find((opt) => opt.value === value), [options, value]);
 
     return (
-        <div className={classNames(cls.ListBoxWrapper, {}, [wrapperClassName])}>
+        <div className={classNames(cls.ListBoxWrapper, {}, [wrapperClassName, clsPopup.Popup])}>
             {label && <Text text={`${label}: `} />}
             <Listbox
+                className={classNames(cls.ListBox, {}, [className])}
                 value={value}
                 onChange={onChange}
                 as="div"
-                className={classNames(cls.ListBox, {}, [className])}
                 disabled={disabled}
             >
                 <Listbox.Button
+                    className={classNames(cls.Button, {}, [clsPopup.Button])}
                     as="div"
-                    className={cls.ButtonWrapper}
                 >
                     <Button className={cls.Button} disabled={disabled}>
                         {displayValue ? displayValue.content : defaultValue}
                     </Button>
                 </Listbox.Button>
                 <Listbox.Options
-                    className={cls.Options}
+                    className={classNames(cls.Options, {}, [clsPopup.Content, directionClass])}
                 >
                     {options.map((option) => (
                         <Listbox.Option

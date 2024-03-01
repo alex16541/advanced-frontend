@@ -36,6 +36,19 @@ RedDark.args = {
 };
 RedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const ContrastLight = Template.bind({});
+ContrastLight.args = {
+    ...PrimaryLight.args,
+    theme: TextThemes.CONTRAST,
+};
+
+export const ContrastDark = Template.bind({});
+ContrastDark.args = {
+    ...PrimaryLight.args,
+    theme: TextThemes.ERROR,
+};
+ContrastDark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
     title: 'Text tiele',

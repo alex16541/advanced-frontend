@@ -1,0 +1,31 @@
+.Popup {
+    position: relative;
+}
+
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+
+    background-color: transparent;
+    border: none;
+}
+
+.Content {
+    position: absolute;
+    z-index: 1500;
+}
+
+.topRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.topLeft {
+    right: 0;
+    bottom: 100%;
+}
+
+.bottmLeft {
+    right: 0;
+}

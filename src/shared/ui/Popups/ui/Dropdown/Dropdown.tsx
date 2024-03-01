@@ -1,28 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ReactNode, memo } from 'react';
+import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { PopupDirection } from 'shared/types/ui';
 import cls from './Dropdown.module.scss';
-import { Button } from '../Button';
-import { AppLink, AppLinkThemes } from '../AppLink/AppLink';
-
-const directionClassName: Record<PopupDirection, string> = {
-    'top right': cls.topRight,
-    'top left': cls.topLeft,
-    'bottom right': cls.bottomRight,
-    'bottom left': cls.bottmLeft,
-};
-
-export interface DropdownItem {
-    content: ReactNode;
-    onClick?: () => void;
-    href?: string;
-    disabled?: boolean
-}
+import clsPopup from '../../styles/popup.module.scss';
+import { Button } from '../../../Button';
+import { AppLink, AppLinkThemes } from '../../../AppLink/AppLink';
+import { DropdownItem } from '../../types/dropdown';
+import { directionClassName } from '../../styles/consts';
 
 interface DropdownProps {
     className?: string;
-    target: ReactNode;
+    button: ReactNode;
     items?: DropdownItem[]
     disabled?: boolean;
     direction?: PopupDirection;
@@ -31,7 +20,7 @@ interface DropdownProps {
 export const Dropdown = (props: DropdownProps) => {
     const {
         className,
-        target,
+        button,
         items = [],
         disabled = false,
         direction = 'bottom right',
@@ -40,9 +29,14 @@ export const Dropdown = (props: DropdownProps) => {
     const directionClass = directionClassName[direction];
 
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <Menu.Button className={cls.Target} disabled={disabled}>{target}</Menu.Button>
-            <Menu.Items as="div" className={classNames(cls.Items, {}, [directionClass])}>
+        <Menu as="div" className={classNames(cls.Dropdown, {}, [clsPopup.Popup, className])}>
+            <Menu.Button
+                className={classNames(cls.Button, {}, [clsPopup.Button])}
+                disabled={disabled}
+            >
+                {button}
+            </Menu.Button>
+            <Menu.Items as="div" className={classNames(cls.Items, {}, [clsPopup.Content, directionClass])}>
                 {items.map((item) => {
                     const { onClick, href } = item;
 

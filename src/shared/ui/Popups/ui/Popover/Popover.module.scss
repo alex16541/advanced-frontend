@@ -1,0 +1,17 @@
+.Popover {
+
+}
+
+.Panel {
+    overflow: hidden auto;
+
+    width: 100%;
+    min-width: 300px;
+    min-height: 200px;
+    max-height: 500px;
+    margin: 5px 0;
+    padding: 10px;
+
+    background-color: var(--secondary-bg-color);
+    border-radius: var(--border-radius-s);
+}

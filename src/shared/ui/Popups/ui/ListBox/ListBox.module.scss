@@ -1,5 +1,4 @@
 .ListBox {
-    position: relative;
 }
 
 .ListBoxWrapper {
@@ -8,10 +7,8 @@
     gap: 5px;
 }
 
-.ButtonWrapper {
+.Trigger {
     width: 100%;
-    background-color: transparent;
-    border: none;
 }
 
 .Button {
@@ -19,9 +16,6 @@
 }
 
 .Options {
-    position: absolute;
-    z-index: 1000;
-
     width: auto;
     min-width: 100%;
     margin: 10px 0;

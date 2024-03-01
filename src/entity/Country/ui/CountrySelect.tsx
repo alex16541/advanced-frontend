@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
-import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBoxOption } from 'shared/ui/Popups/types/listBox';
 import { Country } from '../model/consts/country';
 
 interface CountrySelectProps {

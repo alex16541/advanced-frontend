@@ -2,13 +2,13 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Dropdown } from './Dropdown';
-import { Button } from '../Button';
+import { Button } from '../../../Button';
 
 export default {
-    title: 'shared/Dropdown',
+    title: 'shared/Popups/Dropdown',
     component: Dropdown,
     args: {
-        target: <Button>Menu</Button>,
+        button: <Button>Menu</Button>,
         items: [
             { content: 'item 1', onClick: () => {} },
             { content: 'item 2', onClick: () => {} },

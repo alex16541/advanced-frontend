@@ -6,7 +6,8 @@ import { ArticleSortField, ArticleType } from 'entity/Article';
 import { SortOrder } from 'shared/types';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
 import { ChipList, ChipListOption } from 'shared/ui/Chip';
-import { ListBoxOption, ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBoxOption } from 'shared/ui/Popups/types/listBox';
 import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ArticlesFilters.module.scss';
 import {
