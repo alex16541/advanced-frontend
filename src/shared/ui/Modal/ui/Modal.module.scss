@@ -8,24 +8,15 @@
     bottom: 0;
     left: 0;
 
-    opacity: 0;
-
-    transition: all 0.3s;
-    transition-property: opacity, z-index;
-}
-
-.backdrop {
-    cursor: pointer;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: 100%;
-    height: 100%;
+    opacity: 0;
 
-    background-color: var(--backdrop-color);
+    transition: all 0.3s;
+    transition-property: opacity, z-index;
 }
 
 .content {

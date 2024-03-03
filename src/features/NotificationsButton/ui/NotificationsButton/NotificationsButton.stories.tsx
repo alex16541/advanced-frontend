@@ -14,7 +14,7 @@ const notifications: Notification[] = [
 ];
 
 export default {
-    title: 'widgets/NotificationsButton',
+    title: 'features/NotificationsButton',
     component: NotificationsButton,
     args: {
 

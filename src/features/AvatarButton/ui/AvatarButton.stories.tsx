@@ -6,7 +6,7 @@ import { UserRoles } from 'entity/User';
 import { AvatarButton } from './AvatarButton';
 
 export default {
-    title: 'widgets/AvatarButton',
+    title: 'features/AvatarButton',
     component: AvatarButton,
     args: {
         direction: 'bottom right',

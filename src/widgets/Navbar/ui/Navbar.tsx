@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from 'shared/ui/Button';
 import { useAppSelector } from 'shared/hooks/useAppSelector';
-import { NotificationsButton } from 'widgets/NotificationsButton';
+import { NotificationsButton } from 'features/NotificationsButton';
 import { HStack } from 'shared/ui/Stack';
-import { AvatarButton } from 'widgets/AvatarButton';
+import { AvatarButton } from 'features/AvatarButton';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

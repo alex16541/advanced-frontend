@@ -2,6 +2,7 @@ import {
     ReactNode, useEffect, useCallback, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../../../ui/Overlay';
 import { Portal } from '../../../ui/Portal';
 import cls from './Modal.module.scss';
 
@@ -64,10 +65,9 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.backdrop} onClick={closeHendler}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {children}
-                    </div>
+                <Overlay onClick={closeHendler} />
+                <div className={cls.content} onClick={onContentClick}>
+                    {children}
                 </div>
             </div>
         </Portal>

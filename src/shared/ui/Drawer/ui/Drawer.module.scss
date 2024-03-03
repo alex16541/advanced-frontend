@@ -1,0 +1,40 @@
+.Drawer {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: stretch;
+}
+
+.content {
+    position: fixed;
+    bottom: -100%;
+
+    overflow: hidden auto;
+
+    width: 100%;
+    height: 70%;
+    padding: 10px 10px 0;
+
+    background-color: var(--primary-bg-color);
+    border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+
+    transition: bottom 300ms ease-in-out;
+}
+
+.isOpen {
+    pointer-events: all;
+    z-index: var(--modal-z-index);
+    opacity: 1;
+
+    .content {
+        bottom: 0;
+    }
+}
