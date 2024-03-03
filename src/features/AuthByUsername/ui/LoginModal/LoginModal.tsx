@@ -20,8 +20,6 @@ export const LoginModal = (props: LoginModalProps) => {
         onSuccess,
     } = props;
 
-    if (!isOpen) return null;
-
     return (
         <Modal
             isOpen={isOpen}

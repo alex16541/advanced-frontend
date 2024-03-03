@@ -31,7 +31,7 @@ const NotificationsList = (props: NotificationsListProps) => {
 
     return (
         <VStack max gap="10" className={classNames(cls.NotificationsList, {}, [className])}>
-            {notifications.map((n) => <NotificationsItem notification={n} />)}
+            {notifications.map((n) => <NotificationsItem key={n.id} notification={n} />)}
         </VStack>
     );
 };

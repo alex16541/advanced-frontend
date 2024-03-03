@@ -11,6 +11,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: stretch;
+
+    transition: z-index 200ms ease-in-out;
 }
 
 .content {
@@ -26,15 +28,20 @@
     background-color: var(--primary-bg-color);
     border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
 
-    transition: bottom 300ms ease-in-out;
+    transition: bottom 200ms ease-in-out;
 }
 
 .isOpen {
     pointer-events: all;
     z-index: var(--modal-z-index);
-    opacity: 1;
 
     .content {
         bottom: 0;
+    }
+}
+
+.isClosing {
+    .content {
+        bottom: -100%;
     }
 }
