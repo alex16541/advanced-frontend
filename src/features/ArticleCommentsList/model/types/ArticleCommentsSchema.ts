@@ -1,4 +1,4 @@
-import { Comment } from 'entity/Comment';
+import { Comment } from '@/entity/Comment';
 import { EntityState } from '@reduxjs/toolkit';
 import { ArticleCommentsErrors } from '../consts/articleCommentList';
 

@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
-import PaintRoller from 'shared/assets/svg/paint-roller.svg';
-import { Button, ButtonThemes } from 'shared/ui/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import PaintRoller from '@/shared/assets/svg/paint-roller.svg';
+import { Button, ButtonThemes } from '@/shared/ui/Button';
 import { memo } from 'react';
 import cls from './ThemeSwitcher.module.scss';
 

@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonColor, ButtonThemes } from 'shared/ui/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonColor, ButtonThemes } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { getAuthData } from 'entity/User';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { getAuthData } from '@/entity/User';
 import cls from './EditableProfileCardHeader.module.scss';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly/getProfileIsReadonly';

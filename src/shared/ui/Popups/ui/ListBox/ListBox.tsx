@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ReactNode, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
-import CheckSvg from 'shared/assets/svg/check.svg';
-import { PopupDirection } from 'shared/types/ui';
+import CheckSvg from '@/shared/assets/svg/check.svg';
+import { PopupDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import clsPopup from '../../styles/popup.module.scss';
 import { Button } from '../../../Button';

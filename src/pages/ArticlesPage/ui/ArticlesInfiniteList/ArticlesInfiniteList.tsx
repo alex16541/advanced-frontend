@@ -1,11 +1,11 @@
-import { ArticlesList } from 'entity/Article';
+import { ArticlesList } from '@/entity/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
-import { Button } from 'shared/ui/Button';
+import { Text } from '@/shared/ui/Text/Text';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
+import { Button } from '@/shared/ui/Button';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
     selectArticlesPageErrors,

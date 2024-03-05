@@ -1,10 +1,10 @@
-import { ProfileCard } from 'entity/Profile';
+import { ProfileCard } from '@/entity/Profile';
 import { memo } from 'react';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useOnInit } from 'shared/hooks/useOnInit';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useOnInit } from '@/shared/hooks/useOnInit';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
 import {
     featchProfileData,

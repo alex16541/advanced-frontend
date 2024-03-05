@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { AppLink, AppLinkThemes } from './AppLink';
 
 // todo: add ComponentMeta type

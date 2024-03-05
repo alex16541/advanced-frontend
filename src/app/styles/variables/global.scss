@@ -27,14 +27,19 @@
     --sidebar-width-collapsed: 80px;
 
     // z-indexes
-    --modal-z-index: 10;
+    --popup-z-index: 20;
+    --modal-z-index: 15;
+    --moadl-content-z-index: 10;
+    --drawer-z-index: 15;
+    --drawer-content-z-index: 10;
+    --overlay-z-index: 5;
 
     // transition
     --transition: background-color, color, border, opacity;
     --transition-duration: 0.2s;
 
     // colors
-    --backdrop-color: #0008;
+    --overlay-color: #0008;
 
     // borders
     --border-radius-xs: 1px;

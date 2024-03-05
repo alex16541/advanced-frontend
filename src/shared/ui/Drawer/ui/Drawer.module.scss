@@ -2,6 +2,7 @@
     pointer-events: none;
 
     position: fixed;
+    z-index: var(--drawer-z-index);
     top: 0;
     right: 0;
     bottom: 0;
@@ -17,7 +18,7 @@
     touch-action: none;
 
     position: fixed;
-    z-index: 100;
+    z-index: var(--drawer-content-z-index);
 
     overflow: hidden auto;
 
@@ -33,10 +34,11 @@
     pointer-events: all;
 
     position: fixed;
+    z-index: var(--overlay-z-index);
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 
-    background-color: var(--backdrop-color);
+    background-color: var(--overlay-color);
 }

@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Input } from 'shared/ui/Input';
+import { Input } from '@/shared/ui/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entity/User';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { getAuthData } from '@/entity/User';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import cls from './CommentForm.module.scss';
 
 interface CommentFormProps {

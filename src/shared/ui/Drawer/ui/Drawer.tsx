@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     ReactNode, useCallback, useEffect,
 } from 'react';
-import { AnimationProvider, useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../../Portal';
 import cls from './Drawer.module.scss';
 

@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { ArticleSortField, ArticleType } from 'entity/Article';
-import { SortOrder } from 'shared/types';
-import { useAppSelector } from 'shared/hooks/useAppSelector';
-import { ChipList, ChipListOption } from 'shared/ui/Chip';
-import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
-import { ListBoxOption } from 'shared/ui/Popups/types/listBox';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { ArticleSortField, ArticleType } from '@/entity/Article';
+import { SortOrder } from '@/shared/types';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { ChipList, ChipListOption } from '@/shared/ui/Chip';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBoxOption } from '@/shared/ui/Popups/types/listBox';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import cls from './ArticlesFilters.module.scss';
 import {
     selectArticlesFiltersOrder,

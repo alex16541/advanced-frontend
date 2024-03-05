@@ -1,5 +1,5 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { addNewCommentToArticle } from './addNewCommentToArticle';
 import { ArticleCommentsErrors } from '../../consts/articleCommentList';
 

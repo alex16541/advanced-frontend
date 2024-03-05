@@ -1,8 +1,8 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider';
+import { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider';
 import { ReactNode } from 'react';
 import { useStore, useDispatch } from 'react-redux';
-import { useOnInit } from 'shared/hooks/useOnInit';
+import { useOnInit } from '@/shared/hooks/useOnInit';
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;

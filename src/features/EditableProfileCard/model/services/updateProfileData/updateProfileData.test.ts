@@ -1,5 +1,5 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ProfileErrors } from 'entity/Profile';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { ProfileErrors } from '@/entity/Profile';
 import { updateProfileData } from './updateProfileData';
 import { ProfileValidateErrors } from '../../consts/profile';
 

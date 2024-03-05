@@ -1,15 +1,15 @@
-import { ArticleViewSwitcher, ArticlesListView } from 'entity/Article';
+import { ArticleViewSwitcher, ArticlesListView } from '@/entity/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useOnInit } from 'shared/hooks/useOnInit';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Text } from 'shared/ui/Text/Text';
-import { Page } from 'widgets/Page';
-import { useDebounce } from 'shared/hooks/useDebounce';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useOnInit } from '@/shared/hooks/useOnInit';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
+import { useDebounce } from '@/shared/hooks/useDebounce';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 import {
     selectArticlesPageIsInitialLoading, selectArticlesPageView,

@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Button } from 'shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import cls from './ArticleDetailsPageHeader.module.scss';

@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ArticleBlockType, ArticleType, article } from 'entity/Article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ArticleBlockType, ArticleType, article } from '@/entity/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const articles = new Array(6).fill(0).map((item, index) => ({

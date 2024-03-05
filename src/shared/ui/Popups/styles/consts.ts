@@ -1,4 +1,4 @@
-import { PopupDirection } from 'shared/types/ui';
+import { PopupDirection } from '@/shared/types/ui';
 import clsPopup from './popup.module.scss';
 
 export const directionClassName: Record<PopupDirection, string> = {

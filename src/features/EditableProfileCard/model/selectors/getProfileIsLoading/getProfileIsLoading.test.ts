@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ProfileErrors } from 'entity/Profile';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ProfileErrors } from '@/entity/Profile';
 import { getProfileIsLoading } from './getProfileIsLoading';
 import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
 

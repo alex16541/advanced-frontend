@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
-import { PopupDirection } from 'shared/types/ui';
+import { PopupDirection } from '@/shared/types/ui';
 import cls from './Dropdown.module.scss';
 import clsPopup from '../../styles/popup.module.scss';
 import { Button } from '../../../Button';

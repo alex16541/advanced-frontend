@@ -1,8 +1,8 @@
 import {
     ReactNode, useEffect, useCallback, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useModal } from 'shared/hooks/useModal';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/hooks/useModal';
 import { Overlay } from '../../../ui/Overlay';
 import { Portal } from '../../../ui/Portal';
 import cls from './Modal.module.scss';

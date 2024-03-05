@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { UserRoles } from 'entity/User';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { UserRoles } from '@/entity/User';
 import { AvatarButton } from './AvatarButton';
 
 export default {

@@ -1,4 +1,4 @@
-import { Profile } from 'entity/Profile';
+import { Profile } from '@/entity/Profile';
 import { editableProfileCardReducer, editableProfileCardActions } from './editableProfileCardSlice';
 import { EditableProfileCardSchema } from '../types/editableProfileCardSchema';
 

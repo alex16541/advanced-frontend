@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { article } from 'entity/Article';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { article } from '@/entity/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 const articles = new Array(6).fill(0).map((item, index) => ({

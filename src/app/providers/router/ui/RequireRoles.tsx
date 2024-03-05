@@ -1,8 +1,8 @@
-import { UserRoles, getUserRoles } from 'entity/User';
+import { UserRoles, getUserRoles } from '@/entity/User';
 import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useAppSelector } from 'shared/hooks/useAppSelector';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 
 interface RequireRolesProps {
     children: ReactNode,

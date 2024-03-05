@@ -13,7 +13,7 @@
 
 .Content {
     position: absolute;
-    z-index: 1500;
+    z-index: var(--popup-z-index);
 }
 
 .topRight {

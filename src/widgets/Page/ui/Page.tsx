@@ -1,13 +1,13 @@
 import {
     MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll';
-import { useThrottle } from 'shared/hooks/useThrottle';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
+import { useThrottle } from '@/shared/hooks/useThrottle';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useLocation } from 'react-router-dom';
-import { useAppSelector } from 'shared/hooks/useAppSelector';
-import { useOnInit } from 'shared/hooks/useOnInit';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { useOnInit } from '@/shared/hooks/useOnInit';
 import { ScrollActions } from '../model/slices/scrollSlice';
 import cls from './Page.module.scss';
 import { selectScrollPositionByPath } from '../model/selectors/scrollSelectors';

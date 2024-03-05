@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { VStack } from 'shared/ui/Stack';
+import { Card } from '@/shared/ui/Card/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
 import cls from './NotificationSkeleton.module.scss';
 
 interface NotificationSkeletonProps {
