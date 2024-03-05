@@ -28,7 +28,6 @@ export const Modal = (props: ModalProps) => {
         isOpen,
         onClose,
         animationDeley: 200,
-        lazy,
     });
 
     const mods = {

@@ -2,28 +2,29 @@ import { useCallback, useEffect, useState } from 'react';
 
 interface UseModalProps {
     isOpen?: boolean;
+    close?: () => void;
     onClose?: () => void;
     animationDeley?: number;
-    lazy?: boolean;
 }
 
 export const useModal = ({
     isOpen,
+    close,
     onClose,
     animationDeley = 300,
-    lazy,
 }: UseModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
+            close?.();
             setTimeout(() => {
                 setIsClosing(false);
                 onClose();
             }, animationDeley);
         }
-    }, [animationDeley, onClose]);
+    }, [animationDeley, onClose, close]);
 
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {

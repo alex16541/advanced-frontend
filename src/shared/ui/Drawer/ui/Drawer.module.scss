@@ -2,7 +2,6 @@
     pointer-events: none;
 
     position: fixed;
-    z-index: -1;
     top: 0;
     right: 0;
     bottom: 0;
@@ -11,37 +10,33 @@
     display: flex;
     align-items: flex-end;
     justify-content: stretch;
-
-    transition: z-index 200ms ease-in-out;
 }
 
 .content {
+    pointer-events: all;
+    touch-action: none;
+
     position: fixed;
-    bottom: -100%;
+    z-index: 100;
 
     overflow: hidden auto;
 
     width: 100%;
-    height: 70%;
+    height: calc(100vh - 300px);
     padding: 10px 10px 0;
 
     background-color: var(--primary-bg-color);
     border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
-
-    transition: bottom 200ms ease-in-out;
 }
 
-.isOpen {
+.overlay {
     pointer-events: all;
-    z-index: var(--modal-z-index);
 
-    .content {
-        bottom: 0;
-    }
-}
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-.isClosing {
-    .content {
-        bottom: -100%;
-    }
+    background-color: var(--backdrop-color);
 }
