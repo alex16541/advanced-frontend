@@ -1,5 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { getAuthData } from '@/entity/User';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
@@ -8,7 +9,6 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import bell from '@/shared/assets/svg/bell.svg';
 import { PopupDirection } from '@/shared/types/ui';
 import { NotificationsList } from '@/entity/Notification';
-import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationsButton.module.scss';
 

@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useCallback, useMemo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSet } from '@/shared/hooks/useSet';
 import { HStack } from '../../../Stack';
 import { Chip } from '../Chip/Chip';

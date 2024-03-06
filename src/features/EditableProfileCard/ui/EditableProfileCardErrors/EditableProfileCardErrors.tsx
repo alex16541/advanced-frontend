@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { TextThemes, Text } from '@/shared/ui/Text/Text';
 import { ProfileErrors } from '@/entity/Profile';
-import { useTranslation } from 'react-i18next';
 import { ProfileValidateErrors } from '../../model/consts/profile';
 import cls from './EditableProfileCardErrors.module.scss';
 

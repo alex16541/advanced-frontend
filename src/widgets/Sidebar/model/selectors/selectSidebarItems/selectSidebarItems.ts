@@ -1,5 +1,5 @@
-import { getAuthData } from '@/entity/User';
 import { createSelector } from 'reselect';
+import { getAuthData } from '@/entity/User';
 import ListIcon from '@/shared/assets/svg/list.svg';
 import HomeIcon from '@/shared/assets/svg/home.svg';
 import ProfileIcon from '@/shared/assets/svg/profile.svg';

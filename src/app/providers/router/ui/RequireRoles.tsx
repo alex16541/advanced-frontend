@@ -1,6 +1,6 @@
-import { UserRoles, getUserRoles } from '@/entity/User';
 import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { UserRoles, getUserRoles } from '@/entity/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 

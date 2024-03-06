@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { renderWithProviders } from '@/shared/lib/tests/renderWithProviders/renderWithProviders';
 import { Profile } from '@/entity/Profile';
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
-import userEvent from '@testing-library/user-event';
 import { User } from '@/entity/User';
 import { $api } from '@/shared/api/api';
 import { EditableProfileCard as ProfileCard } from './EditableProfileCard';

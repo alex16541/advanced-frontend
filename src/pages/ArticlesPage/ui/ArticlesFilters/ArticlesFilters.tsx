@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { ArticleSortField, ArticleType } from '@/entity/Article';
 import { SortOrder } from '@/shared/types';

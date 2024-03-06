@@ -1,9 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { Card } from '@/shared/ui/Card/Card';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';

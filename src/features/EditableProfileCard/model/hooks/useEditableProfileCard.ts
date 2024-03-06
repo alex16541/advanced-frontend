@@ -1,10 +1,10 @@
-import { Country } from '@/entity/Country';
-import { Currency } from '@/entity/Currency';
 import { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Country } from '@/entity/Country';
+import { Currency } from '@/entity/Currency';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { ProfileErrors } from '@/entity/Profile';
-import { useTranslation } from 'react-i18next';
 import { getProfileError } from '../selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../selectors/getProfileIsLoading/getProfileIsLoading';

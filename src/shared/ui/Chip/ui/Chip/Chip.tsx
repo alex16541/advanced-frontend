@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useCallback } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '../../../../ui/Button';
 import cls from './Chip.module.scss';
 

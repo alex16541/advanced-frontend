@@ -1,7 +1,7 @@
-import { getAuthData } from '@/entity/User';
-import { LoginModal } from '@/features/AuthByUsername';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getAuthData } from '@/entity/User';
+import { LoginModal } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';

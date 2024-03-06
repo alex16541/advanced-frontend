@@ -1,5 +1,5 @@
-import { ProfileCard } from '@/entity/Profile';
 import { memo } from 'react';
+import { ProfileCard } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';

@@ -1,6 +1,6 @@
+import { fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '@/shared/lib/tests/renderWithProviders/renderWithProviders';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { fireEvent } from '@testing-library/react';
 import { Counter } from './Counter';
 
 describe('Counter', () => {

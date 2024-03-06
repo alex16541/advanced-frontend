@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback, useState } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { CommentForm } from '@/entity/Comment/ui/CommentForm/CommentForm';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { addNewCommentToArticle } from '../../model/services/addNewCommentToArticle/addNewCommentToArticle';

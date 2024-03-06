@@ -1,7 +1,7 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
 import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
