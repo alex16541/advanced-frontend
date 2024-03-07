@@ -16,7 +16,9 @@ import { Drawer } from '@/shared/ui/Drawer';
 
 interface RatingCardProps {
     className?: string;
+    rating?: number;
     title?: string;
+    ratedTitle?: string;
     feedbackTitle?: string;
     feedbackPlaceholder?: string;
     cancelText?: string;
@@ -33,7 +35,9 @@ const RatingCard = (props: RatingCardProps) => {
 
     const {
         className,
+        rating = 0,
         title = t('Leave a rating'),
+        ratedTitle = t('Thank you for rating'),
         feedbackTitle = t('Feedback form'),
         feedbackPlaceholder = t('Review fields'),
         cancelText = t('Cancel'),
@@ -47,7 +51,7 @@ const RatingCard = (props: RatingCardProps) => {
 
     const [isEditable, setIsEditable] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
-    const [starRating, setStarRating] = useState(0);
+    const [starRating, setStarRating] = useState(rating);
     const [feedback, setFeedback] = useState('');
 
     const cancelHendler = useCallback(() => {
@@ -88,8 +92,14 @@ const RatingCard = (props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
             <VStack align="Center" gap="16">
-                <Text title={title} size={TextSize.L} />
-                <StarRating onChange={onChangeStarRating} editable={isEditable} disabled={disabled} size={40} />
+                <Text title={starRating ? ratedTitle : title} size={TextSize.L} />
+                <StarRating
+                    rating={starRating}
+                    onChange={onChangeStarRating}
+                    editable={isEditable}
+                    disabled={disabled}
+                    size={40}
+                />
             </VStack>
 
             {hasFeedback && (

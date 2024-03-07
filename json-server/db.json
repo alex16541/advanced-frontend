@@ -1,4 +1,55 @@
 {
+  "articles-rating": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "rating": "3",
+      "feedback": "Cool"
+    },
+    {
+      "id": "2",
+      "articleId": "2",
+      "userId": "1",
+      "rating": "2",
+      "feedback": "Bad!"
+    },
+    {
+      "id": "3",
+      "articleId": "3",
+      "userId": "1",
+      "rating": "4",
+      "feedback": "Super!!! @_@"
+    },
+    {
+      "id": "4",
+      "articleId": "4",
+      "userId": "1",
+      "rating": "5",
+      "feedback": "Yaaaaaaa!!!"
+    },
+    {
+      "id": "5",
+      "articleId": "5",
+      "userId": "1",
+      "rating": "1",
+      "feedback": ""
+    },
+    {
+      "id": "6",
+      "articleId": "6",
+      "userId": "1",
+      "rating": "2",
+      "feedback": ""
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "rating": 3,
+      "feedback": "Good",
+      "id": "1e1G4Tt"
+    }
+  ],
   "articles": [
     {
       "id": "1",

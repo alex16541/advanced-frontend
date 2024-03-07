@@ -10,6 +10,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import cls from './ArticleDetailsPage.module.scss';
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -35,6 +36,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
             <div className={cls.container}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />
                 <ArticleCommentsList articleId={id} />
             </div>

@@ -11,6 +11,7 @@ import { FlexJustify } from '../../Stack/Flex/model/types';
 interface StarRatingProps {
     className?: string;
     count?: number;
+    rating?: number;
     onChange?: (value: number) => void;
     justify?: FlexJustify;
     editable?: boolean;
@@ -26,13 +27,14 @@ const StarRating = (props: StarRatingProps) => {
     const {
         className,
         count = 5,
+        rating = 0,
         onChange,
         justify = 'Start',
         editable = false,
         disabled = false,
         size,
     } = props;
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(rating);
     const [hovered, setHovered] = useState(0);
 
     const onChangeHandler = useCallback((value: number) => {
