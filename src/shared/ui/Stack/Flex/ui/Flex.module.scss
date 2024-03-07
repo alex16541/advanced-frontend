@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.FullHeight {
+    height: 100%;
+}
+
 .AlignStart {
     align-items: flex-start;
 }
@@ -44,6 +48,10 @@
 
 .DirectionColumn {
     flex-direction: column;
+}
+
+.Gap0 {
+    gap: 0;
 }
 
 .Gap2 {

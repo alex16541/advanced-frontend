@@ -75,7 +75,7 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
 
     return (
         <VStack
-            max
+            maxWidth
             gap="10"
             className={classNames(cls.ArticlesFilters, {}, [className])}
         >

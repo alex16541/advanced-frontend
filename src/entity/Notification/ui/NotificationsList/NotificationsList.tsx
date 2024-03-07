@@ -18,7 +18,7 @@ const NotificationsList = (props: NotificationsListProps) => {
 
     if (isLoading) {
         return (
-            <VStack max gap="10">
+            <VStack maxWidth gap="10">
                 <NotificationSkeleton />
                 <NotificationSkeleton />
                 <NotificationSkeleton />
@@ -30,7 +30,7 @@ const NotificationsList = (props: NotificationsListProps) => {
     // TODO: Если notifications.length === 0 => Уведомлений нет.
 
     return (
-        <VStack max gap="10" className={classNames(cls.NotificationsList, {}, [className])}>
+        <VStack maxWidth gap="10" className={classNames(cls.NotificationsList, {}, [className])}>
             {notifications.map((n) => <NotificationsItem key={n.id} notification={n} />)}
         </VStack>
     );

@@ -1,5 +1,5 @@
 import {
-    ButtonHTMLAttributes, memo, ReactNode,
+    ButtonHTMLAttributes, forwardRef, memo, ReactNode,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '../../../ui/Loader';
@@ -33,7 +33,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
 }
 
-const Button = (props: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         className,
         children,
@@ -52,6 +52,7 @@ const Button = (props: ButtonProps) => {
 
     return (
         <button
+            ref={ref}
             type="button"
             className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
             disabled={disabled || isLoading}
@@ -63,7 +64,7 @@ const Button = (props: ButtonProps) => {
             </div>
         </button>
     );
-};
+});
 
 const Memoized = memo(Button);
 

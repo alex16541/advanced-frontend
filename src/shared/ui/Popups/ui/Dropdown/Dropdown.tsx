@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
 import cls from './Dropdown.module.scss';
 import clsPopup from '../../styles/popup.module.scss';
@@ -37,7 +37,7 @@ export const Dropdown = (props: DropdownProps) => {
                 {button}
             </Menu.Button>
             <Menu.Items as="div" className={classNames(cls.Items, {}, [clsPopup.Content, directionClass])}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const { onClick, href } = item;
 
                     // TODO: Добавить divider
@@ -49,6 +49,7 @@ export const Dropdown = (props: DropdownProps) => {
                                 as={Button}
                                 onClick={onClick}
                                 disabled={item.disabled || disabled}
+                                key={index}
                             >
                                 {item.content}
                             </Menu.Item>
@@ -63,6 +64,7 @@ export const Dropdown = (props: DropdownProps) => {
                                 to={href}
                                 disabled={item.disabled || disabled}
                                 theme={AppLinkThemes.SECONDARY}
+                                key={index}
                             >
                                 {item.content}
                             </Menu.Item>

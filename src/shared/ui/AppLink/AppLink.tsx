@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
@@ -15,13 +15,14 @@ interface AppLinkProps extends LinkProps {
     children?: ReactNode;
 }
 
-export const AppLink = (props: AppLinkProps) => {
+export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, innerRef) => {
     const {
         className, to, children, theme = AppLinkThemes.PRIMARY, hover = true, ...otherProps
     } = props;
 
     return (
         <Link
+            ref={innerRef}
             to={to}
             className={classNames(cls.AppLink, { [cls.hover]: hover }, [cls[theme], className])}
             {...otherProps}
@@ -29,4 +30,4 @@ export const AppLink = (props: AppLinkProps) => {
             {children}
         </Link>
     );
-};
+});

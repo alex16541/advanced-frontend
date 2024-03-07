@@ -1,5 +1,5 @@
 import {
-    ReactNode, useEffect, useCallback, useState,
+    ReactNode,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/hooks/useModal';
@@ -9,6 +9,7 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
+    classNameContent?: string;
     isOpen?: boolean;
     onClose?: () => void;
     children: ReactNode;
@@ -18,6 +19,7 @@ interface ModalProps {
 export const Modal = (props: ModalProps) => {
     const {
         className,
+        classNameContent,
         children,
         isOpen = false,
         onClose,
@@ -41,7 +43,7 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <Overlay onClick={closeHandler} />
-                <div className={cls.content}>
+                <div className={classNames(cls.content, {}, [classNameContent])}>
                     {children}
                 </div>
             </div>

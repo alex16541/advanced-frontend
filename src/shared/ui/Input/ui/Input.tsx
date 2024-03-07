@@ -23,6 +23,7 @@ const Input = (props: InputProps) => {
         value,
         onChange,
         readonly = false,
+        type,
         ...otherProps
     } = props;
 

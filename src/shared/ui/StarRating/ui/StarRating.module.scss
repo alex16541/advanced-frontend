@@ -1,0 +1,9 @@
+.StarRating{
+
+}
+
+.Button {
+    &:disabled {
+        opacity: 1;
+    }
+}

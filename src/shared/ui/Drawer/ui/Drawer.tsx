@@ -25,7 +25,7 @@ const DrawerComponent = (props: DrawerProps) => {
 
     const height = window.innerHeight;
     const { Spring, Gesture } = useAnimationLibs();
-    const { useSpring, config, a } = Spring;
+    const { useSpring, a } = Spring;
     const { useDrag } = Gesture;
 
     const [{ y }, api] = useSpring(() => ({ y: height }));
@@ -36,9 +36,9 @@ const DrawerComponent = (props: DrawerProps) => {
 
     const close = useCallback((velocity = 0) => {
         api.start({
-            y: height, immediate: false, config: { ...config.stiff, velocity }, onResolve: onClose,
+            y: height, immediate: false, onResolve: onClose,
         });
-    }, [api, onClose, config, height]);
+    }, [api, onClose, height]);
 
     useEffect(() => {
         if (isOpen) {
@@ -63,7 +63,7 @@ const DrawerComponent = (props: DrawerProps) => {
             } else api.start({ y: oy, immediate: true });
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()], filterTaps: true, rubberband: true,
         },
     );
 
@@ -83,7 +83,7 @@ const DrawerComponent = (props: DrawerProps) => {
                 <a.div className={cls.overlay} style={overlayStyle} onClick={() => close()} />
                 <a.div
                     className={cls.content}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}
                     {...bind()}
                 >
                     {children}

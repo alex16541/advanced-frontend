@@ -59,7 +59,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
         >
             <VStack
                 className={classNames(cls.EditableProfileCard, {}, [className])}
-                max
+                maxWidth
                 gap="10"
             >
                 <EditableProfileCardHeader />

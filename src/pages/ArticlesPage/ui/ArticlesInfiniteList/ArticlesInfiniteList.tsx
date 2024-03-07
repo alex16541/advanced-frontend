@@ -34,7 +34,7 @@ const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
 
     if (errors.length > 0) {
         return (
-            <VStack max gap="16" align="Center">
+            <VStack maxWidth gap="16" align="Center">
                 <Text title={t('Articles page loading error')} />
                 <Button onClick={onReload}>{t('Try agen')}</Button>
             </VStack>

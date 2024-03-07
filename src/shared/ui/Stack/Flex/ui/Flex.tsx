@@ -1,4 +1,4 @@
-import { ReactNode, memo } from 'react';
+import { ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 import {
@@ -25,6 +25,7 @@ const FlexDirectionClassNames: Record<FlexDirection, string> = {
 };
 
 const FlexGapClassNames: Record<FlexGap, string> = {
+    0: cls.Gap0,
     2: cls.Gap2,
     4: cls.Gap4,
     6: cls.Gap6,
@@ -45,7 +46,8 @@ export interface FlexProps extends HTMLDivElementType {
     align?: FlexAlign;
     justify?: FlexJustify;
     direction?: FlexDirection;
-    max?: boolean;
+    maxWidth?: boolean;
+    maxHeight?: boolean;
     gap?: FlexGap;
     children?: ReactNode
 }
@@ -57,13 +59,15 @@ export const Flex = (props: FlexProps) => {
         justify = 'Center',
         direction = 'Row',
         gap = '4',
-        max = false,
+        maxWidth = false,
+        maxHeight = false,
         children,
         ...divProps
     } = props;
 
     const mods = {
-        [cls.FullWidth]: max,
+        [cls.FullWidth]: maxWidth,
+        [cls.FullHeight]: maxHeight,
     };
 
     const classes = [

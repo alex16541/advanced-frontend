@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { BrowserView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
 import { TranslateSwitcher } from '@/widgets/LangSwitcher';
@@ -28,15 +29,25 @@ export const Sidebar = memo((props: SidebarProps) => {
     }
 
     return (
-        <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <VStack gap="16" justify="Start">{itemList}</VStack>
-            <Button data-testid="sidebar-toggle" theme={ButtonThemes.PRIMARY} onClick={onToggle} className={cls.toggle}>
-                {collapsed ? '>' : '<'}
-            </Button>
-            <VStack gap="10" max role="navigation" className={cls.actions}>
-                <ThemeSwitcher data-testid="theme-switcher" />
-                <TranslateSwitcher />
-            </VStack>
-        </aside>
+        <BrowserView>
+            <aside
+                data-testid="sidebar"
+                className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            >
+                <VStack gap="16" justify="Start">{itemList}</VStack>
+                <Button
+                    data-testid="sidebar-toggle"
+                    theme={ButtonThemes.PRIMARY}
+                    onClick={onToggle}
+                    className={cls.toggle}
+                >
+                    {collapsed ? '>' : '<'}
+                </Button>
+                <VStack gap="10" maxWidth role="navigation" className={cls.actions}>
+                    <ThemeSwitcher data-testid="theme-switcher" />
+                    <TranslateSwitcher />
+                </VStack>
+            </aside>
+        </BrowserView>
     );
 });
