@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StarRating } from './StarRating';
 
 export default {
-    title: 'folder/StarRating',
+    title: 'shared/StarRating',
     component: StarRating,
     args: {
 

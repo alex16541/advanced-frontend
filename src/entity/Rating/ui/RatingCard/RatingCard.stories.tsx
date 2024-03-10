@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { RatingCard } from './RatingCard';
 
 export default {
-    title: 'folder/RatingCard',
+    title: 'entity/RatingCard',
     component: RatingCard,
     args: {
 

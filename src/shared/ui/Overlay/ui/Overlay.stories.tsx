@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Overlay } from './Overlay';
 
 export default {
-    title: 'folder/Overlay',
+    title: 'shared/Overlay',
     component: Overlay,
     args: {
 

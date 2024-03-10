@@ -2,12 +2,14 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Drawer } from './Drawer';
+import { Text } from '../../Text/Text';
 
 export default {
-    title: 'folder/Drawer',
+    title: 'shared/Drawer',
     component: Drawer,
     args: {
-
+        isOpen: true,
+        children: <Text title="Some content of a drawer" />,
     },
 } as ComponentMeta<typeof Drawer>;
 

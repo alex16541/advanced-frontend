@@ -1,12 +1,11 @@
 import { memo, useCallback, useState } from 'react';
 import cls from './StarRating.module.scss';
-import { Button, ButtonThemes } from '../../Button';
+import { Button, ButtonThemes } from '../../../Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import StarFilled from '@/shared/assets/svg/star-filled.svg';
-import StarEmpty from '@/shared/assets/svg/star-empty.svg';
-import { Icon } from '../../Icon/Icon';
-import { HStack } from '../../Stack';
-import { FlexJustify } from '../../Stack/Flex/model/types';
+
+import { HStack } from '../../../Stack';
+import { FlexJustify } from '../../../Stack/Flex/model/types';
+import { Star } from '../Star/Star';
 
 interface StarRatingProps {
     className?: string;
@@ -18,10 +17,6 @@ interface StarRatingProps {
     disabled?: boolean;
     size?: number | string;
 }
-
-const Star = ({ checked, size = 32 }: {checked?:boolean, size?: number | string}) => (
-    <Icon className={cls.Star} Svg={checked ? StarFilled : StarEmpty} width={size} />
-);
 
 const StarRating = (props: StarRatingProps) => {
     const {

@@ -13,6 +13,9 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    parameters: {
+        actions: { argTypesRegex: '^on.*' },
+    },
 };
 
 addDecorator(StyleDecorator);

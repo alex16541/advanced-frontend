@@ -12,6 +12,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
     config.resolve!.modules!.push(paths.src);
+    if (config.resolve) {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@': path.resolve(paths.src),
+        };
+    }
     config.module!.rules!.push(buildCssLoader(true));
 
     // eslint-disable-next-line no-param-reassign
