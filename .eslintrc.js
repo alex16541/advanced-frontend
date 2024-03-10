@@ -62,7 +62,7 @@ module.exports = {
         'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
-        'alex16541-fsd-imports-path-checker/relative-path-checker': 'error',
+        'alex16541-fsd-imports-path-checker/relative-path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: 'readonly',
