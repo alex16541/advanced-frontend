@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { article } from '@/entity/Article/mock/data';
+import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import ArticlesPage from './ArticlesPage';

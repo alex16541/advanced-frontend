@@ -1,6 +1,7 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticlesList, ArticlesListCountPeerView } from './ui/ArticlesList/ArticlesList';
 export { ArticleViewSwitcher } from './ui/ArticleViewSwitcher/ArticleViewSwitcher';
+export { getArticleDetailsData } from './model/selectors/articleDetails';
 export { article } from './mock/data';
 
 export type { Article } from './model/types/article';

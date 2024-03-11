@@ -63,6 +63,17 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
         'alex16541-fsd-imports-path-checker/relative-path-checker': ['error', { alias: '@' }],
+        'alex16541-fsd-imports-path-checker/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/**.test.*',
+                    '**/**.stories.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: 'readonly',

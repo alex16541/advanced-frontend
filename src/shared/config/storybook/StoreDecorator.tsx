@@ -1,10 +1,10 @@
 import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername/model/slices/loginSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 
-import { articleDetailsReducer } from '@/entity/Article/model/slices/articleDetailsSlice';
-import { articleCommentsReducer } from '@/features/ArticleCommentsList/model/slices/articleCommentsListSlice';
+import { articleDetailsReducer } from '@/entity/Article/testing';
+import { articleCommentsReducer } from '@/features/ArticleCommentsList';
 import { editableProfileCardReducer } from '@/features/EditableProfileCard';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
