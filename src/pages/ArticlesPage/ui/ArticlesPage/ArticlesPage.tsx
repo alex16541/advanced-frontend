@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';

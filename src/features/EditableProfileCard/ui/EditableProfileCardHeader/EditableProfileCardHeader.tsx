@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonColor, ButtonThemes } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { getAuthData } from '@/entity/User';
 import cls from './EditableProfileCardHeader.module.scss';

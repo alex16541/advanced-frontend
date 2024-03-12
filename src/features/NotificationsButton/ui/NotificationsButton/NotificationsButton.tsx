@@ -5,7 +5,7 @@ import { getAuthData } from '@/entity/User';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import bell from '@/shared/assets/svg/bell.svg';
 import { PopupDirection } from '@/shared/types/ui';
 import { NotificationsList } from '@/entity/Notification';

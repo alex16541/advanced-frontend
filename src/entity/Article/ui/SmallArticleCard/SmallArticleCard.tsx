@@ -1,11 +1,11 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Icon } from '@/shared/ui/Icon';
+import { Text, TextSize } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import cls from './SmallArticleCard.module.scss';
 import { Article } from '../../model/types/article';
 import { SmallArticleCardSkeleton } from './SmallArticleCardSkeleton';

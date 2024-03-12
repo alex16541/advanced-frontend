@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { ArticlesList } from '@/entity/Article';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { VStack } from '@/shared/ui/Stack';
 import { Button } from '@/shared/ui/Button';

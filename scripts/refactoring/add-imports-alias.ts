@@ -2,7 +2,7 @@ import { Project } from 'ts-morph';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths(['../src/**/*.ts', '../src/**/*.tsx']);
+project.addSourceFilesAtPaths(['../../src/**/*.ts', '../../src/**/*.tsx']);
 
 const files = project.getSourceFiles();
 

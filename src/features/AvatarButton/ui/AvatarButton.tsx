@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar/Avatar';
+import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import {
     getAuthData, getIsUserAdmin, getIsUserManager, userActions,

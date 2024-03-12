@@ -1,15 +1,8 @@
 import { memo } from 'react';
-import { t } from 'i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
-import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './LargeArticleCard.module.scss';
-import { Article } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface LargeArticleCardProps {
     className?: string;

@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/Input';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { Loader } from '@/shared/ui/Loader';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { selectArticlesFiltersSearch } from '../../model/selectors/articlesFiltersSlice';
