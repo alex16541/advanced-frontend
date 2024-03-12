@@ -1,5 +1,6 @@
 import { Story } from '@storybook/react';
 import { Suspense } from 'react';
+// eslint-disable-next-line alex16541-fsd-imports-path-checker/layers-imports
 import { PageLoader } from '@/widgets/PageLoader';
 
 export const SuspenseDecorator = (StoryComponent: Story) => (

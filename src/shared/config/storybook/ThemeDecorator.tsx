@@ -1,6 +1,7 @@
+// eslint-disable-next-line alex16541-fsd-imports-path-checker/layers-imports
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export const ThemeDecorator = (
     theme: Theme,

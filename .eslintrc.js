@@ -74,6 +74,16 @@ module.exports = {
                 ],
             },
         ],
+        'alex16541-fsd-imports-path-checker/layers-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportsPatterns: [
+                    '**/StoreProvider',
+                    '**/testing',
+                ],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: 'readonly',

@@ -1,4 +1,5 @@
-import { AppRoutesProps, AppRoutes, RoutePath } from '@/shared/types/router';
+import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { AppRoutesProps } from '../types';
 
 import { UserRoles } from '@/entity/User';
 import { AboutPage } from '@/pages/AboutPage';
