@@ -38,10 +38,10 @@ const EditableProfileCardErrors = (props: EditableProfileCardErrorsProps) => {
         >
             {validationErrors.map((err) => (
                 <Text
-                    key={err}
-                    theme={TextThemes.ERROR}
-                    text={errors[err]}
                     dataTestId="EditableProfileCardErrors.Error"
+                    key={err}
+                    text={errors[err]}
+                    theme={TextThemes.ERROR}
                 />
             ))}
         </div>

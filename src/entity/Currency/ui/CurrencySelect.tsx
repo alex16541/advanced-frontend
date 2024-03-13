@@ -41,9 +41,9 @@ const CurrencySelect = (props: CurrencySelectProps) => {
         <ListBox
             className={className}
             defaultValue={placeholder}
-            options={currencyOptions}
             disabled={readonly}
             label={label}
+            options={currencyOptions}
             value={value}
             onChange={onChangeHendler}
         />

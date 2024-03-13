@@ -24,9 +24,9 @@ export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, inner
 
     return (
         <Link
+            className={classNames(cls.AppLink, { [cls.hover]: hover }, [cls[theme], className])}
             ref={innerRef}
             to={to}
-            className={classNames(cls.AppLink, { [cls.hover]: hover }, [cls[theme], className])}
             {...otherProps}
         >
             {children}

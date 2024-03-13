@@ -15,14 +15,14 @@ export const SmallArticleCardSkeleton = memo((props: SmallArticleCardProps) => {
 
     return (
         <Card className={classNames(cls.skeleton, {}, [className, cls.skeleton])}>
-            <Skeleton width="100%" height="150px" />
+            <Skeleton height="150px" width="100%" />
 
             <div className={cls.content}>
                 <div className={cls.column}>
-                    <Skeleton width="100%" height="30px" />
-                    <Skeleton width="70%" height="30px" />
+                    <Skeleton height="30px" width="100%" />
+                    <Skeleton height="30px" width="70%" />
                 </div>
-                <Skeleton width="100px" height="30px" />
+                <Skeleton height="30px" width="100px" />
             </div>
         </Card>
     );

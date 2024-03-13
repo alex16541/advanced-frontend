@@ -35,13 +35,13 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
 
     return (
         <AppLink
-            to={`/articles/${article.id}`}
-            target={target}
             className={classNames(cls.SmallArticleCard, {}, [className])}
+            target={target}
+            to={`/articles/${article.id}`}
         >
             <Card className={cls.cardWrapper}>
                 <div className={cls.imageWrapper}>
-                    <img className={cls.img} src={article.img} alt="test mountains" />
+                    <img alt="test mountains" className={cls.img} src={article.img} />
                     <div className={cls.dateWrapper}>
                         <Button className={cls.date} size={ButtonSize.S} disabled>
                             {article.createdAt}
@@ -57,10 +57,10 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
                 </div>
 
                 <div className={cls.content}>
-                    <Text className={cls.title} title={article.title} size={TextSize.S} />
+                    <Text className={cls.title} size={TextSize.S} title={article.title} />
                     <div className={cls.views}>
-                        <Icon Svg={EyeIcon} className={cls.icon} />
-                        <Text text={article.views.toString()} size={TextSize.M} />
+                        <Icon className={cls.icon} Svg={EyeIcon} />
+                        <Text size={TextSize.M} text={article.views.toString()} />
                     </div>
                 </div>
             </Card>

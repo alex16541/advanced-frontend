@@ -55,10 +55,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     return (
         <button
-            ref={ref}
-            type="button"
             className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
             disabled={disabled || isLoading}
+            ref={ref}
+            type="button"
             {...otherProps}
         >
             <div className={cls.body}>

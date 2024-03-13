@@ -74,6 +74,13 @@ module.exports = {
         ],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
+        'react/jsx-sort-props': [2, {
+            callbacksLast: true,
+            shorthandLast: true,
+            multiline: 'last',
+            ignoreCase: true,
+        }],
+        'react/jsx-key': 'error',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/jsx-no-bind': 'off',
         'react/react-in-jsx-scope': 'off',

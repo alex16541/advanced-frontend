@@ -53,10 +53,10 @@ const ArticleCommentsList = memo((props: ArticleCommentsListProps) => {
 
     const commentSkeleton = (
         <div className={cls.loader}>
-            <Skeleton width={70} height={70} />
+            <Skeleton height={70} width={70} />
             <div className={cls.loader__column}>
-                <Skeleton width={170} height={35} />
-                <Skeleton width={350} height={25} />
+                <Skeleton height={35} width={170} />
+                <Skeleton height={25} width={350} />
             </div>
         </div>
     );

@@ -49,26 +49,26 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
                 <div className={cls.actions}>
                     {readonly ? (
                         <Button
+                            data-testid="EditableProfileCardHeader.EditButton"
                             theme={ButtonThemes.OUTLINED}
                             onClick={onEdit}
-                            data-testid="EditableProfileCardHeader.EditButton"
                         >
                             {t('edit')}
                         </Button>
                     ) : (
                         <>
                             <Button
+                                data-testid="EditableProfileCardHeader.SaveButton"
                                 theme={ButtonThemes.OUTLINED}
                                 onClick={onSave}
-                                data-testid="EditableProfileCardHeader.SaveButton"
                             >
                                 {t('Save')}
                             </Button>
                             <Button
-                                theme={ButtonThemes.OUTLINED}
                                 color={ButtonColor.RED}
-                                onClick={onCalcelEdit}
                                 data-testid="EditableProfileCardHeader.CancelButton"
+                                theme={ButtonThemes.OUTLINED}
+                                onClick={onCalcelEdit}
                             >
                                 {t('Cancel')}
                             </Button>

@@ -69,25 +69,25 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             case ArticleBlockType.TEXT:
                 return (
                     <ArticleTextBlockComponent
+                        articleBlock={articleBlock}
                         className={cls.articleBlock}
                         key={articleBlock.id}
-                        articleBlock={articleBlock}
                     />
                 );
             case ArticleBlockType.IMAGE:
                 return (
                     <ArticleImageBlockComponent
+                        articleBlock={articleBlock}
                         className={cls.articleBlock}
                         key={articleBlock.id}
-                        articleBlock={articleBlock}
                     />
                 );
             case ArticleBlockType.CODE:
                 return (
                     <ArticleCodeBlockComponent
+                        articleBlock={articleBlock}
                         className={cls.articleBlock}
                         key={articleBlock.id}
-                        articleBlock={articleBlock}
                     />
                 );
             default:
@@ -99,19 +99,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <div className={cls.loaderColumn}>
                 <div className={cls.loaderRow}>
-                    <Skeleton width={100} height={100} />
+                    <Skeleton height={100} width={100} />
                     <div className={cls.loaderColumn}>
-                        <Skeleton width={230} height={20} />
-                        <Skeleton width={170} height={20} />
-                        <Skeleton width="100%" height={40} />
+                        <Skeleton height={20} width={230} />
+                        <Skeleton height={20} width={170} />
+                        <Skeleton height={40} width="100%" />
                     </div>
                 </div>
-                <Skeleton width={300} height={50} />
-                <Skeleton width="100%" height={300} />
-                <Skeleton width={600} height={50} />
-                <Skeleton width="100%" height={250} />
-                <Skeleton width={300} height={50} />
-                <Skeleton width="100%" height={300} />
+                <Skeleton height={50} width={300} />
+                <Skeleton height={300} width="100%" />
+                <Skeleton height={50} width={600} />
+                <Skeleton height={250} width="100%" />
+                <Skeleton height={50} width={300} />
+                <Skeleton height={300} width="100%" />
             </div>
         );
     } else if (errors.length > 0) {
@@ -121,21 +121,21 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <>
                 <header className={cls.header}>
                     {articleData?.img && (
-                        <Avatar className={cls.img} size={100} src={articleData.img} alt={articleData.title} />
+                        <Avatar alt={articleData.title} className={cls.img} size={100} src={articleData.img} />
                     )}
                     <div className={cls.articleInfo}>
                         <Text
                             className={cls.title}
-                            title={articleData?.title}
-                            text={articleData?.subtitle}
                             size={TextSize.L}
+                            text={articleData?.subtitle}
+                            title={articleData?.title}
                         />
                         <div className={cls.views}>
-                            <Icon Svg={EyeIcon} className={cls.icon} />
+                            <Icon className={cls.icon} Svg={EyeIcon} />
                             <Text text={articleData?.views.toString()} />
                         </div>
                         <div className={cls.createdAt}>
-                            <Icon Svg={CalendarIcon} className={cls.icon} />
+                            <Icon className={cls.icon} Svg={CalendarIcon} />
                             <Text text={articleData?.createdAt} />
                         </div>
                     </div>

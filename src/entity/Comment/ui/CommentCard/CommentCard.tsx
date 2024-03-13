@@ -22,12 +22,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
         <div className={classNames(cls.CommentCard, {}, [className])}>
             {comment.user.avatar && (
                 <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
-                    <Avatar src={comment.user.avatar} alt={comment.user.username} />
+                    <Avatar alt={comment.user.username} src={comment.user.avatar} />
                 </AppLink>
             )}
             <div className="comment__body">
                 <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
-                    <Text text={comment.user.username} size={TextSize.L} />
+                    <Text size={TextSize.L} text={comment.user.username} />
                 </AppLink>
                 <Text text={comment.text} />
             </div>

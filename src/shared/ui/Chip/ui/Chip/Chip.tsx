@@ -25,7 +25,7 @@ function Chip<T extends string>(props: ChipProps<T>) {
     }, [onClick, key]);
 
     return (
-        <Button className={classNames(cls.Chip, {}, [className])} onClick={onClickHandler} theme={theme}>
+        <Button className={classNames(cls.Chip, {}, [className])} theme={theme} onClick={onClickHandler}>
             {label}
         </Button>
     );

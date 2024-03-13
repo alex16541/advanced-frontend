@@ -57,31 +57,31 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader
-            reducers={reducers}
             dataTestId="EditableProfileCard"
+            reducers={reducers}
         >
             <VStack
                 className={classNames(cls.EditableProfileCard, {}, [className])}
-                maxWidth
                 gap="10"
+                maxWidth
             >
                 <EditableProfileCardHeader />
                 <EditableProfileCardErrors validationErrors={validationErrors} />
                 <ProfileCard
                     data={form}
-                    isLoading={isLoading}
                     error={error && profileError[error]}
+                    isLoading={isLoading}
                     readonly={readonly}
-                    onChangeUsername={onChangeUsername}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeEmail={onChangeEmail}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeCountry={onChangeCountry}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeEmail={onChangeEmail}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
                     onChangePhone={onChangePhone}
                     onChangePhoto={onChangePhoto}
-                    onChangeCurrency={onChangeCurrency}
+                    onChangeUsername={onChangeUsername}
                 />
             </VStack>
 

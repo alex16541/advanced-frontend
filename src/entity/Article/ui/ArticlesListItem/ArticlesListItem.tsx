@@ -24,10 +24,10 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
 
     switch (size) {
         case ArticlesListItemSize.S:
-            return <SmallArticleCard target={target} className={className} article={article} isLoading={isLoading} />;
+            return <SmallArticleCard article={article} className={className} isLoading={isLoading} target={target} />;
 
         case ArticlesListItemSize.L:
-            return <LargeArticleCard className={className} article={article} isLoading={isLoading} />;
+            return <LargeArticleCard article={article} className={className} isLoading={isLoading} />;
 
         default:
             return null;

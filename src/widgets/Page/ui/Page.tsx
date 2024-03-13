@@ -44,9 +44,9 @@ export const Page = (props: PageProps) => {
     });
 
     return (
-        <main ref={wrapperRef} className={classNames(cls.Page, {}, [className])} onScroll={onScroll}>
+        <main className={classNames(cls.Page, {}, [className])} ref={wrapperRef} onScroll={onScroll}>
             {children}
-            <div ref={triggerRef} className={cls.trigger} />
+            <div className={cls.trigger} ref={triggerRef} />
         </main>
     );
 };

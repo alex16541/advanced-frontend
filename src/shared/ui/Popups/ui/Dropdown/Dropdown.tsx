@@ -48,11 +48,11 @@ export const Dropdown = (props: DropdownProps) => {
                     if (onClick) {
                         return (
                             <Menu.Item
-                                className={cls.Item}
                                 as={Button}
-                                onClick={onClick}
+                                className={cls.Item}
                                 disabled={item.disabled || disabled}
                                 key={index}
+                                onClick={onClick}
                             >
                                 {item.content}
                             </Menu.Item>
@@ -62,12 +62,12 @@ export const Dropdown = (props: DropdownProps) => {
                     if (href) {
                         return (
                             <Menu.Item
-                                className={cls.Item}
                                 as={AppLink}
-                                to={href}
+                                className={cls.Item}
                                 disabled={item.disabled || disabled}
-                                theme={AppLinkThemes.SECONDARY}
                                 key={index}
+                                theme={AppLinkThemes.SECONDARY}
+                                to={href}
                             >
                                 {item.content}
                             </Menu.Item>

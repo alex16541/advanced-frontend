@@ -15,13 +15,13 @@ export const LargeArticleCardSkeleton = memo((props: LargeArticleCardProps) => {
 
     return (
         <Card className={classNames(cls.skeleton, {}, [className])}>
-            <Skeleton width="100%" height="250px" />
-            <Skeleton width="70%" height="40px" className={cls.title} />
-            <Skeleton width="100%" height="24px" />
-            <Skeleton width="100%" height="24px" />
-            <Skeleton width="100%" height="24px" />
-            <Skeleton width="30%" height="24px" />
-            <Skeleton width="200px" height="50px" className={cls.button} />
+            <Skeleton height="250px" width="100%" />
+            <Skeleton className={cls.title} height="40px" width="70%" />
+            <Skeleton height="24px" width="100%" />
+            <Skeleton height="24px" width="100%" />
+            <Skeleton height="24px" width="100%" />
+            <Skeleton height="24px" width="30%" />
+            <Skeleton className={cls.button} height="50px" width="200px" />
         </Card>
     );
 });

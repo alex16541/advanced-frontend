@@ -50,19 +50,19 @@ const StarRating = (props: StarRatingProps) => {
     }, []);
 
     return (
-        <HStack gap="0" justify={justify} className={classNames(cls.StarRating, {}, [className])}>
+        <HStack className={classNames(cls.StarRating, {}, [className])} gap="0" justify={justify}>
             {Array(count).fill('').map((_, index) => {
                 const val = index + 1;
 
                 return (
                     <Button
                         className={cls.Button}
+                        disabled={disabled || (!editable && Boolean(value))}
                         key={val}
                         theme={ButtonThemes.CLEAR}
                         onClick={() => onChangeHandler(val)}
                         onMouseEnter={() => onMouseEnter(val)}
                         onMouseLeave={onMouseLeave}
-                        disabled={disabled || (!editable && Boolean(value))}
                     >
                         <Star checked={val <= (hovered || value)} size={size} />
                     </Button>

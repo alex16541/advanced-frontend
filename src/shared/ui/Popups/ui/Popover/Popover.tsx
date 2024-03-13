@@ -30,7 +30,7 @@ export const Popover = (props: PopoverProps) => {
 
     return (
         <HPopover className={classNames(cls.Popover, {}, [className, clsPopup.Popup])}>
-            <HPopover.Button as="div" disabled={disabled} className={classNames(cls.Button, {}, [clsPopup.Button])}>
+            <HPopover.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])} disabled={disabled}>
                 {button}
             </HPopover.Button>
 

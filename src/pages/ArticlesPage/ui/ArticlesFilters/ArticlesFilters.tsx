@@ -78,24 +78,24 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
 
     return (
         <VStack
-            maxWidth
-            gap="10"
             className={classNames(cls.ArticlesFilters, {}, [className])}
+            gap="10"
+            maxWidth
         >
             <ArticlesFiltersSearch isLoading={isLoading} onSearch={onLoadData} />
             <HStack gap="10">
                 <ListBox
-                    wrapperClassName={cls.field}
+                    label={t('Sort by')}
                     options={sortOptions}
                     value={sort}
-                    label={t('Sort by')}
+                    wrapperClassName={cls.field}
                     onChange={sortChange}
                 />
                 <ListBox
-                    wrapperClassName={cls.field}
+                    label={t('Sort by')}
                     options={orderOptions}
                     value={order}
-                    label={t('Sort by')}
+                    wrapperClassName={cls.field}
                     onChange={orderChange}
                 />
             </HStack>

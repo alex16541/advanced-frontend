@@ -17,9 +17,9 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
 
     return (
         <Button
+            className={classNames(cls.ThemeSwitcher, {}, [className])}
             theme={ButtonThemes.CLEAR}
             onClick={toggleTheme}
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
             {...otherProps}
         >
             <PaintRoller />

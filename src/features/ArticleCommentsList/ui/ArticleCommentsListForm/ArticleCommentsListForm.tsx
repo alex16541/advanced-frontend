@@ -33,10 +33,10 @@ export const ArticleCommentsListForm = memo((props: ArticleCommentsListFormProps
     return (
         <div className={classNames(cls.ArticleCommentsListForm, {}, [className])}>
             <CommentForm
-                onSubmit={onNewCommentFormSubmit}
                 comment={comment}
-                onChangeComment={setComment}
                 isLoading={isLoading}
+                onChangeComment={setComment}
+                onSubmit={onNewCommentFormSubmit}
             />
         </div>
     );

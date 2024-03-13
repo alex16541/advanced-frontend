@@ -17,10 +17,10 @@ const NotificationSkeleton = (props: NotificationSkeletonProps) => {
     return (
         <Card className={classNames(cls.NotificationSkeleton, {}, [className])}>
             <VStack gap="10">
-                <Skeleton width="100%" height="20px" />
+                <Skeleton height="20px" width="100%" />
                 <VStack gap="6">
-                    <Skeleton width="100%" height="14px" />
-                    <Skeleton width="60%" height="14px" />
+                    <Skeleton height="14px" width="100%" />
+                    <Skeleton height="14px" width="60%" />
                 </VStack>
             </VStack>
         </Card>

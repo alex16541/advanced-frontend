@@ -28,16 +28,16 @@ export const CommentForm = memo((props: CommentFormProps) => {
 
     return (
         <form className={classNames(cls.CommentForm, {}, [className, cls.commentForm])}>
-            {authData?.avatar && <Avatar src={authData?.avatar} alt={authData.username} />}
+            {authData?.avatar && <Avatar alt={authData.username} src={authData?.avatar} />}
             <div className={cls.commentForm__body}>
                 <Input
                     className={cls.commentForm__input}
                     placeholder={t('Your comment')}
+                    readonly={isLoading}
                     value={comment}
                     onChange={onChangeComment}
-                    readonly={isLoading}
                 />
-                <Button className={cls.commentForm__button} onClick={onSubmit} isLoading={isLoading}>
+                <Button className={cls.commentForm__button} isLoading={isLoading} onClick={onSubmit}>
                     {t('leave a comment')}
                 </Button>
             </div>

@@ -44,7 +44,7 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
     return (
         <Card className={classNames(cls.LargeArticleCard, {}, [className])}>
             <div className={cls.imageWrapper}>
-                <img className={cls.img} src={article.img} alt="test mountains" />
+                <img alt="test mountains" className={cls.img} src={article.img} />
                 <div className={cls.dateWrapper}>
                     <Button className={cls.date} disabled>
                         {article.createdAt}
@@ -59,14 +59,14 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
                 </div>
             </div>
             <Text className={cls.title} title={article.title} />
-            {firstParagraph && <ArticleTextBlockComponent className={cls.text} articleBlock={firstParagraph} />}
+            {firstParagraph && <ArticleTextBlockComponent articleBlock={firstParagraph} className={cls.text} />}
             <div className={cls.actions}>
                 <AppLink hover={false} to={`/articles/${article.id}`}>
                     <Button className={cls.button}>{t('read more')}</Button>
                 </AppLink>
                 <div className={cls.views}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text text={article.views.toString()} size={TextSize.M} />
+                    <Icon className={cls.icon} Svg={EyeIcon} />
+                    <Text size={TextSize.M} text={article.views.toString()} />
                 </div>
             </div>
         </Card>

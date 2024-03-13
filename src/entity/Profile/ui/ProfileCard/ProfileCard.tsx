@@ -67,7 +67,7 @@ const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
-                <Text title={`${t('profile error')}:`} text={error} align={TextAlign.CENTER} />
+                <Text align={TextAlign.CENTER} text={error} title={`${t('profile error')}:`} />
             </div>
         );
     }
@@ -76,89 +76,89 @@ const ProfileCard = (props: ProfileCardProps) => {
         <div className={classNames(cls.ProfileCard, mods, [className, cls.data])}>
             {data?.photo && (
                 <div className={cls.avatarWrapper}>
-                    <Avatar size={AvatarSize.L} src={data?.photo} alt={t('user avatar')} />
+                    <Avatar alt={t('user avatar')} size={AvatarSize.L} src={data?.photo} />
                 </div>
             )}
 
             <Input
                 className={cls.input}
-                value={data?.username}
+                data-testid="ProfileCard.Username"
                 placeholder={t('username')}
                 readonly={readonly}
+                value={data?.username}
                 onChange={onChangeUsername}
-                data-testid="ProfileCard.Username"
             />
             <Input
                 className={cls.input}
-                value={data?.firstname}
+                data-testid="ProfileCard.Firstname"
                 placeholder={t('firstname')}
                 readonly={readonly}
+                value={data?.firstname}
                 onChange={onChangeFirstname}
-                data-testid="ProfileCard.Firstname"
             />
             <Input
                 className={cls.input}
-                value={data?.lastname || ''}
+                data-testid="ProfileCard.Lastname"
                 placeholder={t('lastname')}
                 readonly={readonly}
+                value={data?.lastname || ''}
                 onChange={onChangeLastname}
-                data-testid="ProfileCard.Lastname"
             />
             <Input
                 className={cls.input}
-                value={data?.email}
+                data-testid="ProfileCard.Email"
                 placeholder={t('email')}
                 readonly={readonly}
+                value={data?.email}
                 onChange={onChangeEmail}
-                data-testid="ProfileCard.Email"
             />
             <Input
                 className={cls.input}
-                value={data?.age?.toString()}
+                data-testid="ProfileCard.Age"
                 placeholder={t('age')}
                 readonly={readonly}
+                value={data?.age?.toString()}
                 onChange={onChangeAge}
-                data-testid="ProfileCard.Age"
             />
             <Input
                 className={cls.input}
-                value={data?.city}
+                data-testid="ProfileCard.City"
                 placeholder={t('city')}
                 readonly={readonly}
+                value={data?.city}
                 onChange={onChangeCity}
-                data-testid="ProfileCard.City"
             />
             <CountrySelect
                 className={cls.input}
-                value={data?.country}
+                data-testid="ProfileCard.Country"
                 placeholder={t('country')}
                 readonly={readonly}
+                value={data?.country}
                 onChangeValue={onChangeCountry}
-                data-testid="ProfileCard.Country"
             />
             <Input
                 className={cls.input}
-                value={data?.phone}
+                data-testid="ProfileCard.Phone"
                 placeholder={t('phone')}
                 readonly={readonly}
+                value={data?.phone}
                 onChange={onChangePhone}
-                data-testid="ProfileCard.Phone"
             />
             <Input
                 className={cls.input}
-                value={data?.photo}
+                data-testid="ProfileCard.Photo"
                 placeholder={t('photo')}
                 readonly={readonly}
+                value={data?.photo}
                 onChange={onChangePhoto}
-                data-testid="ProfileCard.Photo"
             />
             <CurrencySelect
                 className={cls.input}
-                value={data?.currency}
+                data-testid="ProfileCard.Currency"
                 placeholder={t('currency')}
                 readonly={readonly}
+                value={data?.currency}
                 onChangeValue={onChangeCurrency}
-                data-testid="ProfileCard.Currency"
             />
         </div>
     );

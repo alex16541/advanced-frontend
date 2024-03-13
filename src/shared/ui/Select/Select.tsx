@@ -48,8 +48,8 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             <select
                 className={cls.input}
                 defaultValue={defaultValue}
-                value={value}
                 disabled={readonly}
+                value={value}
                 onChange={onChangeHendler}
             >
                 {defaultValue && (

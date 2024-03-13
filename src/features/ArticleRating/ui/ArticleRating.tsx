@@ -34,17 +34,17 @@ const ArticleRating = (props: ArticleRatingProps & {userId: string | number}) =>
     }, [articleId, rateArticle, userId]);
 
     if (isLoading) {
-        return <Skeleton className={cls.Skeleton} width="100%" height="150px" />;
+        return <Skeleton className={cls.Skeleton} height="150px" width="100%" />;
     }
 
     return (
         <RatingCard
-            className={classNames(cls.ArticleRating, {}, [className])}
-            rating={rating}
-            disabled={Boolean(rating)}
-            title={t('Rate this article')}
-            feedbackPlaceholder={t('Feedback placeholder')}
             acceptText={t('Rate')}
+            className={classNames(cls.ArticleRating, {}, [className])}
+            disabled={Boolean(rating)}
+            feedbackPlaceholder={t('Feedback placeholder')}
+            rating={rating}
+            title={t('Rate this article')}
             onAccept={onAccept}
         />
     );

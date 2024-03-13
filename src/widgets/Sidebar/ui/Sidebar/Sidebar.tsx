@@ -23,7 +23,7 @@ export const Sidebar = memo((props: SidebarProps) => {
     const sidebarItems = useSelector(selectSidebarItems);
 
     const itemList = useMemo(
-        () => sidebarItems.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />),
+        () => sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} key={item.path} />),
         [collapsed, sidebarItems],
     );
 
@@ -34,19 +34,19 @@ export const Sidebar = memo((props: SidebarProps) => {
     return (
         <BrowserView>
             <aside
-                data-testid="sidebar"
                 className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+                data-testid="sidebar"
             >
                 <VStack gap="16" justify="Start">{itemList}</VStack>
                 <Button
+                    className={cls.toggle}
                     data-testid="sidebar-toggle"
                     theme={ButtonThemes.PRIMARY}
                     onClick={onToggle}
-                    className={cls.toggle}
                 >
                     {collapsed ? '>' : '<'}
                 </Button>
-                <VStack gap="10" maxWidth role="navigation" className={cls.actions}>
+                <VStack className={cls.actions} gap="10" role="navigation" maxWidth>
                     <ThemeSwitcher data-testid="theme-switcher" />
                     <TranslateSwitcher />
                 </VStack>

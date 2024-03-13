@@ -40,10 +40,10 @@ const Input = (props: InputProps) => {
     return (
         <input
             className={classNames(cls.Input, mods, [cls[theme], className])}
+            readOnly={readonly}
             type="text"
             value={value}
             onChange={onChangeHendler}
-            readOnly={readonly}
             {...otherProps}
         />
     );

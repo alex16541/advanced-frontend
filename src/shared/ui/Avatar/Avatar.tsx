@@ -34,10 +34,10 @@ export const Avatar = (props: AvatarProps) => {
 
     return (
         <img
-            src={src}
             alt={alt}
-            style={avatarStyle}
             className={classNames(cls.Avatar, { [cls.rounded]: rounded }, [className])}
+            src={src}
+            style={avatarStyle}
         />
     );
 };

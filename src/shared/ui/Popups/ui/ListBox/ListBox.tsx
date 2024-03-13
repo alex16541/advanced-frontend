@@ -46,15 +46,15 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
         <div className={classNames(cls.ListBoxWrapper, {}, [wrapperClassName, clsPopup.Popup])}>
             {label && <Text text={`${label}: `} />}
             <Listbox
+                as="div"
                 className={classNames(cls.ListBox, {}, [className])}
+                disabled={disabled}
                 value={value}
                 onChange={onChange}
-                as="div"
-                disabled={disabled}
             >
                 <Listbox.Button
-                    className={classNames(cls.Button, {}, [clsPopup.Button])}
                     as="div"
+                    className={classNames(cls.Button, {}, [clsPopup.Button])}
                 >
                     <Button className={cls.Button} disabled={disabled}>
                         {displayValue ? displayValue.content : defaultValue}
@@ -65,9 +65,9 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                 >
                     {options.map((option) => (
                         <Listbox.Option
+                            disabled={option.disabled}
                             key={option.value}
                             value={option.value}
-                            disabled={option.disabled}
                         >
                             {({ active, selected }) => (
                                 <span
@@ -79,7 +79,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                                         })
                                     }
                                 >
-                                    {selected && <Icon Svg={CheckSvg} className={cls.Icon} />}
+                                    {selected && <Icon className={cls.Icon} Svg={CheckSvg} />}
                                     {option.content}
                                 </span>
                             )}

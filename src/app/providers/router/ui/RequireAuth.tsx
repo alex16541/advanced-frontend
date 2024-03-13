@@ -10,7 +10,7 @@ export const RequireAuth = ({ children }: { children: ReactNode }) => {
     const location = useLocation();
 
     if (!isAuth) {
-        return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+        return <Navigate state={{ from: location }} to={RoutePath.main} replace />;
     }
 
     return (

@@ -25,9 +25,9 @@ export const LoginModal = (props: LoginModalProps) => {
 
     return (
         <Modal
+            className={classNames(cls.LoginModal, {}, [className])}
             isOpen={isOpen}
             onClose={onClose}
-            className={classNames(cls.LoginModal, {}, [className])}
         >
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onSuccess} />

@@ -35,14 +35,14 @@ const AvatarButton = (props: AvatarButtonProps) => {
     return (
         <Dropdown
             className={classNames(cls.AvatarButton, {}, [className])}
+            direction={direction}
             button={(
                 <Avatar
-                    src={authData.avatar ?? ''}
                     alt={authData.username}
                     size={AvatarSize.XS}
+                    src={authData.avatar ?? ''}
                 />
             )}
-            direction={direction}
             items={[
                 { content: t('profile'), href: `/profile/${authData.id}` },
                 ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),

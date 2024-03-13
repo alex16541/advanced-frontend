@@ -85,7 +85,7 @@ const RatingCard = (props: RatingCardProps) => {
 
     const ModalContent = useMemo(() => (
         <VStack gap="8">
-            <Text title={feedbackTitle} size={TextSize.L} />
+            <Text size={TextSize.L} title={feedbackTitle} />
             {/* TODO: Заменить на textarea */}
             <Input placeholder={feedbackPlaceholder} onChange={onChangeFeedback} />
         </VStack>
@@ -94,13 +94,13 @@ const RatingCard = (props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
             <VStack align="Center" gap="16">
-                <Text title={starRating ? ratedTitle : title} size={TextSize.L} />
+                <Text size={TextSize.L} title={starRating ? ratedTitle : title} />
                 <StarRating
-                    rating={starRating}
-                    onChange={onChangeStarRating}
-                    editable={isEditable}
                     disabled={disabled}
+                    editable={isEditable}
+                    rating={starRating}
                     size={40}
+                    onChange={onChangeStarRating}
                 />
             </VStack>
 
@@ -108,12 +108,12 @@ const RatingCard = (props: RatingCardProps) => {
                 <>
                     <BrowserView>
                         <Modal classNameContent={cls.Modal} isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack maxWidth gap="32" justify="SpaceBetween">
+                            <VStack gap="32" justify="SpaceBetween" maxWidth>
                                 {ModalContent}
-                                <HStack maxWidth justify="End">
+                                <HStack justify="End" maxWidth>
                                     <Button
-                                        onClick={cancelHendler}
                                         color={ButtonColor.RED}
+                                        onClick={cancelHendler}
                                     >
                                         {cancelText}
                                     </Button>
@@ -128,11 +128,11 @@ const RatingCard = (props: RatingCardProps) => {
                     </BrowserView>
                     <MobileView>
                         <Drawer isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack maxWidth maxHeight gap="32" justify="SpaceBetween">
+                            <VStack gap="32" justify="SpaceBetween" maxHeight maxWidth>
                                 {ModalContent}
                                 <Button
-                                    onClick={acceptHendler}
                                     size={ButtonSize.L}
+                                    onClick={acceptHendler}
                                 >
                                     {acceptText}
                                 </Button>

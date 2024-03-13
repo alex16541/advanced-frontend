@@ -10,7 +10,7 @@ export const BugButton = () => {
     }, [error]);
 
     return (
-        <Button onClick={() => setError(true)} theme={ButtonThemes.PRIMARY}>
+        <Button theme={ButtonThemes.PRIMARY} onClick={() => setError(true)}>
             test bug button
         </Button>
     );

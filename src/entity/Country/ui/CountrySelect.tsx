@@ -43,9 +43,9 @@ const CountrySelect = (props: CountrySelectProps) => {
         <ListBox
             className={className}
             defaultValue={placeholder}
-            options={countryOptions}
             disabled={readonly}
             label={label}
+            options={countryOptions}
             value={value}
             onChange={onChangeHendler}
         />

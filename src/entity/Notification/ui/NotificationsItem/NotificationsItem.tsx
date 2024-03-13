@@ -18,15 +18,15 @@ const NotificationsItem = (props: NotificationsItemProps) => {
     const content = (
         <Card className={classNames(cls.NotificationsItem, {}, [className])}>
             <Text
-                title={notification.title}
                 text={notification.text}
+                title={notification.title}
             />
         </Card>
     );
 
     if (notification.href) {
         return (
-            <a href={notification.href} className={cls.Link}>
+            <a className={cls.Link} href={notification.href}>
                 {content}
             </a>
         );

@@ -31,8 +31,8 @@ export const AppRouter = (props: AppRouterProps) => {
 
         const route = (
             <Route
-                key={path}
                 element={routeElement}
+                key={path}
                 path={path}
             />
         );

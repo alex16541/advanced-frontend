@@ -21,7 +21,7 @@ export const PageError = (props: PageErrorProps) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             {t('page logading error text')}
-            <Button onClick={reloadPage} theme={ButtonThemes.PRIMARY}>
+            <Button theme={ButtonThemes.PRIMARY} onClick={reloadPage}>
                 {t('reload page')}
             </Button>
         </div>

@@ -25,7 +25,7 @@ export const RequireRoles = ({ children, roles }: RequireRolesProps) => {
     const isRouteAvailable = userRoles?.some((role) => roles?.includes(role));
 
     if (!isRouteAvailable) {
-        return <Navigate to={RoutePath.forbidden} state={{ from: location }} replace />;
+        return <Navigate state={{ from: location }} to={RoutePath.forbidden} replace />;
     }
 
     return (

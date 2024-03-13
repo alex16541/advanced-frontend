@@ -25,9 +25,9 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         <div className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
             <Text title={t('recommendations')} />
             <ArticlesList
-                target="_blank"
-                isLoading={isLoading}
                 articles={recommendations}
+                isLoading={isLoading}
+                target="_blank"
                 view={ArticlesListView.CARUSEL}
             />
         </div>

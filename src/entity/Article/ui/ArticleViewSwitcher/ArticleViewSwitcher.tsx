@@ -37,8 +37,8 @@ export const ArticleViewSwitcher = memo((props: ArticleViewSwitcherProps) => {
         <div className={classNames(cls.ArticleViewSwitcher, {}, [className])}>
             {viewTypes.map((viewType) => (
                 <Button
-                    key={viewType.view}
                     className={cls.button}
+                    key={viewType.view}
                     theme={ButtonThemes.CLEAR}
                     onClick={onViewSwitchHandler(viewType.view)}
                 >

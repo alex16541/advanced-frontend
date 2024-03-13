@@ -42,12 +42,12 @@ function ChipList<T extends string>(props: ChipListProps<T>) {
 
     const chips = useMemo(
         () => options?.map((opt) => (
-            <Chip onClick={onClickHandler} key={opt.value} selected={selectedOptions.has(opt)} {...opt} />
+            <Chip key={opt.value} selected={selectedOptions.has(opt)} onClick={onClickHandler} {...opt} />
         )),
         [onClickHandler, options, selectedOptions],
     );
 
-    return <HStack gap="10" justify="Start" className={classNames('', {}, [className])}>{chips}</HStack>;
+    return <HStack className={classNames('', {}, [className])} gap="10" justify="Start">{chips}</HStack>;
 }
 
 export { ChipList };
