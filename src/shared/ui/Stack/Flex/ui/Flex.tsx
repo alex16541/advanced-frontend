@@ -1,9 +1,12 @@
 import { ReactNode } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Flex.module.scss';
+
 import {
     FlexAlign, FlexDirection, FlexGap, FlexJustify, HTMLDivElementType,
 } from '../model/types';
+
+import cls from './Flex.module.scss';
 
 const FlexAlignClassNames: Record<FlexAlign, string> = {
     Start: cls.AlignStart,

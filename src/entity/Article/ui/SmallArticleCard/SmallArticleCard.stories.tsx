@@ -1,8 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { SmallArticleCard } from './SmallArticleCard';
+import { Theme } from '@/shared/const/theme';
+
 import { article } from '../../mock/data';
+
+import { SmallArticleCard } from './SmallArticleCard';
 
 export default {
     title: 'entity/Article/SmallArticleCard',

@@ -1,5 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+
 import { LoginErrors } from '../../services/loginByUsername/loginByUsername';
+
 import { getLoginError } from './getLoginError';
 
 describe('getLoginError', () => {

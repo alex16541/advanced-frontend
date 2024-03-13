@@ -1,9 +1,11 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Comment } from '@/entity/Comment';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ArticleCommentsSchema } from '../types/ArticleCommentsSchema';
+import { Comment } from '@/entity/Comment';
+
 import { addNewCommentToArticle } from '../services/addNewCommentToArticle/addNewCommentToArticle';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleCommentsSchema } from '../types/ArticleCommentsSchema';
 
 const initialState: ArticleCommentsSchema = {
     isLoading: false,

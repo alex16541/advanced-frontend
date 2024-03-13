@@ -1,9 +1,12 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Star.module.scss';
-import { Icon } from '../../../Icon/Icon';
-import StarFilled from '@/shared/assets/svg/star-filled.svg';
+
 import StarEmpty from '@/shared/assets/svg/star-empty.svg';
+import StarFilled from '@/shared/assets/svg/star-filled.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { Icon } from '../../../Icon/Icon';
+
+import cls from './Star.module.scss';
 
 interface StarProps {
     className?: string;

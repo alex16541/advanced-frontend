@@ -2,15 +2,18 @@ import {
     MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
-import { useThrottle } from '@/shared/hooks/useThrottle';
+
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 import { useOnInit } from '@/shared/hooks/useOnInit';
-import { ScrollActions } from '../model/slices/scrollSlice';
-import cls from './Page.module.scss';
+import { useThrottle } from '@/shared/hooks/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { selectScrollPositionByPath } from '../model/selectors/scrollSelectors';
+import { ScrollActions } from '../model/slices/scrollSlice';
+
+import cls from './Page.module.scss';
 
 interface PageProps {
     className?: string;

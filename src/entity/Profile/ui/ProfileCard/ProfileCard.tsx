@@ -1,13 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Country, CountrySelect } from '@/entity/Country';
+import { Currency, CurrencySelect } from '@/entity/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign } from '@/shared/ui/Text';
+import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader/ui/Loader';
-import { Country, CountrySelect } from '@/entity/Country';
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
-import { Currency, CurrencySelect } from '@/entity/Currency';
+import { Text, TextAlign } from '@/shared/ui/Text';
+
 import { Profile } from '../../model/types/profile';
+
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

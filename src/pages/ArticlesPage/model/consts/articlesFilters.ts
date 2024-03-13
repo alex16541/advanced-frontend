@@ -1,4 +1,5 @@
 import { ArticleType } from '@/entity/Article';
+
 import { ArticleTypeChip } from '../types/ariclesFilters';
 
 export const typeOptions: ArticleTypeChip[] = [

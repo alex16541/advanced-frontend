@@ -1,13 +1,15 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { getAuthData } from '@/entity/User';
 import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarButton } from '@/features/AvatarButton';
+import { NotificationsButton } from '@/features/NotificationsButton';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import { NotificationsButton } from '@/features/NotificationsButton';
 import { HStack } from '@/shared/ui/Stack';
-import { AvatarButton } from '@/features/AvatarButton';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

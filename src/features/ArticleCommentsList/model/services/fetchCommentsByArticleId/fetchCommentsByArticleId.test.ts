@@ -1,5 +1,7 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { ArticleCommentsErrors } from '../../consts/articleCommentList';
+
 import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 describe('fetchCommentsByArticleId', () => {

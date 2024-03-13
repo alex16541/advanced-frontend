@@ -1,8 +1,10 @@
 import path from 'path';
+
 import webpack, { RuleSetRule, DefinePlugin } from 'webpack';
-import { BuildPaths } from '../build/types/config';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {

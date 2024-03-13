@@ -1,8 +1,11 @@
 import {
     ButtonHTMLAttributes, forwardRef, memo, ReactNode,
 } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { Loader } from '../../../ui/Loader';
+
 import cls from './Button.module.scss';
 
 export enum ButtonThemes {

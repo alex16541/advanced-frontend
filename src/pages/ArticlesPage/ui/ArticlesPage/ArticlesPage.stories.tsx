@@ -1,9 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+
 import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
+
 import ArticlesPage from './ArticlesPage';
 
 export default {

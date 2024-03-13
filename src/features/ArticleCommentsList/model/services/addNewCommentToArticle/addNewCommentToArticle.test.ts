@@ -1,7 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { addNewCommentToArticle } from './addNewCommentToArticle';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { ArticleCommentsErrors } from '../../consts/articleCommentList';
+
+import { addNewCommentToArticle } from './addNewCommentToArticle';
 
 describe('addNewCommentToArticle', () => {
     const state: DeepPartial<StateSchema> = {

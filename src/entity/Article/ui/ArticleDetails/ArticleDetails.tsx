@@ -1,31 +1,34 @@
 import {
-    memo, ReactElement, useCallback, useEffect,
+    memo, ReactElement, useCallback,
 } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
+import { useSelector } from 'react-redux';
+
 import CalendarIcon from '@/shared/assets/svg/calendar.svg';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { Icon } from '@/shared/ui/Icon';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
+
 import { ArticleBlockType } from '../../model/consts/article';
-import { ArticleBlock } from '../../model/types/article';
-import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
-import cls from './ArticleDetails.module.scss';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
     getArticleDetailsData,
     getArticleDetailsErrors,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string;

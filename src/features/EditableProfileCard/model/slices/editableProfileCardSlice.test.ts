@@ -1,6 +1,8 @@
 import { Profile } from '@/entity/Profile';
-import { editableProfileCardReducer, editableProfileCardActions } from './editableProfileCardSlice';
+
 import { EditableProfileCardSchema } from '../types/editableProfileCardSchema';
+
+import { editableProfileCardReducer, editableProfileCardActions } from './editableProfileCardSlice';
 
 describe('profileSlice', () => {
     test('set readonly', () => {

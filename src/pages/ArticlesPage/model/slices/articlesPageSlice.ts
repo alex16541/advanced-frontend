@@ -1,15 +1,16 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     Article, ArticlesListCountPeerView, ArticlesListView, ArticleSortField, ArticleType,
 } from '@/entity/Article';
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_PAGE_VIEW } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types';
-import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { initArticlesPage } from '../services/initArticlesPage/initArticlesPage';
-import { ArticleTypeChip } from '../types/ariclesFilters';
+
 import { typeOptions } from '../consts/articlesFilters';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { ArticleTypeChip } from '../types/ariclesFilters';
+import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 
 const initialState: ArticlesPageSchema = {
     isLoading: false,

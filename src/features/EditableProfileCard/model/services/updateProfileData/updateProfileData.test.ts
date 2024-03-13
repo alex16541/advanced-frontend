@@ -1,7 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ProfileErrors } from '@/entity/Profile';
-import { updateProfileData } from './updateProfileData';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { ProfileValidateErrors } from '../../consts/profile';
+
+import { updateProfileData } from './updateProfileData';
 
 describe('updateProfileData', () => {
     const data = {

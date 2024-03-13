@@ -1,6 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+
 import { ArticleErrors } from '../consts/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
+
 import {
     getArticleDetailsData,
     getArticleDetailsErrors,

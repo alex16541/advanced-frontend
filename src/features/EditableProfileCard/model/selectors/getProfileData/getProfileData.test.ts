@@ -1,6 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getProfileData } from './getProfileData';
+
 import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
+
+import { getProfileData } from './getProfileData';
 
 describe('getProfileData', () => {
     const data: DeepPartial<EditableProfileCardSchema> = {

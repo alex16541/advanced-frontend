@@ -1,4 +1,5 @@
 import { ArticleErrors } from '../consts/article';
+
 import { Article } from './article';
 
 export interface ArticleDetailsSchema {

@@ -1,23 +1,26 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+
 import { ArticleSortField, ArticleType } from '@/entity/Article';
-import { SortOrder } from '@/shared/types';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { SortOrder } from '@/shared/types';
 import { ChipList, ChipListOption } from '@/shared/ui/Chip';
-import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { ListBoxOption } from '@/shared/ui/Popups/types/listBox';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import cls from './ArticlesFilters.module.scss';
+
+import { typeOptions } from '../../model/consts/articlesFilters';
 import {
     selectArticlesFiltersOrder,
     selectArticlesFiltersSort,
     selectArticlesFiltersType,
 } from '../../model/selectors/articlesFiltersSlice';
-import { typeOptions } from '../../model/consts/articlesFilters';
-import { ArticlesFiltersSearch } from '../ArticlesFiltersSearch/ArticlesFiltersSearch';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+import { ArticlesFiltersSearch } from '../ArticlesFiltersSearch/ArticlesFiltersSearch';
+
+import cls from './ArticlesFilters.module.scss';
 
 interface ArticlesFilterProps {
     className?: string;

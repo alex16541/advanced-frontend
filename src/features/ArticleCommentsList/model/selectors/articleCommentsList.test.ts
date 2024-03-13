@@ -1,9 +1,11 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+
+import { ArticleCommentsErrors } from '../consts/articleCommentList';
+
 import {
     getArticleCommentsListError,
     getArticleCommentsListIsLoading,
 } from './articleCommentsList';
-import { ArticleCommentsErrors } from '../consts/articleCommentList';
 
 describe('getArticleCommentsListIsLoading', () => {
     test('should return is loading', () => {

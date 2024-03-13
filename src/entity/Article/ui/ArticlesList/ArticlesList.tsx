@@ -1,10 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './ArticlesList.module.scss';
-import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
-import { Article } from '../../model/types/article';
+
 import { ArticlesListView } from '../../model/consts/article';
+import { Article } from '../../model/types/article';
+import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
+
+import cls from './ArticlesList.module.scss';
 
 export const ArticlesListCountPeerView: Record<ArticlesListView, number> = {
     [ArticlesListView.GRID]: 12,

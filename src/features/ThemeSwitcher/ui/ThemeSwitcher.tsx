@@ -1,8 +1,10 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/shared/hooks/useTheme';
+
 import PaintRoller from '@/shared/assets/svg/paint-roller.svg';
+import { useTheme } from '@/shared/hooks/useTheme';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
+
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {

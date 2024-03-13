@@ -1,8 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article, ArticleSortField, ArticleType } from '@/entity/Article';
-import { SortOrder } from '@/shared/types';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
+import { SortOrder } from '@/shared/types';
+
 import { ArticlesPageErrors } from '../../consts/articlesPage';
 
 interface FetchArticlesListOptions {

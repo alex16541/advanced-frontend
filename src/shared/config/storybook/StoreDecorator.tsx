@@ -1,9 +1,10 @@
-import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { Story } from '@storybook/react';
+
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername/testing';
 import { articleDetailsReducer } from '@/entity/Article/testing';
 import { articleCommentsReducer } from '@/features/ArticleCommentsList/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { editableProfileCardReducer } from '@/features/EditableProfileCard/testing';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {

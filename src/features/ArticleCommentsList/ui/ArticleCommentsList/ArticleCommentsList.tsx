@@ -1,21 +1,24 @@
 import { ReactElement, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextThemes } from '@/shared/ui/Text';
+
 import { CommentList } from '@/entity/Comment';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Skeleton } from '@/shared/ui/Skeleton';
 import { useOnInit } from '@/shared/hooks/useOnInit';
-import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsListSlice';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text, TextThemes } from '@/shared/ui/Text';
+
 import {
     getArticleCommentsListIsLoading,
     getArticleCommentsListError,
 } from '../../model/selectors/articleCommentsList';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import cls from './ArticleCommentsList.module.scss';
+import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsListSlice';
 import { ArticleCommentsListForm } from '../ArticleCommentsListForm/ArticleCommentsListForm';
+
+import cls from './ArticleCommentsList.module.scss';
 
 export interface ArticleCommentsListProps {
     className?: string;

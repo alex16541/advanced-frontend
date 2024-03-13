@@ -1,8 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ArticlesListItem, ArticlesListItemSize } from './ArticlesListItem';
+import { Theme } from '@/shared/const/theme';
+
 import { article } from '../../mock/data';
+
+import { ArticlesListItem, ArticlesListItemSize } from './ArticlesListItem';
 
 export default {
     title: 'entity/Article/ArticlesListItem',

@@ -1,10 +1,13 @@
 import {
     ReactNode,
 } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { useModal } from '@/shared/hooks/useModal';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { Overlay } from '../../../ui/Overlay';
 import { Portal } from '../../../ui/Portal';
+
 import cls from './Modal.module.scss';
 
 interface ModalProps {

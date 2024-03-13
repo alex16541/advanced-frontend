@@ -13,13 +13,45 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', 'react-hooks', '@typescript-eslint', 'i18next', 'alex16541-fsd-imports-path-checker'],
+    plugins: [
+        'import',
+        'react',
+        'react-hooks',
+        '@typescript-eslint',
+        'i18next',
+        'unused-imports',
+        'alex16541-fsd-imports-path-checker',
+    ],
     rules: {
         indent: [2, 4, { SwitchCase: 1 }],
+        'import/newline-after-import': 'error',
+        'import/first': 'error',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'import/order': ['error', {
+            'newlines-between': 'always',
+            alphabetize: { order: 'asc', caseInsensitive: true },
+            pathGroups: [
+                {
+                    pattern: '@/**',
+                    group: 'internal',
+                    position: 'before',
+                },
+            ],
+            groups:
+            [
+                'index',
+                'builtin',
+                'external',
+                'type',
+                'internal',
+                'parent',
+                'sibling',
+                'object',
+            ],
+        }],
         'i18next/no-literal-string': [
             2,
             {
@@ -62,6 +94,7 @@ module.exports = {
         'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'alex16541-fsd-imports-path-checker/relative-path-checker': ['error', { alias: '@' }],
         'alex16541-fsd-imports-path-checker/public-api-imports': [
             'error',

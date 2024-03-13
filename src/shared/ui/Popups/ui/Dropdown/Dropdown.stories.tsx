@@ -1,8 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Dropdown } from './Dropdown';
+import { Theme } from '@/shared/const/theme';
+
 import { Button } from '../../../Button';
+
+import { Dropdown } from './Dropdown';
 
 export default {
     title: 'shared/Popups/Dropdown',

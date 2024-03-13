@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { Button, ButtonThemes } from '@/shared/ui/Button';
 
 export const BugButton = () => {

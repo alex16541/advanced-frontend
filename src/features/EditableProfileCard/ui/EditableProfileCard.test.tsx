@@ -1,13 +1,16 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { renderWithProviders } from '@/shared/lib/tests/renderWithProviders/renderWithProviders';
-import { Profile } from '@/entity/Profile';
+
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
+import { Profile } from '@/entity/Profile';
 import { User } from '@/entity/User';
 import { $api } from '@/shared/api/api';
-import { EditableProfileCard as ProfileCard } from './EditableProfileCard';
+import { renderWithProviders } from '@/shared/lib/tests/renderWithProviders/renderWithProviders';
+
 import { editableProfileCardReducer } from '../model/slices/editableProfileCardSlice';
+
+import { EditableProfileCard as ProfileCard } from './EditableProfileCard';
 
 const EditableProfileCard = () => <ProfileCard profileId={1} />;
 

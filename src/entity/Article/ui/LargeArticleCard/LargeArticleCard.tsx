@@ -1,16 +1,19 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text, TextSize } from '@/shared/ui/Text';
-import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { Card } from '@/shared/ui/Card';
-import { AppLink } from '@/shared/ui/AppLink';
+
 import { ArticleBlockType } from '../../model/consts/article';
-import cls from './LargeArticleCard.module.scss';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './LargeArticleCard.module.scss';
 import { LargeArticleCardSkeleton } from './LargeArticleCardSkeleton';
 
 interface LargeArticleCardProps {

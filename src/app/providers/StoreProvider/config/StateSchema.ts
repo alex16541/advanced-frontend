@@ -3,15 +3,17 @@ import {
 } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
+
 import { ArticleDetailsSchema } from '@/entity/Article';
 import { CounterSchema } from '@/entity/Counter';
 import { UserSchema } from '@/entity/User';
 import { ArticleCommentsSchema } from '@/features/ArticleCommentsList';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { ScrollSchema } from '@/widgets/Page';
-import { rtkApi } from '@/shared/api/rtkApi';
 import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ScrollSchema } from '@/widgets/Page';
+
 import { createReduxStore } from './store';
 
 export interface StateSchema {

@@ -1,5 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+
+import { ArticlesPageErrors } from '../../consts/articlesPage';
 import {
     selectArticlesFiltersOrder,
     selectArticlesFiltersSort,
@@ -13,9 +16,8 @@ import {
     selectArticlesPageLimit,
     selectArticlesPagePage,
 } from '../../selectors/articlesPageSelectors';
-import { ArticlesPageErrors } from '../../consts/articlesPage';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export interface FetchNextArticlesPageOptions {
     replace?: boolean;

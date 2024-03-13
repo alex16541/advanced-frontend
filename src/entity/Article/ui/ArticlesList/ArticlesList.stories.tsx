@@ -1,8 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ArticlesList } from './ArticlesList';
+import { Theme } from '@/shared/const/theme';
+
 import { article } from '../../mock/data';
+
+import { ArticlesList } from './ArticlesList';
 
 const articles = new Array(9).fill(0).map((item, index) => ({
     ...article,

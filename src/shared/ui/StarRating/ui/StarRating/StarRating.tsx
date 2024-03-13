@@ -1,11 +1,13 @@
 import { memo, useCallback, useState } from 'react';
-import cls from './StarRating.module.scss';
-import { Button, ButtonThemes } from '../../../Button';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 
+import { Button, ButtonThemes } from '../../../Button';
 import { HStack } from '../../../Stack';
 import { FlexJustify } from '../../../Stack/Flex/model/types';
 import { Star } from '../Star/Star';
+
+import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string;

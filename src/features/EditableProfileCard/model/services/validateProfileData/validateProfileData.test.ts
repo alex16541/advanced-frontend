@@ -1,5 +1,6 @@
-import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
 import { ProfileValidateErrors } from '../../consts/profile';
+import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
+
 import { validateProfileData } from './validateProfileData';
 
 describe('validateProfileData', () => {

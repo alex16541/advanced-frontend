@@ -2,22 +2,25 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+
 import { ArticleViewSwitcher, ArticlesListView } from '@/entity/Article';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/hooks/useDebounce';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
-import { useDebounce } from '@/shared/hooks/useDebounce';
-import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
+
 import {
     selectArticlesPageIsInitialLoading, selectArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageActions, articlesPageReducer } from '../../model/slices/articlesPageSlice';
+import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
+
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {

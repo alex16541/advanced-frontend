@@ -1,9 +1,10 @@
 import path from 'node:path';
+
 import { Project } from 'ts-morph';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths(['../../src/**/*.ts', '../../src/**/*.tsx'])
+project.addSourceFilesAtPaths(['../../src/**/*.ts', '../../src/**/*.tsx']);
 
 const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui');
 const sharedUiDir = project.getDirectory(uiPath);

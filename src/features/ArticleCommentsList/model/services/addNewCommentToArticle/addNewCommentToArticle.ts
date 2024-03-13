@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig, StateSchema } from '@/app/providers/StoreProvider';
+
 import { ArticleCommentsErrors } from '../../consts/articleCommentList';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 

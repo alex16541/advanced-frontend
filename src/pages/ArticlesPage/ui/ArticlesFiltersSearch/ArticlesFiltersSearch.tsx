@@ -2,14 +2,17 @@ import {
     memo, useCallback, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input';
+
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
-import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+
 import { selectArticlesFiltersSearch } from '../../model/selectors/articlesFiltersSlice';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+
 import cls from './ArticlesFiltersSearch.module.scss';
 
 interface ArticlesFiltersSearchProps {

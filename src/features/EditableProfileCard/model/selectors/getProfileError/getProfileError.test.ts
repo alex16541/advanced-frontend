@@ -1,7 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ProfileErrors } from '@/entity/Profile';
-import { getProfileError } from './getProfileError';
+
 import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
+
+import { getProfileError } from './getProfileError';
 
 describe('getProfileError', () => {
     const data: DeepPartial<EditableProfileCardSchema> = {

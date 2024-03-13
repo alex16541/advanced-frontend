@@ -1,13 +1,16 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+
+import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text, TextSize } from '@/shared/ui/Text';
-import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { Card } from '@/shared/ui/Card';
-import cls from './SmallArticleCard.module.scss';
+
 import { Article } from '../../model/types/article';
+
+import cls from './SmallArticleCard.module.scss';
 import { SmallArticleCardSkeleton } from './SmallArticleCardSkeleton';
 
 interface SmallArticleCardProps {

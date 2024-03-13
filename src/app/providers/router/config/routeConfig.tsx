@@ -1,6 +1,3 @@
-import { AppRoutes, RoutePath } from '@/shared/const/router';
-import { AppRoutesProps } from '../types';
-
 import { UserRoles } from '@/entity/User';
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPage } from '@/pages/AdminPage';
@@ -11,6 +8,9 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { AppRoutes, RoutePath } from '@/shared/const/router';
+
+import { AppRoutesProps } from '../types';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

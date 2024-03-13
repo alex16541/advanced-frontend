@@ -1,15 +1,18 @@
-import { ReactNode, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { ReactNode, useMemo } from 'react';
+
 import CheckSvg from '@/shared/assets/svg/check.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
-import cls from './ListBox.module.scss';
-import clsPopup from '../../styles/popup.module.scss';
+
 import { Button } from '../../../Button';
-import { Text } from '../../../Text/Text';
 import { Icon } from '../../../Icon/Icon';
-import { ListBoxOption } from '../../types/listBox';
+import { Text } from '../../../Text/Text';
 import { directionClassName } from '../../styles/consts';
+import clsPopup from '../../styles/popup.module.scss';
+import { ListBoxOption } from '../../types/listBox';
+
+import cls from './ListBox.module.scss';
 
 interface ListBoxProps<T> {
     className?: string;

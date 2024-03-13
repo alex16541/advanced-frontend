@@ -1,13 +1,16 @@
-import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
+import { ReactNode } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
-import cls from './Dropdown.module.scss';
-import clsPopup from '../../styles/popup.module.scss';
-import { Button } from '../../../Button';
+
 import { AppLink, AppLinkThemes } from '../../../AppLink/AppLink';
-import { DropdownItem } from '../../types/dropdown';
+import { Button } from '../../../Button';
 import { directionClassName } from '../../styles/consts';
+import clsPopup from '../../styles/popup.module.scss';
+import { DropdownItem } from '../../types/dropdown';
+
+import cls from './Dropdown.module.scss';
 
 interface DropdownProps {
     className?: string;

@@ -1,10 +1,12 @@
 import { createSelector } from 'reselect';
+
 import { getAuthData } from '@/entity/User';
-import ListIcon from '@/shared/assets/svg/list.svg';
-import HomeIcon from '@/shared/assets/svg/home.svg';
-import ProfileIcon from '@/shared/assets/svg/profile.svg';
 import ArticleIcon from '@/shared/assets/svg/article.svg';
+import HomeIcon from '@/shared/assets/svg/home.svg';
+import ListIcon from '@/shared/assets/svg/list.svg';
+import ProfileIcon from '@/shared/assets/svg/profile.svg';
 import { RoutePath } from '@/shared/const/router';
+
 import { SidebarItemType } from '../../types/sidebarItem';
 
 export const selectSidebarItems = createSelector(getAuthData, (authData) => {

@@ -1,18 +1,21 @@
 import { memo } from 'react';
+
 import { ProfileCard } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
+
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
 import {
     featchProfileData,
 } from '../model/services/featchProfileData/featchProfileData';
 import { editableProfileCardReducer } from '../model/slices/editableProfileCardSlice';
+
 import cls from './EditableProfileCard.module.scss';
-import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
 import { EditableProfileCardErrors } from './EditableProfileCardErrors/EditableProfileCardErrors';
+import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
 
 const reducers: ReducersList = {
     editableProfileCard: editableProfileCardReducer,

@@ -1,8 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/const/theme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { NotificationsItem } from './NotificationsItem';
+import { Theme } from '@/shared/const/theme';
+
 import { notification } from '../../mock/notification';
+
+import { NotificationsItem } from './NotificationsItem';
 
 export default {
     title: 'entity/Notification/NotificationsItem',

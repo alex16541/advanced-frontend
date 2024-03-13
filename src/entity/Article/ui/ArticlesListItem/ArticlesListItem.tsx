@@ -1,4 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+
 import { Article } from '../../model/types/article';
 import { LargeArticleCard } from '../LargeArticleCard/LargeArticleCard';
 import { SmallArticleCard } from '../SmallArticleCard/SmallArticleCard';
