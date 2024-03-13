@@ -1,0 +1,1 @@
+## Feature AuthByUsername - фича авторизации по username пользователя

@@ -26,7 +26,8 @@
     "storybook": "start-storybook -p 3003 -c config/storybook/",
     "storybook:build": "build-storybook -c config/storybook/",
     "prepare": "husky install",
-    "gen": "node scripts/generate-feature-slice/index.js"
+    "gen": "node scripts/generate-feature-slice/index.js",
+    "gen:doc": "ts-node scripts/generate-doc.ts"
   },
   "keywords": [],
   "devDependencies": {

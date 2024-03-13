@@ -1,0 +1,1 @@
+## Feature ArticleRating - фича для оценки статьи
