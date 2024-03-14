@@ -28,7 +28,7 @@ describe('fetchNextArticlesPage', () => {
             order: 'asc',
             sort: 'title',
             type: undefined,
-            query: undefined,
+            query: '',
             replace: false,
         });
     });

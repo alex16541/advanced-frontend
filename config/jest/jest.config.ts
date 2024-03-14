@@ -16,6 +16,7 @@ export default {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/fileTransformer.tsx',
         '^axios$': require.resolve('axios'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     reporters: [
         'default',

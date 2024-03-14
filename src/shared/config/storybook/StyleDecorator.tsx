@@ -2,4 +2,4 @@
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
 
-export const StyleDecorator = (story: () => Story) => story();
+export const StyleDecorator = (StoryComponent: Story) => <div style={{ padding: 20 }}><StoryComponent /></div>;
