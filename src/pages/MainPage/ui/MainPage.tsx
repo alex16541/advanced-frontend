@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line alex16541-fsd-imports-path-checker/layers-imports
 import { BugButton } from '@/app/providers/ErrorBoundary';
+import { Counter } from '@/entity/Counter';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
@@ -17,6 +18,8 @@ const MainPage = () => {
                 elit. Numquam, quidem?"
             />
             <BugButton />
+
+            <Counter />
         </Page>
     );
 };

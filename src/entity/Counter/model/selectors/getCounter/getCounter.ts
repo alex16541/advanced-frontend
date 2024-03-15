@@ -1,3 +1,4 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { buildSelector } from '@/shared/lib/store';
 
-export const getCounter = (state: StateSchema) => state.counter;
+export const [useCounter, getCounter] = buildSelector((state: StateSchema) => state.counter);
