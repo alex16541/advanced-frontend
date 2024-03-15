@@ -1,6 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import EyeIcon from '@/shared/assets/svg/eye.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
@@ -37,7 +38,7 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
         <AppLink
             className={classNames(cls.SmallArticleCard, {}, [className])}
             target={target}
-            to={`/articles/${article.id}`}
+            to={getRouteArticleDetails(article.id)}
         >
             <Card className={cls.cardWrapper}>
                 <div className={cls.imageWrapper}>

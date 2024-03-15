@@ -4,7 +4,7 @@
 @import "themes/green";
 @import "variables/global";
 
-#root {
+.root {
     min-height: 100vh;
     font: var(--font-m);
     color: var(--secondary-color);

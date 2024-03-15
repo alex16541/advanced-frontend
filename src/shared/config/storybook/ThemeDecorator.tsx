@@ -11,11 +11,11 @@ export const ThemeDecorator = (
     if (!isRootDecorator) {
         setTimeout(() => {
             const root = document.getElementById('root');
-            if (root) root.className = theme;
+            if (root) root.className = `root ${theme}`;
         }, 1);
     } else {
         const root = document.getElementById('root');
-        if (root) root.className = theme;
+        if (root) root.className = `root ${theme}`;
     }
 
     return (

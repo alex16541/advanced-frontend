@@ -25,7 +25,7 @@ const Input = (props: InputProps) => {
         value,
         onChange,
         readonly = false,
-        type,
+        type = 'text',
         ...otherProps
     } = props;
 
@@ -41,7 +41,7 @@ const Input = (props: InputProps) => {
         <input
             className={classNames(cls.Input, mods, [cls[theme], className])}
             readOnly={readonly}
-            type="text"
+            type={type}
             value={value}
             onChange={onChangeHendler}
             {...otherProps}

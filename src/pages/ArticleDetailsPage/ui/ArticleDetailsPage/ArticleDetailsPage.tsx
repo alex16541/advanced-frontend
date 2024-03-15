@@ -36,7 +36,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <div className={cls.container}>
-                <ArticleDetailsPageHeader />
+                <ArticleDetailsPageHeader articleId={id} />
                 <ArticleDetails articleId={id} />
                 <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />

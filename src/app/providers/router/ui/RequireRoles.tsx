@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { UserRoles, getUserRoles } from '@/entity/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteForbidden } from '@/shared/const/router';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 
 interface RequireRolesProps {
@@ -25,7 +25,7 @@ export const RequireRoles = ({ children, roles }: RequireRolesProps) => {
     const isRouteAvailable = userRoles?.some((role) => roles?.includes(role));
 
     if (!isRouteAvailable) {
-        return <Navigate state={{ from: location }} to={RoutePath.forbidden} replace />;
+        return <Navigate state={{ from: location }} to={getRouteForbidden()} replace />;
     }
 
     return (

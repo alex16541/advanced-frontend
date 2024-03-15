@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { AppRoutes } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -21,12 +21,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
             {comment.user.avatar && (
-                <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
+                <AppLink to={getRouteProfile(comment.user.id)}>
                     <Avatar alt={comment.user.username} src={comment.user.avatar} />
                 </AppLink>
             )}
             <div className="comment__body">
-                <AppLink to={`/${AppRoutes.PROFILE}/${comment.user.id}`}>
+                <AppLink to={getRouteProfile(comment.user.id)}>
                     <Text size={TextSize.L} text={comment.user.username} />
                 </AppLink>
                 <Text text={comment.text} />

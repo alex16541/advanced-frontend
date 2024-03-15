@@ -27,7 +27,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
 
     useEffect(() => {
         const root = document.getElementById('root');
-        if (root) root.className = theme;
+        if (root) root.className = `root ${theme}`;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
     }, [theme]);
 

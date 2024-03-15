@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/svg/eye.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
@@ -61,7 +62,7 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
             <Text className={cls.title} title={article.title} />
             {firstParagraph && <ArticleTextBlockComponent articleBlock={firstParagraph} className={cls.text} />}
             <div className={cls.actions}>
-                <AppLink hover={false} to={`/articles/${article.id}`}>
+                <AppLink hover={false} to={getRouteArticleDetails(article.id)}>
                     <Button className={cls.button}>{t('read more')}</Button>
                 </AppLink>
                 <div className={cls.views}>
