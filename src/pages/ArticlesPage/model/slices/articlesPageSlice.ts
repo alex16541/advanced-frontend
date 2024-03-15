@@ -4,12 +4,11 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     Article, ArticlesListCountPeerView, ArticlesListView, ArticleSortField, ArticleType,
 } from '@/entity/Article';
-import { ARTICLES_PAGE_VIEW } from '@/shared/const/localstorage';
+import { ArticleTypeChip, ArticleTypeChipOptions } from '@/features/ArticleTypeChips';
+import { ARTICLES_PAGE_VIEW } from '@/shared/consts/localstorage';
 import { SortOrder } from '@/shared/types';
 
-import { typeOptions } from '../consts/articlesFilters';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { ArticleTypeChip } from '../types/ariclesFilters';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 
 const initialState: ArticlesPageSchema = {
@@ -73,7 +72,7 @@ export const articlesPageSlice = createSlice({
             if (payload.sort) state.sort = payload.sort;
             if (payload.search) state.search = payload.search;
             if (payload.type) {
-                const type = typeOptions.find((opt) => opt.value === payload.type);
+                const type = ArticleTypeChipOptions.find((opt) => opt.value === payload.type);
                 if (type) state.type = type;
             }
         },

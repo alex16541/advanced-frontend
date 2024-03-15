@@ -1,11 +1,10 @@
 import { memo } from 'react';
 
+import { ArticlesListView } from '@/entity/Article';
 import GridIcon from '@/shared/assets/svg/grid.svg';
 import LayoutListIcon from '@/shared/assets/svg/layoutList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
-
-import { ArticlesListView } from '../../model/consts/article';
 
 import cls from './ArticleViewSwitcher.module.scss';
 

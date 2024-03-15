@@ -99,7 +99,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <div className={cls.loaderColumn}>
                 <div className={cls.loaderRow}>
-                    <Skeleton height={100} width={100} />
+                    <Skeleton height={120} width={120} />
                     <div className={cls.loaderColumn}>
                         <Skeleton height={20} width={230} />
                         <Skeleton height={20} width={170} />
@@ -121,7 +121,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <>
                 <header className={cls.header}>
                     {articleData?.img && (
-                        <Avatar alt={articleData.title} className={cls.img} size={100} src={articleData.img} />
+                        <Avatar alt={articleData.title} className={cls.img} size={120} src={articleData.img} />
                     )}
                     <div className={cls.articleInfo}>
                         <Text

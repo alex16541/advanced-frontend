@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import ArticleRating from './ArticleRating';
 
@@ -24,7 +24,7 @@ const parameters = {
 };
 
 export default {
-    title: 'features/ArticleRating',
+    title: 'features/Article/ArticleRating',
     component: ArticleRating,
     args: {
         articleId: '1',

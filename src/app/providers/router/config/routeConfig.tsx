@@ -19,7 +19,7 @@ import {
     getRouteForbidden,
     getRouteMain,
     getRouteProfile,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 
 import { AppRoutesProps } from '../types';
 

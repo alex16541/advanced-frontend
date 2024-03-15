@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import EyeIcon from '@/shared/assets/svg/eye.svg';
-import { getRouteArticleDetails } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';

@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
@@ -13,7 +13,7 @@ const articles = new Array(6).fill(0).map((item, index) => ({
 }));
 
 export default {
-    title: 'features/ArticleRecommendationsList',
+    title: 'features/Article/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     args: {},
     decorators: [

@@ -2,7 +2,7 @@
     padding: 0.5rem 1rem;
 
     border: 1px solid transparent;
-    border-radius: 3px;
+    border-radius: var(--border-radius-s);
 
     transition: var(--transition);
     transition-duration: var(--transition-duration);
@@ -19,7 +19,6 @@
     .content {
         display: flex;
         align-items: center;
-        justify-content: center;
     }
 
     .loader {
@@ -102,5 +101,23 @@
 .loading {
     .content {
         opacity: 0;
+    }
+}
+
+.align_start {
+    .content {
+        justify-content: flex-start;
+    }
+}
+
+.align_center {
+    .content {
+        justify-content: center;
+    }
+}
+
+.align_end {
+    .content {
+        justify-content: flex-end;
     }
 }

@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { ArticleViewSwitcher, ArticlesListView } from '@/entity/Article';
+import { ArticlesListView } from '@/entity/Article';
+import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { useOnInit } from '@/shared/hooks/useOnInit';

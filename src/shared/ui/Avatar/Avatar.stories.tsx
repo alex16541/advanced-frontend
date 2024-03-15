@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import { Avatar } from './Avatar';
 

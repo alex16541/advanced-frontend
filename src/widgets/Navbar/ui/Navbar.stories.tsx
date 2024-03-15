@@ -4,7 +4,7 @@ import { Notification, notification } from '@/entity/Notification';
 import { UserRoles } from '@/entity/User';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import { Navbar } from './Navbar';
 

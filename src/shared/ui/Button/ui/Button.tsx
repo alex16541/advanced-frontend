@@ -27,11 +27,18 @@ export enum ButtonColor {
     RED = 'red',
 }
 
+export enum ButtonAlign {
+    START = 'align_start',
+    CENTER = 'align_center',
+    END = 'align_end',
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonThemes;
     size?: ButtonSize;
     color?: ButtonColor;
+    align?: ButtonAlign;
     isLoading?: boolean;
     children?: ReactNode;
 }
@@ -44,6 +51,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         type,
         size = ButtonSize.M,
         color = ButtonColor.DEFAULT,
+        align = ButtonAlign.CENTER,
         isLoading,
         disabled,
         ...otherProps
@@ -55,7 +63,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     return (
         <button
-            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
+            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color], cls[align]])}
             disabled={disabled || isLoading}
             ref={ref}
             type="button"

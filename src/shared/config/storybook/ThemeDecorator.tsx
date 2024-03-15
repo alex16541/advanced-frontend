@@ -2,7 +2,7 @@
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
 
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 export const ThemeDecorator = (
     theme: Theme,

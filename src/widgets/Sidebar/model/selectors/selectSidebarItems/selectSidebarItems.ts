@@ -7,7 +7,7 @@ import ListIcon from '@/shared/assets/svg/list.svg';
 import ProfileIcon from '@/shared/assets/svg/profile.svg';
 import {
     getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 
 import { SidebarItemType } from '../../types/sidebarItem';
 

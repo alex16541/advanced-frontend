@@ -35,6 +35,7 @@ export const CommentForm = memo((props: CommentFormProps) => {
                     placeholder={t('Your comment')}
                     readonly={isLoading}
                     value={comment}
+                    fullWidth
                     onChange={onChangeComment}
                 />
                 <Button className={cls.commentForm__button} isLoading={isLoading} onClick={onSubmit}>

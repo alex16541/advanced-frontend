@@ -3,6 +3,7 @@
 
 .loaderColumn {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
@@ -14,6 +15,7 @@
 
 .loaderRow {
     display: flex;
+    flex: 1;
     flex-direction: row;
     gap: 10px;
     align-items: end;

@@ -2,7 +2,9 @@ function componentTemplate(featureName) {
     // import classNames from 'classnames';
 
     return `import { memo } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './${featureName}.module.scss';
 
 interface ${featureName}Props {

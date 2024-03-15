@@ -4,7 +4,7 @@ import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
 import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import { ProfileErrors } from '../../model/consts/profile';
 

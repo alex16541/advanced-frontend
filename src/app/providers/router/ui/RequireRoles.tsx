@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { UserRoles, getUserRoles } from '@/entity/User';
-import { getRouteForbidden } from '@/shared/const/router';
+import { getRouteForbidden } from '@/shared/consts/router';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 
 interface RequireRolesProps {

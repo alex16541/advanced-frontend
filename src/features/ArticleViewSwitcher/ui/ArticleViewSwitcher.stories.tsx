@@ -1,12 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { Theme } from '@/shared/consts/theme';
 
 import { ArticleViewSwitcher } from './ArticleViewSwitcher';
 
 export default {
-    title: 'entity/Article/ArticleViewSwitcher',
+    title: 'features/Article/ArticleViewSwitcher',
     component: ArticleViewSwitcher,
     args: {},
 } as ComponentMeta<typeof ArticleViewSwitcher>;

@@ -5,7 +5,7 @@ import CheckSvg from '@/shared/assets/svg/check.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
 
-import { Button } from '../../../Button';
+import { Button, ButtonAlign } from '../../../Button';
 import { Icon } from '../../../Icon/Icon';
 import { Text } from '../../../Text/Text';
 import { directionClassName } from '../../styles/consts';
@@ -16,7 +16,9 @@ import cls from './ListBox.module.scss';
 
 interface ListBoxProps<T> {
     className?: string;
-    wrapperClassName?: string;
+    classNameWrapper?: string;
+    classNameButton?: string;
+    buttonAlign?: ButtonAlign;
     defaultValue?: ReactNode;
     value?: T;
     options?: ListBoxOption<T>[];
@@ -28,8 +30,10 @@ interface ListBoxProps<T> {
 
 const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
     const {
+        buttonAlign = ButtonAlign.START,
         className,
-        wrapperClassName,
+        classNameWrapper,
+        classNameButton,
         defaultValue = 'Открыть',
         value,
         options = [],
@@ -43,7 +47,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
     const displayValue = useMemo(() => options.find((opt) => opt.value === value), [options, value]);
 
     return (
-        <div className={classNames(cls.ListBoxWrapper, {}, [wrapperClassName, clsPopup.Popup])}>
+        <div className={classNames(cls.ListBoxWrapper, {}, [classNameWrapper, clsPopup.Popup])}>
             {label && <Text text={`${label}: `} />}
             <Listbox
                 as="div"
@@ -56,7 +60,11 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                     as="div"
                     className={classNames(cls.Button, {}, [clsPopup.Button])}
                 >
-                    <Button className={cls.Button} disabled={disabled}>
+                    <Button
+                        align={buttonAlign}
+                        className={classNames(cls.Button, {}, [classNameButton])}
+                        disabled={disabled}
+                    >
                         {displayValue ? displayValue.content : defaultValue}
                     </Button>
                 </Listbox.Button>

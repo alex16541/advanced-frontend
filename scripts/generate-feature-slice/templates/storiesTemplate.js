@@ -1,7 +1,9 @@
 function storiesTemplate(featureName) {
     return `import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/shared/hooks/useTheme';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/consts/theme';
+
 import { ${featureName} } from './${featureName}';
 
 export default {
