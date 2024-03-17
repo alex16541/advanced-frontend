@@ -2,5 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run test:unit
-npm run lint:ts
-npm run lint:scss
+npx lint-staged
