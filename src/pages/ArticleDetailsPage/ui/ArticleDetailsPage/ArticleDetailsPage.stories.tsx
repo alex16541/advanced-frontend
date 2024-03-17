@@ -24,6 +24,20 @@ export default {
                 status: 200,
                 response: articles,
             },
+            {
+                url: `${__API__}/articles-rating?articleId=1&userId=2`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    {
+                        id: '1',
+                        articleId: '1',
+                        userId: '1',
+                        rating: '3',
+                        feedback: 'Good',
+                    },
+                ],
+            },
         ],
     },
     decorators: [
