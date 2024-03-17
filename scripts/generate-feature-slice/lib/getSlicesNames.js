@@ -1,4 +1,4 @@
-function getSlicesNames() {
+function getSlicesNames(slices) {
     return Object.keys(slices).join(' | ');
 }
 

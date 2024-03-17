@@ -41,6 +41,7 @@ const AvatarButton = (props: AvatarButtonProps) => {
                     alt={authData.username}
                     size={AvatarSize.XS}
                     src={authData.avatar ?? ''}
+                    contrast
                 />
             )}
             items={[

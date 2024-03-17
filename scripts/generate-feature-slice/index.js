@@ -1,7 +1,7 @@
 const path = require('node:path');
 
-const makeSliceDir = require('./lib/makeSliceDir');
 const getSlicesNames = require('./lib/getSlicesNames');
+const makeSliceDir = require('./lib/makeSliceDir');
 const writeSlice = require('./lib/writeSlice');
 
 const slices = {
@@ -14,11 +14,11 @@ const slices = {
 
 function runChecks(slice, featureName) {
     if (!slice) {
-        throw new Error(`Не указан слайс: ${getSlicesNames()}`);
+        throw new Error(`Не указан слайс: ${getSlicesNames(slices)}`);
     }
 
     if (!slices[slice]) {
-        throw new Error(`Слайс указан неверно. Доступные слайсы: ${getSlicesNames()}`);
+        throw new Error(`Слайс указан неверно. Доступные слайсы: ${getSlicesNames(slices)}`);
     }
 
     if (!featureName) {

@@ -1,6 +1,10 @@
 import { CSSProperties, useMemo } from 'react';
 
+import UserAvatar from '@/shared/assets/svg/user.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 import cls from './Avatar.module.scss';
 
@@ -18,11 +22,17 @@ interface AvatarProps {
     size?: number | AvatarSize;
     alt: string;
     rounded?: boolean;
+    contrast?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
     const {
-        className, src, alt, size = AvatarSize.M, rounded = false,
+        className,
+        src,
+        alt,
+        size = AvatarSize.M,
+        rounded = false,
+        contrast = false,
     } = props;
 
     const avatarStyle = useMemo<CSSProperties>(
@@ -33,10 +43,22 @@ export const Avatar = (props: AvatarProps) => {
         [size],
     );
 
+    const skeleton = <Skeleton height={size} width={size} />;
+    const defaultAvatar = (
+        <Icon
+            className={classNames(cls.icon, { [cls.contrast]: contrast }, [])}
+            height={size}
+            Svg={UserAvatar}
+            width={size}
+        />
+    );
+
     return (
-        <img
+        <AppImage
             alt={alt}
             className={classNames(cls.Avatar, { [cls.rounded]: rounded }, [className])}
+            errorFallback={defaultAvatar}
+            fallbeck={skeleton}
             src={src}
             style={avatarStyle}
         />

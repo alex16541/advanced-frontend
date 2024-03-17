@@ -5,3 +5,13 @@
 .rounded {
     border-radius: 50%;
 }
+
+.icon {
+    color: var(--primary-color);
+    fill: var(--primary-color);
+}
+
+.contrast {
+    color: var(--contrast-color);
+    fill: var(--contrast-color);
+}

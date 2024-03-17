@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextSize } from '@/shared/ui/Text';
 
 import { ArticleBlockType } from '../../model/consts/article';
@@ -45,7 +47,12 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
     return (
         <Card className={classNames(cls.LargeArticleCard, {}, [className])}>
             <div className={cls.imageWrapper}>
-                <img alt="test mountains" className={cls.img} src={article.img} />
+                <AppImage
+                    alt="test mountains"
+                    className={cls.img}
+                    fallbeck={<Skeleton height="100%" width="100%" />}
+                    src={article.img}
+                />
                 <div className={cls.dateWrapper}>
                     <Button className={cls.date} disabled>
                         {article.createdAt}

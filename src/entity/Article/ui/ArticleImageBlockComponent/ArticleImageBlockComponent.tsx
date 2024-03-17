@@ -1,6 +1,8 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextAlign } from '@/shared/ui/Text';
 
 import { ArticleImageBlock } from '../../model/types/article';
@@ -18,7 +20,7 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
 
     return (
         <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            <img alt={title} src={src} />
+            <AppImage alt={title} fallbeck={<Skeleton height="450px" width="100%" />} src={src} />
             {title && <Text align={TextAlign.CENTER} text={title} />}
         </div>
     );
