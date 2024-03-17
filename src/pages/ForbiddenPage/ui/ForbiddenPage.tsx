@@ -3,4 +3,11 @@ import { Page } from '@/widgets/Page';
 
 import cls from './ForbiddenPage.module.scss';
 
-export const ForbiddenPage = () => <Page className={classNames(cls.ForbiddenPage, {}, [])}>403</Page>;
+export const ForbiddenPage = () => (
+    <Page
+        className={classNames(cls.ForbiddenPage, {}, [])}
+        data-testid="forbidden-page"
+    >
+        403
+    </Page>
+);

@@ -9,20 +9,23 @@ import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { useThrottle } from '@/shared/hooks/useThrottle';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { TestingProps } from '@/shared/types/testing';
 
 import { selectScrollPositionByPath } from '../model/selectors/scrollSelectors';
 import { ScrollActions } from '../model/slices/scrollSlice';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestingProps {
     className?: string;
     children: ReactNode;
     onEndOfPage?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-    const { className, children, onEndOfPage } = props;
+    const {
+        className, children, onEndOfPage, 'data-testid': dataTestId,
+    } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
@@ -44,7 +47,12 @@ export const Page = (props: PageProps) => {
     });
 
     return (
-        <main className={classNames(cls.Page, {}, [className])} ref={wrapperRef} onScroll={onScroll}>
+        <main
+            className={classNames(cls.Page, {}, [className])}
+            data-testid={dataTestId}
+            ref={wrapperRef}
+            onScroll={onScroll}
+        >
             {children}
             <div className={cls.trigger} ref={triggerRef} />
         </main>

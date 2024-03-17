@@ -10,7 +10,7 @@ const MainPage = () => {
     const { t } = useTranslation();
 
     return (
-        <Page className="page">
+        <Page className="page" data-testid="main-page">
             <div className="title">{t('main page title')}</div>
             <Text
                 text="test Lorem ipsum dolor

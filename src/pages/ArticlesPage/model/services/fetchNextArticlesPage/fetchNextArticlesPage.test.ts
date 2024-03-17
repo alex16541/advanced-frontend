@@ -27,7 +27,7 @@ describe('fetchNextArticlesPage', () => {
             limit: 3,
             order: 'asc',
             sort: 'title',
-            type: undefined,
+            type: 'all',
             query: '',
             replace: false,
         });
