@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -13,7 +13,7 @@ export default {
     args: {
         notification,
     },
-} as ComponentMeta<typeof NotificationsItem>;
+} as Meta<typeof NotificationsItem>;
 
 const Template: ComponentStory<typeof NotificationsItem> = (args) => <NotificationsItem {...args} />;
 

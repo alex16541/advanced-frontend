@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -18,7 +18,7 @@ export default {
     args: {
         articles,
     },
-} as ComponentMeta<typeof ArticlesList>;
+} as Meta<typeof ArticlesList>;
 
 const Template: ComponentStory<typeof ArticlesList> = (args) => (
     <ArticlesList {...args} />

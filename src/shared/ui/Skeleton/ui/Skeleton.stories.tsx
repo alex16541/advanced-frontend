@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -12,7 +12,7 @@ export default {
         width: '100%',
         height: 300,
     },
-} as ComponentMeta<typeof Skeleton>;
+} as Meta<typeof Skeleton>;
 
 const Template: ComponentStory<typeof Skeleton> = (args) => (
     <Skeleton {...args} />

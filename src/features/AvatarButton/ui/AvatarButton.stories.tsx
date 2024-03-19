@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { UserRoles } from '@/entity/User';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -26,7 +26,7 @@ export default {
             },
         }),
     ],
-} as ComponentMeta<typeof AvatarButton>;
+} as Meta<typeof AvatarButton>;
 
 const Template: ComponentStory<typeof AvatarButton> = (args) => <AvatarButton {...args} />;
 

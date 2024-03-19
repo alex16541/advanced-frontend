@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
@@ -27,7 +27,7 @@ export default {
             photo: AvatarImg,
         },
     },
-} as ComponentMeta<typeof ProfileCard>;
+} as Meta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 

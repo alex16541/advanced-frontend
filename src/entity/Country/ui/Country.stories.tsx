@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -8,7 +8,7 @@ import { CountrySelect } from './CountrySelect';
 export default {
     title: 'entity/CountrySelect',
     component: CountrySelect,
-} as ComponentMeta<typeof CountrySelect>;
+} as Meta<typeof CountrySelect>;
 
 const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 

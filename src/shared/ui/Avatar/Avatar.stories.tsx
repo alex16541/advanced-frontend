@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
@@ -14,7 +14,7 @@ export default {
         size: 100,
         alt: 'avatar image',
     },
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 

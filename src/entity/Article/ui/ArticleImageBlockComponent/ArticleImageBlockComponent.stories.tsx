@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -16,7 +16,7 @@ export default {
             src: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80',
         },
     },
-} as ComponentMeta<typeof ArticleImageBlockComponent>;
+} as Meta<typeof ArticleImageBlockComponent>;
 
 const Template: ComponentStory<typeof ArticleImageBlockComponent> = (args) => (
     <ArticleImageBlockComponent {...args} />

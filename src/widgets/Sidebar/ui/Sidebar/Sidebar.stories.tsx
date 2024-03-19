@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
@@ -9,7 +9,7 @@ import { Sidebar } from './Sidebar';
 export default {
     title: 'widgets/Sidebar',
     component: Sidebar,
-} as ComponentMeta<typeof Sidebar>;
+} as Meta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 

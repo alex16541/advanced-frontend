@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -20,7 +20,7 @@ export default {
             ],
         },
     },
-} as ComponentMeta<typeof ArticleTextBlockComponent>;
+} as Meta<typeof ArticleTextBlockComponent>;
 
 const Template: ComponentStory<typeof ArticleTextBlockComponent> = (args) => (
     <ArticleTextBlockComponent {...args} />

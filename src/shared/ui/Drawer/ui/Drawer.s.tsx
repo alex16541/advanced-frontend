@@ -22,3 +22,4 @@
 
 // export const Dark = Template.bind({});
 // Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export {};

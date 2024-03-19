@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -9,7 +9,7 @@ export default {
     title: 'features/Article/ArticleViewSwitcher',
     component: ArticleViewSwitcher,
     args: {},
-} as ComponentMeta<typeof ArticleViewSwitcher>;
+} as Meta<typeof ArticleViewSwitcher>;
 
 const Template: ComponentStory<typeof ArticleViewSwitcher> = (args) => (
     <ArticleViewSwitcher {...args} />

@@ -7,7 +7,11 @@ interface PortalProps {
 }
 
 export const Portal = (props: PortalProps) => {
-    const { children, element = document.getElementById('root') || document.body } = props;
+    const rootSelector = __PROJECT__ === 'frontend' ? 'root' : 'storybook-root';
+    const {
+        children,
+        element = document.getElementById(rootSelector) || document.body,
+    } = props;
 
     return createPortal(children, element);
 };

@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
@@ -18,7 +18,7 @@ export default {
             },
         }),
     ],
-} as ComponentMeta<typeof ArticleRating>;
+} as Meta<typeof ArticleRating>;
 
 export const Light = {
     args: {

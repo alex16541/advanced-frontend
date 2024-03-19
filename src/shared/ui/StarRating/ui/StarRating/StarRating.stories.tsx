@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -11,7 +11,7 @@ export default {
     args: {
 
     },
-} as ComponentMeta<typeof StarRating>;
+} as Meta<typeof StarRating>;
 
 const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;
 

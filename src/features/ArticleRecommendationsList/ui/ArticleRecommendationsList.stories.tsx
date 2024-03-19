@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -29,7 +29,7 @@ export default {
             },
         ],
     },
-} as ComponentMeta<typeof ArticleRecommendationsList>;
+} as Meta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
 

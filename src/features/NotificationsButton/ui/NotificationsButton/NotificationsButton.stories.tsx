@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { Notification, notification } from '@/entity/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -40,7 +40,7 @@ export default {
             },
         ],
     },
-} as ComponentMeta<typeof NotificationsButton>;
+} as Meta<typeof NotificationsButton>;
 
 const Template: ComponentStory<typeof NotificationsButton> = (args) => <NotificationsButton {...args} />;
 

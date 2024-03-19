@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
@@ -10,7 +10,7 @@ export default {
     title: 'entity/Comment/CommentForm',
     component: CommentForm,
     args: {},
-} as ComponentMeta<typeof CommentForm>;
+} as Meta<typeof CommentForm>;
 
 const Template: ComponentStory<typeof CommentForm> = (args) => (
     <CommentForm {...args} />

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -12,7 +12,6 @@ import ArticlesPage from './ArticlesPage';
 export default {
     title: 'pages/ArticlesPage',
     component: ArticlesPage,
-    args: {},
     decorators: [
         StoreDecorator({
             articlesPage: {
@@ -27,13 +26,14 @@ export default {
             articlesPage: articlesPageReducer,
         }),
     ],
-} as ComponentMeta<typeof ArticlesPage>;
+} as Meta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => (
-    <ArticlesPage {...args} />
-);
+type Story = StoryObj<typeof ArticlesPage>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
+};

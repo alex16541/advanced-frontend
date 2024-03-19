@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
@@ -9,24 +9,29 @@ import { LoginModal } from './LoginModal';
 export default {
     title: 'features/LoginModal',
     component: LoginModal,
+    decorators: [
+        StoreDecorator({
+            loginForm: {
+                username: '123',
+                password: '123',
+            },
+        }),
+    ],
 };
 
-const Template: Story = (args) => <LoginModal {...args} />;
+type Story = StoryObj<typeof LoginModal>;
 
-export const Light = Template.bind({});
-Light.args = {
-    isOpen: true,
+export const Light: Story = {
+    args: {
+        isOpen: true,
+    },
 };
-Light.decorators = [
-    StoreDecorator({
-        loginForm: {
-            username: '123',
-            password: '123',
-        },
-    }),
-];
-export const Dark = Template.bind({});
-Dark.args = {
-    ...Light.args,
+
+export const Dark: Story = {
+    args: {
+        isOpen: true,
+    },
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), ...Light.decorators];

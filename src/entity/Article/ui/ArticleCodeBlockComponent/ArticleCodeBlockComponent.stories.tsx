@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -15,7 +15,7 @@ export default {
             code: "const source = Observable.create((observer) => {\n    let count = 0;\n    console.log('Observable created');\n\n    const timer = setInterval(() => {\n        observer.next(count);\n        count++;\n    }, 1000);\n\n    return () => {\n        console.log('Observable destroyed');\n        clearInterval(timer);\n    }\n});",
         },
     },
-} as ComponentMeta<typeof ArticleCodeBlockComponent>;
+} as Meta<typeof ArticleCodeBlockComponent>;
 
 const Template: ComponentStory<typeof ArticleCodeBlockComponent> = (args) => (
     <ArticleCodeBlockComponent {...args} />

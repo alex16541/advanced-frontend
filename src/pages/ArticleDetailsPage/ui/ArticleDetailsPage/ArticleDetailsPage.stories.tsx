@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleBlockType, ArticleType, article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -15,7 +15,6 @@ const articles = new Array(6).fill(0).map((item, index) => ({
 export default {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    args: {},
     parameters: {
         mockData: [
             {
@@ -130,13 +129,14 @@ export default {
             },
         }),
     ],
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} as Meta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
-);
+type Story = StoryObj<typeof ArticleDetailsPage>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
+};

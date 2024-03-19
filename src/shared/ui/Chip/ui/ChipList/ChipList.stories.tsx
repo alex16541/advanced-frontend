@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -24,7 +24,7 @@ export default {
             },
         ],
     },
-} as ComponentMeta<typeof ChipList>;
+} as Meta<typeof ChipList>;
 
 const Template: ComponentStory<typeof ChipList> = (args) => (
     <ChipList {...args} />

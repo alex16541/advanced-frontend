@@ -5,7 +5,7 @@ import { Theme } from '@/shared/consts/theme';
 
 import { AppLink, AppLinkThemes } from './AppLink';
 
-// todo: add ComponentMeta type
+// todo: add Meta type
 export default {
     title: 'shared/AppLink',
     component: AppLink,

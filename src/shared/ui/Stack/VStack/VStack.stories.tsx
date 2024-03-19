@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -21,7 +21,7 @@ export default {
             </>
         ),
     },
-} as ComponentMeta<typeof VStack>;
+} as Meta<typeof VStack>;
 
 const Template: ComponentStory<typeof VStack> = (args) => <VStack {...args} />;
 
