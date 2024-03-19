@@ -59,7 +59,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
-            <Page className={classNames(cls.ArticlesPage, {}, [className])} onEndOfPage={loadNextPage}>
+            <Page
+                className={classNames(cls.ArticlesPage, {}, [className])}
+                data-testid="articles-page"
+                onEndOfPage={loadNextPage}
+            >
                 <div className={cls.header}>
                     <Text title={t('Article list')} />
                     <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
