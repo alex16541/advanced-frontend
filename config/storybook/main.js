@@ -3,21 +3,16 @@ module.exports = {
 
     addons: [
         '@storybook/addon-links',
-        // {
-        //     name: '@storybook/addon-essentials',
-        //     options: {
-        //         background: false,
-        //         docs: false,
-        //     },
-        // },
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                docs: false,
+            },
+        },
         '@storybook/addon-interactions',
         'storybook-addon-mock',
-        // 'storybook-addon-themes',
     ],
+    staticDirs: ['../../src/shared/assets'],
 
     framework: '@storybook/react-webpack5',
-
-    // docs: {
-    //     autodocs: true,
-    // },
 };

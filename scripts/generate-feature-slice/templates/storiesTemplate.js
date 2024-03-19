@@ -1,5 +1,5 @@
 function storiesTemplate(featureName) {
-    return `import { ComponentMeta, ComponentStory } from '@storybook/react';
+    return `import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -9,17 +9,17 @@ import { ${featureName} } from './${featureName}';
 export default {
     title: 'folder/${featureName}',
     component: ${featureName},
-    args: {
+} as Meta<typeof ${featureName}>;
 
-    },
-} as ComponentMeta<typeof ${featureName}>;
+type Story = StoryObj<${featureName}>
 
-const Template: ComponentStory<typeof ${featureName}> = (args) => <${featureName} {...args} />;
+export const Light: Story = {};
 
-export const Light = Template.bind({});
-
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK)
+    ]
+}
 `;
 }
 

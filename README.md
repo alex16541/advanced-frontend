@@ -91,7 +91,7 @@ npm run start или npm run start:vite и npm start:db - запуск серв�
 В проекте для каждого компонента описываются стори-кейсы.
 Запросы на сервер мокаются с помощью storybook-addon-mock.
 
-Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
+Файл со сторикейсами создается с расширением .stories.tsx рядом с компонентом 
 
 Запустить сторибук можно командой:
 - `npm run storybook`
@@ -102,7 +102,7 @@ npm run start или npm run start:vite и npm start:db - запуск серв�
 
 ```typescript jsx
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -115,27 +115,33 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+type Story = StoryObj<Button>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
+export const Primary: Story = {
+    args: {
+        children: 'Text',
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    children: 'Button',
-    theme: ButtonThemes.PRIMARY,
+export const PrimaryDark: Story = {
+    args = {
+        children: 'Button',
+        theme: ButtonThemes.PRIMARY,
+    },
+    decorators: [
+        ThemeDecorator(Theme.DARK)
+    ],
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR,
+export const Clear: Story = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR,
+    },
 };
+
 ```
 
 
@@ -145,7 +151,7 @@ Clear.args = {
 
 Для разработки проект содержит 2 конфига:
 1. Webpack - ./config/build
-2. vite - vite.config.ts
+2. Vite - vite.config.ts
 
 Оба сборщика адаптированы под основные фичи приложения.
 

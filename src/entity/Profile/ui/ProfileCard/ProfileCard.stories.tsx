@@ -1,8 +1,7 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
-import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
@@ -24,24 +23,29 @@ export default {
             city: 'Uolden',
             country: Country.USA,
             currency: Currency.USD,
-            photo: AvatarImg,
+            photo: 'tests/Avatar.jpeg',
         },
     },
 } as Meta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+type Story = StoryObj<typeof ProfileCard>
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const WithError = Template.bind({});
-WithError.args = {
-    error: ProfileErrors.SERVER_ERROR,
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
 };
 
-export const WithLodading = Template.bind({});
-WithLodading.args = {
-    isLoading: true,
+export const WithError: Story = {
+    args: {
+        error: ProfileErrors.SERVER_ERROR,
+    },
+};
+
+export const WithLodading: Story = {
+    args: {
+        isLoading: true,
+    },
 };
