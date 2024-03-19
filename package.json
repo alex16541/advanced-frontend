@@ -20,7 +20,7 @@
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "storybook build -c config/storybook/ && npx loki --requireReference --reactUri file:./storybook-static",
-    "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html && open .loki/report.html",
+    "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html",
     "test:ui:report:json": "node scripts/generate-visual-json-report.js",
     "test:ui:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "storybook dev -p 3003 -c config/storybook/",

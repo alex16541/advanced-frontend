@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -17,7 +17,7 @@ export default {
                     id: '1',
                     username: 'root',
                     profileId: '1',
-                    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU',
+                    avatar: 'tests/Avatar2.jpg',
                 },
             },
             {
@@ -27,7 +27,7 @@ export default {
                     id: '1',
                     username: 'root',
                     profileId: '1',
-                    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU',
+                    avatar: 'tests/Avatar2.jpg',
                 },
             },
             {
@@ -37,18 +37,19 @@ export default {
                     id: '2',
                     profileId: '2',
                     username: 'user',
-                    avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
+                    avatar: 'tests/Avatar.jpeg',
                 },
             },
         ],
     },
 } as Meta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => (
-    <CommentList {...args} />
-);
+type Story = StoryObj<typeof CommentList>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
+};

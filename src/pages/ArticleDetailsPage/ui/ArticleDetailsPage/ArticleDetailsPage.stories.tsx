@@ -46,7 +46,7 @@ export default {
                     id: '2',
                     profileId: '2',
                     username: 'user',
-                    avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
+                    avatar: 'tests/Avatar.jpeg',
                 },
             },
             articleComments: {
@@ -59,7 +59,7 @@ export default {
                             id: '1',
                             username: 'root',
                             profileId: '1',
-                            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU',
+                            avatar: 'tests/Avatar.jpeg',
                         },
                     },
                     2: {
@@ -69,7 +69,7 @@ export default {
                             id: '1',
                             username: 'root',
                             profileId: '1',
-                            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU',
+                            avatar: 'tests/Avatar.jpeg',
                         },
                     },
                     3: {
@@ -79,7 +79,7 @@ export default {
                             id: '2',
                             profileId: '2',
                             username: 'user',
-                            avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
+                            avatar: 'tests/Avatar.jpeg',
                         },
                     },
                 },
@@ -89,8 +89,11 @@ export default {
                     id: '1',
                     title: 'Декларативный подход к программированию на примере RxJs',
                     subtitle: 'Показываем на рабочих примерах',
-                    user: { id: '2' },
-                    img: 'https://seeklogo.com/images/R/rxjs-logo-1C13E67498-seeklogo.com.png',
+                    user: {
+                        id: '2',
+                        avatar: 'tests/Avatar.jpeg',
+                    },
+                    img: 'tests/Background.jpg',
                     views: 37483,
                     createdAt: '10.10.2000',
                     type: [ArticleType.IT],
@@ -109,7 +112,7 @@ export default {
                             id: '2',
                             type: ArticleBlockType.IMAGE,
                             title: 'Mauntains',
-                            src: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80',
+                            src: 'tests/Background.jpg',
                         },
                         {
                             id: '3',

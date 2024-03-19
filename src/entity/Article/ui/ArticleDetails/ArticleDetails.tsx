@@ -120,8 +120,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <header className={cls.header}>
-                    {articleData?.img && (
-                        <Avatar alt={articleData.title} className={cls.img} size={120} src={articleData.img} />
+                    {articleData?.user.avatar && (
+                        <Avatar
+                            alt={articleData.user.username}
+                            className={cls.img}
+                            size={120}
+                            src={articleData.user.avatar}
+                        />
                     )}
                     <div className={cls.articleInfo}>
                         <Text

@@ -1,8 +1,7 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
-import AvatarImg from '@/shared/assets/tests/Avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -25,16 +24,19 @@ export default {
                     city: 'Uolden',
                     country: Country.USA,
                     currency: Currency.USD,
-                    photo: AvatarImg,
+                    photo: 'tests/Avatar.jpeg',
                 },
             },
         }),
     ],
 } as Meta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+type Story = StoryObj<typeof ProfilePage>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
+};

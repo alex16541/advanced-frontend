@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Notification, notification } from '@/entity/Notification';
 import { UserRoles } from '@/entity/User';
@@ -29,28 +29,32 @@ export default {
             },
         ],
     },
+    decorators: [
+        StoreDecorator({
+            loginForm: {},
+        }),
+    ],
+} as Meta<typeof Navbar>;
+
+type Story = StoryObj<typeof Navbar>;
+
+export const Light: Story = {};
+
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
 };
-
-const Template: Story = (args) => <Navbar {...args} />;
-
-export const Light = Template.bind({});
-Light.decorators = [
-    StoreDecorator({
-        loginForm: {},
-    }),
-];
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), ...Light.decorators];
-
-export const LogedIn = Template.bind({});
-LogedIn.decorators = [
-    StoreDecorator({
-        user: {
-            authData: {
-                id: '1',
-                roles: [UserRoles.ADMIN],
-                avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
+export const LogedIn: Story = {
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    roles: [UserRoles.ADMIN],
+                    avatar: 'tests/Avatar.jpeg',
+                },
             },
-        },
-    }),
-];
+        }),
+    ],
+};

@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -15,18 +15,19 @@ export default {
                 id: '1',
                 username: 'user123',
                 profileId: '1',
-                avatar: 'https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko=',
+                avatar: 'tests/Avatar.jpeg',
             },
             text: 'Some comment!',
         },
     },
 } as Meta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => (
-    <CommentCard {...args} />
-);
+type Story = StoryObj<typeof CommentCard>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+    ],
+};
