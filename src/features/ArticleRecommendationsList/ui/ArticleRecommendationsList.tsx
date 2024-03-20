@@ -22,7 +22,10 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     // TODO: Поменять обработку ошибки на что-то красивое
     if (isError) return null;
     return (
-        <div className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
+        <div
+            className={classNames(cls.ArticleRecommendationsList, {}, [className])}
+            data-testid="ArticleRecommendationsList"
+        >
             <Text title={t('recommendations')} />
             <ArticlesList
                 articles={recommendations}

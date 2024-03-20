@@ -39,6 +39,7 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
     return (
         <AppLink
             className={classNames(cls.SmallArticleCard, {}, [className])}
+            data-testid="SmallArticleCard"
             target={target}
             to={getRouteArticleDetails(article.id)}
         >

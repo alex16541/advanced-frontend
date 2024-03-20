@@ -2,6 +2,7 @@ import { ReactNode, forwardRef } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { TestingProps } from '@/shared/types/testing';
 
 import cls from './AppLink.module.scss';
 
@@ -10,7 +11,7 @@ export enum AppLinkThemes {
     SECONDARY = 'secondary',
 }
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends LinkProps, TestingProps{
     className?: string;
     theme?: AppLinkThemes;
     hover?: boolean;

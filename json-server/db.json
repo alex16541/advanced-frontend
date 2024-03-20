@@ -537,7 +537,7 @@
   "profile": [
     {
       "id": "1",
-      "firstname": "Aleksey",
+      "firstname": "Aleksey1",
       "lastname": "Dov",
       "username": "alex123",
       "age": 22,
@@ -559,6 +559,19 @@
       "currency": "RUB",
       "phone": "89991112255",
       "email": "aleksey123@gamil.com",
+      "photo": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
+    },
+    {
+      "id": "3",
+      "firstname": "user",
+      "lastname": "test",
+      "username": "testuser",
+      "age": 66,
+      "country": "Russia",
+      "city": "Saint-Petersburg",
+      "currency": "RUB",
+      "phone": "89991112255",
+      "email": "testuser@gamil.com",
       "photo": "https://media.istockphoto.com/id/1269703326/vector/pixel-art-8-bit-cute-kitten-domestic-pet-saying-meow-isolated-vector.jpg?s=612x612&w=0&k=20&c=akgp8uPlUMGNZbnO-bTAksu7f1zER53qwEXExAMirko="
     }
   ],

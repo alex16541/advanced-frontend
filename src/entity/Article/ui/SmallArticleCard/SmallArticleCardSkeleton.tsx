@@ -14,7 +14,10 @@ export const SmallArticleCardSkeleton = memo((props: SmallArticleCardProps) => {
     const { className } = props;
 
     return (
-        <Card className={classNames(cls.skeleton, {}, [className, cls.skeleton])}>
+        <Card
+            className={classNames(cls.skeleton, {}, [className, cls.skeleton])}
+            data-testid="SmallArticleCard.Skeleton"
+        >
             <Skeleton height="150px" width="100%" />
 
             <div className={cls.content}>

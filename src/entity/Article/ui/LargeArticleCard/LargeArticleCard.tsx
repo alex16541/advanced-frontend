@@ -45,7 +45,7 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
     }
 
     return (
-        <Card className={classNames(cls.LargeArticleCard, {}, [className])}>
+        <Card className={classNames(cls.LargeArticleCard, {}, [className])} data-testid="LargeArticleCard">
             <div className={cls.imageWrapper}>
                 <AppImage
                     alt="test mountains"

@@ -97,7 +97,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
-            <div className={cls.loaderColumn}>
+            <div className={cls.loaderColumn} data-testid="ArticleDetails.Skeleton">
                 <div className={cls.loaderRow}>
                     <Skeleton height={120} width={120} />
                     <div className={cls.loaderColumn}>
@@ -155,7 +155,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader key="articleDetails" reducers={reducers} removeAfterUnmout>
-            <article className={classNames(cls.ArticleDetails, {}, [className])}>{content}</article>
+            <article
+                className={classNames(cls.ArticleDetails, {}, [className])}
+                data-testid="ArticleDetails"
+            >
+                {content}
+            </article>
         </DynamicModuleLoader>
     );
 });

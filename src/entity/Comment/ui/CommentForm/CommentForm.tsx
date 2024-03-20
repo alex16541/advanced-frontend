@@ -27,18 +27,24 @@ export const CommentForm = memo((props: CommentFormProps) => {
     const authData = useSelector(getAuthData);
 
     return (
-        <form className={classNames(cls.CommentForm, {}, [className, cls.commentForm])}>
+        <form className={classNames(cls.CommentForm, {}, [className, cls.commentForm])} data-testid="CommentForm">
             {authData?.avatar && <Avatar alt={authData.username} src={authData?.avatar} />}
             <div className={cls.commentForm__body}>
                 <Input
                     className={cls.commentForm__input}
+                    data-testid="CommentForm.Input"
                     placeholder={t('Your comment')}
                     readonly={isLoading}
                     value={comment}
                     fullWidth
                     onChange={onChangeComment}
                 />
-                <Button className={cls.commentForm__button} isLoading={isLoading} onClick={onSubmit}>
+                <Button
+                    className={cls.commentForm__button}
+                    data-testid="CommentForm.Submit"
+                    isLoading={isLoading}
+                    onClick={onSubmit}
+                >
                     {t('leave a comment')}
                 </Button>
             </div>

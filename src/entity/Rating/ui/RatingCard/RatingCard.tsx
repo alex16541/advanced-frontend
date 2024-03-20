@@ -87,7 +87,11 @@ const RatingCard = (props: RatingCardProps) => {
         <VStack gap="8">
             <Text size={TextSize.L} title={feedbackTitle} />
             {/* TODO: Заменить на textarea */}
-            <Input placeholder={feedbackPlaceholder} onChange={onChangeFeedback} />
+            <Input
+                data-testid="RatingCard.FeedbackInput"
+                placeholder={feedbackPlaceholder}
+                onChange={onChangeFeedback}
+            />
         </VStack>
     ), [feedbackPlaceholder, feedbackTitle, onChangeFeedback]);
 
@@ -108,7 +112,7 @@ const RatingCard = (props: RatingCardProps) => {
                 <>
                     <BrowserView>
                         <Modal classNameContent={cls.Modal} isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack gap="32" justify="SpaceBetween" maxWidth>
+                            <VStack data-testid="RatingCard.Modal" gap="32" justify="SpaceBetween" maxWidth>
                                 {ModalContent}
                                 <HStack justify="End" maxWidth>
                                     <Button
@@ -118,6 +122,7 @@ const RatingCard = (props: RatingCardProps) => {
                                         {cancelText}
                                     </Button>
                                     <Button
+                                        data-testid="RatingCard.Accept"
                                         onClick={acceptHendler}
                                     >
                                         {acceptText}
@@ -128,9 +133,10 @@ const RatingCard = (props: RatingCardProps) => {
                     </BrowserView>
                     <MobileView>
                         <Drawer isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack gap="32" justify="SpaceBetween" maxHeight maxWidth>
+                            <VStack data-testid="RatingCard.Modal" gap="32" justify="SpaceBetween" maxHeight maxWidth>
                                 {ModalContent}
                                 <Button
+                                    data-testid="RatingCard.Accept"
                                     size={ButtonSize.L}
                                     onClick={acceptHendler}
                                 >

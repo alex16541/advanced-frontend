@@ -50,13 +50,20 @@ const StarRating = (props: StarRatingProps) => {
     }, []);
 
     return (
-        <HStack className={classNames(cls.StarRating, {}, [className])} gap="0" justify={justify}>
+        <HStack
+            className={classNames(cls.StarRating, {}, [className])}
+            data-testid="StarRating"
+            gap="0"
+            justify={justify}
+        >
             {Array(count).fill('').map((_, index) => {
                 const val = index + 1;
 
                 return (
                     <Button
                         className={cls.Button}
+                        data-selected={val <= (hovered || value)}
+                        data-testid={`StarRating.Star.${val}`}
                         disabled={disabled || (!editable && Boolean(value))}
                         key={val}
                         theme={ButtonThemes.CLEAR}
