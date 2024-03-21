@@ -18,9 +18,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-    const {
-        className, item, theme = AppLinkThemes.SECONDARY, collapsed,
-    } = props;
+    const { className, item, theme = AppLinkThemes.SECONDARY, collapsed } = props;
 
     const { t } = useTranslation();
     const isAuth = useSelector(getAuthData);

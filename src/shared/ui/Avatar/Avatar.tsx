@@ -9,7 +9,7 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './Avatar.module.scss';
 
 export enum AvatarSize {
-    XS= 30,
+    XS = 30,
     S = 50,
     M = 70,
     L = 100,
@@ -26,14 +26,7 @@ interface AvatarProps {
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className,
-        src,
-        alt,
-        size = AvatarSize.M,
-        rounded = false,
-        contrast = false,
-    } = props;
+    const { className, src, alt, size = AvatarSize.M, rounded = false, contrast = false } = props;
 
     const avatarStyle = useMemo<CSSProperties>(
         () => ({

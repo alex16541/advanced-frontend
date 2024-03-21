@@ -18,13 +18,18 @@ interface ArticlesListItemProps {
 }
 
 export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
-    const {
-        className, size = ArticlesListItemSize.S, article, isLoading = false, target,
-    } = props;
+    const { className, size = ArticlesListItemSize.S, article, isLoading = false, target } = props;
 
     switch (size) {
         case ArticlesListItemSize.S:
-            return <SmallArticleCard article={article} className={className} isLoading={isLoading} target={target} />;
+            return (
+                <SmallArticleCard
+                    article={article}
+                    className={className}
+                    isLoading={isLoading}
+                    target={target}
+                />
+            );
 
         case ArticlesListItemSize.L:
             return <LargeArticleCard article={article} className={className} isLoading={isLoading} />;

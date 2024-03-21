@@ -14,8 +14,7 @@ export default {
 const Template: Story = (args) => <LoginForm {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {
-};
+Light.args = {};
 Light.decorators = [
     StoreDecorator({
         loginForm: {
@@ -31,8 +30,7 @@ Dark.args = {
 Dark.decorators = [ThemeDecorator(Theme.DARK), ...Light.decorators];
 
 export const WithError = Template.bind({});
-WithError.args = {
-};
+WithError.args = {};
 WithError.decorators = [
     StoreDecorator({
         loginForm: {

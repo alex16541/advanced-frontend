@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, HTMLAttributes, useMemo,
-} from 'react';
+import { ChangeEvent, HTMLAttributes, useMemo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
@@ -21,20 +19,19 @@ interface SelectProps<T extends string> extends HTMLAttributes<HTMLSelectElement
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
-    const {
-        className, label, options, readonly, defaultValue, value, onChangeValue, ...otherProps
-    } = props;
+    const { className, label, options, readonly, defaultValue, value, onChangeValue, ...otherProps } = props;
 
     const mods: Mods = {
         [cls.readonly]: readonly,
     };
 
     const optionList = useMemo(
-        () => options.map((opt) => (
-            <option className={cls.option} key={opt.value} value={opt.value}>
-                {opt.content}
-            </option>
-        )),
+        () =>
+            options.map((opt) => (
+                <option className={cls.option} key={opt.value} value={opt.value}>
+                    {opt.content}
+                </option>
+            )),
         [options],
     );
 

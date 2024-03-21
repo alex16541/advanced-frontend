@@ -58,9 +58,7 @@ export const WithoutRating = {
                 url: `${__API__}/articles-rating?articleId=2&userId=1`,
                 method: 'GET',
                 status: 200,
-                response: [
-
-                ],
+                response: [],
             },
         ],
     },

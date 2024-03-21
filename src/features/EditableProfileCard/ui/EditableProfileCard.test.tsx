@@ -41,7 +41,6 @@ const options = {
             readonly: true,
             data: profile,
             form: profile,
-
         },
     },
     asyncReducers: {

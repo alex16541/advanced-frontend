@@ -67,7 +67,9 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
                 </div>
             </div>
             <Text className={cls.title} title={article.title} />
-            {firstParagraph && <ArticleTextBlockComponent articleBlock={firstParagraph} className={cls.text} />}
+            {firstParagraph && (
+                <ArticleTextBlockComponent articleBlock={firstParagraph} className={cls.text} />
+            )}
             <div className={cls.actions}>
                 <AppLink hover={false} to={getRouteArticleDetails(article.id)}>
                     <Button className={cls.button}>{t('read more')}</Button>

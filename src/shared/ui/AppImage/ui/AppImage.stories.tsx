@@ -8,9 +8,7 @@ import { AppImage } from './AppImage';
 export default {
     title: 'folder/AppImage',
     component: AppImage,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof AppImage>;
 
 const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />;

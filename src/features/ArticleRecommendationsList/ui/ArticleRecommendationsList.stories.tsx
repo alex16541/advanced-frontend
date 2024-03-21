@@ -16,9 +16,7 @@ export default {
     title: 'features/Article/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     parameters: {
         mockData: [
             {
@@ -31,7 +29,9 @@ export default {
     },
 } as Meta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 export const Light = Template.bind({});
 

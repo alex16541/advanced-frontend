@@ -10,14 +10,10 @@ export default {
     title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
-    <ArticleEditPage {...args} />
-);
+const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
 
 export const Light = Template.bind({});
 

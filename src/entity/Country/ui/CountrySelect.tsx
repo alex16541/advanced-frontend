@@ -23,14 +23,7 @@ const countryOptions: ListBoxOption<Country>[] = [
 ];
 
 const CountrySelect = (props: CountrySelectProps) => {
-    const {
-        className,
-        label,
-        placeholder,
-        readonly,
-        value,
-        onChangeValue,
-    } = props;
+    const { className, label, placeholder, readonly, value, onChangeValue } = props;
 
     const onChangeHendler = useCallback(
         (value: string) => {

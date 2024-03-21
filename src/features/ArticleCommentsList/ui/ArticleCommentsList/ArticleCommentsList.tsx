@@ -6,7 +6,10 @@ import { CommentList } from '@/entity/Comment';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextThemes } from '@/shared/ui/Text';
 
@@ -15,7 +18,10 @@ import {
     getArticleCommentsListError,
 } from '../../model/selectors/articleCommentsList';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleCommentsReducer, articleCommentsSelectors } from '../../model/slices/articleCommentsListSlice';
+import {
+    articleCommentsReducer,
+    articleCommentsSelectors,
+} from '../../model/slices/articleCommentsListSlice';
 import { ArticleCommentsListForm } from '../ArticleCommentsListForm/ArticleCommentsListForm';
 
 import cls from './ArticleCommentsList.module.scss';

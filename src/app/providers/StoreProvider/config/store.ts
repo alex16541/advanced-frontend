@@ -1,6 +1,4 @@
-import {
-    CombinedState, configureStore, Reducer, ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { couterReducer } from '@/entity/Counter';
 import { userReducer } from '@/entity/User';
@@ -26,13 +24,14 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (gDM) => gDM({
-            thunk: {
-                extraArgument: {
-                    api: $api,
+        middleware: (gDM) =>
+            gDM({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
                 },
-            },
-        }).concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

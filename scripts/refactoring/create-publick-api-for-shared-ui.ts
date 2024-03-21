@@ -26,7 +26,7 @@ dirs?.forEach((dir) => {
 
 const files = project.getSourceFiles();
 
-const isSharedUi = (path:string) => path.startsWith('@/shared/ui/') && path.split('/').length === 5;
+const isSharedUi = (path: string) => path.startsWith('@/shared/ui/') && path.split('/').length === 5;
 
 files.forEach((file) => {
     const imports = file.getImportDeclarations();

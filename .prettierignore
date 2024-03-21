@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+storybook-static
+node_modules
+docs
+report

@@ -41,9 +41,7 @@ type Story = StoryObj<typeof Navbar>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const LogedIn: Story = {
     decorators: [

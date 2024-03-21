@@ -36,7 +36,5 @@ type Story = StoryObj<typeof ProfilePage>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

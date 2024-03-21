@@ -5,9 +5,7 @@ import ArticleIcon from '@/shared/assets/svg/article.svg';
 import HomeIcon from '@/shared/assets/svg/home.svg';
 import ListIcon from '@/shared/assets/svg/list.svg';
 import ProfileIcon from '@/shared/assets/svg/profile.svg';
-import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
-} from '@/shared/consts/router';
+import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
 
 import { SidebarItemType } from '../../types/sidebarItem';
 

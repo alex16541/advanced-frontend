@@ -1,9 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-    getAuthData, getIsUserAdmin, getIsUserManager, userActions,
-} from '@/entity/User';
+import { getAuthData, getIsUserAdmin, getIsUserManager, userActions } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -36,14 +34,9 @@ const AvatarButton = (props: AvatarButtonProps) => {
         <Dropdown
             className={classNames(cls.AvatarButton, {}, [className])}
             direction={direction}
-            button={(
-                <Avatar
-                    alt={authData.username}
-                    size={AvatarSize.XS}
-                    src={authData.avatar ?? ''}
-                    contrast
-                />
-            )}
+            button={
+                <Avatar alt={authData.username} size={AvatarSize.XS} src={authData.avatar ?? ''} contrast />
+            }
             items={[
                 { content: t('profile'), href: `/profile/${authData.id}` },
                 ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),

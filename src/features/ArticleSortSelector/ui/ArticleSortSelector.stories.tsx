@@ -15,7 +15,5 @@ type Story = StoryObj<typeof ArticleSortSelector>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

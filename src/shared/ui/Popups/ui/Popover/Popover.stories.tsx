@@ -8,9 +8,7 @@ import { Popover } from './Popover';
 export default {
     title: 'shared/Popups/Popover',
     component: Popover,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof Popover>;
 
 const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;

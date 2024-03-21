@@ -1,6 +1,4 @@
-import {
-    MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
@@ -23,9 +21,7 @@ interface PageProps extends TestingProps {
 }
 
 export const Page = (props: PageProps) => {
-    const {
-        className, children, onEndOfPage, 'data-testid': dataTestId,
-    } = props;
+    const { className, children, onEndOfPage, 'data-testid': dataTestId } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();

@@ -51,8 +51,16 @@ export const Text = (props: TextProps) => {
             className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}
             data-testid={dataTestId}
         >
-            {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
-            {text && <p className={cls.text} data-testid={`${dataTestId}.Text`}>{text}</p>}
+            {title && (
+                <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p className={cls.text} data-testid={`${dataTestId}.Text`}>
+                    {text}
+                </p>
+            )}
         </div>
     );
 };

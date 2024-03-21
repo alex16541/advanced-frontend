@@ -9,9 +9,7 @@ import AboutPage from './AboutPage';
 export default {
     title: 'pages/AboutPage',
     component: AboutPage,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 const Template: Story = () => <AboutPage />;

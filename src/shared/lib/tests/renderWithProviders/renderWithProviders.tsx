@@ -13,28 +13,20 @@ import { Theme } from '@/shared/consts/theme';
 import '@/app/styles/index.scss';
 
 interface componentRenderOptions {
-    initialEntrie?: string,
-    initialState?: DeepPartial<StateSchema>,
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+    initialEntrie?: string;
+    initialState?: DeepPartial<StateSchema>;
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
 interface TestProviderOptions {
-    children: ReactNode,
+    children: ReactNode;
     options?: componentRenderOptions;
 }
 
 export function TestProvider(props: TestProviderOptions) {
-    const {
-        children,
-        options = {},
-        ...otherOptions
-    } = props;
+    const { children, options = {}, ...otherOptions } = props;
 
-    const {
-        initialEntrie = '/',
-        initialState,
-        asyncReducers,
-    } = options;
+    const { initialEntrie = '/', initialState, asyncReducers } = options;
 
     return (
         <MemoryRouter initialEntries={[initialEntrie]}>

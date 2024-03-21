@@ -7,12 +7,7 @@ interface UseModalProps {
     animationDeley?: number;
 }
 
-export const useModal = ({
-    isOpen,
-    close,
-    onClose,
-    animationDeley = 300,
-}: UseModalProps) => {
+export const useModal = ({ isOpen, close, onClose, animationDeley = 300 }: UseModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const closeHandler = useCallback(() => {

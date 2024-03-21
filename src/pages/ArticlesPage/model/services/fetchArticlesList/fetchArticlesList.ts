@@ -23,9 +23,7 @@ export const fetchArticlesList = createAsyncThunk<
     ThunkConfig<ArticlesPageErrors[]>
 >('article/fetchArticlesList', async (options, thunkAPI) => {
     const { rejectWithValue, extra, getState } = thunkAPI;
-    const {
-        page = 1, limit = 3, query = '', replace = false, sort, order, type,
-    } = options;
+    const { page = 1, limit = 3, query = '', replace = false, sort, order, type } = options;
 
     try {
         addQueryParams({

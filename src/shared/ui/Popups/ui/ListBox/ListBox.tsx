@@ -56,10 +56,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                 value={value}
                 onChange={onChange}
             >
-                <Listbox.Button
-                    as="div"
-                    className={classNames(cls.Button, {}, [clsPopup.Button])}
-                >
+                <Listbox.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])}>
                     <Button
                         align={buttonAlign}
                         className={classNames(cls.Button, {}, [classNameButton])}
@@ -68,24 +65,16 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                         {displayValue ? displayValue.content : defaultValue}
                     </Button>
                 </Listbox.Button>
-                <Listbox.Options
-                    className={classNames(cls.Options, {}, [clsPopup.Content, directionClass])}
-                >
+                <Listbox.Options className={classNames(cls.Options, {}, [clsPopup.Content, directionClass])}>
                     {options.map((option) => (
-                        <Listbox.Option
-                            disabled={option.disabled}
-                            key={option.value}
-                            value={option.value}
-                        >
+                        <Listbox.Option disabled={option.disabled} key={option.value} value={option.value}>
                             {({ active, selected }) => (
                                 <span
-                                    className={
-                                        classNames(cls.Option, {
-                                            [cls.active]: active,
-                                            [cls.selected]: selected,
-                                            [cls.disabled]: option.disabled,
-                                        })
-                                    }
+                                    className={classNames(cls.Option, {
+                                        [cls.active]: active,
+                                        [cls.selected]: selected,
+                                        [cls.disabled]: option.disabled,
+                                    })}
                                 >
                                     {selected && <Icon className={cls.Icon} Svg={CheckSvg} />}
                                     {option.content}

@@ -4,13 +4,14 @@ import { ProfileCard } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
-import {
-    featchProfileData,
-} from '../model/services/featchProfileData/featchProfileData';
+import { featchProfileData } from '../model/services/featchProfileData/featchProfileData';
 import { editableProfileCardReducer } from '../model/slices/editableProfileCardSlice';
 
 import cls from './EditableProfileCard.module.scss';
@@ -56,15 +57,8 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
     });
 
     return (
-        <DynamicModuleLoader
-            dataTestId="EditableProfileCard"
-            reducers={reducers}
-        >
-            <VStack
-                className={classNames(cls.EditableProfileCard, {}, [className])}
-                gap="10"
-                maxWidth
-            >
+        <DynamicModuleLoader dataTestId="EditableProfileCard" reducers={reducers}>
+            <VStack className={classNames(cls.EditableProfileCard, {}, [className])} gap="10" maxWidth>
                 <EditableProfileCardHeader />
                 <EditableProfileCardErrors validationErrors={validationErrors} />
                 <ProfileCard
@@ -84,7 +78,6 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeUsername={onChangeUsername}
                 />
             </VStack>
-
         </DynamicModuleLoader>
     );
 };

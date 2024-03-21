@@ -63,4 +63,5 @@ export const editableProfileCardSlice = createSlice({
     },
 });
 
-export const { actions: editableProfileCardActions, reducer: editableProfileCardReducer } = editableProfileCardSlice;
+export const { actions: editableProfileCardActions, reducer: editableProfileCardReducer } =
+    editableProfileCardSlice;

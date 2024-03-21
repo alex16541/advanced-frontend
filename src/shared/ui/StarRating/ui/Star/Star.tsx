@@ -15,14 +15,14 @@ interface StarProps {
 }
 
 const Star = (props: StarProps) => {
-    const {
-        className,
-        checked = false,
-        size = 32,
-    } = props;
+    const { className, checked = false, size = 32 } = props;
 
     return (
-        <Icon className={classNames(cls.Star, {}, [className])} Svg={checked ? StarFilled : StarEmpty} width={size} />
+        <Icon
+            className={classNames(cls.Star, {}, [className])}
+            Svg={checked ? StarFilled : StarEmpty}
+            width={size}
+        />
     );
 };
 

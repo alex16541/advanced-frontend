@@ -31,7 +31,5 @@ export const Dark: Story = {
     args: {
         isOpen: true,
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

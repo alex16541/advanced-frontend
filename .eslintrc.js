@@ -2,16 +2,23 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true,
+        jest: true
     },
-    extends: ['plugin:i18next/recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'airbnb', 'plugin:storybook/recommended'],
+    extends: [
+        'plugin:i18next/recommended',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+        'airbnb',
+        'plugin:storybook/recommended',
+        'prettier'
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
-            jsx: true,
+            jsx: true
         },
         ecmaVersion: 'latest',
-        sourceType: 'module',
+        sourceType: 'module'
     },
     plugins: [
         'import',
@@ -20,38 +27,42 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'unused-imports',
-        'alex16541-fsd-imports-path-checker',
+        'alex16541-fsd-imports-path-checker'
     ],
     rules: {
-        indent: [2, 4, { SwitchCase: 1 }],
         'import/newline-after-import': 'error',
         'import/first': 'error',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'import/no-extraneous-dependencies': 'off',
-        'import/order': ['error', {
-            'newlines-between': 'always',
-            alphabetize: { order: 'asc', caseInsensitive: true },
-            pathGroups: [
-                {
-                    pattern: '@/**',
-                    group: 'internal',
-                    position: 'before',
+        'import/order': [
+            'error',
+            {
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true
                 },
-            ],
-            groups:
-            [
-                'index',
-                'builtin',
-                'external',
-                'type',
-                'internal',
-                'parent',
-                'sibling',
-                'object',
-            ],
-        }],
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'before'
+                    }
+                ],
+                groups: [
+                    'index',
+                    'builtin',
+                    'external',
+                    'type',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'object'
+                ]
+            }
+        ],
         'i18next/no-literal-string': [
             2,
             {
@@ -67,19 +78,21 @@ module.exports = {
                     'gap',
                     'direction',
                     'align',
-                    'justify',
+                    'justify'
                 ],
-                markupOnly: true,
-            },
+                markupOnly: true
+            }
         ],
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        'react/jsx-sort-props': [2, {
-            callbacksLast: true,
-            shorthandLast: true,
-            multiline: 'last',
-            ignoreCase: true,
-        }],
+        // 'react/jsx-max-props-peer-line': [2, { maximum: 3 }],
+        'react/jsx-sort-props': [
+            2,
+            {
+                callbacksLast: true,
+                shorthandLast: true,
+                multiline: 'last',
+                ignoreCase: true
+            }
+        ],
         'react/jsx-key': 'error',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/jsx-no-bind': 'off',
@@ -87,7 +100,13 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/function-component-definition': 'off',
-        'max-len': [2, { ignoreComments: true, code: 120 }],
+        'max-len': [
+            2,
+            {
+                ignoreComments: true,
+                code: 120
+            }
+        ],
         'new-cap': 'off',
         'no-shadow': 'off',
         'no-unused-vars': 'off',
@@ -107,37 +126,30 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: [
-                    '**/**.test.*',
-                    '**/**.stories.*',
-                    '**/StoreDecorator.tsx',
-                ],
-            },
+                testFilesPatterns: ['**/**.test.*', '**/**.stories.*', '**/StoreDecorator.tsx']
+            }
         ],
         'alex16541-fsd-imports-path-checker/layers-imports': [
             'error',
             {
                 alias: '@',
-                ignoreImportsPatterns: [
-                    '**/StoreProvider',
-                    '**/testing',
-                ],
-            },
-        ],
+                ignoreImportsPatterns: ['**/StoreProvider', '**/testing']
+            }
+        ]
     },
     globals: {
         __IS_DEV__: 'readonly',
         __API__: 'readonly',
         __PROJECT__: 'writable',
-        React: 'readonly',
+        React: 'readonly'
     },
     overrides: [
         {
             files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
-                'max-len': 'off',
-            },
-        },
-    ],
+                'max-len': 'off'
+            }
+        }
+    ]
 };

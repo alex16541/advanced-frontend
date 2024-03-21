@@ -15,28 +15,19 @@ import cls from './Dropdown.module.scss';
 interface DropdownProps {
     className?: string;
     button: ReactNode;
-    items?: DropdownItem[]
+    items?: DropdownItem[];
     disabled?: boolean;
     direction?: PopupDirection;
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const {
-        className,
-        button,
-        items = [],
-        disabled = false,
-        direction = 'bottom right',
-    } = props;
+    const { className, button, items = [], disabled = false, direction = 'bottom right' } = props;
 
     const directionClass = directionClassName[direction];
 
     return (
         <Menu as="div" className={classNames(cls.Dropdown, {}, [clsPopup.Popup, className])}>
-            <Menu.Button
-                className={classNames(cls.Button, {}, [clsPopup.Button])}
-                disabled={disabled}
-            >
+            <Menu.Button className={classNames(cls.Button, {}, [clsPopup.Button])} disabled={disabled}>
                 {button}
             </Menu.Button>
             <Menu.Items as="div" className={classNames(cls.Items, {}, [clsPopup.Content, directionClass])}>

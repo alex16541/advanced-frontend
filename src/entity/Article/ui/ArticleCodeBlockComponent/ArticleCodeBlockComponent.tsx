@@ -17,5 +17,7 @@ export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentP
 
     const { code: codeText } = articleBlock;
 
-    return <Code className={classNames(cls.ArticleCodeBlockComponent, {}, [className])} codeText={codeText} />;
+    return (
+        <Code className={classNames(cls.ArticleCodeBlockComponent, {}, [className])} codeText={codeText} />
+    );
 });

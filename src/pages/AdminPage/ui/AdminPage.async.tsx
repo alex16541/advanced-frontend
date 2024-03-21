@@ -1,5 +1,3 @@
 import { lazy } from 'react';
 
-export const AdminPageAsync = lazy(
-    () => import('./AdminPage'),
-);
+export const AdminPageAsync = lazy(() => import('./AdminPage'));

@@ -16,7 +16,7 @@ export interface ArticleRatingProps {
     articleId: string | number;
 }
 
-const ArticleRating = (props: ArticleRatingProps & {userId: string | number}) => {
+const ArticleRating = (props: ArticleRatingProps & { userId: string | number }) => {
     const { className, articleId, userId } = props;
     const { t } = useTranslation('article');
 
@@ -24,14 +24,17 @@ const ArticleRating = (props: ArticleRatingProps & {userId: string | number}) =>
     const { data = [], isLoading } = useGetArticleRatingQuery({ articleId, userId });
     const rating = Number(data[0]?.rating);
 
-    const onAccept = useCallback((rating: number, feedback?: string) => {
-        rateArticle({
-            articleId,
-            userId,
-            rating,
-            feedback: feedback ?? '',
-        }).catch((e) => console.log(e));
-    }, [articleId, rateArticle, userId]);
+    const onAccept = useCallback(
+        (rating: number, feedback?: string) => {
+            rateArticle({
+                articleId,
+                userId,
+                rating,
+                feedback: feedback ?? '',
+            }).catch((e) => console.log(e));
+        },
+        [articleId, rateArticle, userId],
+    );
 
     if (isLoading) {
         return <Skeleton className={cls.Skeleton} height="150px" width="100%" />;
@@ -55,9 +58,7 @@ const ArticleRatingWithAuthData = (props: ArticleRatingProps) => {
 
     if (!userData?.id) return null;
 
-    return (
-        <ArticleRating userId={userData.id} {...props} />
-    );
+    return <ArticleRating userId={userData.id} {...props} />;
 };
 
 const Memoized = memo(ArticleRatingWithAuthData);

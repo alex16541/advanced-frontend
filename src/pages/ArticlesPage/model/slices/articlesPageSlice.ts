@@ -2,7 +2,11 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticlesListCountPeerView, ArticlesListView, ArticleSortField, ArticleType,
+    Article,
+    ArticlesListCountPeerView,
+    ArticlesListView,
+    ArticleSortField,
+    ArticleType,
 } from '@/entity/Article';
 import { ArticleTypeChip, ArticleTypeChipOptions } from '@/features/ArticleTypeChips';
 import { ARTICLES_PAGE_VIEW } from '@/shared/consts/localstorage';
@@ -57,12 +61,17 @@ export const articlesPageSlice = createSlice({
             articlesPageAdapter.removeAll(state);
             localStorage.setItem(ARTICLES_PAGE_VIEW, payload);
         },
-        initState(state, { payload }: PayloadAction<{
-            order?: SortOrder | null;
-            sort?: ArticleSortField | null;
-            type?: ArticleType | null;
-            search?: string;
-        }>) {
+        initState(
+            state,
+            {
+                payload,
+            }: PayloadAction<{
+                order?: SortOrder | null;
+                sort?: ArticleSortField | null;
+                type?: ArticleType | null;
+                search?: string;
+            }>,
+        ) {
             const view = localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticlesListView;
             state.view = view;
             state.limit = ArticlesListCountPeerView[view];

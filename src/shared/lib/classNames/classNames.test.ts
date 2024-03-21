@@ -6,35 +6,24 @@ describe('classNames', () => {
     });
 
     test('with additional class', () => {
-        expect(classNames('class1', {}, ['class2', 'class3'])).toBe(
-            'class1 class2 class3',
-        );
+        expect(classNames('class1', {}, ['class2', 'class3'])).toBe('class1 class2 class3');
     });
 
     test('with mods', () => {
-        expect(
-            classNames('class1', { hovered: true, visible: true }, [
-                'class2',
-                'class3',
-            ]),
-        ).toBe('class1 class2 class3 hovered visible');
+        expect(classNames('class1', { hovered: true, visible: true }, ['class2', 'class3'])).toBe(
+            'class1 class2 class3 hovered visible',
+        );
     });
 
     test('with mods false', () => {
-        expect(
-            classNames('class1', { hovered: true, visible: false }, [
-                'class2',
-                'class3',
-            ]),
-        ).toBe('class1 class2 class3 hovered');
+        expect(classNames('class1', { hovered: true, visible: false }, ['class2', 'class3'])).toBe(
+            'class1 class2 class3 hovered',
+        );
     });
 
     test('with mods undefined', () => {
-        expect(
-            classNames('class1', { hovered: true, visible: undefined }, [
-                'class2',
-                'class3',
-            ]),
-        ).toBe('class1 class2 class3 hovered');
+        expect(classNames('class1', { hovered: true, visible: undefined }, ['class2', 'class3'])).toBe(
+            'class1 class2 class3 hovered',
+        );
     });
 });

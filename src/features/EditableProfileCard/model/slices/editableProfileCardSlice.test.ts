@@ -7,7 +7,10 @@ import { editableProfileCardReducer, editableProfileCardActions } from './editab
 describe('profileSlice', () => {
     test('set readonly', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {};
-        const editedState = editableProfileCardReducer(state as EditableProfileCardSchema, editableProfileCardActions.setReadonly(true));
+        const editedState = editableProfileCardReducer(
+            state as EditableProfileCardSchema,
+            editableProfileCardActions.setReadonly(true),
+        );
 
         expect(editedState).toEqual({ readonly: true });
     });
@@ -19,7 +22,10 @@ describe('profileSlice', () => {
             },
             readonly: false,
         };
-        const editedState = editableProfileCardReducer(state as EditableProfileCardSchema, editableProfileCardActions.cancelEdit());
+        const editedState = editableProfileCardReducer(
+            state as EditableProfileCardSchema,
+            editableProfileCardActions.cancelEdit(),
+        );
 
         expect(editedState).toEqual({
             ...state,

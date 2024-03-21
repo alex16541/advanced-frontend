@@ -1,6 +1,4 @@
-import {
-    memo, ReactElement, useCallback,
-} from 'react';
+import { memo, ReactElement, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -9,7 +7,10 @@ import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -155,10 +156,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader key="articleDetails" reducers={reducers} removeAfterUnmout>
-            <article
-                className={classNames(cls.ArticleDetails, {}, [className])}
-                data-testid="ArticleDetails"
-            >
+            <article className={classNames(cls.ArticleDetails, {}, [className])} data-testid="ArticleDetails">
                 {content}
             </article>
         </DynamicModuleLoader>

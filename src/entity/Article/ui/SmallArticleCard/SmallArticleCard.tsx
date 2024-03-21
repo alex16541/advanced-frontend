@@ -24,9 +24,7 @@ interface SmallArticleCardProps {
 }
 
 export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
-    const {
-        className, article, isLoading = false, target,
-    } = props;
+    const { className, article, isLoading = false, target } = props;
 
     if (isLoading) {
         return <SmallArticleCardSkeleton />;

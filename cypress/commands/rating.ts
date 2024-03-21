@@ -5,9 +5,9 @@ export const setRating = (rate = 3, feedback = 'Nice try!') => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      setRating(rating?: number | string, feedback?: string): Chainable<void>
+    namespace Cypress {
+        interface Chainable {
+            setRating(rating?: number | string, feedback?: string): Chainable<void>;
+        }
     }
-  }
 }

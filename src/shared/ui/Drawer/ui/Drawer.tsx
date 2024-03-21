@@ -1,6 +1,4 @@
-import {
-    ReactNode, useCallback, useEffect,
-} from 'react';
+import { ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
@@ -18,13 +16,7 @@ interface DrawerProps {
 }
 
 const DrawerComponent = (props: DrawerProps) => {
-    const {
-        className,
-        children,
-        isOpen = false,
-        onClose,
-        lazy = false,
-    } = props;
+    const { className, children, isOpen = false, onClose, lazy = false } = props;
 
     const height = window.innerHeight;
     const { Spring, Gesture } = useAnimationLibs();
@@ -37,11 +29,16 @@ const DrawerComponent = (props: DrawerProps) => {
         api.start({ y: 0, immediate: false });
     }, [api]);
 
-    const close = useCallback((velocity = 0) => {
-        api.start({
-            y: height, immediate: false, onResolve: onClose,
-        });
-    }, [api, onClose, height]);
+    const close = useCallback(
+        (velocity = 0) => {
+            api.start({
+                y: height,
+                immediate: false,
+                onResolve: onClose,
+            });
+        },
+        [api, onClose, height],
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -52,9 +49,7 @@ const DrawerComponent = (props: DrawerProps) => {
     }, [close, isOpen, open]);
 
     const bind = useDrag(
-        ({
-            last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel, canceled,
-        }) => {
+        ({ last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel, canceled }) => {
             if (oy < -70) cancel();
 
             if (last) {
@@ -66,7 +61,9 @@ const DrawerComponent = (props: DrawerProps) => {
             } else api.start({ y: oy, immediate: true });
         },
         {
-            from: () => [0, y.get()], filterTaps: true, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            rubberband: true,
         },
     );
 

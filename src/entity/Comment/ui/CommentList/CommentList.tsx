@@ -19,9 +19,10 @@ export const CommentList = memo((props: CommentListProps) => {
     const { t } = useTranslation();
 
     const commentCards = useMemo(
-        () => comments?.map((comment: Comment) => (
-            <CommentCard className={cls.commentCard} comment={comment} key={comment.id} />
-        )),
+        () =>
+            comments?.map((comment: Comment) => (
+                <CommentCard className={cls.commentCard} comment={comment} key={comment.id} />
+            )),
         [comments],
     );
 

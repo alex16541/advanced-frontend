@@ -3,11 +3,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleErrors } from '../consts/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
-import {
-    getArticleDetailsData,
-    getArticleDetailsErrors,
-    getArticleDetailsIsLoading,
-} from './articleDetails';
+import { getArticleDetailsData, getArticleDetailsErrors, getArticleDetailsIsLoading } from './articleDetails';
 
 describe('getArticleDetailsData', () => {
     const data: DeepPartial<ArticleDetailsSchema> = {
@@ -40,9 +36,7 @@ describe('getArticleDetailsIsLoading', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: data,
         };
-        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(
-            data.isLoading,
-        );
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(data.isLoading);
     });
 
     test('should work with undefined', () => {
@@ -60,9 +54,7 @@ describe('getArticleDetailsError', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: data,
         };
-        expect(getArticleDetailsErrors(state as StateSchema)).toEqual(
-            data.error,
-        );
+        expect(getArticleDetailsErrors(state as StateSchema)).toEqual(data.error);
     });
 
     test('should work with undefined', () => {

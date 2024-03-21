@@ -21,14 +21,7 @@ const currencyOptions: ListBoxOption<Currency>[] = [
 ];
 
 const CurrencySelect = (props: CurrencySelectProps) => {
-    const {
-        className,
-        label,
-        placeholder,
-        readonly,
-        value,
-        onChangeValue,
-    } = props;
+    const { className, label, placeholder, readonly, value, onChangeValue } = props;
 
     const onChangeHendler = useCallback(
         (value: Currency) => {
@@ -47,7 +40,6 @@ const CurrencySelect = (props: CurrencySelectProps) => {
             value={value}
             onChange={onChangeHendler}
         />
-
     );
 };
 

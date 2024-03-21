@@ -20,9 +20,7 @@ export default {
     },
 } as Meta<typeof ArticlesList>;
 
-const Template: ComponentStory<typeof ArticlesList> = (args) => (
-    <ArticlesList {...args} />
-);
+const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />;
 
 export const Light = Template.bind({});
 

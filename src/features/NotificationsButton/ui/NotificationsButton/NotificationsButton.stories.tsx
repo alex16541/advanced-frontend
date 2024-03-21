@@ -18,9 +18,7 @@ const notifications: Notification[] = [
 export default {
     title: 'features/NotificationsButton',
     component: NotificationsButton,
-    args: {
-
-    },
+    args: {},
     decorators: [
         StoreDecorator({
             user: {

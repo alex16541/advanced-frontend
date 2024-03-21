@@ -8,9 +8,7 @@ import { Overlay } from './Overlay';
 export default {
     title: 'shared/Overlay',
     component: Overlay,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof Overlay>;
 
 const Template: ComponentStory<typeof Overlay> = (args) => <Overlay {...args} />;

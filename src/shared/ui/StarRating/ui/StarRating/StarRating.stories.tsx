@@ -8,9 +8,7 @@ import { StarRating } from './StarRating';
 export default {
     title: 'shared/StarRating',
     component: StarRating,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof StarRating>;
 
 const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;

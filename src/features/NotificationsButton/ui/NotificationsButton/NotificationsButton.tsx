@@ -41,31 +41,18 @@ const NotificationsButton = (props: NotificationsButtonProps) => {
                 <Popover
                     className={classNames(cls.NotificationsButton, {}, [className])}
                     direction={direction}
-                    button={(
-                        <Button
-                            className={cls.Button}
-                            theme={ButtonThemes.CLEAR}
-                        >
-                            <Icon
-                                className={cls.Icon}
-                                Svg={bell}
-                            />
+                    button={
+                        <Button className={cls.Button} theme={ButtonThemes.CLEAR}>
+                            <Icon className={cls.Icon} Svg={bell} />
                         </Button>
-                    )}
+                    }
                 >
                     <NotificationsList userId={authData.id} />
                 </Popover>
             </BrowserView>
             <MobileView>
-                <Button
-                    className={cls.Button}
-                    theme={ButtonThemes.CLEAR}
-                    onClick={onOpen}
-                >
-                    <Icon
-                        className={cls.Icon}
-                        Svg={bell}
-                    />
+                <Button className={cls.Button} theme={ButtonThemes.CLEAR} onClick={onOpen}>
+                    <Icon className={cls.Icon} Svg={bell} />
                 </Button>
                 <Drawer isOpen={isOpen} onClose={onClose}>
                     <NotificationsList userId={authData.id} />

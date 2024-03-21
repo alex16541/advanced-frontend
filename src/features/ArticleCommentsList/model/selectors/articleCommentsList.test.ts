@@ -2,10 +2,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 
 import { ArticleCommentsErrors } from '../consts/articleCommentList';
 
-import {
-    getArticleCommentsListError,
-    getArticleCommentsListIsLoading,
-} from './articleCommentsList';
+import { getArticleCommentsListError, getArticleCommentsListIsLoading } from './articleCommentsList';
 
 describe('getArticleCommentsListIsLoading', () => {
     test('should return is loading', () => {
@@ -15,17 +12,13 @@ describe('getArticleCommentsListIsLoading', () => {
             },
         };
 
-        expect(getArticleCommentsListIsLoading(data as StateSchema)).toBe(
-            false,
-        );
+        expect(getArticleCommentsListIsLoading(data as StateSchema)).toBe(false);
     });
 
     test('should with udnefined', () => {
         const data: DeepPartial<StateSchema> = {};
 
-        expect(getArticleCommentsListIsLoading(data as StateSchema)).toBe(
-            false,
-        );
+        expect(getArticleCommentsListIsLoading(data as StateSchema)).toBe(false);
     });
 });
 

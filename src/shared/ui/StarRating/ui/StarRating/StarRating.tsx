@@ -34,16 +34,22 @@ const StarRating = (props: StarRatingProps) => {
     const [value, setValue] = useState(rating);
     const [hovered, setHovered] = useState(0);
 
-    const onChangeHandler = useCallback((value: number) => {
-        setValue(value);
-        onChange?.(value);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: number) => {
+            setValue(value);
+            onChange?.(value);
+        },
+        [onChange],
+    );
 
-    const onMouseEnter = useCallback((index: number) => {
-        if (editable || (!editable && !value)) {
-            setHovered(index);
-        }
-    }, [editable, value]);
+    const onMouseEnter = useCallback(
+        (index: number) => {
+            if (editable || (!editable && !value)) {
+                setHovered(index);
+            }
+        },
+        [editable, value],
+    );
 
     const onMouseLeave = useCallback(() => {
         setHovered(0);
@@ -56,25 +62,27 @@ const StarRating = (props: StarRatingProps) => {
             gap="0"
             justify={justify}
         >
-            {Array(count).fill('').map((_, index) => {
-                const val = index + 1;
+            {Array(count)
+                .fill('')
+                .map((_, index) => {
+                    const val = index + 1;
 
-                return (
-                    <Button
-                        className={cls.Button}
-                        data-selected={val <= (hovered || value)}
-                        data-testid={`StarRating.Star.${val}`}
-                        disabled={disabled || (!editable && Boolean(value))}
-                        key={val}
-                        theme={ButtonThemes.CLEAR}
-                        onClick={() => onChangeHandler(val)}
-                        onMouseEnter={() => onMouseEnter(val)}
-                        onMouseLeave={onMouseLeave}
-                    >
-                        <Star checked={val <= (hovered || value)} size={size} />
-                    </Button>
-                );
-            })}
+                    return (
+                        <Button
+                            className={cls.Button}
+                            data-selected={val <= (hovered || value)}
+                            data-testid={`StarRating.Star.${val}`}
+                            disabled={disabled || (!editable && Boolean(value))}
+                            key={val}
+                            theme={ButtonThemes.CLEAR}
+                            onClick={() => onChangeHandler(val)}
+                            onMouseEnter={() => onMouseEnter(val)}
+                            onMouseLeave={onMouseLeave}
+                        >
+                            <Star checked={val <= (hovered || value)} size={size} />
+                        </Button>
+                    );
+                })}
         </HStack>
     );
 };

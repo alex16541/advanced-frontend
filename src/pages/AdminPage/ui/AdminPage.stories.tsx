@@ -10,9 +10,7 @@ export default {
     title: 'pages/AdminPage',
     component: AdminPage,
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 } as Meta<typeof AdminPage>;
 
 const Template: ComponentStory<typeof AdminPage> = (args) => <AdminPage {...args} />;

@@ -11,7 +11,7 @@ export enum AppLinkThemes {
     SECONDARY = 'secondary',
 }
 
-interface AppLinkProps extends LinkProps, TestingProps{
+interface AppLinkProps extends LinkProps, TestingProps {
     className?: string;
     theme?: AppLinkThemes;
     hover?: boolean;
@@ -19,9 +19,7 @@ interface AppLinkProps extends LinkProps, TestingProps{
 }
 
 export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, innerRef) => {
-    const {
-        className, to, children, theme = AppLinkThemes.PRIMARY, hover = true, ...otherProps
-    } = props;
+    const { className, to, children, theme = AppLinkThemes.PRIMARY, hover = true, ...otherProps } = props;
 
     return (
         <Link

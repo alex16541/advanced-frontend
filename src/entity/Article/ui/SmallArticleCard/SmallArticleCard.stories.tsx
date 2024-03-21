@@ -15,9 +15,7 @@ export default {
     },
 } as Meta<typeof SmallArticleCard>;
 
-const Template: ComponentStory<typeof SmallArticleCard> = (args) => (
-    <SmallArticleCard {...args} />
-);
+const Template: ComponentStory<typeof SmallArticleCard> = (args) => <SmallArticleCard {...args} />;
 
 export const Light = Template.bind({});
 

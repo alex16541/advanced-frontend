@@ -17,9 +17,7 @@ describe('getProfileValidatationErrors', () => {
         form: {
             username: 'user321',
         },
-        validateErrors: [
-            ProfileValidateErrors.INCORRECT_EMAIL,
-        ],
+        validateErrors: [ProfileValidateErrors.INCORRECT_EMAIL],
     };
 
     test('should return profile validation errors', () => {

@@ -18,24 +18,16 @@ interface AppRouterProps {
 export const AppRouter = (props: AppRouterProps) => {
     const { className } = props;
 
-    const renderWithWrapper = useCallback(({
-        authOnly, path, element, roles,
-    }: AppRoutesProps) => {
+    const renderWithWrapper = useCallback(({ authOnly, path, element, roles }: AppRoutesProps) => {
         const routeElement = authOnly ? (
             <RequireAuth>
-                <RequireRoles roles={roles}>
-                    {element}
-                </RequireRoles>
+                <RequireRoles roles={roles}>{element}</RequireRoles>
             </RequireAuth>
-        ) : element;
-
-        const route = (
-            <Route
-                element={routeElement}
-                key={path}
-                path={path}
-            />
+        ) : (
+            element
         );
+
+        const route = <Route element={routeElement} key={path} path={path} />;
 
         return route;
     }, []);
@@ -43,9 +35,7 @@ export const AppRouter = (props: AppRouterProps) => {
     return (
         <div className={classNames(cls.AppRouter, {}, [className])}>
             <Suspense fallback={<PageLoader />}>
-                <Routes>
-                    {Object.values(routeConfig).map(renderWithWrapper)}
-                </Routes>
+                <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
             </Suspense>
         </div>
     );

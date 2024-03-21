@@ -21,7 +21,8 @@ export default {
     reporters: [
         'default',
         [
-            'jest-html-reporters', {
+            'jest-html-reporters',
+            {
                 publicPath: '<rootDir>/reports/unit/',
                 filename: 'report.html',
                 includeConsoleLog: true,

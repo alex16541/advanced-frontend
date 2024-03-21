@@ -53,8 +53,6 @@ describe('updateProfileData', () => {
         const actionResult = await thunk.callThunk();
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([
-            ProfileValidateErrors.INCORRECT_EMAIL,
-        ]);
+        expect(actionResult.payload).toEqual([ProfileValidateErrors.INCORRECT_EMAIL]);
     });
 });

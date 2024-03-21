@@ -43,9 +43,7 @@ const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
         );
     }
 
-    return (
-        <ArticlesList articles={articles} className={className} isLoading={isLoading} view={view} />
-    );
+    return <ArticlesList articles={articles} className={className} isLoading={isLoading} view={view} />;
 };
 
 const ArticlesInfiniteListMemoized = memo(ArticlesInfiniteList);

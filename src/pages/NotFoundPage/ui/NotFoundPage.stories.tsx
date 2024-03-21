@@ -9,9 +9,7 @@ import { NotFoundPage } from './NotFoundPage';
 export default {
     title: 'pages/NotFoundPage',
     component: NotFoundPage,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 const Template: Story = () => <NotFoundPage />;

@@ -28,14 +28,12 @@ export default {
     },
 } as Meta<typeof ProfileCard>;
 
-type Story = StoryObj<typeof ProfileCard>
+type Story = StoryObj<typeof ProfileCard>;
 
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const WithError: Story = {

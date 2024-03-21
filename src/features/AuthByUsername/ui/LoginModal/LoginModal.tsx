@@ -16,19 +16,10 @@ interface LoginModalProps {
 }
 
 export const LoginModal = (props: LoginModalProps) => {
-    const {
-        className,
-        isOpen,
-        onClose,
-        onSuccess,
-    } = props;
+    const { className, isOpen, onClose, onSuccess } = props;
 
     return (
-        <Modal
-            className={classNames(cls.LoginModal, {}, [className])}
-            isOpen={isOpen}
-            onClose={onClose}
-        >
+        <Modal className={classNames(cls.LoginModal, {}, [className])} isOpen={isOpen} onClose={onClose}>
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onSuccess} />
             </Suspense>

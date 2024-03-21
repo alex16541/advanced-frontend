@@ -17,7 +17,9 @@ interface NotificationsListProps {
 const NotificationsList = (props: NotificationsListProps) => {
     const { className, userId } = props;
 
-    const { data: notifications = [], isLoading } = useFetchNotificationsQuery(userId, { pollingInterval: 10000 });
+    const { data: notifications = [], isLoading } = useFetchNotificationsQuery(userId, {
+        pollingInterval: 10000,
+    });
 
     if (isLoading) {
         return (
@@ -34,7 +36,9 @@ const NotificationsList = (props: NotificationsListProps) => {
 
     return (
         <VStack className={classNames(cls.NotificationsList, {}, [className])} gap="10" maxWidth>
-            {notifications.map((n) => <NotificationsItem key={n.id} notification={n} />)}
+            {notifications.map((n) => (
+                <NotificationsItem key={n.id} notification={n} />
+            ))}
         </VStack>
     );
 };

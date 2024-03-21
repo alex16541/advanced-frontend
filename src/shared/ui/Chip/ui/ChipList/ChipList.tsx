@@ -15,9 +15,7 @@ interface ChipListProps<T> {
 }
 
 function ChipList<T extends string>(props: ChipListProps<T>) {
-    const {
-        className, options, onClick, value,
-    } = props;
+    const { className, options, onClick, value } = props;
     const selectedOptions = useSet<ChipListOption<T>>(value ? [value] : undefined);
 
     const onClickHandler = useCallback(
@@ -41,13 +39,18 @@ function ChipList<T extends string>(props: ChipListProps<T>) {
     );
 
     const chips = useMemo(
-        () => options?.map((opt) => (
-            <Chip key={opt.value} selected={selectedOptions.has(opt)} onClick={onClickHandler} {...opt} />
-        )),
+        () =>
+            options?.map((opt) => (
+                <Chip key={opt.value} selected={selectedOptions.has(opt)} onClick={onClickHandler} {...opt} />
+            )),
         [onClickHandler, options, selectedOptions],
     );
 
-    return <HStack className={classNames('', {}, [className])} gap="10" justify="Start">{chips}</HStack>;
+    return (
+        <HStack className={classNames('', {}, [className])} gap="10" justify="Start">
+            {chips}
+        </HStack>
+    );
 }
 
 export { ChipList };

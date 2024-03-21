@@ -1,6 +1,4 @@
-import {
-    memo, useCallback, useMemo, useState,
-} from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
@@ -69,31 +67,37 @@ const RatingCard = (props: RatingCardProps) => {
         setIsOpen(false);
     }, [feedback, onAccept, starRating, editable]);
 
-    const onChangeStarRating = useCallback((rating: number) => {
-        setStarRating(rating);
+    const onChangeStarRating = useCallback(
+        (rating: number) => {
+            setStarRating(rating);
 
-        if (hasFeedback) {
-            setIsOpen(true);
-        } else {
-            acceptHendler();
-        }
-    }, [acceptHendler, hasFeedback]);
+            if (hasFeedback) {
+                setIsOpen(true);
+            } else {
+                acceptHendler();
+            }
+        },
+        [acceptHendler, hasFeedback],
+    );
 
     const onChangeFeedback = useCallback((feedback: string) => {
         setFeedback(feedback);
     }, []);
 
-    const ModalContent = useMemo(() => (
-        <VStack gap="8">
-            <Text size={TextSize.L} title={feedbackTitle} />
-            {/* TODO: Заменить на textarea */}
-            <Input
-                data-testid="RatingCard.FeedbackInput"
-                placeholder={feedbackPlaceholder}
-                onChange={onChangeFeedback}
-            />
-        </VStack>
-    ), [feedbackPlaceholder, feedbackTitle, onChangeFeedback]);
+    const ModalContent = useMemo(
+        () => (
+            <VStack gap="8">
+                <Text size={TextSize.L} title={feedbackTitle} />
+                {/* TODO: Заменить на textarea */}
+                <Input
+                    data-testid="RatingCard.FeedbackInput"
+                    placeholder={feedbackPlaceholder}
+                    onChange={onChangeFeedback}
+                />
+            </VStack>
+        ),
+        [feedbackPlaceholder, feedbackTitle, onChangeFeedback],
+    );
 
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
@@ -115,16 +119,10 @@ const RatingCard = (props: RatingCardProps) => {
                             <VStack data-testid="RatingCard.Modal" gap="32" justify="SpaceBetween" maxWidth>
                                 {ModalContent}
                                 <HStack justify="End" maxWidth>
-                                    <Button
-                                        color={ButtonColor.RED}
-                                        onClick={cancelHendler}
-                                    >
+                                    <Button color={ButtonColor.RED} onClick={cancelHendler}>
                                         {cancelText}
                                     </Button>
-                                    <Button
-                                        data-testid="RatingCard.Accept"
-                                        onClick={acceptHendler}
-                                    >
+                                    <Button data-testid="RatingCard.Accept" onClick={acceptHendler}>
                                         {acceptText}
                                     </Button>
                                 </HStack>
@@ -133,7 +131,13 @@ const RatingCard = (props: RatingCardProps) => {
                     </BrowserView>
                     <MobileView>
                         <Drawer isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack data-testid="RatingCard.Modal" gap="32" justify="SpaceBetween" maxHeight maxWidth>
+                            <VStack
+                                data-testid="RatingCard.Modal"
+                                gap="32"
+                                justify="SpaceBetween"
+                                maxHeight
+                                maxWidth
+                            >
                                 {ModalContent}
                                 <Button
                                     data-testid="RatingCard.Accept"
@@ -142,7 +146,6 @@ const RatingCard = (props: RatingCardProps) => {
                                 >
                                     {acceptText}
                                 </Button>
-
                             </VStack>
                         </Drawer>
                     </MobileView>

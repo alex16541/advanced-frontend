@@ -63,16 +63,11 @@ export default {
 type Story = StoryObj<typeof ArticleCommentsList>;
 
 export const Light: Story = {
-    decorators: [
-        StoreDecorator(store),
-    ],
+    decorators: [StoreDecorator(store)],
 };
 
 export const Dark: Story = {
-    decorators: [
-        StoreDecorator(store),
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [StoreDecorator(store), ThemeDecorator(Theme.DARK)],
 };
 
 export const Loading: Story = {

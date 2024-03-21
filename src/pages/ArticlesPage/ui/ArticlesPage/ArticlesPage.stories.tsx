@@ -13,18 +13,21 @@ export default {
     title: 'pages/ArticlesPage',
     component: ArticlesPage,
     decorators: [
-        StoreDecorator({
-            articlesPage: {
-                ids: ['1', '2', '3'],
-                entities: {
-                    1: { ...article, id: '1' },
-                    2: { ...article, id: '2' },
-                    3: { ...article, id: '3' },
+        StoreDecorator(
+            {
+                articlesPage: {
+                    ids: ['1', '2', '3'],
+                    entities: {
+                        1: { ...article, id: '1' },
+                        2: { ...article, id: '2' },
+                        3: { ...article, id: '3' },
+                    },
                 },
             },
-        }, {
-            articlesPage: articlesPageReducer,
-        }),
+            {
+                articlesPage: articlesPageReducer,
+            },
+        ),
     ],
 } as Meta<typeof ArticlesPage>;
 
@@ -33,7 +36,5 @@ type Story = StoryObj<typeof ArticlesPage>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

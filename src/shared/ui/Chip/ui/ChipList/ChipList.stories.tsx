@@ -26,9 +26,7 @@ export default {
     },
 } as Meta<typeof ChipList>;
 
-const Template: ComponentStory<typeof ChipList> = (args) => (
-    <ChipList {...args} />
-);
+const Template: ComponentStory<typeof ChipList> = (args) => <ChipList {...args} />;
 
 export const Light = Template.bind({});
 

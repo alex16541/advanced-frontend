@@ -1,6 +1,4 @@
-import {
-    ButtonHTMLAttributes, forwardRef, memo, ReactNode,
-} from 'react';
+import { ButtonHTMLAttributes, forwardRef, memo, ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -63,10 +61,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     return (
         <button
-            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color], cls[align]])}
             disabled={disabled || isLoading}
             ref={ref}
             type="button"
+            className={classNames(cls.Button, mods, [
+                className,
+                cls[theme],
+                cls[size],
+                cls[color],
+                cls[align],
+            ])}
             {...otherProps}
         >
             <div className={cls.body}>

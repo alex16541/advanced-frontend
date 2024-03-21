@@ -29,19 +29,24 @@ const itemSizeByView: Record<ArticlesListView, ArticlesListItemSize> = {
     [ArticlesListView.CARUSEL]: ArticlesListItemSize.S,
 };
 
-const getSkeleton = (size: ArticlesListItemSize) => new Array(size === ArticlesListItemSize.S ? 12 : 3)
-    .fill(0)
-    .map((item, index) => <ArticlesListItem className={cls.card} key={index} size={size} isLoading />);
+const getSkeleton = (size: ArticlesListItemSize) =>
+    new Array(size === ArticlesListItemSize.S ? 12 : 3)
+        .fill(0)
+        .map((item, index) => <ArticlesListItem className={cls.card} key={index} size={size} isLoading />);
 
 export const ArticlesList = memo((props: ArticlesListProps) => {
-    const {
-        className, view = ArticlesListView.LIST, articles, isLoading = false, target,
-    } = props;
+    const { className, view = ArticlesListView.LIST, articles, isLoading = false, target } = props;
     const listItemSize: ArticlesListItemSize = itemSizeByView[view];
     const { t } = useTranslation('article');
 
     const renderArticle = (article: Article) => (
-        <ArticlesListItem article={article} className={cls.card} key={article.id} size={listItemSize} target={target} />
+        <ArticlesListItem
+            article={article}
+            className={cls.card}
+            key={article.id}
+            size={listItemSize}
+            target={target}
+        />
     );
 
     return (

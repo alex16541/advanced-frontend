@@ -9,9 +9,7 @@ import { ForbiddenPage } from './ForbiddenPage';
 export default {
     title: 'pages/ForbiddenPage',
     component: ForbiddenPage,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 const Template: Story = () => <ForbiddenPage />;

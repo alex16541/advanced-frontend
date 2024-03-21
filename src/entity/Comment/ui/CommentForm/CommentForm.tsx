@@ -19,15 +19,16 @@ interface CommentFormProps {
 }
 
 export const CommentForm = memo((props: CommentFormProps) => {
-    const {
-        className, onSubmit, comment, onChangeComment, isLoading,
-    } = props;
+    const { className, onSubmit, comment, onChangeComment, isLoading } = props;
     const { t } = useTranslation('comment-form');
 
     const authData = useSelector(getAuthData);
 
     return (
-        <form className={classNames(cls.CommentForm, {}, [className, cls.commentForm])} data-testid="CommentForm">
+        <form
+            className={classNames(cls.CommentForm, {}, [className, cls.commentForm])}
+            data-testid="CommentForm"
+        >
             {authData?.avatar && <Avatar alt={authData.username} src={authData?.avatar} />}
             <div className={cls.commentForm__body}>
                 <Input

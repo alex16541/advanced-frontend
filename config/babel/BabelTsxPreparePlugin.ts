@@ -1,7 +1,7 @@
 import { PluginObj } from '@babel/core';
 
 // eslint-disable-next-line func-names
-export default function ():PluginObj {
+export default function (): PluginObj {
     return {
         visitor: {
             JSXAttribute(path, state) {

@@ -10,7 +10,7 @@ export enum AppRoutes {
 
     // Last
     FROBIDDEN = 'forbidden',
-    NOT_FOUND = 'notFound'
+    NOT_FOUND = 'notFound',
 }
 
 export const getRouteMain = () => '/';

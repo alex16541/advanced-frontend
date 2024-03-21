@@ -2,9 +2,7 @@ import { ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import {
-    FlexAlign, FlexDirection, FlexGap, FlexJustify, HTMLDivElementType,
-} from '../model/types';
+import { FlexAlign, FlexDirection, FlexGap, FlexJustify, HTMLDivElementType } from '../model/types';
 
 import cls from './Flex.module.scss';
 
@@ -52,7 +50,7 @@ export interface FlexProps extends HTMLDivElementType {
     maxWidth?: boolean;
     maxHeight?: boolean;
     gap?: FlexGap;
-    children?: ReactNode
+    children?: ReactNode;
 }
 
 export const Flex = (props: FlexProps) => {

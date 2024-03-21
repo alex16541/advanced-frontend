@@ -10,7 +10,7 @@ import cls from './ArticleCommentsListForm.module.scss';
 
 interface ArticleCommentsListFormProps {
     className?: string;
-        onCommentAdded?: () => void;
+    onCommentAdded?: () => void;
 }
 
 export const ArticleCommentsListForm = memo((props: ArticleCommentsListFormProps) => {

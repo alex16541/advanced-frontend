@@ -20,9 +20,7 @@ interface DynamicModuleLoaderProps {
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
-    const {
-        className, reducers, children, removeAfterUnmout = true, dataTestId,
-    } = props;
+    const { className, reducers, children, removeAfterUnmout = true, dataTestId } = props;
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
 
@@ -48,5 +46,9 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         };
     });
 
-    return <div className={className} data-testid={dataTestId}>{children}</div>;
+    return (
+        <div className={className} data-testid={dataTestId}>
+            {children}
+        </div>
+    );
 };

@@ -8,9 +8,7 @@ import { ArticleOrderSelector } from './ArticleOrderSelector';
 export default {
     title: 'folder/ArticleOrderSelector',
     component: ArticleOrderSelector,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof ArticleOrderSelector>;
 
 const Template: ComponentStory<typeof ArticleOrderSelector> = (args) => <ArticleOrderSelector {...args} />;

@@ -9,9 +9,7 @@ import MainPage from './MainPage';
 export default {
     title: 'pages/MainPage',
     component: MainPage,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 const Template: Story = () => <MainPage />;

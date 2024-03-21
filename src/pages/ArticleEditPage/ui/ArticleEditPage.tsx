@@ -17,11 +17,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
 
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-            Article test
-            {' '}
-            {isEdit ? 'edit' : 'create'}
-            {' '}
-            paget test
+            Article test {isEdit ? 'edit' : 'create'} paget test
         </Page>
     );
 });

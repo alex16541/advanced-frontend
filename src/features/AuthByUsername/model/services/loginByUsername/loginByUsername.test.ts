@@ -1,10 +1,7 @@
 import { userActions } from '@/entity/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import {
-    loginByUsername,
-    LoginErrors,
-} from '../../services/loginByUsername/loginByUsername';
+import { loginByUsername, LoginErrors } from '../../services/loginByUsername/loginByUsername';
 
 describe('loginByUsername', () => {
     test('login success', async () => {
@@ -25,9 +22,7 @@ describe('loginByUsername', () => {
         });
 
         expect(thunk.api.post).toHaveBeenCalled();
-        expect(thunk.dispatch).toHaveBeenCalledWith(
-            userActions.setAuthData(returnValue),
-        );
+        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(returnValue));
         expect(actionResult.meta.requestStatus).toBe('fulfilled');
         expect(actionResult.payload).toEqual(returnValue);
     });

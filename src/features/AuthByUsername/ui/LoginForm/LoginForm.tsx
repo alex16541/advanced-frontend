@@ -1,6 +1,4 @@
-import {
-    useCallback, memo,
-} from 'react';
+import { useCallback, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -28,10 +26,7 @@ export interface LoginFormProps {
 const initialReucers = { loginForm: loginReducer };
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        onSuccess,
-    } = props;
+    const { className, onSuccess } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
@@ -39,13 +34,19 @@ const LoginForm = memo((props: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUsername = useCallback((username: string) => {
-        dispatch(loginActions.setUsername(username));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (username: string) => {
+            dispatch(loginActions.setUsername(username));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((password: string) => {
-        dispatch(loginActions.setPassword(password));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (password: string) => {
+            dispatch(loginActions.setPassword(password));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const loginRes = await dispatch(loginByUsername({ username, password }));
@@ -75,11 +76,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                         onChange={onChangePassword}
                     />
                 </div>
-                <Button
-                    className={cls.btn}
-                    disabled={isLoading}
-                    onClick={onLoginClick}
-                >
+                <Button className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
                     {t('login')}
                 </Button>
                 {error !== undefined && (

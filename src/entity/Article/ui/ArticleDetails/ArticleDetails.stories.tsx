@@ -65,16 +65,11 @@ export default {
 type Story = StoryObj<typeof ArticleDetails>;
 
 export const Light: Story = {
-    decorators: [
-        StoreDecorator({ articleDetails }),
-    ],
+    decorators: [StoreDecorator({ articleDetails })],
 };
 
 export const Dark: Story = {
-    decorators: [
-        StoreDecorator({ articleDetails }),
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [StoreDecorator({ articleDetails }), ThemeDecorator(Theme.DARK)],
 };
 
 export const Loading: Story = {

@@ -41,8 +41,6 @@ describe('fetchCommentsByArticleId', () => {
         const actionResult = await thunk.callThunk('some test');
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([
-            ArticleCommentsErrors.SERVER_ERROR,
-        ]);
+        expect(actionResult.payload).toEqual([ArticleCommentsErrors.SERVER_ERROR]);
     });
 });

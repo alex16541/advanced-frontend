@@ -8,9 +8,7 @@ import { NotificationSkeleton } from './NotificationSkeleton';
 export default {
     title: 'entity/Notification/NotificationSkeleton',
     component: NotificationSkeleton,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof NotificationSkeleton>;
 
 const Template: ComponentStory<typeof NotificationSkeleton> = (args) => <NotificationSkeleton {...args} />;

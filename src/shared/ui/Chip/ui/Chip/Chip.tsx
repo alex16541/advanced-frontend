@@ -15,9 +15,7 @@ export interface ChipProps<T> {
 }
 
 function Chip<T extends string>(props: ChipProps<T>) {
-    const {
-        className, selected = false, label, value: key, onClick,
-    } = props;
+    const { className, selected = false, label, value: key, onClick } = props;
     const theme = selected ? ButtonThemes.PRIMARY : ButtonThemes.OUTLINED;
 
     const onClickHandler = useCallback(() => {

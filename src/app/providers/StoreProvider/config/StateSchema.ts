@@ -1,6 +1,4 @@
-import {
-    AnyAction, CombinedState, Reducer, ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
 

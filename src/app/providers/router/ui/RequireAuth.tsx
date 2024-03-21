@@ -13,9 +13,5 @@ export const RequireAuth = ({ children }: { children: ReactNode }) => {
         return <Navigate state={{ from: location }} to={getRouteMain()} replace />;
     }
 
-    return (
-        <>
-            {children}
-        </>
-    );
+    return <>{children}</>;
 };

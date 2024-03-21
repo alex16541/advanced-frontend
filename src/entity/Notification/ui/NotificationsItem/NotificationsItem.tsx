@@ -17,10 +17,7 @@ const NotificationsItem = (props: NotificationsItemProps) => {
     const { className, notification } = props;
     const content = (
         <Card className={classNames(cls.NotificationsItem, {}, [className])}>
-            <Text
-                text={notification.text}
-                title={notification.title}
-            />
+            <Text text={notification.text} title={notification.title} />
         </Card>
     );
 

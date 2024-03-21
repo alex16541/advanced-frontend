@@ -70,12 +70,14 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
     );
 
     return (
-        <VStack
-            className={classNames(cls.ArticlesFilters, {}, [className])}
-            gap="10"
-            maxWidth
-        >
-            <Input isLoading={isLoading} placeholder={t('Search')} value={search} fullWidth onChange={searchChange} />
+        <VStack className={classNames(cls.ArticlesFilters, {}, [className])} gap="10" maxWidth>
+            <Input
+                isLoading={isLoading}
+                placeholder={t('Search')}
+                value={search}
+                fullWidth
+                onChange={searchChange}
+            />
             <HStack gap="10">
                 <ArticleSortSelector className={cls.field} value={sort} onChange={sortChange} />
                 <ArticleOrderSelector className={cls.field} value={order} onChange={orderChange} />

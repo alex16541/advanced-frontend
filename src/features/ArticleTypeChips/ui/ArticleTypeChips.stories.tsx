@@ -8,9 +8,7 @@ import { ArticleTypeChips } from './ArticleTypeChips';
 export default {
     title: 'folder/ArticleTypeChips',
     component: ArticleTypeChips,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof ArticleTypeChips>;
 
 const Template: ComponentStory<typeof ArticleTypeChips> = (args) => <ArticleTypeChips {...args} />;

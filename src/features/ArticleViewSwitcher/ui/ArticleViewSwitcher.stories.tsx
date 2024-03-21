@@ -11,9 +11,7 @@ export default {
     args: {},
 } as Meta<typeof ArticleViewSwitcher>;
 
-const Template: ComponentStory<typeof ArticleViewSwitcher> = (args) => (
-    <ArticleViewSwitcher {...args} />
-);
+const Template: ComponentStory<typeof ArticleViewSwitcher> = (args) => <ArticleViewSwitcher {...args} />;
 
 export const Light = Template.bind({});
 

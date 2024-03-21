@@ -8,9 +8,7 @@ import { RatingCard } from './RatingCard';
 export default {
     title: 'entity/RatingCard',
     component: RatingCard,
-    args: {
-
-    },
+    args: {},
 } as Meta<typeof RatingCard>;
 
 const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
