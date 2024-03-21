@@ -1,0 +1,13 @@
+{
+    "id": "1",
+    "firstname": "Aleksey1",
+    "lastname": "Dov",
+    "username": "alex123",
+    "age": 22,
+    "country": "Russia",
+    "city": "Saint-Petersburg",
+    "currency": "RUB",
+    "phone": "89991112233",
+    "email": "aleksey@gamil.com",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqiaLNuTp-jJ5Mj71QJeXTlVlc1UYIYNc4A&usqp=CAU"
+}

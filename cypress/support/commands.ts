@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-import * as article from 'cypress/commands/article';
-import * as comments from 'cypress/commands/comments';
-import * as common from 'cypress/commands/common';
-import * as profile from 'cypress/commands/profile';
-import * as rating from 'cypress/commands/rating';
+import * as article from '../commands/article';
+import * as comments from '../commands/comments';
+import * as common from '../commands/common';
+import * as profile from '../commands/profile';
+import * as rating from '../commands/rating';
 
 Cypress.Commands.addAll(common);
 Cypress.Commands.addAll(profile);
