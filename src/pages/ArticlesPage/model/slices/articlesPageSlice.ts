@@ -10,7 +10,7 @@ import {
 } from '@/entity/Article';
 import { ArticleTypeChip, ArticleTypeChipOptions } from '@/features/ArticleTypeChips';
 import { ARTICLES_PAGE_VIEW } from '@/shared/consts/localstorage';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';

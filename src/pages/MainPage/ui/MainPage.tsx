@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line alex16541-fsd-imports-path-checker/layers-imports
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Counter } from '@/entity/Counter';
+import { getFeatureFlag } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 const MainPage = () => {
     const { t } = useTranslation();
+    const isCounterEnables = getFeatureFlag('isCounterEnabled');
 
     return (
         <Page className="page" data-testid="main-page">
@@ -19,7 +21,7 @@ const MainPage = () => {
             />
             <BugButton />
 
-            <Counter />
+            {isCounterEnables && <Counter />}
         </Page>
     );
 };

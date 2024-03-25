@@ -581,6 +581,10 @@
       "username": "root",
       "password": "123",
       "profileId": "1",
+      "features": {
+        "isCounterEnabled": false,
+        "isArticleRatingEnabled": true
+      },
       "roles": [
         "ADMIN"
       ],
@@ -591,6 +595,10 @@
       "profileId": "2",
       "username": "user",
       "password": "123",
+      "features": {
+        "isCounterEnabled": false,
+        "isArticleRatingEnabled": false
+      },
       "roles": [
         "USER"
       ],
@@ -601,6 +609,10 @@
       "profileId": "3",
       "username": "testuser",
       "password": "123",
+      "features": {
+        "isCounterEnabled": true,
+        "isArticleRatingEnabled": true
+      },
       "roles": [
         "ADMIN"
       ],

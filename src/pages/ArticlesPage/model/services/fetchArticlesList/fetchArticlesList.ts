@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article, ArticleSortField, ArticleType } from '@/entity/Article';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 import { ArticlesPageErrors } from '../../consts/articlesPage';
 

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { ListBox, ListBoxOption } from '@/shared/ui/Popups';
 
 import cls from './ArticleOrderSelector.module.scss';
