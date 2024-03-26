@@ -30,6 +30,7 @@
     "prepare": "husky install",
     "gen": "node scripts/generate-feature-slice/index.js",
     "gen:doc": "ts-node scripts/generate-doc.ts",
+    "remove:feater": "ts-node remove-feature.ts",
     "postinstall": "node scripts/clear-cache.js"
   },
   "keywords": [],
