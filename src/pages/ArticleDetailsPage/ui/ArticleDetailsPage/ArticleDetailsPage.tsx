@@ -7,7 +7,7 @@ import { ArticleCommentsList } from '@/features/ArticleCommentsList';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { featureToggle } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
@@ -24,8 +24,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     let { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
 
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-
     if (__PROJECT__ === 'storybook') id = '1';
 
     if (!id) {
@@ -36,12 +34,18 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         );
     }
 
+    const rating = featureToggle({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id!} />,
+        off: () => null,
+    });
+
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <div className={cls.container}>
                 <ArticleDetailsPageHeader articleId={id} />
                 <ArticleDetails articleId={id} />
-                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                {rating}
                 <ArticleRecommendationsList />
                 <ArticleCommentsList articleId={id} />
             </div>
