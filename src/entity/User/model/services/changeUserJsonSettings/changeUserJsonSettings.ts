@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-import { setJsonSettings } from '../../../api/setJsonSettings';
+import { setJsonSettings } from '../../../api/api';
 import { getJsonSettings } from '../../selectors/getJsonSettings';
 import { JsonSettings } from '../../types/jsonSettings';
 

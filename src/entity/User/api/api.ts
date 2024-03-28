@@ -19,9 +19,16 @@ const extendedApi = rtkApi.injectEndpoints({
                 },
             }),
         }),
+        getUserData: build.query<User, string>({
+            query: (userId) => ({
+                url: `/users/${userId}`,
+                method: 'GET',
+            }),
+        }),
     }),
     overrideExisting: false,
 });
 
-export const { useSetJsonSettingsMutation } = extendedApi;
+export const { useSetJsonSettingsMutation, useGetUserDataQuery } = extendedApi;
 export const setJsonSettings = extendedApi.endpoints.setJsonSettings.initiate;
+export const getUserData = extendedApi.endpoints.getUserData.initiate;

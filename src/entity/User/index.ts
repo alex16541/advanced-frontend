@@ -6,3 +6,4 @@ export { getIsUserAdmin, getIsUserManager, getUserRoles } from './model/selector
 export { UserRoles } from './model/consts/user';
 export type { User, UserSchema } from './model/types/userSchema';
 export { changeUserJsonSettings } from './model/services/changeUserJsonSettings/changeUserJsonSettings';
+export { initAuthData } from './model/services/initAuthData/initAuthData';
