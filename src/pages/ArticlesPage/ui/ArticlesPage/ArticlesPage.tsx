@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import { ArticlesListView } from '@/entity/Article';
+import { ArticlesPageGreeting } from '@/features/ArticlesPageGreeting';
 import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/hooks/useDebounce';
@@ -76,6 +77,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     <ArticlesFilters isLoading={isInitialLoading} onLoadData={onSearch} />
                 </div>
                 <ArticlesInfiniteList />
+                <ArticlesPageGreeting />
             </Page>
         </DynamicModuleLoader>
     );
