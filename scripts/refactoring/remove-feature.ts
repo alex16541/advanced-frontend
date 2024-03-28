@@ -1,4 +1,4 @@
-import { Project, SyntaxKind } from 'ts-morph';
+import { CallExpression, JsxSelfClosingElement, Node, Project, SyntaxKind } from 'ts-morph';
 
 const featureToRemove = process.argv[2];
 const featureState = process.argv[3];
@@ -17,35 +17,77 @@ if (featureState !== 'on' && featureState !== 'off') {
 
 const project = new Project();
 
-project.addSourceFilesAtPaths(['../../src/**/*.ts', '../../src/**/*.tsx']);
+// project.addSourceFilesAtPaths(['../../src/**/*.ts', '../../src/**/*.tsx']);
+project.addSourceFilesAtPaths(['src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx']);
 
-const files = project.getSourceFiles();
+const removeFeatureToggleFunction = (node: CallExpression) => {
+    if (node.getExpression().getText() !== 'featureToggle') return;
 
-files.forEach((file) => {
-    const callExpressionNodes = file.getDescendantsOfKind(SyntaxKind.CallExpression);
+    const obj = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
 
-    callExpressionNodes.forEach((node) => {
-        if (node.getExpression().getText() !== 'featureToggle') return;
+    if (!obj) return;
 
-        const obj = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+    const nameProperty = obj.getProperty('name');
+    const name = nameProperty?.getChildAtIndex(2).getText().slice(1, -1);
 
-        if (!obj) return;
+    if (name !== featureToRemove) return;
 
-        const nameProperty = obj.getProperty('name');
-        const name = nameProperty?.getChildAtIndex(2).getText().slice(1, -1);
+    const onProperty = obj.getProperty('on');
+    const offProperty = obj.getProperty('off');
 
+    const on = onProperty?.getChildAtIndex(2).asKind(SyntaxKind.ArrowFunction)?.getBody().getText();
+    const off = offProperty?.getChildAtIndex(2).asKind(SyntaxKind.ArrowFunction)?.getBody().getText();
+
+    const isOn = featureState === 'on';
+
+    node.replaceWithText((isOn ? on : off) ?? '');
+};
+
+const getAttribute = (node: Node, atrName: string) => {
+    const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
+
+    return attributes.find((atr) => atr.getText().startsWith(atrName));
+};
+
+const removeFeatureToggleComponent = (node: JsxSelfClosingElement) => {
+    try {
+        const componentName = node.getFirstDescendantByKind(SyntaxKind.Identifier)?.getText();
+        console.log(componentName);
+        if (componentName !== 'FeatureToggle') return;
+
+        const attributes = node.getFirstDescendantByKind(SyntaxKind.JsxAttributes);
+        if (!attributes) return;
+
+        const nameProp = getAttribute(attributes, 'feature');
+        if (!nameProp) return;
+
+        const name = nameProp.getFirstDescendantByKind(SyntaxKind.StringLiteral)?.getText().slice(1, -1);
         if (name !== featureToRemove) return;
 
-        const onProperty = obj.getProperty('on');
-        const offProperty = obj.getProperty('off');
+        const onProp = getAttribute(attributes, 'on');
+        const offProp = getAttribute(attributes, 'off');
 
-        const on = onProperty?.getChildAtIndex(2).asKind(SyntaxKind.ArrowFunction)?.getBody().getText();
-        const off = offProperty?.getChildAtIndex(2).asKind(SyntaxKind.ArrowFunction)?.getBody().getText();
+        const on = onProp?.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getText();
+        const off = offProp?.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getText();
 
         const isOn = featureState === 'on';
 
         node.replaceWithText((isOn ? on : off) ?? '');
-    });
+    } catch (e) {
+        //
+    }
+};
+
+const files = project.getSourceFiles();
+
+files.forEach((file) => {
+    // const callExpressionNodes = file.getDescendantsOfKind(SyntaxKind.CallExpression);
+
+    // callExpressionNodes.forEach((node) => removeFeatureToggleFunction(node));
+
+    const jsxNodes = file.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement);
+
+    jsxNodes.forEach((node) => removeFeatureToggleComponent(node));
 });
 
 project.save();

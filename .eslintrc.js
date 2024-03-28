@@ -70,6 +70,7 @@ module.exports = {
                     'direction',
                     'align',
                     'justify',
+                    'feature',
                 ],
                 markupOnly: true,
             },
@@ -127,7 +128,6 @@ module.exports = {
                 ignoreImportsPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
-        'react/no-unstable-nested-components': 'off',
     },
     globals: {
         __IS_DEV__: 'readonly',
