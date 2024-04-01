@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 import { useFetchNotificationsQuery } from '../../api/notificationApi';
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem';

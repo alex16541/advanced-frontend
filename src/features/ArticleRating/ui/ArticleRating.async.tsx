@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 
-import { Loader } from '@/shared/ui/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 import { ArticleRatingProps } from './ArticleRating';
 

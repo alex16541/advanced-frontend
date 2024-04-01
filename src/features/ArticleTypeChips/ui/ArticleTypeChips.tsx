@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ChipList } from '@/shared/ui/Chip';
+import { ChipList } from '@/shared/ui/deprecated/Chip';
 
 import { ArticleTypeChipOptions } from '../model/consts/articleTypeChips';
 import { ArticleTypeChip } from '../model/types/articleTypeChips';

@@ -6,9 +6,9 @@ import { TranslateSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
-import { AppLogo } from '@/shared/ui/AppLogo';
-import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

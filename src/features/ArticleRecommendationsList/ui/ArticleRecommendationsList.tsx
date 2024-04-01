@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticlesList, ArticlesListView } from '@/entity/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 import { useFetchArticleRecommendationsQuery } from '../api/recommendationsApi';
 

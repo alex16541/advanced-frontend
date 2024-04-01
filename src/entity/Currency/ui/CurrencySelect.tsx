@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 
-import { ListBoxOption } from '@/shared/ui/Popups/types/listBox';
-import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBoxOption } from '@/shared/ui/deprecated/Popups/types/listBox';
+import { ListBox } from '@/shared/ui/deprecated/Popups/ui/ListBox/ListBox';
 
 import { Currency } from '../model/consts/currency';
 

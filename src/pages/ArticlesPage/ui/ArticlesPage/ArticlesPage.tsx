@@ -15,7 +15,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import {

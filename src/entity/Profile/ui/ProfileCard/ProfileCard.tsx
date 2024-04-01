@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entity/Country';
 import { Currency, CurrencySelect } from '@/entity/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader/ui/Loader';
-import { Text, TextAlign } from '@/shared/ui/Text';
+import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader/ui/Loader';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 
 import { Profile } from '../../model/types/profile';
 

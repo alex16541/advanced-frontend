@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { useJsonSettings, changeUserJsonSettings } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 const ArticlesPageGreeting = () => {
     const { t } = useTranslation('article');

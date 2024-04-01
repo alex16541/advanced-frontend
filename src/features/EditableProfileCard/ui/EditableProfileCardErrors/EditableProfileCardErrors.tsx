@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ProfileErrors } from '@/entity/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TextThemes, Text } from '@/shared/ui/Text';
+import { TextThemes, Text } from '@/shared/ui/deprecated/Text';
 
 import { ProfileValidateErrors } from '../../model/consts/profile';
 

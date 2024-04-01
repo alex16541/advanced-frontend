@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 import { selectIsUserCanEditArticle } from '../../model/selectors/article';
 

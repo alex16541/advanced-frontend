@@ -4,7 +4,7 @@ import { ArticlesListView } from '@/entity/Article';
 import GridIcon from '@/shared/assets/svg/grid.svg';
 import LayoutListIcon from '@/shared/assets/svg/layoutList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonThemes } from '@/shared/ui/Button';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
 
 import cls from './ArticleViewSwitcher.module.scss';
 

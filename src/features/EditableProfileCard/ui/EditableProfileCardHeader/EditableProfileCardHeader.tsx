@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { getAuthData } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonColor, ButtonThemes } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text';
+import { Button, ButtonColor, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly/getProfileIsReadonly';

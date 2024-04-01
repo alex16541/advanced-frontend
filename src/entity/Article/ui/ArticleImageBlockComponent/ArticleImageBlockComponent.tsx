@@ -1,9 +1,9 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text, TextAlign } from '@/shared/ui/Text';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 
 import { ArticleImageBlock } from '../../model/types/article';
 

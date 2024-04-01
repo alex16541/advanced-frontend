@@ -10,8 +10,8 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text, TextThemes } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text, TextThemes } from '@/shared/ui/deprecated/Text';
 
 import {
     getArticleCommentsListIsLoading,

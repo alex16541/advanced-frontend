@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Counter } from '@/entity/Counter';
 import { getFeatureFlag } from '@/shared/lib/features';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 const MainPage = () => {

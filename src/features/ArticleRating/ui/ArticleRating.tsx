@@ -5,7 +5,7 @@ import { RatingCard } from '@/entity/Rating';
 import { getAuthData } from '@/entity/User';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../api/articleRating';
 

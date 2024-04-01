@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { ArticlesList } from '@/entity/Article';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Button } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 import {
     selectArticlesPageErrors,

@@ -8,8 +8,8 @@ import { NotificationsButton } from '@/features/NotificationsButton';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
-import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 
 import cls from './Navbar.module.scss';
 

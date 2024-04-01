@@ -7,10 +7,10 @@ import bell from '@/shared/assets/svg/bell.svg';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
-import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Icon } from '@/shared/ui/Icon';
-import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Popover } from '@/shared/ui/deprecated/Popups/ui/Popover/Popover';
 
 import cls from './NotificationsButton.module.scss';
 
