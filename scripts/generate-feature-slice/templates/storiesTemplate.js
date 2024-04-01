@@ -11,7 +11,7 @@ export default {
     component: ${featureName},
 } as Meta<typeof ${featureName}>;
 
-type Story = StoryObj<${featureName}>
+type Story = StoryObj<typeof ${featureName}>
 
 export const Light: Story = {};
 

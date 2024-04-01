@@ -583,7 +583,8 @@
       "profileId": "1",
       "features": {
         "isCounterEnabled": false,
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isRedesignedApp": true
       },
       "jsonSettings": {
         "theme": "app-dark-theme",

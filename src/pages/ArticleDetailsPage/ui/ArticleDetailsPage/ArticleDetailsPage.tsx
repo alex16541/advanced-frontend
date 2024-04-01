@@ -7,7 +7,6 @@ import { ArticleCommentsList } from '@/features/ArticleCommentsList';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
@@ -39,7 +38,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
             <div className={cls.container}>
                 <ArticleDetailsPageHeader articleId={id} />
                 <ArticleDetails articleId={id} />
-                <FeatureToggle feature="isArticleRatingEnabled" on={<ArticleRating articleId={id} />} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />
                 <ArticleCommentsList articleId={id} />
             </div>

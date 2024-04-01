@@ -7,6 +7,7 @@ import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { useThrottle } from '@/shared/hooks/useThrottle';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { featureToggle } from '@/shared/lib/features';
 import { TestingProps } from '@/shared/types/testing';
 
 import { selectScrollPositionByPath } from '../model/selectors/scrollSelectors';
@@ -44,9 +45,17 @@ export const Page = (props: PageProps) => {
 
     return (
         <main
-            className={classNames(cls.Page, {}, [className])}
             data-testid={dataTestId}
             ref={wrapperRef}
+            className={classNames(
+                featureToggle({
+                    name: 'isRedesignedApp',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }) ?? '',
+                {},
+                [className],
+            )}
             onScroll={onScroll}
         >
             {children}

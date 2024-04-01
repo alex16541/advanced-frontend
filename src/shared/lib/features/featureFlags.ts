@@ -2,7 +2,7 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 
 let featureFlags: FeatureFlags;
 
-export const setFeatureFlags = (features: FeatureFlags) => {
+export const setFeatureFlags = (features?: FeatureFlags) => {
     if (features) {
         featureFlags = features;
     }

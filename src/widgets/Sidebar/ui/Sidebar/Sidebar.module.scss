@@ -40,3 +40,22 @@
 .collapsed {
     width: var(--sidebar-width-collapsed);
 }
+
+.SidebarRedesigned {
+    overflow: hidden;
+
+    width: 220px;
+    height: 100%;
+
+    background-color: var(--light-gb-color-redesigned);
+    border-radius: var(--border-radius-xxxl);
+
+    .logo {
+        margin-top: 25px;
+    }
+
+    .content {
+        margin-top: 30px;
+        padding: 0 10px;
+    }
+}

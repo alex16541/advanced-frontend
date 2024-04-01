@@ -14,6 +14,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
@@ -64,21 +65,43 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
-            <Page
-                className={classNames(cls.ArticlesPage, {}, [className])}
-                data-testid="articles-page"
-                onEndOfPage={loadNextPage}
-            >
-                <div className={cls.header}>
-                    <Text title={t('Article list')} />
-                    <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
-                </div>
-                <div className={cls.filters}>
-                    <ArticlesFilters isLoading={isInitialLoading} onLoadData={onSearch} />
-                </div>
-                <ArticlesInfiniteList />
-                <ArticlesPageGreeting />
-            </Page>
+            <FeatureToggle
+                feature="isRedesignedApp"
+                off={
+                    <Page
+                        className={classNames(cls.ArticlesPage, {}, [className])}
+                        data-testid="articles-page"
+                        onEndOfPage={loadNextPage}
+                    >
+                        <div className={cls.header}>
+                            <Text title={t('Article list')} />
+                            <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
+                        </div>
+                        <div className={cls.filters}>
+                            <ArticlesFilters isLoading={isInitialLoading} onLoadData={onSearch} />
+                        </div>
+                        <ArticlesInfiniteList />
+                        <ArticlesPageGreeting />
+                    </Page>
+                }
+                on={
+                    <Page
+                        className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
+                        data-testid="articles-page"
+                        onEndOfPage={loadNextPage}
+                    >
+                        <div className={cls.header}>
+                            <Text title={t('Article list')} />
+                            <ArticleViewSwitcher view={view} onViewSwitch={onViewSwitch} />
+                        </div>
+                        <div className={cls.filters}>
+                            <ArticlesFilters isLoading={isInitialLoading} onLoadData={onSearch} />
+                        </div>
+                        <ArticlesInfiniteList />
+                        <ArticlesPageGreeting />
+                    </Page>
+                }
+            />
         </DynamicModuleLoader>
     );
 };

@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { TranslateSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { Button, ButtonThemes } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 
@@ -32,27 +34,41 @@ export const Sidebar = memo((props: SidebarProps) => {
     }
 
     return (
-        <BrowserView>
-            <aside
-                className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
-                data-testid="sidebar"
-            >
-                <VStack gap="16" justify="Start">
-                    {itemList}
-                </VStack>
-                <Button
-                    className={cls.toggle}
-                    data-testid="sidebar-toggle"
-                    theme={ButtonThemes.PRIMARY}
-                    onClick={onToggle}
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <BrowserView>
+                    <aside
+                        className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+                        data-testid="sidebar"
+                    >
+                        <VStack gap="16" justify="Start">
+                            {itemList}
+                        </VStack>
+                        <Button
+                            className={cls.toggle}
+                            data-testid="sidebar-toggle"
+                            theme={ButtonThemes.PRIMARY}
+                            onClick={onToggle}
+                        >
+                            {collapsed ? '>' : '<'}
+                        </Button>
+                        <VStack className={cls.actions} gap="10" role="navigation" maxWidth>
+                            <ThemeSwitcher data-testid="theme-switcher" />
+                            <TranslateSwitcher />
+                        </VStack>
+                    </aside>
+                </BrowserView>
+            }
+            on={
+                <aside
+                    className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}
+                    data-testid="sidebar"
                 >
-                    {collapsed ? '>' : '<'}
-                </Button>
-                <VStack className={cls.actions} gap="10" role="navigation" maxWidth>
-                    <ThemeSwitcher data-testid="theme-switcher" />
-                    <TranslateSwitcher />
-                </VStack>
-            </aside>
-        </BrowserView>
+                    <AppLogo className={cls.logo} />
+                    <div className={cls.content} />
+                </aside>
+            }
+        />
     );
 });
