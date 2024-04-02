@@ -4,14 +4,18 @@ import { useSelector } from 'react-redux';
 
 import { TranslateSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import ArrowIcon from '@/shared/assets/svg/arrow.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack as VStackDeprecated } from '@/shared/ui/deprecated/Stack';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { SidebarItem as SidebarItemDeprecated } from '../SidebarItemDeprecated/SidebarItem';
 
 import cls from './Sidebar.module.scss';
 
@@ -25,7 +29,15 @@ export const Sidebar = memo((props: SidebarProps) => {
     const sidebarItems = useSelector(selectSidebarItems);
 
     const itemList = useMemo(
-        () => sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} key={item.path} />),
+        () =>
+            sidebarItems.map((item) => (
+                <FeatureToggle
+                    feature="isRedesignedApp"
+                    key={item.path}
+                    off={<SidebarItemDeprecated collapsed={collapsed} item={item} />}
+                    on={<SidebarItem collapsed={collapsed} item={item} />}
+                />
+            )),
         [collapsed, sidebarItems],
     );
 
@@ -42,9 +54,9 @@ export const Sidebar = memo((props: SidebarProps) => {
                         className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
                         data-testid="sidebar"
                     >
-                        <VStack gap="16" justify="Start">
+                        <VStackDeprecated gap="16" justify="Start">
                             {itemList}
-                        </VStack>
+                        </VStackDeprecated>
                         <Button
                             className={cls.toggle}
                             data-testid="sidebar-toggle"
@@ -53,10 +65,10 @@ export const Sidebar = memo((props: SidebarProps) => {
                         >
                             {collapsed ? '>' : '<'}
                         </Button>
-                        <VStack className={cls.actions} gap="10" role="navigation" maxWidth>
+                        <VStackDeprecated className={cls.actions} gap="10" role="navigation" maxWidth>
                             <ThemeSwitcher data-testid="theme-switcher" />
                             <TranslateSwitcher />
-                        </VStack>
+                        </VStackDeprecated>
                     </aside>
                 </BrowserView>
             }
@@ -66,7 +78,17 @@ export const Sidebar = memo((props: SidebarProps) => {
                     data-testid="sidebar"
                 >
                     <AppLogo className={cls.logo} />
-                    <div className={cls.content} />
+                    <div className={cls.content}>
+                        <VStack gap="8">{itemList}</VStack>
+                    </div>
+                    <div className={cls.toggle}>
+                        <Icon className={cls.toggleButton} Svg={ArrowIcon} clickable onClick={onToggle} />
+                    </div>
+                    <div />
+                    <div className={cls.actions}>
+                        <ThemeSwitcher data-testid="theme-switcher" />
+                        <TranslateSwitcher />
+                    </div>
                 </aside>
             }
         />

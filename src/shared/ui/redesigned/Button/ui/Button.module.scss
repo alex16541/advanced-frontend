@@ -1,0 +1,123 @@
+.Button {
+    padding: 0.5rem 1rem;
+
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-s);
+
+    transition: var(--transition);
+    transition-duration: var(--transition-duration);
+
+    &:disabled {
+        cursor: auto;
+        opacity: 0.5;
+    }
+
+    .body {
+        position: relative;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+    }
+
+    .loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (pointer: fine) {
+    .Button:not(:disabled):hover {
+        opacity: 0.8;
+    }
+}
+
+.primary {
+    color: var(--contrast-color);
+    background-color: var(--secondary-bg-color);
+}
+
+.secondary {
+    color: var(--contrast-color);
+    background-color: var(--primary-bg-color);
+}
+
+.outlined {
+    color: var(--primary-color);
+    background-color: transparent;
+    border-color: var(--primary-color);
+
+    &:not(:disabled):hover {
+        color: var(--contrast-color);
+        background-color: var(--secondary-bg-color);
+        border-color: var(--secondary-bg-color);
+    }
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+}
+
+.s {
+    font: var(--font-s);
+}
+
+.m {
+    font: var(--font-m);
+}
+
+.l {
+    font: var(--font-l);
+}
+
+.xl {
+    font: var(--font-xl);
+}
+
+.red.primary {
+    color: var(--dark-color);
+    background-color: var(--danger-color);
+    border-color: var(--dark-color);
+}
+
+.red.outlined {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+
+    &:not(:disabled):hover {
+        color: var(--dark-color);
+        background-color: var(--danger-color);
+    }
+}
+
+.loading {
+    .content {
+        opacity: 0;
+    }
+}
+
+.start {
+    .content {
+        justify-content: flex-start;
+    }
+}
+
+.center {
+    .content {
+        justify-content: center;
+    }
+}
+
+.end {
+    .content {
+        justify-content: flex-end;
+    }
+}

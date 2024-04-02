@@ -1,30 +1,38 @@
 .SidebarItem {
     display: flex;
-    gap: 1.5rem;
+    gap: 16px;
     align-items: center;
 
     width: 100%;
-    min-width: 250px;
+    min-width: 220px;
     height: 40px;
+    padding: 0 16px;
 
-    font: var(--font-l);
-}
+    font: var(--font-m-redesigned);
+    color: var(--text-color-redesigned);
 
-.link {
-    transition: opacity 0.2s, color 0.2s;
+    border-left: 2px solid transparent;
+
+    &:visited {
+        color: var(--text-color-redesigned);
+    }
 }
 
 .icon {
-    width: var(--font-line-m);
-    min-width: var(--font-line-m);
-    height: var(--font-line-m);
-    min-height: var(--font-line-m);
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
 
-    fill: var(--contrast-color);
+    fill: var(--icon-color-redesigned);
 }
 
-.collapsed {
-    .link {
-        opacity: 0;
+.active {
+    color: var(--accent-color-redesigned);
+    background: linear-gradient(89.97deg, rgb(29 89 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    border-left: 2px solid var(--accent-color-redesigned);
+
+    &:visited {
+        color: var(--accent-color-redesigned);
     }
 }

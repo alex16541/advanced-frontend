@@ -1,0 +1,36 @@
+.AppLink {
+    line-height: 1;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity var(--transition-duration);
+}
+
+@media (pointer: fine) {
+    .AppLink.hover:hover {
+        opacity: 0.8;
+    }
+}
+
+.primary {
+    color: var(--primary-color);
+}
+
+.secondary {
+    color: var(--contrast-color);
+}
+
+.size_s {
+    font: var(--font-s);
+}
+
+.size_m {
+    font: var(--font-m);
+}
+
+.size_l {
+    font: var(--font-l);
+}
+
+.size_xl {
+    font: var(--font-xl);
+}

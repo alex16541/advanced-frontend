@@ -1,2 +1,10 @@
 .LangSwitcher {
 }
+
+.LangSwitcherRedesigned {
+    .text {
+        font: var(--font-l-redesigned);
+        font-weight: 900;
+        color: var(--icon-color-redesigned);
+    }
+}

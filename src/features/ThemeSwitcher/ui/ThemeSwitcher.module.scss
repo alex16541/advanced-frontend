@@ -15,3 +15,20 @@
         fill: var(--contrast-color);
     }
 }
+
+.ThemeSwitcherRedesigned {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 25px;
+    height: 25px;
+
+    background-color: transparent;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--icon-color-redesigned);
+    }
+}

@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { getAuthData } from '@/entity/User';
 import ArticleIcon from '@/shared/assets/svg/article.svg';
 import HomeIcon from '@/shared/assets/svg/home.svg';
-import ListIcon from '@/shared/assets/svg/list.svg';
+import InfoIcon from '@/shared/assets/svg/info.svg';
 import ProfileIcon from '@/shared/assets/svg/profile.svg';
 import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
 
@@ -17,7 +17,7 @@ export const selectSidebarItems = createSelector(getAuthData, (authData) => {
             text: 'main page title',
         },
         {
-            Icon: ListIcon,
+            Icon: InfoIcon,
             path: getRouteAbout(),
             text: 'about page title',
         },

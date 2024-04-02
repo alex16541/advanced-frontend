@@ -6,28 +6,17 @@ import { TestingProps } from '@/shared/types/testing';
 
 import cls from './AppLink.module.scss';
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
-export enum AppLinkThemes {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-}
+export type AppLinkVariant = 'primary' | 'secondary';
 
 interface AppLinkProps extends LinkProps, TestingProps {
     className?: string;
-    theme?: AppLinkThemes;
+    theme?: AppLinkVariant;
     hover?: boolean;
     children?: ReactNode;
 }
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, innerRef) => {
-    const { className, to, children, theme = AppLinkThemes.PRIMARY, hover = true, ...otherProps } = props;
+    const { className, to, children, theme = 'primary', hover = true, ...otherProps } = props;
 
     return (
         <Link

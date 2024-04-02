@@ -6,6 +6,10 @@ import { Loader } from '../../Loader';
 
 import cls from './Button.module.scss';
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum ButtonThemes {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
@@ -13,6 +17,10 @@ export enum ButtonThemes {
     OUTLINED = 'outlined',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum ButtonSize {
     S = 'size_s',
     M = 'size_m',
@@ -20,11 +28,19 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum ButtonColor {
     DEFAULT = 'default',
     RED = 'red',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum ButtonAlign {
     START = 'align_start',
     CENTER = 'align_center',
