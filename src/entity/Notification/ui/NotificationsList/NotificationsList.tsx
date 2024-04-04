@@ -1,7 +1,8 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useFetchNotificationsQuery } from '../../api/notificationApi';
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem';
@@ -35,11 +36,27 @@ const NotificationsList = (props: NotificationsListProps) => {
     // TODO: Если notifications.length === 0 => Уведомлений нет.
 
     return (
-        <VStack className={classNames(cls.NotificationsList, {}, [className])} gap="10" maxWidth>
-            {notifications.map((n) => (
-                <NotificationsItem key={n.id} notification={n} />
-            ))}
-        </VStack>
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <VStack className={classNames(cls.NotificationsList, {}, [className])} gap="10" maxWidth>
+                    {notifications.map((n) => (
+                        <NotificationsItem key={n.id} notification={n} />
+                    ))}
+                </VStack>
+            }
+            on={
+                <VStack
+                    className={classNames(cls.NotificationsListRedesigned, {}, [className])}
+                    gap="0"
+                    maxWidth
+                >
+                    {notifications.map((n) => (
+                        <NotificationsItem className={cls.Item} key={n.id} notification={n} />
+                    ))}
+                </VStack>
+            }
+        />
     );
 };
 

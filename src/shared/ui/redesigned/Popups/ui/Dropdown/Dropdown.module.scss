@@ -1,0 +1,38 @@
+.Dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.Target {
+
+}
+
+.Items {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: auto;
+    min-width: 100%;
+    margin: 5px 0;
+    padding: 5px 0;
+
+    white-space: nowrap;
+
+    background-color: var(--bg-color-redesigned);
+    border: 1px solid var(--accent-color-redesigned);
+    border-radius: var(--border-radius-s);
+}
+
+.Item {
+    width: 100%;
+    padding: 10px 15px;
+    border: 0;
+}
+
+.delimiter {
+    width: 100%;
+    border-bottom: 1px solid var(--light-gb-color-redesigned);
+}

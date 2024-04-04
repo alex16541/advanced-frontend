@@ -8,7 +8,6 @@ import ArrowIcon from '@/shared/assets/svg/arrow.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { VStack as VStackDeprecated } from '@/shared/ui/deprecated/Stack';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -54,9 +53,9 @@ export const Sidebar = memo((props: SidebarProps) => {
                         className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
                         data-testid="sidebar"
                     >
-                        <VStackDeprecated gap="16" justify="Start">
+                        <VStack gap="16" justify="Start">
                             {itemList}
-                        </VStackDeprecated>
+                        </VStack>
                         <Button
                             className={cls.toggle}
                             data-testid="sidebar-toggle"
@@ -65,10 +64,10 @@ export const Sidebar = memo((props: SidebarProps) => {
                         >
                             {collapsed ? '>' : '<'}
                         </Button>
-                        <VStackDeprecated className={cls.actions} gap="10" role="navigation" maxWidth>
+                        <VStack className={cls.actions} gap="10" role="navigation" maxWidth>
                             <ThemeSwitcher data-testid="theme-switcher" />
                             <TranslateSwitcher />
-                        </VStackDeprecated>
+                        </VStack>
                     </aside>
                 </BrowserView>
             }

@@ -1,13 +1,14 @@
 {
-  "stylelint.validate": ["css", "scss", "less", "postcss"],
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "scss.format.enable": false,
-  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
-  "i18n-ally.sourceLanguage": "ru",
-  "i18n-ally.keystyle": "flat",
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-workflow.json": "file:///Users/main/projects/advanced-frontend/.github/workflows/actions.yaml"
-  }
+    "stylelint.validate": ["css", "scss", "less", "postcss"],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "scss.format.enable": false,
+    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+    "i18n-ally.sourceLanguage": "ru",
+    "i18n-ally.keystyle": "flat",
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/main/projects/advanced-frontend/.github/workflows/actions.yaml"
+    },
+    "svg.preview.background": "editor"
 }

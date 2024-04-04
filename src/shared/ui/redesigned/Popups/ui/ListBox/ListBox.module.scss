@@ -1,0 +1,57 @@
+.ListBox {
+}
+
+.ListBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Trigger {
+    width: 100%;
+}
+
+.Button {
+    width: 100%;
+}
+
+.Options {
+    width: auto;
+    min-width: 100%;
+    margin: 10px 0;
+    padding: 5px 0;
+
+    background-color: var(--secondary-bg-color);
+    border-radius: var(--border-radius-s);
+}
+
+.Option {
+    cursor: pointer;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    padding: 5px 15px;
+
+    color: var(--contrast-color);
+    white-space: nowrap;
+
+    &.active {
+        color: #fff;
+        background-color: #333;
+    }
+
+    &.selected {
+        color: #fff;
+        background-color: #333;
+    }
+
+    &.disabled {
+        opacity: 0.7;
+    }
+}
+
+.Icon {
+    width: 19px;
+}

@@ -29,8 +29,8 @@ const Icon = (props: IconProps) => {
         const { onClick } = props;
 
         return (
-            <button className={classNames(cls.Button, {}, [className])} type="button" onClick={onClick}>
-                <Svg className={cls.Icon} {...otherProps} onClick={undefined} />;
+            <button className={classNames(cls.Icon, {}, [className])} type="button" onClick={onClick}>
+                <Svg className={cls.wrappedIcon} {...otherProps} onClick={undefined} />
             </button>
         );
     }

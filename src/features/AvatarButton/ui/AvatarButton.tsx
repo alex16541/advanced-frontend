@@ -5,9 +5,15 @@ import { getAuthData, getIsUserAdmin, getIsUserManager, userActions } from '@/en
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { PopupDirection } from '@/shared/types/ui';
-import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import {
+    Avatar as AvatarDeprecated,
+    AvatarSize as AvatarSizeDeprecated,
+} from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 import cls from './AvatarButton.module.scss';
 
@@ -31,17 +37,40 @@ const AvatarButton = (props: AvatarButtonProps) => {
     if (!authData) return null;
 
     return (
-        <Dropdown
-            className={classNames(cls.AvatarButton, {}, [className])}
-            direction={direction}
-            button={
-                <Avatar alt={authData.username} size={AvatarSize.XS} src={authData.avatar ?? ''} contrast />
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <DropdownDeprecated
+                    className={classNames(cls.AvatarButton, {}, [className])}
+                    direction={direction}
+                    button={
+                        <AvatarDeprecated
+                            alt={authData.username}
+                            size={AvatarSizeDeprecated.XS}
+                            src={authData.avatar ?? ''}
+                            contrast
+                        />
+                    }
+                    items={[
+                        { content: t('profile'), href: `/profile/${authData.id}` },
+                        ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
+                        { content: t('logout'), onClick: logout },
+                    ]}
+                />
             }
-            items={[
-                { content: t('profile'), href: `/profile/${authData.id}` },
-                ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
-                { content: t('logout'), onClick: logout },
-            ]}
+            on={
+                <Dropdown
+                    button={<Avatar alt={authData.username} size={50} src={authData.avatar ?? ''} />}
+                    className={classNames(cls.AvatarButton, {}, [className])}
+                    direction={direction}
+                    items={[
+                        { content: t('profile'), href: `/profile/${authData.id}` },
+                        ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
+                        { isDelimiter: true },
+                        { content: t('logout'), onClick: logout },
+                    ]}
+                />
+            }
         />
     );
 };

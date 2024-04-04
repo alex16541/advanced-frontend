@@ -1,105 +1,119 @@
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
-import { Button, ButtonSize, ButtonVariant } from './Button';
+import { Button } from './Button';
 
 export default {
     title: 'shared/Button',
     component: Button,
+} as Meta<typeof Button>;
+
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+    args: {
+        children: 'Button',
+        theme: 'primary',
+    },
 };
 
-const Template: Story = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Button',
-    theme: ButtonVariant.PRIMARY,
+export const PrimaryDark: Story = {
+    args: {
+        children: 'Button',
+        theme: 'primary',
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    children: 'Button',
-    theme: ButtonVariant.PRIMARY,
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-    children: 'Button',
-    theme: ButtonVariant.SECONDARY,
+export const Secondary: Story = {
+    args: {
+        children: 'Button',
+        theme: 'secondary',
+    },
 };
 
-export const SecondaryDark = Template.bind({});
-SecondaryDark.args = {
-    children: 'Button',
-    theme: ButtonVariant.SECONDARY,
-};
-SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Clear = Template.bind({});
-Clear.args = {
-    ...Primary.args,
-    theme: ButtonVariant.CLEAR,
+export const SecondaryDark: Story = {
+    args: {
+        children: 'Button',
+        theme: 'secondary',
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const ClearDark = Template.bind({});
-ClearDark.args = {
-    ...Primary.args,
-    theme: ButtonVariant.CLEAR,
-};
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-    ...Primary.args,
-    theme: ButtonVariant.OUTLINED,
+export const Clear: Story = {
+    args: {
+        ...Primary.args,
+        theme: 'clear',
+    },
 };
 
-export const OutlinedDark = Template.bind({});
-OutlinedDark.args = {
-    ...Primary.args,
-    theme: ButtonVariant.OUTLINED,
-};
-OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const SizeS = Template.bind({});
-SizeS.args = {
-    ...Primary.args,
-    size: ButtonSize.M,
+export const ClearDark: Story = {
+    args: {
+        ...Primary.args,
+        theme: 'clear',
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const SizeM = Template.bind({});
-SizeM.args = {
-    ...Primary.args,
-    size: ButtonSize.M,
+export const Outlined: Story = {
+    args: {
+        ...Primary.args,
+        theme: 'outlined',
+    },
 };
 
-export const SizeL = Template.bind({});
-SizeL.args = {
-    ...Primary.args,
-    size: ButtonSize.L,
+export const OutlinedDark: Story = {
+    args: {
+        ...Primary.args,
+        theme: 'outlined',
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const SizeXL = Template.bind({});
-SizeXL.args = {
-    ...Primary.args,
-    size: ButtonSize.XL,
+export const SizeS: Story = {
+    args: {
+        ...Primary.args,
+        size: 'm',
+    },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    children: 'Button',
-    theme: ButtonVariant.PRIMARY,
-    disabled: true,
+export const SizeM: Story = {
+    args: {
+        ...Primary.args,
+        size: 'm',
+    },
 };
-Disabled.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Loading = Template.bind({});
-Loading.args = {
-    children: 'Button',
-    theme: ButtonVariant.PRIMARY,
-    isLoading: true,
+export const SizeL: Story = {
+    args: {
+        ...Primary.args,
+        size: 'l',
+    },
 };
-Loading.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeXL: Story = {
+    args: {
+        ...Primary.args,
+        size: 'xl',
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        children: 'Button',
+        theme: 'primary',
+        disabled: true,
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Loading: Story = {
+    args: {
+        children: 'Button',
+        theme: 'primary',
+        isLoading: true,
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

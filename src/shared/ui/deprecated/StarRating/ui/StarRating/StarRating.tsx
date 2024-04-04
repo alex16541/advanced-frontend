@@ -1,10 +1,10 @@
 import { memo, useCallback, useState } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { FlexJustify } from '@/shared/ui/redesigned/Stack/Flex/model/types';
 
 import { Button, ButtonThemes } from '../../../Button';
-import { HStack } from '../../../Stack';
-import { FlexJustify } from '../../../Stack/Flex/model/types';
 import { Star } from '../Star/Star';
 
 import cls from './StarRating.module.scss';

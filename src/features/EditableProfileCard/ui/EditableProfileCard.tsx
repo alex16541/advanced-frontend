@@ -8,7 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
 import { featchProfileData } from '../model/services/featchProfileData/featchProfileData';

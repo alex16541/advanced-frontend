@@ -3,7 +3,7 @@ import { memo } from 'react';
 import logo from '@/shared/assets/logo.png';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { AppImage } from '../../../deprecated/AppImage';
+import { AppImage } from '../../AppImage';
 import { HStack } from '../../Stack';
 
 import cls from './AppLogo.module.scss';

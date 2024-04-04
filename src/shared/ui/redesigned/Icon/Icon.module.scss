@@ -1,5 +1,7 @@
 .Icon {
-    fill: var(--icon-color-redesigned);
+    width: 32px;
+    height: 32px;
+    color: var(--icon-color-redesigned);
 }
 
 button {
@@ -9,4 +11,10 @@ button {
     background-color: transparent;
     border: none;
     outline: none;
+}
+
+.wrappedIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

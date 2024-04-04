@@ -2,8 +2,8 @@ import { useCallback, useMemo } from 'react';
 
 import { useSet } from '@/shared/hooks/useSet';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
-import { HStack } from '../../../Stack';
 import { ChipListOption } from '../../model/types/chip';
 import { Chip } from '../Chip/Chip';
 

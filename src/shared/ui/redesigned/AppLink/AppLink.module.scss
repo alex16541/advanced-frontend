@@ -1,5 +1,4 @@
 .AppLink {
-    line-height: 1;
     color: var(--primary-color);
     text-decoration: none;
     transition: opacity var(--transition-duration);
@@ -12,25 +11,25 @@
 }
 
 .primary {
-    color: var(--primary-color);
+    color: var(--text-color-redesigned);
 }
 
 .secondary {
-    color: var(--contrast-color);
+    color: var(--hint-color-redesigned);
 }
 
-.size_s {
-    font: var(--font-s);
+.s {
+    font: var(--font-s-redesigned);
 }
 
-.size_m {
-    font: var(--font-m);
+.m {
+    font: var(--font-m-redesigned);
 }
 
-.size_l {
-    font: var(--font-l);
+.l {
+    font: var(--font-l-redesigned);
 }
 
-.size_xl {
-    font: var(--font-xl);
+.xl {
+    font: var(--font-xl-redesigned);
 }

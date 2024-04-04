@@ -3,8 +3,17 @@
     border-radius: var(--border-radius-s);
 }
 
+.NotificationsItemRedesigned {
+    padding: 16px 12px 8px 16px;
+    background-color: var(--bg-color-redesigned);
+}
+
 @media (pointer: fine) {
-    .Link:hover {
+    .Link > .NotificationsItem:hover {
         opacity: 0.7;
+    }
+
+    .Link > .NotificationsItemRedesigned:hover {
+        background-color: var(--light-gb-color-redesigned);
     }
 }

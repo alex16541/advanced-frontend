@@ -16,15 +16,13 @@
     &:visited {
         color: var(--text-color-redesigned);
     }
-}
 
-.icon {
-    width: 16px;
-    min-width: 16px;
-    height: 16px;
-    min-height: 16px;
-
-    fill: var(--icon-color-redesigned);
+    .icon {
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+        min-height: 16px;
+    }
 }
 
 .active {

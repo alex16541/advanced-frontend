@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import { getAuthData } from '@/entity/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import { SidebarItemType } from '../../model/types/sidebarItem';
 
@@ -33,7 +34,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
                 ])
             }
         >
-            <item.Icon className={cls.icon} />
+            <Icon className={cls.icon} Svg={item.Icon} />
             <div className={cls.link}>{t(item.text)}</div>
         </NavLink>
     );
