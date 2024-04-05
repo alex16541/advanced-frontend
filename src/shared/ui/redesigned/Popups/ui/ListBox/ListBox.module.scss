@@ -13,16 +13,26 @@
 
 .Button {
     width: 100%;
+
+    &.open {
+        border-color: var(--accent-color-redesigned);
+        border-bottom: none;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 }
 
 .Options {
+    overflow: hidden;
+
     width: auto;
     min-width: 100%;
-    margin: 10px 0;
-    padding: 5px 0;
+    padding: 0 0 10px;
 
-    background-color: var(--secondary-bg-color);
-    border-radius: var(--border-radius-s);
+    background-color: var(--dark-bg-color-redesigned);
+    border: 1px solid var(--accent-color-redesigned);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
 }
 
 .Option {
@@ -32,19 +42,19 @@
     gap: 10px;
     align-items: center;
 
-    padding: 5px 15px;
+    min-height: 36px;
+    padding: 8px 16px;
 
-    color: var(--contrast-color);
+    font: var(--font-m-redesigned);
+    color: var(--text-color-redesigned);
     white-space: nowrap;
 
     &.active {
-        color: #fff;
-        background-color: #333;
+        background-color: var(--light-gb-color-redesigned);
     }
 
     &.selected {
-        color: #fff;
-        background-color: #333;
+        background-color: var(--light-gb-color-redesigned);
     }
 
     &.disabled {

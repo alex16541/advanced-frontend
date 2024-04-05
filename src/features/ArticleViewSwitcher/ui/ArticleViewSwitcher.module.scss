@@ -17,3 +17,33 @@
         color: var(--contrast-color);
     }
 }
+
+.ArticleViewSwitcherRedesigned {
+    display: flex;
+    background-color: var(--dark-bg-color-redesigned);
+    border-radius: 25px;
+
+    .button {
+        width: 50px;
+        height: 50px;
+        padding: 14px;
+
+        color: var(--light-gb-color-redesigned);
+
+        background-color: var(--dark-bg-color-redesigned);
+        border: 2px solid var(--dark-bg-color-redesigned);
+
+        &:first-child {
+            border-radius: 25px 0 0 25px;
+        }
+
+        &:last-child {
+            border-radius: 0 25px 25px 0;
+        }
+    }
+
+    .selected {
+        color: var(--icon-color-redesigned);
+        background-color: var(--bg-color-redesigned);
+    }
+}

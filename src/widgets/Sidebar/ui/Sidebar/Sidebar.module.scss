@@ -36,7 +36,7 @@
         border-radius: 0;
     }
 
-    .collapsed {
+    &.collapsed {
         width: var(--sidebar-width-collapsed);
     }
 }

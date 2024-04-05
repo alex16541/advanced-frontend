@@ -1,0 +1,16 @@
+.StikyContentLayout {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    gap: 16px;
+
+    .left,
+    .right {
+        position: sticky;
+        top: 30px;
+        height: fit-content;
+    }
+
+    .content {
+        width: 100%;
+    }
+}

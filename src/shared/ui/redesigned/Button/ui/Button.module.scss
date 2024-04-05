@@ -1,8 +1,8 @@
 .Button {
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
 
     border: 1px solid transparent;
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-xl);
 
     transition: var(--transition);
     transition-duration: var(--transition-duration);
@@ -33,18 +33,40 @@
 
 @media (pointer: fine) {
     .Button:not(:disabled):hover {
-        opacity: 0.8;
+        &.primary {
+            border-color: var(--accent-color-redesigned);
+        }
+
+        &.secondary {
+            border-color: var(--accent-color-redesigned);
+        }
+
+        &.transparent {
+            border-color: var(--accent-color-redesigned);
+        }
+
+        &.clear {
+            opacity: 0.8;
+        }
     }
 }
 
 .primary {
-    color: var(--contrast-color);
-    background-color: var(--secondary-bg-color);
+    color: var(--text-color-redesigned);
+    background-color: var(--light-gb-color-redesigned);
+    border-color: transparent;
 }
 
 .secondary {
-    color: var(--contrast-color);
-    background-color: var(--primary-bg-color);
+    color: var(--text-color-redesigned);
+    background-color: var(--dark-gb-color-redesigned);
+    border-color: transparent;
+}
+
+.transparent {
+    color: var(--text-color-redesigned);
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .outlined {

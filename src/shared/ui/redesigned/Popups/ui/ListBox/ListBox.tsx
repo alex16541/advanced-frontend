@@ -1,12 +1,10 @@
 import { Listbox } from '@headlessui/react';
 import { ReactNode, useMemo } from 'react';
 
-import CheckSvg from '@/shared/assets/svg/check.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
 
 import { Button, ButtonAlign } from '../../../Button';
-import { Icon } from '../../../Icon/Icon';
 import { Text } from '../../../Text';
 import { directionClassName } from '../../styles/consts';
 import clsPopup from '../../styles/popup.module.scss';
@@ -56,33 +54,42 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                 value={value}
                 onChange={onChange}
             >
-                <Listbox.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])}>
-                    <Button
-                        align={buttonAlign}
-                        className={classNames(cls.Button, {}, [classNameButton])}
-                        disabled={disabled}
-                    >
-                        {displayValue ? displayValue.content : defaultValue}
-                    </Button>
-                </Listbox.Button>
-                <Listbox.Options className={classNames(cls.Options, {}, [clsPopup.Content, directionClass])}>
-                    {options.map((option) => (
-                        <Listbox.Option disabled={option.disabled} key={option.value} value={option.value}>
-                            {({ active, selected }) => (
-                                <span
-                                    className={classNames(cls.Option, {
-                                        [cls.active]: active,
-                                        [cls.selected]: selected,
-                                        [cls.disabled]: option.disabled,
-                                    })}
+                {({ open }) => (
+                    <>
+                        <Listbox.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])}>
+                            <Button
+                                align={buttonAlign}
+                                className={classNames(cls.Button, { [cls.open]: open }, [classNameButton])}
+                                disabled={disabled}
+                            >
+                                {displayValue ? displayValue.content : defaultValue}
+                            </Button>
+                        </Listbox.Button>
+                        <Listbox.Options
+                            className={classNames(cls.Options, {}, [clsPopup.Content, directionClass])}
+                        >
+                            {options.map((option) => (
+                                <Listbox.Option
+                                    disabled={option.disabled}
+                                    key={option.value}
+                                    value={option.value}
                                 >
-                                    {selected && <Icon className={cls.Icon} Svg={CheckSvg} />}
-                                    {option.content}
-                                </span>
-                            )}
-                        </Listbox.Option>
-                    ))}
-                </Listbox.Options>
+                                    {({ active, selected }) => (
+                                        <span
+                                            className={classNames(cls.Option, {
+                                                [cls.active]: active,
+                                                [cls.selected]: selected,
+                                                [cls.disabled]: option.disabled,
+                                            })}
+                                        >
+                                            {option.content}
+                                        </span>
+                                    )}
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </>
+                )}
             </Listbox>
         </div>
     );
