@@ -61,7 +61,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                     <>
                         <Listbox.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])}>
                             <Button
-                                addonRight={<Icon Svg={ArrowIcon} />}
+                                addonRight={<Icon className={cls.ArrowIcon} Svg={ArrowIcon} />}
                                 align={buttonAlign}
                                 className={classNames(cls.Button, { [cls.open]: open }, [classNameButton])}
                                 disabled={disabled}
