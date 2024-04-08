@@ -55,7 +55,7 @@ function ChipList<T extends string>(props: ChipListProps<T>) {
             align={align}
             className={classNames('', {}, [className])}
             direction={direction}
-            gap="10"
+            gap="8"
             justify="Start"
         >
             {chips}

@@ -3,10 +3,12 @@ import { memo } from 'react';
 import { ArticleOrderSelector } from '@/features/ArticleOrderSelector';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeChips } from '@/features/ArticleTypeChips';
+import SearchIcon from '@/shared/assets/svg/search.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -31,7 +33,7 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
                 <VStack className={classNames(cls.ArticlesFilters, {}, [className])} gap="10" maxWidth>
                     <InputDeprecated
                         isLoading={isLoading}
-                        placeholder={t('Search')}
+                        placeholder={t('Find')}
                         value={search}
                         fullWidth
                         onChange={searchChange}
@@ -47,8 +49,9 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
                 <Card className={classNames(cls.ArticlesFiltersRedesigned, {}, [className])}>
                     <VStack gap="32" maxWidth>
                         <Input
+                            addonLeft={<Icon Svg={SearchIcon} />}
                             isLoading={isLoading}
-                            placeholder={t('Search')}
+                            placeholder={t('Find')}
                             value={search}
                             fullWidth
                             onChange={searchChange}

@@ -1,10 +1,13 @@
 import { Listbox } from '@headlessui/react';
 import { ReactNode, useMemo } from 'react';
 
+import ArrowIcon from '@/shared/assets/svg/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
 
-import { Button, ButtonAlign } from '../../../Button';
+import { Button } from '../../../Button';
+import { Icon } from '../../../Icon';
+import { FlexJustify } from '../../../Stack/Flex/model/types';
 import { Text } from '../../../Text';
 import { directionClassName } from '../../styles/consts';
 import clsPopup from '../../styles/popup.module.scss';
@@ -16,7 +19,7 @@ interface ListBoxProps<T> {
     className?: string;
     classNameWrapper?: string;
     classNameButton?: string;
-    buttonAlign?: ButtonAlign;
+    buttonAlign?: FlexJustify;
     defaultValue?: ReactNode;
     value?: T;
     options?: ListBoxOption<T>[];
@@ -28,7 +31,7 @@ interface ListBoxProps<T> {
 
 const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
     const {
-        buttonAlign = 'start',
+        buttonAlign = 'SpaceBetween',
         className,
         classNameWrapper,
         classNameButton,
@@ -58,9 +61,11 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                     <>
                         <Listbox.Button as="div" className={classNames(cls.Button, {}, [clsPopup.Button])}>
                             <Button
+                                addonRight={<Icon Svg={ArrowIcon} />}
                                 align={buttonAlign}
                                 className={classNames(cls.Button, { [cls.open]: open }, [classNameButton])}
                                 disabled={disabled}
+                                size="s"
                             >
                                 {displayValue ? displayValue.content : defaultValue}
                             </Button>

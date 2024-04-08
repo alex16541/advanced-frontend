@@ -10,8 +10,8 @@ import { ListBox } from '@/shared/ui/redesigned/Popups';
 import cls from './ArticleOrderSelector.module.scss';
 
 const orderOptions: ListBoxOption<SortOrder>[] = [
-    { value: 'asc', content: 'возрастанию' },
-    { value: 'desc', content: 'убыванию' },
+    { value: 'asc', content: 'Возрастанию' },
+    { value: 'desc', content: 'Убыванию' },
 ];
 
 interface ArticleOrderSelectorProps {

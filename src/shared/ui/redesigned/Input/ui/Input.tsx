@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, memo } from 'react';
+import React, { InputHTMLAttributes, memo, ReactElement } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
@@ -21,6 +21,8 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     isLoading?: boolean;
     fullWidth?: boolean;
+    addonLeft?: ReactElement;
+    addonRight?: ReactElement;
 }
 
 const Input = (props: InputProps) => {
@@ -34,6 +36,8 @@ const Input = (props: InputProps) => {
         type = 'text',
         isLoading,
         fullWidth,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
@@ -44,6 +48,8 @@ const Input = (props: InputProps) => {
     const mods: Mods = {
         [cls.readonly]: readonly,
         [cls.fullWidth]: fullWidth,
+        [cls.addonLeft]: Boolean(addonLeft),
+        [cls.addonRight]: Boolean(addonRight),
     };
 
     return (
@@ -51,14 +57,18 @@ const Input = (props: InputProps) => {
             {isLoading ? (
                 <Loader className={cls.loader} />
             ) : (
-                <input
-                    className={classNames(cls.Input, {}, [classNameInput])}
-                    readOnly={readonly}
-                    type={type}
-                    value={value}
-                    onChange={onChangeHendler}
-                    {...otherProps}
-                />
+                <>
+                    {addonLeft}
+                    <input
+                        className={classNames(cls.Input, {}, [classNameInput])}
+                        readOnly={readonly}
+                        type={type}
+                        value={value}
+                        onChange={onChangeHendler}
+                        {...otherProps}
+                    />
+                    {addonRight}
+                </>
             )}
         </div>
     );

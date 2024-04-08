@@ -1,9 +1,11 @@
-import { ButtonHTMLAttributes, forwardRef, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, forwardRef, memo, ReactElement, ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Loader } from '../../../deprecated/Loader';
-import { ButtonAlign, ButtonColor, ButtonSize, ButtonVariant } from '../types';
+import { HStack } from '../../Stack';
+import { FlexJustify } from '../../Stack/Flex/model/types';
+import { ButtonColor, ButtonSize, ButtonVariant } from '../types';
 
 import cls from './Button.module.scss';
 
@@ -12,9 +14,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonVariant;
     size?: ButtonSize;
     color?: ButtonColor;
-    align?: ButtonAlign;
+    align?: FlexJustify;
     isLoading?: boolean;
     children?: ReactNode;
+    addonLeft?: ReactElement;
+    addonRight?: ReactElement;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -25,9 +29,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         type,
         size = 'm',
         color = 'default',
-        align = 'center',
+        align = 'Center',
         isLoading,
         disabled,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
@@ -37,20 +43,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     return (
         <button
+            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
             disabled={disabled || isLoading}
             ref={ref}
             type="button"
-            className={classNames(cls.Button, mods, [
-                className,
-                cls[theme],
-                cls[size],
-                cls[color],
-                cls[align],
-            ])}
             {...otherProps}
         >
             <div className={cls.body}>
-                <div className={cls.content}>{children}</div>
+                <HStack justify={align}>
+                    {addonLeft}
+                    <div className={cls.content}>{children}</div>
+                    {addonRight}
+                </HStack>
                 {isLoading && <Loader className={cls.loader} />}
             </div>
         </button>

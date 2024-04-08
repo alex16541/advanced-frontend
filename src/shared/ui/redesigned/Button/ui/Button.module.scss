@@ -1,11 +1,6 @@
 .Button {
-    padding: 8px 16px;
-
-    border: 1px solid transparent;
-    border-radius: var(--border-radius-xl);
-
-    transition: var(--transition);
-    transition-duration: var(--transition-duration);
+    font: var(--font-m-redesigned);
+    border: 2px solid transparent;
 
     &:disabled {
         cursor: auto;
@@ -89,19 +84,33 @@
 }
 
 .s {
-    font: var(--font-s-redesigned);
+    min-height: 32px;
+    padding: 0 16px;
+    border-radius: 16px;
+
+    .content {
+        padding: 3px 0;
+    }
 }
 
 .m {
-    font: var(--font-m-redesigned);
+    min-height: 38px;
+    padding: 0 16px;
+    border-radius: 20px;
+
+    .content {
+        padding: 8px 0;
+    }
 }
 
 .l {
-    font: var(--font-l-redesigned);
-}
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: 24px;
 
-.xl {
-    font: var(--font-xl-redesigned);
+    .content {
+        padding: 12px 0;
+    }
 }
 
 .red.primary {
@@ -123,23 +132,5 @@
 .loading {
     .content {
         opacity: 0;
-    }
-}
-
-.start {
-    .content {
-        justify-content: flex-start;
-    }
-}
-
-.center {
-    .content {
-        justify-content: center;
-    }
-}
-
-.end {
-    .content {
-        justify-content: flex-end;
     }
 }

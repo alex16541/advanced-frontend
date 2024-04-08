@@ -10,9 +10,9 @@ import { ListBox } from '@/shared/ui/redesigned/Popups';
 import cls from './ArticleSortSelector.module.scss';
 
 const sortOptions: ListBoxOption<ArticleSortField>[] = [
-    { value: ArticleSortField.CREATED, content: 'дате создания' },
-    { value: ArticleSortField.TITLE, content: 'названию' },
-    { value: ArticleSortField.VIEWS, content: 'просмотрам' },
+    { value: ArticleSortField.CREATED, content: 'Дате создания' },
+    { value: ArticleSortField.TITLE, content: 'Названию' },
+    { value: ArticleSortField.VIEWS, content: 'Просмотрам' },
 ];
 
 interface ArticleSortSelectorProps {

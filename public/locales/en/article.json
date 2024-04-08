@@ -1,5 +1,4 @@
 {
-  "Search": "Search",
   "Sort by": "Sort by",
   "read more": "Read more...",
   "back": "To article list",
@@ -7,5 +6,6 @@
   "Feedback placeholder": "This will help improve the quality of our articles!",
   "Rate": "Estimate",
   "Greeting text": "Hi!",
-  "Greeting title": "On this page you can find many different articles for every taste. \nEnjoy reading!"
+  "Greeting title": "On this page you can find many different articles for every taste. \nEnjoy reading!",
+  "Find": "Find"
 }

@@ -93,13 +93,6 @@ export const SizeL: Story = {
     },
 };
 
-export const SizeXL: Story = {
-    args: {
-        ...Primary.args,
-        size: 'xl',
-    },
-};
-
 export const Disabled: Story = {
     args: {
         children: 'Button',

@@ -41,7 +41,7 @@ export const Dropdown = (props: DropdownProps) => {
                     if (onClick) {
                         return (
                             <Menu.Item
-                                align="start"
+                                align="Start"
                                 as={Button}
                                 className={cls.Item}
                                 disabled={item.disabled || disabled}
