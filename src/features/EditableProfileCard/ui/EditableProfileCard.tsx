@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { ProfileCard } from '@/entity/Profile';
+import { ProfileCard, ProfileCardDeprecated } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -8,6 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
@@ -56,26 +57,32 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
         }
     });
 
+    const profileProps = {
+        data: form,
+        error: error && profileError[error],
+        isLoading,
+        readonly,
+        onChangeAge,
+        onChangeCity,
+        onChangeCountry,
+        onChangeCurrency,
+        onChangeEmail,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangePhone,
+        onChangePhoto,
+        onChangeUsername,
+    };
+
     return (
         <DynamicModuleLoader dataTestId="EditableProfileCard" reducers={reducers}>
             <VStack className={classNames(cls.EditableProfileCard, {}, [className])} gap="10" maxWidth>
                 <EditableProfileCardHeader />
                 <EditableProfileCardErrors validationErrors={validationErrors} />
-                <ProfileCard
-                    data={form}
-                    error={error && profileError[error]}
-                    isLoading={isLoading}
-                    readonly={readonly}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeCountry={onChangeCountry}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeEmail={onChangeEmail}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangePhone={onChangePhone}
-                    onChangePhoto={onChangePhoto}
-                    onChangeUsername={onChangeUsername}
+                <FeatureToggle
+                    feature="isRedesignedApp"
+                    off={<ProfileCardDeprecated {...profileProps} />}
+                    on={<ProfileCard {...profileProps} />}
                 />
             </VStack>
         </DynamicModuleLoader>

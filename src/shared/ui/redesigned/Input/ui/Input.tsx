@@ -3,6 +3,7 @@ import React, { InputHTMLAttributes, memo, ReactElement } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import { Loader } from '../../../deprecated/Loader';
+import { HStack } from '../../Stack';
 
 import cls from './Input.module.scss';
 
@@ -10,7 +11,9 @@ export enum InputThemes {
     PRIMARY = 'primary',
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly'>;
+type InputSize = 's' | 'm';
+
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly' | 'size'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -23,6 +26,8 @@ interface InputProps extends HTMLInputProps {
     fullWidth?: boolean;
     addonLeft?: ReactElement;
     addonRight?: ReactElement;
+    size?: InputSize;
+    label?: string;
 }
 
 const Input = (props: InputProps) => {
@@ -38,6 +43,8 @@ const Input = (props: InputProps) => {
         fullWidth,
         addonLeft,
         addonRight,
+        size = 'm',
+        label,
         ...otherProps
     } = props;
 
@@ -52,8 +59,8 @@ const Input = (props: InputProps) => {
         [cls.addonRight]: Boolean(addonRight),
     };
 
-    return (
-        <div className={classNames(cls.InputWrapper, mods, [cls[theme], className])}>
+    const input = (
+        <div className={classNames(cls.InputWrapper, mods, [cls[theme], cls[size], className])}>
             {isLoading ? (
                 <Loader className={cls.loader} />
             ) : (
@@ -72,6 +79,17 @@ const Input = (props: InputProps) => {
             )}
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack>
+                {label && <div className={cls.label}>{`${label}:`}</div>}
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 };
 
 const Memoized = memo(Input);

@@ -20,5 +20,6 @@
   "incorrect email": "Некорректная почта",
   "unknown error": "Неизвестная ошибка",
   "profile error": "Ошибка профиля",
-  "currency": "Валюта"
+  "currency": "Валюта",
+  "username": "Логин"
 }

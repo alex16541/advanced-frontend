@@ -3,8 +3,9 @@
 
 .ListBoxWrapper {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    gap: 4px;
+    align-items: center;
+    width: 100%;
 }
 
 .Trigger {

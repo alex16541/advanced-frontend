@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux';
 import { getAuthData } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonColor, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { Button as ButtonDeprecated, ButtonColor, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly/getProfileIsReadonly';
@@ -42,41 +44,76 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
             dispatch(updateProfileData());
         }
     }, [dispatch, profileData?.id]);
+
     return (
-        <div className={classNames(cls.EditableProfileCardHeader, {}, [className, 'title'])}>
-            <Text title={t('profile')} />
-            {canBeEdit && (
-                <div className={cls.actions}>
-                    {readonly ? (
-                        <Button
-                            data-testid="EditableProfileCardHeader.EditButton"
-                            theme={ButtonThemes.OUTLINED}
-                            onClick={onEdit}
-                        >
-                            {t('edit')}
-                        </Button>
-                    ) : (
-                        <>
-                            <Button
-                                data-testid="EditableProfileCardHeader.SaveButton"
-                                theme={ButtonThemes.OUTLINED}
-                                onClick={onSave}
-                            >
-                                {t('Save')}
-                            </Button>
-                            <Button
-                                color={ButtonColor.RED}
-                                data-testid="EditableProfileCardHeader.CancelButton"
-                                theme={ButtonThemes.OUTLINED}
-                                onClick={onCalcelEdit}
-                            >
-                                {t('Cancel')}
-                            </Button>
-                        </>
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <div className={classNames(cls.EditableProfileCardHeader, {}, [className, 'title'])}>
+                    <Text title={t('profile')} />
+                    {canBeEdit && (
+                        <div className={cls.actions}>
+                            {readonly ? (
+                                <ButtonDeprecated
+                                    data-testid="EditableProfileCardHeader.EditButton"
+                                    theme={ButtonThemes.OUTLINED}
+                                    onClick={onEdit}
+                                >
+                                    {t('edit')}
+                                </ButtonDeprecated>
+                            ) : (
+                                <>
+                                    <ButtonDeprecated
+                                        data-testid="EditableProfileCardHeader.SaveButton"
+                                        theme={ButtonThemes.OUTLINED}
+                                        onClick={onSave}
+                                    >
+                                        {t('Save')}
+                                    </ButtonDeprecated>
+                                    <ButtonDeprecated
+                                        color={ButtonColor.RED}
+                                        data-testid="EditableProfileCardHeader.CancelButton"
+                                        theme={ButtonThemes.OUTLINED}
+                                        onClick={onCalcelEdit}
+                                    >
+                                        {t('Cancel')}
+                                    </ButtonDeprecated>
+                                </>
+                            )}
+                        </div>
                     )}
                 </div>
-            )}
-        </div>
+            }
+            on={
+                <div className={classNames(cls.EditableProfileCardHeaderRedesigned, {}, [className])}>
+                    {canBeEdit && (
+                        <div className={cls.actions}>
+                            {readonly ? (
+                                <Button data-testid="EditableProfileCardHeader.EditButton" onClick={onEdit}>
+                                    {t('edit')}
+                                </Button>
+                            ) : (
+                                <>
+                                    <Button
+                                        data-testid="EditableProfileCardHeader.SaveButton"
+                                        onClick={onSave}
+                                    >
+                                        {t('Save')}
+                                    </Button>
+                                    <Button
+                                        color="red"
+                                        data-testid="EditableProfileCardHeader.CancelButton"
+                                        onClick={onCalcelEdit}
+                                    >
+                                        {t('Cancel')}
+                                    </Button>
+                                </>
+                            )}
+                        </div>
+                    )}
+                </div>
+            }
+        />
     );
 };
 

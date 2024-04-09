@@ -5,8 +5,9 @@ import ArrowIcon from '@/shared/assets/svg/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PopupDirection } from '@/shared/types/ui';
 
-import { Button } from '../../../Button';
+import { Button, ButtonSize } from '../../../Button';
 import { Icon } from '../../../Icon';
+import { HStack } from '../../../Stack';
 import { FlexJustify } from '../../../Stack/Flex/model/types';
 import { Text } from '../../../Text';
 import { directionClassName } from '../../styles/consts';
@@ -27,6 +28,7 @@ interface ListBoxProps<T> {
     label?: string;
     disabled?: boolean;
     direction?: PopupDirection;
+    size?: ButtonSize;
 }
 
 const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
@@ -42,14 +44,14 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
         label,
         disabled = false,
         direction = 'bottom right',
+        size = 'm',
     } = props;
 
     const directionClass = directionClassName[direction];
     const displayValue = useMemo(() => options.find((opt) => opt.value === value), [options, value]);
 
-    return (
+    const listBox = (
         <div className={classNames(cls.ListBoxWrapper, {}, [classNameWrapper, clsPopup.Popup])}>
-            {label && <Text text={`${label}: `} />}
             <Listbox
                 as="div"
                 className={classNames(cls.ListBox, {}, [className])}
@@ -65,7 +67,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
                                 align={buttonAlign}
                                 className={classNames(cls.Button, { [cls.open]: open }, [classNameButton])}
                                 disabled={disabled}
-                                size="s"
+                                size={size}
                             >
                                 {displayValue ? displayValue.content : defaultValue}
                             </Button>
@@ -98,6 +100,17 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
             </Listbox>
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack justify="Start">
+                <Text text={`${label}: `} />
+                {listBox}
+            </HStack>
+        );
+    }
+
+    return listBox;
 };
 
 export { ListBoxComponent as ListBox };

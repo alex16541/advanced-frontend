@@ -1,7 +1,9 @@
 import { memo, useCallback } from 'react';
 
+import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
 import { ListBoxOption } from '@/shared/ui/deprecated/Popups/types/listBox';
-import { ListBox } from '@/shared/ui/deprecated/Popups/ui/ListBox/ListBox';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import { Country } from '../model/consts/country';
 
@@ -33,14 +35,30 @@ const CountrySelect = (props: CountrySelectProps) => {
     );
 
     return (
-        <ListBox
-            className={className}
-            defaultValue={placeholder}
-            disabled={readonly}
-            label={label}
-            options={countryOptions}
-            value={value}
-            onChange={onChangeHendler}
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <ListBoxDeprecated
+                    className={className}
+                    defaultValue={placeholder}
+                    disabled={readonly}
+                    label={label}
+                    options={countryOptions}
+                    value={value}
+                    onChange={onChangeHendler}
+                />
+            }
+            on={
+                <ListBox
+                    className={className}
+                    defaultValue={placeholder}
+                    disabled={readonly}
+                    label={label}
+                    options={countryOptions}
+                    value={value}
+                    onChange={onChangeHendler}
+                />
+            }
         />
     );
 };

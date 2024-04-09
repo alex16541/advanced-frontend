@@ -52,6 +52,7 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
                             addonLeft={<Icon Svg={SearchIcon} />}
                             isLoading={isLoading}
                             placeholder={t('Find')}
+                            size="s"
                             value={search}
                             fullWidth
                             onChange={searchChange}

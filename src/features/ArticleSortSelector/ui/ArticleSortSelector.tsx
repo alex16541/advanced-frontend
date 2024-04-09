@@ -41,6 +41,7 @@ const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
                     <ListBox
                         classNameWrapper={cls.field}
                         options={sortOptions}
+                        size="s"
                         value={value}
                         onChange={onChange}
                     />

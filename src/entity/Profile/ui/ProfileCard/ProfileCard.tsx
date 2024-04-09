@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entity/Country';
 import { Currency, CurrencySelect } from '@/entity/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
-import { Input } from '@/shared/ui/deprecated/Input';
 import { Loader } from '@/shared/ui/deprecated/Loader/ui/Loader';
-import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { Profile } from '../../model/types/profile';
 
@@ -67,100 +69,106 @@ const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
-                <Text align={TextAlign.CENTER} text={error} title={`${t('profile error')}:`} />
+                <Text align="center" text={error} title={`${t('profile error')}`} />
             </div>
         );
     }
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className, cls.data])}>
+        <Card className={classNames(cls.ProfileCard, mods, [className, cls.data])}>
             {data?.photo && (
                 <div className={cls.avatarWrapper}>
-                    <Avatar alt={t('user avatar')} size={AvatarSize.L} src={data?.photo} />
+                    <Avatar alt={t('user avatar')} size={120} src={data?.photo} />
                 </div>
             )}
 
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Username"
-                placeholder={t('username')}
-                readonly={readonly}
-                value={data?.username}
-                onChange={onChangeUsername}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Firstname"
-                placeholder={t('firstname')}
-                readonly={readonly}
-                value={data?.firstname}
-                onChange={onChangeFirstname}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Lastname"
-                placeholder={t('lastname')}
-                readonly={readonly}
-                value={data?.lastname || ''}
-                onChange={onChangeLastname}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Email"
-                placeholder={t('email')}
-                readonly={readonly}
-                value={data?.email}
-                onChange={onChangeEmail}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Age"
-                placeholder={t('age')}
-                readonly={readonly}
-                value={data?.age?.toString()}
-                onChange={onChangeAge}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.City"
-                placeholder={t('city')}
-                readonly={readonly}
-                value={data?.city}
-                onChange={onChangeCity}
-            />
-            <CountrySelect
-                className={cls.input}
-                data-testid="ProfileCard.Country"
-                placeholder={t('country')}
-                readonly={readonly}
-                value={data?.country}
-                onChangeValue={onChangeCountry}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Phone"
-                placeholder={t('phone')}
-                readonly={readonly}
-                value={data?.phone}
-                onChange={onChangePhone}
-            />
-            <Input
-                className={cls.input}
-                data-testid="ProfileCard.Photo"
-                placeholder={t('photo')}
-                readonly={readonly}
-                value={data?.photo}
-                onChange={onChangePhoto}
-            />
-            <CurrencySelect
-                className={cls.input}
-                data-testid="ProfileCard.Currency"
-                placeholder={t('currency')}
-                readonly={readonly}
-                value={data?.currency}
-                onChangeValue={onChangeCurrency}
-            />
-        </div>
+            <HStack gap="24" maxWidth>
+                <VStack gap="16" maxWidth>
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Username"
+                        label={t('username')}
+                        readonly={readonly}
+                        value={data?.username}
+                        onChange={onChangeUsername}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Firstname"
+                        label={t('firstname')}
+                        readonly={readonly}
+                        value={data?.firstname}
+                        onChange={onChangeFirstname}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Lastname"
+                        label={t('lastname')}
+                        readonly={readonly}
+                        value={data?.lastname || ''}
+                        onChange={onChangeLastname}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Email"
+                        label={t('email')}
+                        readonly={readonly}
+                        value={data?.email}
+                        onChange={onChangeEmail}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Age"
+                        label={t('age')}
+                        readonly={readonly}
+                        value={data?.age?.toString()}
+                        onChange={onChangeAge}
+                    />
+                </VStack>
+                <VStack gap="16" maxWidth>
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.City"
+                        label={t('city')}
+                        readonly={readonly}
+                        value={data?.city}
+                        onChange={onChangeCity}
+                    />
+                    <CountrySelect
+                        className={cls.input}
+                        data-testid="ProfileCard.Country"
+                        label={t('country')}
+                        readonly={readonly}
+                        value={data?.country}
+                        onChangeValue={onChangeCountry}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Phone"
+                        label={t('phone')}
+                        readonly={readonly}
+                        value={data?.phone}
+                        onChange={onChangePhone}
+                    />
+                    <Input
+                        className={cls.input}
+                        data-testid="ProfileCard.Photo"
+                        label={t('photo')}
+                        readonly={readonly}
+                        value={data?.photo}
+                        onChange={onChangePhoto}
+                    />
+                    <CurrencySelect
+                        className={cls.input}
+                        data-testid="ProfileCard.Currency"
+                        label={t('currency')}
+                        readonly={readonly}
+                        value={data?.currency}
+                        onChangeValue={onChangeCurrency}
+                    />
+                </VStack>
+            </HStack>
+        </Card>
     );
 };
 

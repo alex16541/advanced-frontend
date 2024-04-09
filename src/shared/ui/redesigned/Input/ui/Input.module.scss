@@ -3,12 +3,11 @@
     align-items: center;
 
     width: max-content;
-    height: 32px;
     padding: 5px 16px;
 
     background-color: var(--dark-bg-color-redesigned);
     border: 2px solid var(--icon-color-redesigned);
-    border-radius: var(--border-radius-xxl);
+    border-radius: var(--border-radius-xl);
 
     &.readonly {
         border-color: var(--hint-color-redesigned);
@@ -18,15 +17,8 @@
         }
     }
 
-    &:has(.Input:focus) {
-        border-color: var(--accent-color-redesigned);
-
-        svg {
-            color: var(--accent-color-redesigned);
-        }
-    }
-
-    &:not(.readonly):has(input:hover) {
+    &:not(.readonly):has(.Input:focus),
+    &:not(.readonly):has(.Input:hover) {
         border-color: var(--accent-color-redesigned);
 
         svg {
@@ -43,7 +35,7 @@
 .Input {
     width: 100%;
     font: var(--font-m-redesigned);
-    color: var(--contrast-color);
+    color: var(--text-color-redesigned);
     background-color: transparent;
 
     &::placeholder {
@@ -57,4 +49,12 @@
 
 .loader {
     height: 30px;
+}
+
+.s {
+    height: 32px;
+}
+
+.m {
+    height: 38px;
 }
