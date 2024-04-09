@@ -1,5 +1,5 @@
 .Avatar {
-    border-radius: 5px;
+    border-radius: var(--border-radius-l);
 }
 
 .rounded {
@@ -7,6 +7,6 @@
 }
 
 .icon {
-    color: var(--primary-color);
-    fill: var(--primary-color);
+    color: var(--text-color-redesigned);
+    fill: var(--text-color-redesigned);
 }

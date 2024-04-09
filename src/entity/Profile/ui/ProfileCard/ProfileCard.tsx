@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entity/Country';
 import { Currency, CurrencySelect } from '@/entity/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/deprecated/Loader/ui/Loader';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Input } from '@/shared/ui/redesigned/Input';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
@@ -60,9 +60,27 @@ const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, mods, [className, cls.isLoading])}>
-                <Loader />
-            </div>
+            <Card className={classNames(cls.ProfileCard, mods, [className, cls.isLoading])}>
+                <VStack align="Center" gap="32" maxWidth>
+                    <Skeleton height={120} width={120} />
+                    <HStack gap="24" maxWidth>
+                        <VStack gap="16" maxWidth>
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                        </VStack>
+                        <VStack gap="16" maxWidth>
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                            <Skeleton height={32} width="100%" />
+                        </VStack>
+                    </HStack>
+                </VStack>
+            </Card>
         );
     }
 
