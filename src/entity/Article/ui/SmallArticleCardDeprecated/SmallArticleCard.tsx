@@ -3,14 +3,13 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Button, ButtonSize } from '@/shared/ui/deprecated/Button';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
 
 import { Article } from '../../model/types/article';
 
@@ -50,21 +49,27 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
                         fallbeck={<Skeleton height="100%" width="100%" />}
                         src={article.img}
                     />
+                    <div className={cls.dateWrapper}>
+                        <Button className={cls.date} size={ButtonSize.S} disabled>
+                            {article.createdAt}
+                        </Button>
+                    </div>
+                    <div className={cls.tags}>
+                        {article.type.map((tag) => (
+                            <Button key={tag} size={ButtonSize.S}>
+                                {tag}
+                            </Button>
+                        ))}
+                    </div>
                 </div>
-                <VStack className={cls.content} gap="0">
-                    <HStack className={cls.user} gap="8">
-                        <Avatar alt={article.user.username} size={32} src={article.user.avatar} />
-                        <Text text={article.user.username} weight="bold" />
-                    </HStack>
-                    <Text className={cls.title} size="m" title={article.title} />
-                    <HStack gap="8" justify="SpaceBetween">
-                        <Text text={article.createdAt} />
-                        <HStack gap="8">
-                            <Icon Svg={EyeIcon} />
-                            <Text text={article.views.toString()} />
-                        </HStack>
-                    </HStack>
-                </VStack>
+
+                <div className={cls.content}>
+                    <Text className={cls.title} size={TextSize.S} title={article.title} />
+                    <div className={cls.views}>
+                        <Icon className={cls.icon} Svg={EyeIcon} />
+                        <Text size={TextSize.M} text={article.views.toString()} />
+                    </div>
+                </div>
             </Card>
         </AppLink>
     );

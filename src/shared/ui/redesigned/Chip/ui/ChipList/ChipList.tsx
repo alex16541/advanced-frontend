@@ -51,13 +51,7 @@ function ChipList<T extends string>(props: ChipListProps<T>) {
     const align = useMemo(() => (direction === 'Column' ? 'Start' : 'Center'), [direction]);
 
     return (
-        <Flex
-            align={align}
-            className={classNames('', {}, [className])}
-            direction={direction}
-            gap="8"
-            justify="Start"
-        >
+        <Flex align={align} className={classNames('', {}, [className])} direction={direction} gap="8">
             {chips}
         </Flex>
     );

@@ -3,17 +3,17 @@ import { CSSProperties, useMemo } from 'react';
 import UserAvatar from '@/shared/assets/svg/user.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Skeleton } from '../../deprecated/Skeleton';
 import { AppImage } from '../AppImage';
 import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
 
 import cls from './Avatar.module.scss';
 
-export type AvatarSize = 30 | 50 | 70 | 100 | 120;
+export type AvatarSize = 30 | 32 | 50 | 70 | 100 | 120;
 
 interface AvatarProps {
     className?: string;
-    src: string;
+    src?: string;
     size?: number | AvatarSize;
     alt: string;
     rounded?: boolean;

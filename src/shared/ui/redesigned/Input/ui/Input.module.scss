@@ -34,8 +34,11 @@
 
 .Input {
     width: 100%;
+
     font: var(--font-m-redesigned);
+    line-height: 1;
     color: var(--text-color-redesigned);
+
     background-color: transparent;
 
     &::placeholder {

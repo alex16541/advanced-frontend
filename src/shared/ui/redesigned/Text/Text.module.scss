@@ -65,3 +65,26 @@
         font: var(--font-l-redesigned);
     }
 }
+
+// style
+
+.normal {
+    .title,
+    .text {
+        font-weight: 400;
+    }
+}
+
+.bold {
+    .title,
+    .text {
+        font-weight: 700;
+    }
+}
+
+.black {
+    .title,
+    .text {
+        font-weight: 900;
+    }
+}

@@ -103,7 +103,7 @@ const ListBoxComponent = <T extends string>(props: ListBoxProps<T>) => {
 
     if (label) {
         return (
-            <HStack justify="Start">
+            <HStack>
                 <Text text={`${label}: `} />
                 {listBox}
             </HStack>

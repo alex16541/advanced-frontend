@@ -1,4 +1,5 @@
 .ListBox {
+    width: 100%;
 }
 
 .ListBoxWrapper {
@@ -17,7 +18,6 @@
 
     &.open {
         border-color: var(--accent-color-redesigned);
-        border-bottom: none;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
 
@@ -28,6 +28,9 @@
 }
 
 .Options {
+    // 2px - нижний border кнопки
+    top: calc(100% - 2px);
+
     overflow: hidden;
 
     width: auto;

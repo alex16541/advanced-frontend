@@ -8,6 +8,8 @@ export type TextAlign = 'start' | 'center' | 'end';
 
 export type TextSize = 's' | 'm' | 'l';
 
+type TextWeight = 'normal' | 'bold' | 'black';
+
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 
 interface TextProps {
@@ -19,6 +21,7 @@ interface TextProps {
     size?: TextSize;
     HeaderTag?: HeaderTagType;
     dataTestId?: string;
+    weight?: TextWeight;
 }
 
 export const Text = (props: TextProps) => {
@@ -31,12 +34,14 @@ export const Text = (props: TextProps) => {
         size = 'm',
         HeaderTag = 'h4',
         dataTestId = 'Text',
+        weight = 'normal',
+
         ...otherProps
     } = props;
 
     return (
         <div
-            className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}
+            className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size], cls[weight]])}
             data-testid={dataTestId}
         >
             {title && (

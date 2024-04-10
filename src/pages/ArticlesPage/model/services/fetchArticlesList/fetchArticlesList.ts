@@ -37,7 +37,7 @@ export const fetchArticlesList = createAsyncThunk<
             params: {
                 _page: page,
                 _limit: limit,
-                _extend: 'user',
+                _expand: 'user',
                 _sort: sort,
                 _order: order,
                 type_like: type === ArticleType.ALL ? undefined : type,

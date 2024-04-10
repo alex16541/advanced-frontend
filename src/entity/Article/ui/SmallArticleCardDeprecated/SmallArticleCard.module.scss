@@ -1,0 +1,130 @@
+.SmallArticleCard {
+    display: block;
+
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+
+    transition: transform var(--transition-duration);
+
+    .cardWrapper {
+        height: 100%;
+    }
+
+    .imageWrapper {
+        position: relative;
+
+        overflow: hidden;
+
+        aspect-ratio: 16/9;
+        width: 100%;
+        margin-bottom: 10px;
+
+        border-radius: 7px;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .dateWrapper {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+
+        display: flex;
+
+        opacity: 0;
+
+        transition-duration: var(--transition-duration);
+    }
+
+    .date {
+        padding: 5px 10px;
+    }
+
+    .tags {
+        position: absolute;
+        bottom: 7px;
+        left: 7px;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        opacity: 0;
+
+        transition-duration: var(--transition-duration);
+    }
+
+    .content {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .title {
+    }
+
+    .views {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+
+        .icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 300px;
+    min-width: 300px;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .content {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+@media (pointer: fine) {
+    .SmallArticleCard:hover {
+        transform: scale(1.05);
+        opacity: 1;
+
+        .dateWrapper {
+            opacity: 0.8;
+        }
+
+        .tags {
+            opacity: 1;
+        }
+    }
+}
+
+@media (pointer: coarse) {
+    .SmallArticleCard {
+        .dateWrapper {
+            opacity: 0.8;
+        }
+
+        .tags {
+            opacity: 1;
+        }
+    }
+}
