@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { SortOrder } from '@/shared/types/sort';
 import { ListBox as ListBoxDeprecated, ListBoxOption } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';

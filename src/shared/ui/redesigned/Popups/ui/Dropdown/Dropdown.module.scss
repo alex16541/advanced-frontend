@@ -10,6 +10,7 @@
 .Items {
     position: absolute;
 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -27,8 +28,14 @@
 }
 
 .Item {
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
     width: 100%;
-    padding: 10px 15px;
+    height: 42px;
+    padding: 0 16px;
+
     border: 0;
 }
 

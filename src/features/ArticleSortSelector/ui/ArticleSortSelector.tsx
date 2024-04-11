@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleSortField } from '@/entity/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { ListBox as ListBoxDeprecated, ListBoxOption } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 

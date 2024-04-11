@@ -5,7 +5,7 @@ import { getAuthData, getIsUserAdmin, getIsUserManager, userActions } from '@/en
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { PopupDirection } from '@/shared/types/ui';
 import {
     Avatar as AvatarDeprecated,
@@ -53,6 +53,7 @@ const AvatarButton = (props: AvatarButtonProps) => {
                     }
                     items={[
                         { content: t('profile'), href: `/profile/${authData.id}` },
+                        { content: t('Settings'), href: '/settings' },
                         ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
                         { content: t('logout'), onClick: logout },
                     ]}
@@ -65,6 +66,7 @@ const AvatarButton = (props: AvatarButtonProps) => {
                     direction={direction}
                     items={[
                         { content: t('profile'), href: `/profile/${authData.id}` },
+                        { content: t('Settings'), href: '/settings' },
                         ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
                         { isDelimiter: true },
                         { content: t('logout'), onClick: logout },

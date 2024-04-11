@@ -13,5 +13,8 @@
   "wrong login or password": "Wrong login or password",
   "logout": "Logout",
   "your profile page title": "Your profile",
-  "articles": "Articles"
+  "articles": "Articles",
+  "Select design": "Select design",
+  "Old": "Old",
+  "New": "New"
 }

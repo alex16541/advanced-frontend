@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';

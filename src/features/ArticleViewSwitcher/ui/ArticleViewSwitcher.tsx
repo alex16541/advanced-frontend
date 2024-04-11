@@ -4,7 +4,7 @@ import { ArticlesListView } from '@/entity/Article';
 import GridIcon from '@/shared/assets/svg/grid.svg';
 import LayoutListIcon from '@/shared/assets/svg/layoutList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import {
     Button as ButtonDeprecated,
     ButtonThemes as ButtonThemesDeprecated,

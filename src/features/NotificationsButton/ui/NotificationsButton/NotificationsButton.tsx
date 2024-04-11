@@ -6,7 +6,7 @@ import { getAuthData } from '@/entity/User';
 import bell from '@/shared/assets/svg/bell.svg';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { PopupDirection } from '@/shared/types/ui';
 import {
     Button as ButtonDeprecated,

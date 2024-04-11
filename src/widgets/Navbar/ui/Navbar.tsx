@@ -8,7 +8,7 @@ import { NotificationsButton } from '@/features/NotificationsButton';
 import LoginIcon from '@/shared/assets/svg/login.svg';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';

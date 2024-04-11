@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, initAuthData } from '@/entity/User';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';

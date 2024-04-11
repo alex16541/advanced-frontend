@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { ChipList as ChipListDeprecated } from '@/shared/ui/deprecated/Chip';
 import { ChipList } from '@/shared/ui/redesigned/Chip';
 

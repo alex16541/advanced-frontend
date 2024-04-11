@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useFetchNotificationsQuery } from '../../api/notificationApi';

@@ -5,7 +5,7 @@ import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeChips } from '@/features/ArticleTypeChips';
 import SearchIcon from '@/shared/assets/svg/search.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';

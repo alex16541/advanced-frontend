@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { ListBoxOption } from '@/shared/ui/deprecated/Popups/types/listBox';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ui/ListBox/ListBox';
 import { ListBox } from '@/shared/ui/redesigned/Popups';

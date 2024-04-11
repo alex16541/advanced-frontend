@@ -8,7 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';

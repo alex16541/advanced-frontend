@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/FeatureToggle/FeatureToggle';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Button as ButtonRedesigned, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 
