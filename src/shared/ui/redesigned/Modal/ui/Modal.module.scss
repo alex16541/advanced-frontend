@@ -28,12 +28,20 @@
     max-width: 80vw;
     min-height: 100px;
     max-height: 80vh;
+}
+
+.contentOld {
     padding: 20px;
-
     color: var(--primary-color);
-
     background-color: var(--primary-bg-color);
     border-radius: 5px;
+}
+
+.contentNew {
+    padding: 24px;
+    color: var(--text-color-redesigned);
+    background-color: var(--dark-bg-color-redesigned);
+    border-radius: var(--border-radius-xl);
 }
 
 .isOpen {

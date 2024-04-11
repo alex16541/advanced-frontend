@@ -24,10 +24,19 @@
 
     width: 100%;
     height: calc(100vh - 300px);
-    padding: 10px;
+}
 
+.contentOld {
+    padding: 10px;
     background-color: var(--primary-bg-color);
     border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+}
+
+.contentNew {
+    padding: 18px;
+    color: var(--text-color-redesigned);
+    background-color: var(--dark-bg-color-redesigned);
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
 }
 
 .overlay {

@@ -17,5 +17,11 @@
   "Rate": "Оценить",
   "Greeting title": "На этой странице ты можешь найти множество разных статей на любой вкус. Приятного чтения!",
   "Greeting text": "Привет!",
-  "Find": "Найти"
+  "Find": "Найти",
+  "views_zero": "{{count}} просмотров",
+  "views_one": "{{count}} просмотр",
+  "views_two": "{{count}} просмотра",
+  "views_few": "{{count}} просмотров",
+  "views_many": "{{count}} просмотров",
+  "views_other": "{{count}} просмотров"
 }

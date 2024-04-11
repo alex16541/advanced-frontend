@@ -7,5 +7,11 @@
   "Rate": "Estimate",
   "Greeting text": "Hi!",
   "Greeting title": "On this page you can find many different articles for every taste. \nEnjoy reading!",
-  "Find": "Find"
+  "Find": "Find",
+  "views_zero": "{{count}} views",
+  "views_one": "{{count}} views",
+  "views_two": "{{count}} view",
+  "views_few": "{{count}} views",
+  "views_many": "{{count}} views",
+  "views_other": "{{count}} views"
 }

@@ -10,7 +10,7 @@ const extendedApi = rtkApi.injectEndpoints({
                 params: {
                     _page: 1,
                     _limit: limit,
-                    _extend: 'user',
+                    _expand: 'user',
                 },
             }),
         }),

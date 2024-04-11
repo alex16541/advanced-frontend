@@ -2,8 +2,9 @@ import { ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { featureToggle } from '@/shared/lib/features';
 
-import { Portal } from '../../../redesigned/Portal';
+import { Portal } from '../../Portal';
 
 import cls from './Drawer.module.scss';
 
@@ -15,10 +16,6 @@ interface DrawerProps {
     lazy?: boolean;
 }
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 const DrawerComponent = (props: DrawerProps) => {
     const { className, children, isOpen = false, onClose, lazy = false } = props;
 
@@ -78,6 +75,12 @@ const DrawerComponent = (props: DrawerProps) => {
         opacity: y.to([0, height], [1, 0]),
     };
 
+    const contentCls = featureToggle({
+        name: 'isRedesignedApp',
+        on: () => cls.contentNew,
+        off: () => cls.contentOld,
+    });
+
     if (!isOpen) return null;
 
     return (
@@ -86,7 +89,7 @@ const DrawerComponent = (props: DrawerProps) => {
                 {/* <Overlay onClick={closeHandler} /> */}
                 <a.div className={cls.overlay} style={overlayStyle} onClick={() => close()} />
                 <a.div
-                    className={cls.content}
+                    className={classNames(cls.content, {}, [contentCls])}
                     style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}
                     {...bind()}
                 >
@@ -97,10 +100,6 @@ const DrawerComponent = (props: DrawerProps) => {
     );
 };
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 const DrawerWithAnimationLibs = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
     if (!isLoaded) return null;
@@ -108,10 +107,6 @@ const DrawerWithAnimationLibs = (props: DrawerProps) => {
     return <DrawerComponent {...props} />;
 };
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
         <DrawerWithAnimationLibs {...props} />
