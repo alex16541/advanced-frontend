@@ -74,11 +74,14 @@
     --font-l-redesigned:
         400 var(--font-size-l-redesigned) / var(--font-line-l-redesigned)
         var(--font-family-redesigned);
+    --font-l-title-redesigned:
+        400 var(--font-size-l-redesigned) / var(--font-line-l-redesigned)
+        var(--font-family-title-redesigned);
 
     // X large
     --font-size-xl-redesigned: 32px;
     --font-line-xl-redesigned: 38px;
-    --font-xl-redesigned:
+    --font-xl-title-redesigned:
         400 var(--font-size-xl-redesigned) / var(--font-line-xl-redesigned)
-        var(--font-family-redesigned);
+        var(--font-family-title-redesigned);
 }

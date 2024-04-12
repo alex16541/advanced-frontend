@@ -2,7 +2,7 @@
 }
 
 .title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 16px;
     color: var(--text-color-redesigned);
 }
 
@@ -48,7 +48,7 @@
 
 .m {
     .title {
-        font: var(--font-l-redesigned);
+        font: var(--font-l-title-redesigned);
     }
 
     .text {
@@ -58,7 +58,7 @@
 
 .l {
     .title {
-        font: var(--font-xl-redesigned);
+        font: var(--font-xl-title-redesigned);
     }
 
     .text {

@@ -1,9 +1,13 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { ArticleImageBlock } from '../../model/types/article';
 
@@ -19,9 +23,27 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
     const { src, title } = articleBlock;
 
     return (
-        <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            <AppImage alt={title} fallbeck={<Skeleton height="450px" width="100%" />} src={src} />
-            {title && <Text align={TextAlign.CENTER} text={title} />}
-        </div>
+        <FeatureToggle
+            feature="isRedesignedApp"
+            off={
+                <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
+                    <AppImage
+                        alt={title}
+                        fallbeck={<SkeletonDeprecated height="450px" width="100%" />}
+                        src={src}
+                    />
+                    {title && <TextDeprecated align={TextAlign.CENTER} text={title} />}
+                </div>
+            }
+            on={
+                <VStack
+                    className={classNames(cls.ArticleImageBlockComponentRedesigned, {}, [className])}
+                    gap="8"
+                >
+                    <AppImage alt={title} fallbeck={<Skeleton height="450px" width="100%" />} src={src} />
+                    {title && <Text align="center" text={title} />}
+                </VStack>
+            }
+        />
     );
 });

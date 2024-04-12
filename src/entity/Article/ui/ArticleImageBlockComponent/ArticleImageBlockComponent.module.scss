@@ -8,3 +8,14 @@
         border-radius: var(--border-radius-s);
     }
 }
+
+.ArticleImageBlockComponentRedesigned {
+    width: 100%;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: var(--border-radius-l);
+    }
+}

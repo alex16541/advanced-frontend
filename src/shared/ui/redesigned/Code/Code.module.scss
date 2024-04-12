@@ -1,0 +1,55 @@
+.CodeWrapperDeprecated {
+    position: relative;
+
+    .Code {
+        overflow: auto;
+
+        padding: 1rem;
+
+        color: var(--contrast-color);
+
+        background-color: var(--secondary-bg-color);
+        border-radius: var(--border-radius-s);
+    }
+
+    .copy {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        width: 25px;
+        height: 25px;
+    }
+
+    .copyIcon {
+        fill: var(--contrast-color);
+    }
+}
+
+.CodeWrapper {
+    position: relative;
+
+    .Code {
+        overflow: auto;
+
+        padding: 18px;
+
+        color: var(--text-color-redesigned);
+
+        background-color: var(--secondary-bg-color);
+        border-radius: var(--border-radius-l);
+    }
+
+    .copy {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        width: 25px;
+        height: 25px;
+
+        &:hover {
+            color: var(--accent-color-redesigned);
+        }
+    }
+}
