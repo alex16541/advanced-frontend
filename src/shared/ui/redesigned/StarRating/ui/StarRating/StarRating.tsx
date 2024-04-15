@@ -1,10 +1,9 @@
 import { memo, useCallback, useState } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui/redesigned/Stack';
-import { FlexJustify } from '@/shared/ui/redesigned/Stack/Flex/model/types';
 
-import { Button, ButtonThemes } from '../../../Button';
+import { HStack } from '../../../Stack';
+import { FlexJustify } from '../../../Stack/Flex/model/types';
 import { Star } from '../Star/Star';
 
 import cls from './StarRating.module.scss';
@@ -20,10 +19,6 @@ interface StarRatingProps {
     size?: number | string;
 }
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 const StarRating = (props: StarRatingProps) => {
     const {
         className,
@@ -72,29 +67,25 @@ const StarRating = (props: StarRatingProps) => {
                     const val = index + 1;
 
                     return (
-                        <Button
+                        <button
                             className={cls.Button}
                             data-selected={val <= (hovered || value)}
                             data-testid={`StarRating.Star.${val}`}
                             disabled={disabled || (!editable && Boolean(value))}
                             key={val}
-                            theme={ButtonThemes.CLEAR}
+                            type="button"
                             onClick={() => onChangeHandler(val)}
                             onMouseEnter={() => onMouseEnter(val)}
                             onMouseLeave={onMouseLeave}
                         >
                             <Star checked={val <= (hovered || value)} size={size} />
-                        </Button>
+                        </button>
                     );
                 })}
         </HStack>
     );
 };
 
-/**
- * Используйте соответствующий компонент из папки refactoring
- * @deprecated
- */
 const Memoized = memo(StarRating);
 
 export { Memoized as StarRating };

@@ -3,14 +3,24 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonColor, ButtonSize } from '@/shared/ui/deprecated/Button';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { StarRating } from '@/shared/ui/deprecated/StarRating';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
+import {
+    Button as ButtonDeprecated,
+    ButtonColor as ButtonColorDeprecated,
+    ButtonSize as ButtonSizeDeprecated,
+} from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { StarRating as StarRatingDeprecated } from '@/shared/ui/deprecated/StarRating';
+import { Text as TextDeprecated, TextSize as TextSizeDeprecated } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { StarRating } from '@/shared/ui/redesigned/StarRating';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './RatingCard.module.scss';
 
@@ -84,12 +94,12 @@ const RatingCard = (props: RatingCardProps) => {
         setFeedback(feedback);
     }, []);
 
-    const ModalContent = useMemo(
+    const ModalContentOld = useMemo(
         () => (
             <VStack gap="8">
-                <Text size={TextSize.L} title={feedbackTitle} />
-                {/* TODO: Заменить на textarea */}
-                <Input
+                <TextDeprecated size={TextSizeDeprecated.L} title={feedbackTitle} />
+                <InputDeprecated
+                    className={cls.Input}
                     data-testid="RatingCard.FeedbackInput"
                     placeholder={feedbackPlaceholder}
                     onChange={onChangeFeedback}
@@ -99,59 +109,181 @@ const RatingCard = (props: RatingCardProps) => {
         [feedbackPlaceholder, feedbackTitle, onChangeFeedback],
     );
 
-    return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
-            <VStack align="Center" gap="16">
-                <Text size={TextSize.L} title={starRating ? ratedTitle : title} />
-                <StarRating
-                    disabled={disabled}
-                    editable={isEditable}
-                    rating={starRating}
-                    size={40}
-                    onChange={onChangeStarRating}
+    const ModalContentNew = useMemo(
+        () => (
+            <VStack gap="8">
+                <Text size="l" title={feedbackTitle} />
+                {/* TODO: Заменить на textarea */}
+                <Input
+                    className={cls.Input}
+                    data-testid="RatingCard.FeedbackInput"
+                    placeholder={feedbackPlaceholder}
+                    onChange={onChangeFeedback}
                 />
             </VStack>
+        ),
+        [feedbackPlaceholder, feedbackTitle, onChangeFeedback],
+    );
 
-            {hasFeedback && (
-                <>
-                    <BrowserView>
-                        <Modal classNameContent={cls.Modal} isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack data-testid="RatingCard.Modal" gap="32" justify="SpaceBetween" maxWidth>
-                                {ModalContent}
-                                <HStack justify="End" maxWidth>
-                                    <Button color={ButtonColor.RED} onClick={cancelHendler}>
-                                        {cancelText}
-                                    </Button>
-                                    <Button data-testid="RatingCard.Accept" onClick={acceptHendler}>
-                                        {acceptText}
-                                    </Button>
-                                </HStack>
-                            </VStack>
-                        </Modal>
-                    </BrowserView>
-                    <MobileView>
-                        <Drawer isOpen={isOpen} onClose={cancelHendler}>
-                            <VStack
-                                data-testid="RatingCard.Modal"
-                                gap="32"
-                                justify="SpaceBetween"
-                                maxHeight
-                                maxWidth
-                            >
-                                {ModalContent}
-                                <Button
-                                    data-testid="RatingCard.Accept"
-                                    size={ButtonSize.L}
-                                    onClick={acceptHendler}
+    const form = useMemo(
+        () => (
+            <>
+                <VStack align="Center" gap="10">
+                    <FeatureToggle
+                        feature="isRedesignedApp"
+                        on={<Text className={cls.title} size="l" title={starRating ? ratedTitle : title} />}
+                        off={
+                            <TextDeprecated
+                                size={TextSizeDeprecated.L}
+                                title={starRating ? ratedTitle : title}
+                            />
+                        }
+                    />
+                    <FeatureToggle
+                        feature="isRedesignedApp"
+                        off={
+                            <StarRatingDeprecated
+                                disabled={disabled}
+                                editable={isEditable}
+                                rating={starRating}
+                                size={40}
+                                onChange={onChangeStarRating}
+                            />
+                        }
+                        on={
+                            <StarRating
+                                disabled={disabled}
+                                editable={isEditable}
+                                rating={starRating}
+                                size={40}
+                                onChange={onChangeStarRating}
+                            />
+                        }
+                    />
+                </VStack>
+
+                {hasFeedback && (
+                    <>
+                        <BrowserView>
+                            <Modal classNameContent={cls.Modal} isOpen={isOpen} onClose={cancelHendler}>
+                                <VStack
+                                    data-testid="RatingCard.Modal"
+                                    gap="32"
+                                    justify="SpaceBetween"
+                                    maxWidth
                                 >
-                                    {acceptText}
-                                </Button>
-                            </VStack>
-                        </Drawer>
-                    </MobileView>
-                </>
-            )}
-        </Card>
+                                    <FeatureToggle
+                                        feature="isRedesignedApp"
+                                        off={
+                                            <>
+                                                {ModalContentOld}
+                                                <HStack justify="End" maxWidth>
+                                                    <ButtonDeprecated
+                                                        color={ButtonColorDeprecated.RED}
+                                                        onClick={cancelHendler}
+                                                    >
+                                                        {cancelText}
+                                                    </ButtonDeprecated>
+                                                    <ButtonDeprecated
+                                                        data-testid="RatingCard.Accept"
+                                                        onClick={acceptHendler}
+                                                    >
+                                                        {acceptText}
+                                                    </ButtonDeprecated>
+                                                </HStack>
+                                            </>
+                                        }
+                                        on={
+                                            <>
+                                                {ModalContentNew}
+                                                <HStack justify="End" maxWidth>
+                                                    <Button color="red" onClick={cancelHendler}>
+                                                        {cancelText}
+                                                    </Button>
+                                                    <Button
+                                                        data-testid="RatingCard.Accept"
+                                                        onClick={acceptHendler}
+                                                    >
+                                                        {acceptText}
+                                                    </Button>
+                                                </HStack>
+                                            </>
+                                        }
+                                    />
+                                </VStack>
+                            </Modal>
+                        </BrowserView>
+                        <MobileView>
+                            <Drawer isOpen={isOpen} onClose={cancelHendler}>
+                                <VStack
+                                    data-testid="RatingCard.Modal"
+                                    gap="32"
+                                    justify="SpaceBetween"
+                                    maxHeight
+                                    maxWidth
+                                >
+                                    <FeatureToggle
+                                        feature="isRedesignedApp"
+                                        off={
+                                            <>
+                                                {ModalContentOld}
+                                                <ButtonDeprecated
+                                                    data-testid="RatingCard.Accept"
+                                                    size={ButtonSizeDeprecated.L}
+                                                    onClick={acceptHendler}
+                                                >
+                                                    {acceptText}
+                                                </ButtonDeprecated>
+                                            </>
+                                        }
+                                        on={
+                                            <>
+                                                {ModalContentNew}
+                                                <Button
+                                                    data-testid="RatingCard.Accept"
+                                                    size="l"
+                                                    onClick={acceptHendler}
+                                                >
+                                                    {acceptText}
+                                                </Button>
+                                            </>
+                                        }
+                                    />
+                                </VStack>
+                            </Drawer>
+                        </MobileView>
+                    </>
+                )}
+            </>
+        ),
+        [
+            ModalContentNew,
+            ModalContentOld,
+            acceptHendler,
+            acceptText,
+            cancelHendler,
+            cancelText,
+            disabled,
+            hasFeedback,
+            isEditable,
+            isOpen,
+            onChangeStarRating,
+            ratedTitle,
+            starRating,
+            title,
+        ],
+    );
+
+    return (
+        <FeatureToggle
+            feature="isRedesignedApp"
+            on={<Card className={classNames(cls.RatingCard, {}, [className])}>{form}</Card>}
+            off={
+                <CardDeprecated className={classNames(cls.RatingCard, {}, [className])}>
+                    {form}
+                </CardDeprecated>
+            }
+        />
     );
 };
 

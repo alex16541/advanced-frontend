@@ -2,24 +2,40 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Text.module.scss';
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum TextThemes {
     PRIMARY = 'primary',
     CONTRAST = 'contrast',
     ERROR = 'error',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum TextAlign {
     START = 'align-start',
     CENTER = 'align-center',
     END = 'align-end',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 export enum TextSize {
     S = 'size-s',
     M = 'size-m',
     L = 'size-l',
 }
 
+/**
+ * Используйте соответствующий компонент из папки refactoring
+ * @deprecated
+ */
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 
 interface TextProps {

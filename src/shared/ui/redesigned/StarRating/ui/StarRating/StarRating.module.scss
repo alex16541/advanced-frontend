@@ -1,0 +1,14 @@
+.StarRating{
+
+}
+
+.Button {
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:not(:last-child) {
+        padding-right: 8px;
+    }
+}

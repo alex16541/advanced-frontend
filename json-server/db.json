@@ -48,6 +48,13 @@
       "rating": 3,
       "feedback": "Good",
       "id": "1e1G4Tt"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rating": 4,
+      "feedback": "",
+      "id": "Ol9-3-B"
     }
   ],
   "articles": [
