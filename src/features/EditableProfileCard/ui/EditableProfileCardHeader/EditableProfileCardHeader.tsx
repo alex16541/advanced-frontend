@@ -7,8 +7,10 @@ import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Button as ButtonDeprecated, ButtonColor, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly/getProfileIsReadonly';
@@ -50,7 +52,7 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
             feature="isRedesignedApp"
             off={
                 <div className={classNames(cls.EditableProfileCardHeader, {}, [className, 'title'])}>
-                    <Text title={t('profile')} />
+                    <TextDeprecated title={t('profile')} />
                     {canBeEdit && (
                         <div className={cls.actions}>
                             {readonly ? (
@@ -85,33 +87,40 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
                 </div>
             }
             on={
-                <div className={classNames(cls.EditableProfileCardHeaderRedesigned, {}, [className])}>
+                <HStack
+                    className={classNames(cls.EditableProfileCardHeaderRedesigned, {}, [className])}
+                    gap="32"
+                    justify="SpaceBetween"
+                    maxWidth
+                >
+                    <Text size="l" title={t('profile')} weight="bold" />
                     {canBeEdit && (
-                        <div className={cls.actions}>
+                        <>
                             {readonly ? (
                                 <Button data-testid="EditableProfileCardHeader.EditButton" onClick={onEdit}>
                                     {t('edit')}
                                 </Button>
                             ) : (
-                                <>
+                                <HStack gap="8">
                                     <Button
+                                        color="save"
                                         data-testid="EditableProfileCardHeader.SaveButton"
                                         onClick={onSave}
                                     >
                                         {t('Save')}
                                     </Button>
                                     <Button
-                                        color="red"
+                                        color="cancel"
                                         data-testid="EditableProfileCardHeader.CancelButton"
                                         onClick={onCalcelEdit}
                                     >
                                         {t('Cancel')}
                                     </Button>
-                                </>
+                                </HStack>
                             )}
-                        </div>
+                        </>
                     )}
-                </div>
+                </HStack>
             }
         />
     );

@@ -2,4 +2,4 @@ export type ButtonVariant = 'primary' | 'secondary' | 'transparent' | 'clear' | 
 
 export type ButtonSize = 's' | 'm' | 'l';
 
-export type ButtonColor = 'default' | 'red';
+export type ButtonColor = 'default' | 'cancel' | 'save';

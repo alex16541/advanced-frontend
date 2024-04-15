@@ -5,23 +5,51 @@
     justify-content: center;
 
     margin: 0 auto;
+
+    .card {
+    }
+
+    &.grid_view {
+    }
+
+    &.list_view {
+        max-width: 900px;
+    }
+
+    &.carusel_view {
+        overflow: auto hidden;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        width: 100%;
+        padding: 15px 10px;
+    }
 }
 
-.card {
-}
+.ArticlesListRedesigned {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 
-.grid_view {
-}
+    margin: 0 auto;
 
-.list_view {
-    max-width: 900px;
-}
+    .card {
+    }
 
-.carusel_view {
-    overflow: auto hidden;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    &.grid_view {
+    }
 
-    width: 100%;
-    padding: 15px 10px;
+    &.list_view {
+        max-width: 900px;
+    }
+
+    &.carusel_view {
+        overflow: auto hidden;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        width: 100%;
+        padding: 0 0 16px;
+    }
 }

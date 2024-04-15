@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -27,8 +28,8 @@ export const CommentList = memo((props: CommentListProps) => {
     );
 
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <VStack className={classNames(cls.CommentList, {}, [className])} gap="16">
             {comments ? commentCards : <Text text={t('No comments')} />}
-        </div>
+        </VStack>
     );
 });

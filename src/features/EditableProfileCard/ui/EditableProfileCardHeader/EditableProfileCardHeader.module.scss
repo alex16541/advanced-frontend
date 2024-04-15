@@ -14,12 +14,11 @@
 }
 
 .EditableProfileCardHeaderRedesigned {
-    display: flex;
-    justify-content: flex-end;
     margin-bottom: 8px;
 
     .actions {
         display: flex;
-        gap: 8px;
+        gap: 32px;
+        justify-content: space-between;
     }
 }

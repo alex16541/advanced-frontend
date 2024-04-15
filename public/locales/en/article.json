@@ -13,5 +13,6 @@
   "views_two": "{{count}} view",
   "views_few": "{{count}} views",
   "views_many": "{{count}} views",
-  "views_other": "{{count}} views"
+  "views_other": "{{count}} views",
+  "recommendations": "We recommend"
 }

@@ -2,6 +2,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { featureToggle } from '@/shared/lib/features';
 
 import { ArticlesListView } from '../../model/consts/article';
 import { Article } from '../../model/types/article';
@@ -50,7 +51,18 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])} data-testid="ArticlesList">
+        <div
+            data-testid="ArticlesList"
+            className={classNames(
+                featureToggle({
+                    name: 'isRedesignedApp',
+                    on: () => cls.ArticlesListRedesigned,
+                    off: () => cls.ArticlesList,
+                }),
+                {},
+                [className, cls[view]],
+            )}
+        >
             {articles.length > 0 ? articles.map(renderArticle) : !isLoading && t('no articles')}
             {isLoading && getSkeleton(listItemSize)}
         </div>

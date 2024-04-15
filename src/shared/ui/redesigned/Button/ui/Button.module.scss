@@ -123,26 +123,12 @@
     }
 }
 
-.red.primary {
-    color: var(--text-color-redesigned);
-    background-color: var(--cancel-color-redesigned);
-    border-color: transparent;
-
-    &:not(:disabled):hover {
-        background-color: var(--light-gb-color-redesigned);
-        border-color: var(--cancel-color-redesigned);
-    }
+.cancel {
+    border-color: var(--cancel-color-redesigned);
 }
 
-.red.outlined {
-    color: var(--cancel-color-redesigned);
-    border-color: var(--cancel-color-redesigned);
-
-    &:not(:disabled):hover {
-        color: var(--text-color-redesigned);
-        background-color: var(--cancel-color-redesigned);
-        border-color: transparent;
-    }
+.save {
+    border-color: var(--save-color-redesigned);
 }
 
 .loading {

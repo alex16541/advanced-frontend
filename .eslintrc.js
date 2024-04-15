@@ -77,6 +77,7 @@ module.exports = {
                     'variant',
                     'weight',
                     'HeaderTag',
+                    'border',
                 ],
                 markupOnly: true,
             },

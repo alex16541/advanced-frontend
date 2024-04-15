@@ -111,7 +111,7 @@ const RatingCard = (props: RatingCardProps) => {
 
     const ModalContentNew = useMemo(
         () => (
-            <VStack gap="8">
+            <VStack gap="16">
                 <Text size="l" title={feedbackTitle} />
                 {/* TODO: Заменить на textarea */}
                 <Input
@@ -131,11 +131,18 @@ const RatingCard = (props: RatingCardProps) => {
                 <VStack align="Center" gap="10">
                     <FeatureToggle
                         feature="isRedesignedApp"
-                        on={<Text className={cls.title} size="l" title={starRating ? ratedTitle : title} />}
                         off={
                             <TextDeprecated
                                 size={TextSizeDeprecated.L}
                                 title={starRating ? ratedTitle : title}
+                            />
+                        }
+                        on={
+                            <Text
+                                className={cls.title}
+                                size="l"
+                                title={starRating ? ratedTitle : title}
+                                weight="bold"
                             />
                         }
                     />
@@ -170,6 +177,7 @@ const RatingCard = (props: RatingCardProps) => {
                                     data-testid="RatingCard.Modal"
                                     gap="32"
                                     justify="SpaceBetween"
+                                    maxHeight
                                     maxWidth
                                 >
                                     <FeatureToggle
@@ -196,11 +204,12 @@ const RatingCard = (props: RatingCardProps) => {
                                         on={
                                             <>
                                                 {ModalContentNew}
-                                                <HStack justify="End" maxWidth>
-                                                    <Button color="red" onClick={cancelHendler}>
+                                                <HStack gap="12" justify="End" maxWidth>
+                                                    <Button color="cancel" onClick={cancelHendler}>
                                                         {cancelText}
                                                     </Button>
                                                     <Button
+                                                        color="save"
                                                         data-testid="RatingCard.Accept"
                                                         onClick={acceptHendler}
                                                     >

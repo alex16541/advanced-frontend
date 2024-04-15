@@ -10,7 +10,6 @@ import { StikyContentLayout } from '@/shared/layouts/StikyContentLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
 
@@ -68,12 +67,12 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                         left={<ArticleDetailsPageHeader articleId={id} />}
                         right={<ArticleInfo articleId={id} />}
                         content={
-                            <Card className={cls.container}>
+                            <div className={cls.container}>
                                 <ArticleDetails articleId={id} />
                                 <ArticleRating articleId={id} />
                                 <ArticleRecommendationsList />
                                 <ArticleCommentsList articleId={id} />
-                            </Card>
+                            </div>
                         }
                     />
                 </Page>
