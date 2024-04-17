@@ -10,11 +10,14 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
+import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router/ui/AppRouter';
 
 const App = () => {
     const dispatch = useDispatch();
     const inited = useSelector(getUserInited);
+
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -56,7 +59,7 @@ const App = () => {
                             content={<AppRouter />}
                             navbar={<Navbar />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>test</div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>

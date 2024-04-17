@@ -10,6 +10,8 @@
   "rules": {
     "indentation": 4,
     "block-no-empty": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "color-function-notation": null,
+    "scss/no-global-function-names": null
   }
 }
