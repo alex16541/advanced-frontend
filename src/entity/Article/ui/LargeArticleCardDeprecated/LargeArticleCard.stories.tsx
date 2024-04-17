@@ -1,5 +1,6 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
@@ -8,20 +9,23 @@ import { article } from '../../mock/data';
 import { LargeArticleCard } from './LargeArticleCard';
 
 export default {
-    title: 'entity/Article/LargeArticleCard',
+    title: 'deprecated/Article/LargeArticleCard',
     component: LargeArticleCard,
     args: {
         article,
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof LargeArticleCard>;
 
-const Template: ComponentStory<typeof LargeArticleCard> = (args) => <LargeArticleCard {...args} />;
+type Story = StoryObj<typeof LargeArticleCard>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
 
-export const Loading = Template.bind({});
-Loading.decorators = [ThemeDecorator(Theme.DARK)];
-Loading.args = { ...Loading.args, isLoading: true };
+export const Loading: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+    args: { isLoading: true },
+};

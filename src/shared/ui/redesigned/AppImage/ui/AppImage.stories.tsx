@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { AppImage } from './AppImage';
 
 export default {
-    title: 'folder/AppImage',
+    title: 'shared/AppImage',
     component: AppImage,
     args: {},
 } as Meta<typeof AppImage>;

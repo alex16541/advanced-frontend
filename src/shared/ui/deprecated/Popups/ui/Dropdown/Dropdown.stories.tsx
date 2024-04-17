@@ -1,5 +1,6 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
@@ -8,7 +9,7 @@ import { Button } from '../../../Button';
 import { Dropdown } from './Dropdown';
 
 export default {
-    title: 'shared/Popups/Dropdown',
+    title: 'deprecated/shared/Popups/Dropdown',
     component: Dropdown,
     args: {
         button: <Button>Menu</Button>,
@@ -20,6 +21,7 @@ export default {
             { content: 'item link 2', href: '#' },
         ],
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;

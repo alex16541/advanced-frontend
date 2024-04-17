@@ -3,7 +3,7 @@ import '@/app/styles/index.scss';
 import { StoryFn } from '@storybook/react';
 
 export const StyleDecorator = (StoryComponent: StoryFn) => (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 30 }}>
         <StoryComponent />
     </div>
 );

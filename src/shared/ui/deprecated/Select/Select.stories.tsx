@@ -1,12 +1,13 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Select } from './Select';
 
 export default {
-    title: 'shared/Select',
+    title: 'deprecated/shared/Select',
     component: Select,
     args: {
         options: [
@@ -17,6 +18,7 @@ export default {
             { value: '5', content: 'option 5' },
         ],
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;

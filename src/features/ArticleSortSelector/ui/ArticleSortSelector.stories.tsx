@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {
-    title: 'folder/ArticleSortSelector',
+    title: 'features/ArticleSortSelector',
     component: ArticleSortSelector,
 } as Meta<typeof ArticleSortSelector>;
 

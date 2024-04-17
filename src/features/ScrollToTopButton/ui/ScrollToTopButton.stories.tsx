@@ -6,16 +6,14 @@ import { Theme } from '@/shared/consts/theme';
 import { ScrollToTopButton } from './ScrollToTopButton';
 
 export default {
-    title: 'folder/ScrollToTopButton',
+    title: 'features/ScrollToTopButton',
     component: ScrollToTopButton,
 } as Meta<typeof ScrollToTopButton>;
 
-type Story = StoryObj<typeof ScrollToTopButton>
+type Story = StoryObj<typeof ScrollToTopButton>;
 
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK)
-    ]
-}
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

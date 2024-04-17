@@ -1,17 +1,19 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Chip } from './Chip';
 
 export default {
-    title: 'shared/Chip/Chip',
+    title: 'deprecated/shared/Chip/Chip',
     component: Chip,
     args: {
         value: 'chip',
         label: 'Chip content',
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof Chip>;
 
 const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;

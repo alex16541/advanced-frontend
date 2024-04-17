@@ -1,3 +1,5 @@
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
+
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator';
@@ -18,6 +20,7 @@ export const parameters = {
 export const decorators = [
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT, true),
+    FeatureFlagsDecorator({ isRedesignedApp: true }),
     RouterDecorator,
     SuspenseDecorator,
 ];

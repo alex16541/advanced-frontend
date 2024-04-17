@@ -1,17 +1,19 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Skeleton } from './Skeleton';
 
 export default {
-    title: 'shared/Skeleton',
+    title: 'deprecated/shared/Skeleton',
     component: Skeleton,
     args: {
         width: '100%',
         height: 300,
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof Skeleton>;
 
 const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;

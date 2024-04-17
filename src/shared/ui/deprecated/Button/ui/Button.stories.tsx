@@ -1,13 +1,15 @@
 import { Story } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Button, ButtonSize, ButtonThemes } from './Button';
 
 export default {
-    title: 'shared/Button',
+    title: 'deprecated/shared/Button',
     component: Button,
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 };
 
 const Template: Story = (args) => <Button {...args} />;

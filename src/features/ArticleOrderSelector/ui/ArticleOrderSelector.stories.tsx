@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
@@ -6,14 +6,15 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleOrderSelector } from './ArticleOrderSelector';
 
 export default {
-    title: 'folder/ArticleOrderSelector',
+    title: 'features/ArticleOrderSelector',
     component: ArticleOrderSelector,
     args: {},
 } as Meta<typeof ArticleOrderSelector>;
 
-const Template: ComponentStory<typeof ArticleOrderSelector> = (args) => <ArticleOrderSelector {...args} />;
+type Story = StoryObj<typeof ArticleOrderSelector>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

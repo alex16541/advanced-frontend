@@ -3,15 +3,15 @@ import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
-import { ArticleInfo } from './ArticleInfo';
+import { AppLoaderLayout } from './AppLoaderLayout';
 
 export default {
-    title: 'folder/ArticleInfo',
-    component: ArticleInfo,
+    title: 'shared/layouts/AppLoaderLayout',
+    component: AppLoaderLayout,
     args: {},
-} as Meta<typeof ArticleInfo>;
+} as Meta<typeof AppLoaderLayout>;
 
-type Story = StoryObj<typeof ArticleInfo>;
+type Story = StoryObj<typeof AppLoaderLayout>;
 
 export const Light: Story = {};
 

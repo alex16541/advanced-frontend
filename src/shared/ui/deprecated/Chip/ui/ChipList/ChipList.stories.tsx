@@ -1,12 +1,13 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { ChipList } from './ChipList';
 
 export default {
-    title: 'shared/Chip/ChipList',
+    title: 'deprecated/shared/Chip/ChipList',
     component: ChipList,
     args: {
         options: [
@@ -24,6 +25,7 @@ export default {
             },
         ],
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof ChipList>;
 
 const Template: ComponentStory<typeof ChipList> = (args) => <ChipList {...args} />;

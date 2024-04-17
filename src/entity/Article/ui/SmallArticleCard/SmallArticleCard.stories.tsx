@@ -1,5 +1,6 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
@@ -13,11 +14,18 @@ export default {
     args: {
         article,
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof SmallArticleCard>;
 
-const Template: ComponentStory<typeof SmallArticleCard> = (args) => <SmallArticleCard {...args} />;
+type Story = StoryObj<typeof SmallArticleCard>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Loading: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+    args: { isLoading: true },
+};

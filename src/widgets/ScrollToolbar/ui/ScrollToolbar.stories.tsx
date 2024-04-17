@@ -6,16 +6,14 @@ import { Theme } from '@/shared/consts/theme';
 import { ScrollToolbar } from './ScrollToolbar';
 
 export default {
-    title: 'folder/ScrollToolbar',
+    title: 'widgets/ScrollToolbar',
     component: ScrollToolbar,
 } as Meta<typeof ScrollToolbar>;
 
-type Story = StoryObj<typeof ScrollToolbar>
+type Story = StoryObj<typeof ScrollToolbar>;
 
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK)
-    ]
-}
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

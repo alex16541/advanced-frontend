@@ -1,13 +1,15 @@
 import { Story } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Text, TextSize, TextThemes } from './Text';
 
 export default {
-    title: 'shared/Text',
+    title: 'deprecated/shared/Text',
     component: Text,
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 };
 
 const Template: Story = (args) => <Text {...args} />;

@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { AppLogo } from './AppLogo';
 
 export default {
-    title: 'folder/AppLogo',
+    title: 'shared/AppLogo',
     component: AppLogo,
 } as Meta<typeof AppLogo>;
 

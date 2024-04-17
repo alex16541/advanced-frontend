@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, ReactNode } from 'react';
 
-import { getUserInited, useJsonSettings } from '@/entity/User';
+import { getUserInited } from '@/entity/User';
 import { LAST_USED_THEME } from '@/shared/consts/localstorage';
 import { Theme } from '@/shared/consts/theme';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
@@ -17,7 +17,6 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     const { initialTheme = fallbackTheme || Theme.LIGHT, children } = props;
 
     const inited = useAppSelector(getUserInited);
-    const { theme: userTheme } = useJsonSettings();
     const [theme, setTheme] = useState<Theme>(initialTheme);
 
     const defaultProps = useMemo(
@@ -30,10 +29,10 @@ const ThemeProvider = (props: ThemeProviderProps) => {
 
     useEffect(() => {
         if (inited) {
-            setTheme(userTheme ?? Theme.LIGHT);
-            localStorage.setItem(LAST_USED_THEME, userTheme ?? Theme.LIGHT);
+            setTheme(initialTheme ?? Theme.LIGHT);
+            localStorage.setItem(LAST_USED_THEME, initialTheme ?? Theme.LIGHT);
         }
-    }, [inited, userTheme]);
+    }, [inited, initialTheme]);
 
     useEffect(() => {
         const root = document.getElementById('root');

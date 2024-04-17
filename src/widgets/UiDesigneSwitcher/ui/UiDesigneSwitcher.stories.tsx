@@ -6,16 +6,14 @@ import { Theme } from '@/shared/consts/theme';
 import { UiDesigneSwitcher } from './UiDesigneSwitcher';
 
 export default {
-    title: 'folder/UiDesigneSwitcher',
+    title: 'widgets/UiDesigneSwitcher',
     component: UiDesigneSwitcher,
 } as Meta<typeof UiDesigneSwitcher>;
 
-type Story = StoryObj<typeof UiDesigneSwitcher>
+type Story = StoryObj<typeof UiDesigneSwitcher>;
 
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK)
-    ]
-}
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

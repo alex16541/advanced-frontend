@@ -11,16 +11,19 @@
     background-color: var(--primary-bg-color);
 }
 
-.root:has(.app_redesigned) {
+.root:has(.app_redesigned),
+.root.app_redesigned {
     min-height: 100vh;
     font: var(--font-m-redesigned);
     color: var(--text-color-redesigned);
     background-color: var(--bg-color-redesigned);
 }
 
-:has(.app) {
+:has(.app),
+.root.app {
     height: 100vh;
 
+    /* stylelint-disable-next-line no-descending-specificity */
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
@@ -54,8 +57,9 @@
     }
 }
 
-:has(.app_redesigned) {
-    /* stylelint-disable-next-line no-descending-specificity */
+:has(.app_redesigned),
+.root.app_redesigned {
+    /* stylelint-disable no-descending-specificity */
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
@@ -94,6 +98,7 @@
             }
         }
     }
+    /* stylelint-enable no-descending-specificity */
 }
 
 .content-page {

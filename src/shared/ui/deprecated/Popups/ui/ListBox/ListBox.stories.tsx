@@ -1,12 +1,13 @@
 import { Meta, ComponentStory } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'shared/Popups/ListBox',
+    title: 'deprecated/shared/Popups/ListBox',
     component: ListBox,
     args: {
         options: [
@@ -17,6 +18,7 @@ export default {
             { value: 'option_5', content: 'Option 5' },
         ],
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 } as Meta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;

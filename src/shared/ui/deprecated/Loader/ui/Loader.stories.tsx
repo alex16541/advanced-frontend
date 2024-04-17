@@ -1,13 +1,15 @@
 import { Story } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Loader } from './Loader';
 
 export default {
-    title: 'shared/Loader',
+    title: 'deprecated/shared/Loader',
     component: Loader,
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 };
 
 const Template: Story = (args) => <Loader {...args} />;

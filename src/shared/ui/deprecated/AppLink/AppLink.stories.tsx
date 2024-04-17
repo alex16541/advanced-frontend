@@ -1,5 +1,6 @@
 import { Story } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
@@ -7,8 +8,9 @@ import { AppLink, AppLinkThemes } from './AppLink';
 
 // todo: add Meta type
 export default {
-    title: 'shared/AppLink',
+    title: 'deprecated/shared/AppLink',
     component: AppLink,
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 };
 
 // todo: Change Story to StoryComponent

@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleTypeChips } from './ArticleTypeChips';
 
 export default {
-    title: 'folder/ArticleTypeChips',
+    title: 'features/ArticleTypeChips',
     component: ArticleTypeChips,
     args: {},
 } as Meta<typeof ArticleTypeChips>;

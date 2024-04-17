@@ -21,4 +21,8 @@
 
 .NavbarRedesigned {
     padding: 0 16px 16px;
+
+    .links {
+        justify-content: flex-end;
+    }
 }

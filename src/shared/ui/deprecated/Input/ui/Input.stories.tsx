@@ -1,16 +1,18 @@
 import { Story } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
 import { Input } from './Input';
 
 export default {
-    title: 'shared/Input',
+    title: 'deprecated/shared/Input',
     component: Input,
     args: {
         value: 'Input text',
     },
+    decorators: [ThemeDecorator(Theme.LIGHT), FeatureFlagsDecorator({ isRedesignedApp: false })],
 };
 
 const Template: Story = (args) => <Input {...args} />;
