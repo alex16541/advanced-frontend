@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { LAST_USED_THEME } from '@/shared/consts/localstorage';
 
 import { setJsonSettings } from '../../../api/api';
 import { getJsonSettings } from '../../selectors/getJsonSettings';
@@ -28,6 +29,8 @@ export const changeUserJsonSettings = createAsyncThunk<JsonSettings, JsonSetting
                     },
                 }),
             ).unwrap();
+
+            localStorage.setItem(LAST_USED_THEME, JSON.stringify(response.jsonSettings?.theme));
 
             if (!response.jsonSettings) {
                 return rejectWithValue({});

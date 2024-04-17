@@ -594,7 +594,7 @@
         "isRedesignedApp": true
       },
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-light-theme",
         "isArticlesPageGreetingShown": true
       },
       "roles": [

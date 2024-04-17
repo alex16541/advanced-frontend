@@ -18,22 +18,6 @@
     background-color: var(--bg-color-redesigned);
 }
 
-* {
-    &::-webkit-scrollbar {
-        width: 15px;
-        height: 12px;
-
-        &-thumb {
-            background-color: var(--secondary-bg-color);
-        }
-
-        &-track {
-            background-color: var(--card-bg-color);
-            border-radius: 3px;
-        }
-    }
-}
-
 :has(.app) {
     height: 100vh;
 
@@ -51,6 +35,22 @@
         transition: background-color 5000s ease-in-out 0s;
 
         -webkit-text-fill-color: var(--success-color);
+    }
+
+    * {
+        &::-webkit-scrollbar {
+            width: 15px;
+            height: 12px;
+
+            &-thumb {
+                background-color: var(--secondary-bg-color);
+            }
+
+            &-track {
+                background-color: var(--card-bg-color);
+                border-radius: 3px;
+            }
+        }
     }
 }
 
@@ -70,6 +70,29 @@
         transition: background-color 5000s ease-in-out 0s;
 
         -webkit-text-fill-color: var(--text-color-redesigned);
+    }
+
+    * {
+        &::-webkit-scrollbar {
+            width: 24px;
+            height: 24px;
+
+            &-thumb {
+                position: relative;
+
+                box-sizing: border-box;
+
+                background-color: var(--icon-color-redesigned);
+                background-clip: content-box;
+                border: 8px solid transparent;
+                border-radius: 99999px;
+            }
+
+            &-track {
+                background-color: transparent;
+                border-radius: 99999px;
+            }
+        }
     }
 }
 

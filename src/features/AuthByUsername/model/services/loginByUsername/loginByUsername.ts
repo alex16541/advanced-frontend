@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { User, userActions } from '@/entity/User';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+import { LAST_USED_THEME, USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 
 export enum LoginErrors {
     NOT_VALID_AUTH_DATA,
@@ -24,6 +24,8 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
             if (!response.data) throw new Error();
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data.id));
+            localStorage.setItem(LAST_USED_THEME, JSON.stringify(response.data.jsonSettings?.theme));
+
             dispatch(userActions.setAuthData(response.data));
 
             return response.data;

@@ -1,6 +1,11 @@
+import { LAST_USED_DESIGN } from '@/shared/consts/localstorage';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
-let featureFlags: FeatureFlags;
+const defaultFeatureFlags: Partial<FeatureFlags> = {
+    isRedesignedApp: localStorage.getItem(LAST_USED_DESIGN) === 'new',
+};
+
+let featureFlags: FeatureFlags = { ...defaultFeatureFlags };
 
 export const setFeatureFlags = (features?: FeatureFlags) => {
     if (features) {

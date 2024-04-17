@@ -2,6 +2,7 @@ import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entity/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
@@ -19,7 +20,18 @@ const App = () => {
         dispatch(initAuthData());
     }, [dispatch]);
 
-    if (!inited) return <PageLoader />;
+    if (!inited)
+        return (
+            <FeatureToggle
+                feature="isRedesignedApp"
+                off={<PageLoader />}
+                on={
+                    <div className="app_redesigned">
+                        <AppLoaderLayout />
+                    </div>
+                }
+            />
+        );
 
     return (
         <FeatureToggle
