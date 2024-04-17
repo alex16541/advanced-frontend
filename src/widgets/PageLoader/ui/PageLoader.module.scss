@@ -1,4 +1,4 @@
-.PageLoader {
+.PageLoaderDeprecated {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -7,4 +7,9 @@
     justify-content: center;
 
     height: 100%;
+}
+
+.PageLoader {
+    max-width: 780px;
+    margin: 0 auto;
 }
