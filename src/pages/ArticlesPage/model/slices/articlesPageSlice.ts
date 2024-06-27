@@ -72,7 +72,8 @@ export const articlesPageSlice = createSlice({
                 search?: string;
             }>,
         ) {
-            const view = localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticlesListView;
+            const view =
+                (localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticlesListView) ?? ArticlesListView.LIST;
             state.view = view;
             state.limit = ArticlesListCountPeerView[view];
             state._inited = true;
@@ -119,6 +120,7 @@ export const articlesPageSlice = createSlice({
                 articlesPageAdapter.addMany(state, action.payload);
                 state.page += 1;
                 state.hasMore = action.payload.length === state.limit;
+                console.log(state.hasMore, state.limit);
                 state.isLoading = false;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
