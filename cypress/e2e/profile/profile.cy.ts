@@ -1,5 +1,6 @@
-import { editProfile } from 'cypress/commands/profile';
-import { getRouteProfile } from 'src/shared/consts/router';
+import { editProfile } from 'commands/profile';
+
+import { getRouteProfile } from '@/shared/consts/router';
 
 let profileId = '';
 

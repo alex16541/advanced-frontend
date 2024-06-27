@@ -1,5 +1,5 @@
-import { User } from '../../src/entity/User';
-import { USER_LOCALSTORAGE_KEY } from '../../src/shared/consts/localstorage';
+import { User } from '@/entity/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 
 export const login = (username = 'testuser', password = '123') => {
     cy.log(`Logging in as ${username}`);

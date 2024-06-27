@@ -15,13 +15,16 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        "isolatedModules": true,
+        "typeRoots": [
+          "./node_modules/@types"
+        ],
+        "isolatedModules": true
     },
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
     },
-    "include": ["**/*"],
-    "exclude": ["scripts/*", "node_modules/"]
+    "include": ["**/*", "./config/jest/setupTests.ts"],
+    "exclude": ["cypress.config.ts", "./cypress", "node_modules/cypress", "scripts/*", "node_modules/"]
 }

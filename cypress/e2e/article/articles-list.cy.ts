@@ -1,4 +1,4 @@
-import { getRouteArticles } from 'src/shared/consts/router';
+import { getRouteArticles } from '@/shared/consts/router';
 
 describe('Споисок статей', () => {
     beforeEach(() => {
