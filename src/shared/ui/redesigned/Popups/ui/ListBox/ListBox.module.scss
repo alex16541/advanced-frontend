@@ -58,11 +58,11 @@
     white-space: nowrap;
 
     &.active {
-        background-color: var(--light-gb-color-redesigned);
+        background-color: var(--light-bg-color-redesigned);
     }
 
     &.selected {
-        background-color: var(--light-gb-color-redesigned);
+        background-color: var(--light-bg-color-redesigned);
     }
 
     &.disabled {

@@ -1,0 +1,35 @@
+.popup {
+  .menu {
+    width: max-content;
+    background-color: var(--light-bg-color-redesigned);
+    border: solid 2px var(--dark-bg-color-redesigned);
+    border-radius: var(--border-radius-l);
+
+  }
+}
+
+.header {
+  font-weight: bold;
+}
+
+.paragraph {
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.divider {
+  width: 1px;
+  height: 42px;
+  background-color: var(--dark-bg-color-redesigned);
+}

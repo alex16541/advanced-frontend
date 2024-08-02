@@ -1,0 +1,32 @@
+.TextEditor {
+
+  .root {
+    padding: 5px;
+    white-space: pre-wrap;
+  }
+
+  .root>* {
+    padding: 2px 3px;
+  }
+
+  h3 {
+    font: var(--font-xl-title-redesigned);
+    font-weight: bold;
+  }
+
+  p {
+    padding: 2px;
+    min-height: var(--font-line-m-redesigned);
+    box-sizing: content-box;
+
+    &:hover {
+      background-color: var(--light-bg-color-redesigned);
+      border-radius: var(--border-radius-s);
+    }
+
+    &:empty::after {
+      content: attr(placeholder);
+      opacity: 0.8;
+    }
+  }
+}

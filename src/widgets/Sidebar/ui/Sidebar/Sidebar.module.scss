@@ -14,7 +14,9 @@
 
   background-color: var(--secondary-bg-color);
 
-  transition: width ease-in-out 0.3s, background-color 0.2s;
+  transition:
+    width ease-in-out 0.3s,
+    background-color 0.2s;
 
   .actions {
     position: absolute;
@@ -47,10 +49,10 @@
   grid-template-columns: 100%;
   grid-template-rows: 85px auto 300px 1fr auto;
 
-  height: 100%;
   width: max-content;
+  height: 100%;
 
-  background-color: var(--light-gb-color-redesigned);
+  background-color: var(--light-bg-color-redesigned);
   border-radius: var(--border-radius-xxxl);
 
   .logo {
@@ -89,6 +91,7 @@
 
   &.collapsed {
     grid-template-columns: 50px;
+    border-radius: var(--border-radius-xxxl);
 
     .logo {
       scale: 0.7;

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm:webpack:*\" -c \"bgGreen,bgBlue\"",
+    "start": "concurrently \"npm:webpack:*\" -c \"black.bgGreen.bold,black.bgBlue.bold\"",
     "start:db": "node ./json-server/index.js",
     "start:vite": "vite",
     "webpack:app": "webpack serve --env port=3000 apiUrl=http://localhost:3001",
@@ -125,6 +125,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@floating-ui/react": "^0.26.19",
     "@headlessui/react": "^1.7.18",
     "@react-spring/web": "^9.7.3",
     "@reduxjs/toolkit": "^1.8.0",

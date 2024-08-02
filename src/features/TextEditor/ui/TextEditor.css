@@ -1,0 +1,11 @@
+[contenteditable] span.bold {
+  font-weight: bold;
+}
+
+[contenteditable] span.italic {
+  font-style: italic;
+}
+
+[contenteditable] span.underline {
+  text-decoration: underline;
+}

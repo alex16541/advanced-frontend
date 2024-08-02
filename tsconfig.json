@@ -12,6 +12,7 @@
         "allowSyntheticDefaultImports": true,
         "strict": true,
         "baseUrl": ".",
+        "types": ["jest-dom", "node"],
         "paths": {
             "@/*": ["./src/*"]
         },
