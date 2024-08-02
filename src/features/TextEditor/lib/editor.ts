@@ -65,17 +65,14 @@ export function joinSpansByClass(spans: HTMLSpanElement[]) {
 
     let prev = spans[0];
 
-    for (let i = 1; i < spans.length; i++) {
-        const cur = spans[i];
-
+    spans.forEach((cur) => {
         if (cur.classList.toString() === prev.classList.toString()) {
             prev.append(document.createTextNode(cur.textContent ?? ''));
-            continue;
+        } else {
+            res.push(prev);
+            prev = cur;
         }
-
-        res.push(prev);
-        prev = cur;
-    }
+    });
 
     res.push(prev);
 
@@ -129,7 +126,9 @@ export function getTextNodeOffset(textNode: Node | Text, offset: number = 0) {
 
     let res = 0;
 
-    for (const child of childrens) {
+    for (let i = 0; i < childrens.length; i++) {
+        const child = childrens[i];
+
         if (child === textNode) {
             res += offset;
             break;
@@ -209,24 +208,26 @@ export function removeParagraphFormatting(p: HTMLParagraphElement, style: Format
     return p;
 }
 
+export function joinParagraph(paragraph: HTMLParagraphElement, sidling: 'prev' | 'next' = 'prev') {
+    const paragraphSidling = sidling === 'prev' ? paragraph.previousSibling : paragraph.nextSibling;
+
+    const sidlingChildrens = Array.from(paragraphSidling?.childNodes ?? []);
+
+    if (sidlingChildrens && sidling === 'prev') {
+        paragraph.prepend(...sidlingChildrens);
+    } else {
+        paragraph.append(...sidlingChildrens);
+    }
+
+    paragraphSidling?.remove();
+}
+
 export function joinCutedParagraphs(paragraphs: HTMLParagraphElement[]) {
     const firstParagraph = paragraphs[0];
     const lastParagraph = paragraphs[paragraphs.length - 1];
 
     joinParagraph(firstParagraph);
     joinParagraph(lastParagraph, 'next');
-}
-
-export function joinParagraph(paragraph: HTMLParagraphElement, sidling: 'prev' | 'next' = 'prev') {
-    const paragraphSidling = sidling === 'prev' ? paragraph.previousSibling : paragraph.nextSibling;
-
-    const sidlingChildrens = Array.from(paragraphSidling?.childNodes ?? []);
-
-    sidlingChildrens && sidling === 'prev'
-        ? paragraph.prepend(...sidlingChildrens)
-        : paragraph.append(...sidlingChildrens);
-
-    paragraphSidling?.remove();
 }
 
 export function getSelectionAroundParagraphs(paragraphs: HTMLParagraphElement[]) {
@@ -265,17 +266,17 @@ export function cutSpanText(range: Range, position: Position) {
     spanAfter.appendChild(textNodeAfter);
     spanWithCutedText.appendChild(selectedTextNode);
 
-    for (const s of defaultStyles) {
+    defaultStyles.forEach((s) => {
         spanBefore.classList.add(s);
         spanAfter.classList.add(s);
         spanWithCutedText.classList.add(s);
-    }
+    });
 
-    textBefore && paragraph.insertBefore(spanBefore, span);
+    if (textBefore) paragraph.insertBefore(spanBefore, span);
 
     paragraph.insertBefore(spanWithCutedText, span);
 
-    textAfter && paragraph.insertBefore(spanAfter, span);
+    if (textAfter) paragraph.insertBefore(spanAfter, span);
 
     span.remove();
 
@@ -306,22 +307,47 @@ export function removeFormattingInSpan(range: Range, position: Position) {
     spanBefore.appendChild(textNodeBefore);
     spanAfter.appendChild(textNodeAfter);
 
-    for (const s of defaultStyles) {
+    defaultStyles.forEach((s) => {
         spanBefore.classList.add(s);
         spanAfter.classList.add(s);
-    }
+    });
 
-    textBefore && paragraph.insertBefore(spanBefore, span);
+    if (textBefore) paragraph.insertBefore(spanBefore, span);
 
     paragraph.insertBefore(selectedTextNode, span);
 
-    textAfter && paragraph.insertBefore(spanAfter, span);
+    if (textAfter) paragraph.insertBefore(spanAfter, span);
 
     span.remove();
 
     return selectedTextNode;
 }
 
+export function getPrevSidlings(node: Node) {
+    const sidlings = [];
+    let sidling = node.previousSibling;
+
+    while (sidling) {
+        sidlings.push(sidling);
+        sidling = sidling.previousSibling;
+    }
+
+    sidlings.reverse();
+
+    return sidlings;
+}
+
+export function getNextSidlings(node: Node) {
+    const sidlings = [];
+    let sidling = node.nextSibling;
+
+    while (sidling) {
+        sidlings.push(sidling);
+        sidling = sidling.nextSibling;
+    }
+
+    return sidlings;
+}
 export function cutSelection() {
     const { range } = getSelection();
 
@@ -445,32 +471,6 @@ export function formatParagraph(p: HTMLParagraphElement, style: FormattingStyle)
     }
 
     return p;
-}
-
-export function getPrevSidlings(node: Node) {
-    const sidlings = [];
-    let sidling = node.previousSibling;
-
-    while (sidling) {
-        sidlings.push(sidling);
-        sidling = sidling.previousSibling;
-    }
-
-    sidlings.reverse();
-
-    return sidlings;
-}
-
-export function getNextSidlings(node: Node) {
-    const sidlings = [];
-    let sidling = node.nextSibling;
-
-    while (sidling) {
-        sidlings.push(sidling);
-        sidling = sidling.nextSibling;
-    }
-
-    return sidlings;
 }
 
 export function rangeInsert(range: Range, nodes: Node[]) {

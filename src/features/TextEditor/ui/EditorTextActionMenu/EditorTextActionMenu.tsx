@@ -25,7 +25,7 @@ export const EditorTextActionMenu = forwardRef<HTMLDivElement, EditorTextActionM
         styles,
         onChangeBlockType,
         onApplyStyle,
-onResetFormatting,
+        onResetFormatting,
     } = props;
 
     const formatterButtons = useMemo(
@@ -65,7 +65,7 @@ onResetFormatting,
                 onClick: () => onResetFormatting(),
             },
         ],
-        [onChangeBlockType, onApplyStyle],
+        [onChangeBlockType, onApplyStyle, onResetFormatting],
     );
 
     if (!isVisible) return null;

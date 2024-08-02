@@ -117,6 +117,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'no-plusplus': 'off',
+        'react/no-danger': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
         'unused-imports/no-unused-imports': 'error',

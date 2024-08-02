@@ -27,10 +27,13 @@ interface UseTextEditorsProps {
 export const useTextEditor = (props: UseTextEditorsProps) => {
     const { editorRef } = props;
 
-    const onChangeBlockType = useCallback((blockType: any) => {
-        editorRef.current?.focus();
-        document.execCommand('formatBlock', false, blockType);
-    }, []);
+    const onChangeBlockType = useCallback(
+        (blockType: any) => {
+            editorRef.current?.focus();
+            document.execCommand('formatBlock', false, blockType);
+        },
+        [editorRef],
+    );
 
     const onResetSelectedTextStyles = useCallback(() => {
         const { range, childrenList, root } = getSelection();
@@ -105,7 +108,9 @@ export const useTextEditor = (props: UseTextEditorsProps) => {
         // 1. Отформатировать параграфы в content'е
         const formattedContent: EditorChildren[] = [];
 
-        for (const child of editorChildrens) {
+        for (let i = 0; i < editorChildrens.length; i++) {
+            const child = editorChildrens[i];
+
             if (isParagraphNode(child)) {
                 const formatedParagraph = isShouldRemoveFormatting
                     ? removeParagraphFormatting(child, style)

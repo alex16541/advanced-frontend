@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useEditorTextActionMenu } from '../hooks/useEditorTextActionMenu';
-import { useTextEditor } from '../hooks/useTextEditors';
+import { useTextEditor } from '../hooks/useTextEditor';
 
 import { EditorTextActionMenu } from './EditorTextActionMenu/EditorTextActionMenu';
 import cls from './TextEditor.module.scss';
@@ -41,7 +41,7 @@ const TextEditor = (props: TextEditorProps) => {
         // const selectionInfo = getSelectionInfo(selection);
         // console.log(selectionInfo);
         setSelection(selection);
-    }, []);
+    }, [setSelection]);
 
     return (
         <VStack className={classNames(cls.TextEditor, {}, [className])}>
