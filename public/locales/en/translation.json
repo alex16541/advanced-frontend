@@ -1,7 +1,6 @@
 {
   "language": "EN",
   "about page title": "About us",
-  "main page title": "Main",
   "page loader text": "Page loading...",
   "page logading error text": "Oops... An error occurred while loading the page.",
   "reload page": "Refresh the page",
@@ -16,5 +15,12 @@
   "articles": "Articles",
   "Select design": "Select design",
   "Old": "Old",
-  "New": "New"
+  "New": "New",
+  "main page title": "Main",
+  "welcome title": "Hi! Welcom to Forkat!",
+  "welcome text 1": "I create this site to bring together everything that helps me in my daily life - tasks, personal notes, and an information archive. Everything herre is interconnected and works in symbiosis, allowing you to easyly manage your thoughts, tasks, and ideas.",
+  "welcome dot 1": "» Create and store notes",
+  "welcome dot 2": "» Orgonize personal records",
+  "welcome dot 3": "» Track tasks and the time spent on them",
+  "welcome text 2": "This is not the final version, and I'm constantly debeloping new features. You can log in with your account or try the \ntest account to explore the possibilities of Forkat."
 }
