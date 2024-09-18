@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import { Country } from '@/entity/Country';
 import { Currency } from '@/entity/Currency';
@@ -59,7 +60,7 @@ describe('features/Editable profile card tests', () => {
         renderWithProviders(<EditableProfileCard />, options);
 
         const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
-        await userEvent.click(editButton);
+        await act(() => userEvent.click(editButton));
 
         const saveButton = screen.getByTestId('EditableProfileCardHeader.SaveButton');
         expect(saveButton).toBeInTheDocument();
@@ -72,21 +73,21 @@ describe('features/Editable profile card tests', () => {
         renderWithProviders(<EditableProfileCard />, options);
 
         const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
-        await userEvent.click(editButton);
+        await act(() => userEvent.click(editButton));
 
         const firstname = screen.getByTestId('ProfileCard.Firstname');
-        await userEvent.clear(firstname);
-        await userEvent.type(firstname, 'admin');
+        await act(() => userEvent.clear(firstname));
+        await act(() => userEvent.type(firstname, 'admin'));
 
         const lastname = screen.getByTestId('ProfileCard.Lastname');
-        await userEvent.clear(lastname);
-        await userEvent.type(lastname, 'admin');
+        await act(() => userEvent.clear(lastname));
+        await act(() => userEvent.type(lastname, 'admin'));
 
         expect(firstname).toHaveValue('admin');
         expect(lastname).toHaveValue('admin');
 
         const cancelButton = screen.getByTestId('EditableProfileCardHeader.CancelButton');
-        await userEvent.click(cancelButton);
+        await act(() => userEvent.click(cancelButton));
 
         expect(firstname).toHaveValue('user');
         expect(lastname).toHaveValue('1');
@@ -96,19 +97,19 @@ describe('features/Editable profile card tests', () => {
         renderWithProviders(<EditableProfileCard />, options);
 
         const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
-        await userEvent.click(editButton);
+        await act(() => userEvent.click(editButton));
 
         const firstname = screen.getByTestId('ProfileCard.Firstname');
-        await userEvent.clear(firstname);
+        await act(() => userEvent.clear(firstname));
 
         const lastname = screen.getByTestId('ProfileCard.Lastname');
-        await userEvent.clear(lastname);
+        await act(() => userEvent.clear(lastname));
 
         expect(firstname).toHaveValue('');
         expect(lastname).toHaveValue('');
 
         const saveButton = screen.getByTestId('EditableProfileCardHeader.SaveButton');
-        await userEvent.click(saveButton);
+        await act(() => userEvent.click(saveButton));
 
         const errors = screen.getByTestId('EditableProfileCardErrors');
         expect(errors).toBeInTheDocument();
@@ -120,13 +121,13 @@ describe('features/Editable profile card tests', () => {
         renderWithProviders(<EditableProfileCard />, options);
 
         const editButton = screen.getByTestId('EditableProfileCardHeader.EditButton');
-        await userEvent.click(editButton);
+        await act(() => userEvent.click(editButton));
 
         const lastname = screen.getByTestId('ProfileCard.Lastname');
-        await userEvent.type(lastname, 'user');
+        await act(() => userEvent.type(lastname, 'user'));
 
         const saveButton = screen.getByTestId('EditableProfileCardHeader.SaveButton');
-        await userEvent.click(saveButton);
+        await act(() => userEvent.click(saveButton));
 
         expect(mockPutReq).toHaveBeenCalled();
     });
