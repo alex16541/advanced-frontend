@@ -1,9 +1,6 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { featureToggle } from '@/shared/lib/features';
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -17,16 +14,8 @@ interface NotificationSkeletonProps {
 const NotificationSkeleton = (props: NotificationSkeletonProps) => {
     const { className } = props;
 
-    const Card = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => CardRedesigned,
-        off: () => CardDeprecated,
-    });
-    const Skeleton = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => SkeletonRedesigned,
-        off: () => SkeletonDeprecated,
-    });
+    const Card = CardRedesigned;
+    const Skeleton = SkeletonRedesigned;
 
     return (
         <Card className={classNames(cls.NotificationSkeleton, {}, [className])}>

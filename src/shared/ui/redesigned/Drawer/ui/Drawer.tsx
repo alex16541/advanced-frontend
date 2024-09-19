@@ -2,7 +2,6 @@ import { ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
-import { featureToggle } from '@/shared/lib/features';
 
 import { Portal } from '../../Portal';
 
@@ -75,11 +74,7 @@ const DrawerComponent = (props: DrawerProps) => {
         opacity: y.to([0, height], [1, 0]),
     };
 
-    const contentCls = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => cls.contentNew,
-        off: () => cls.contentOld,
-    });
+    const contentCls = cls.contentNew;
 
     if (!isOpen) return null;
 

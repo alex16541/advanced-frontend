@@ -10,9 +10,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Text as TextDeprecated, TextThemes } from '@/shared/ui/deprecated/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -86,51 +84,28 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
 
     if (isLoading) {
         content = (
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <>
-                        {CommentSkeletonOld}
-                        {CommentSkeletonOld}
-                        {CommentSkeletonOld}
-                    </>
-                }
-                on={
-                    <>
-                        {CommentSkeleton}
-                        {CommentSkeleton}
-                        {CommentSkeleton}
-                    </>
-                }
-            />
+            
+                                <>
+                                    {CommentSkeleton}
+                                    {CommentSkeleton}
+                                    {CommentSkeleton}
+                                </>
+                            
         );
     } else if (error.length > 0) {
         content = (
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={<TextDeprecated text={t('Article commets loading error')} theme={TextThemes.ERROR} />}
-                on={<Text text={t('Article commets loading error')} theme="error" />}
-            />
+            <Text text={t('Article commets loading error')} theme="error" />
         );
     } else {
         content = (
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <>
-                        <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
-                        <CommentList comments={commentsData} />
-                    </>
-                }
-                on={
-                    <VStack gap="16">
-                        <Card>
-                            <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
-                        </Card>
-                        <CommentList comments={commentsData} />
-                    </VStack>
-                }
-            />
+            
+                                <VStack gap="16">
+                                    <Card>
+                                        <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
+                                    </Card>
+                                    <CommentList comments={commentsData} />
+                                </VStack>
+                            
         );
     }
 
@@ -141,11 +116,7 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
             removeAfterUnmout
         >
             <>
-                <FeatureToggle
-                    feature="isRedesignedApp"
-                    off={<TextDeprecated className={cls.title} title={t('Comments')} />}
-                    on={<Text className={cls.title} size="l" title={t('Comments')} weight="bold" />}
-                />
+                <Text className={cls.title} size="l" title={t('Comments')} weight="bold" />
                 {content}
             </>
         </DynamicModuleLoader>

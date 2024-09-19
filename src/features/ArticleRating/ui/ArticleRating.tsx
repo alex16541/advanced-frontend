@@ -5,19 +5,13 @@ import { RatingCard } from '@/entity/Rating';
 import { getAuthData } from '@/entity/User';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { featureToggle } from '@/shared/lib/features';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../api/articleRating';
 
 import cls from './ArticleRating.module.scss';
 
-const Skeleton = featureToggle({
-    name: 'isRedesignedApp',
-    on: () => SkeletonRedesigned,
-    off: () => SkeletonDeprecated,
-});
+const Skeleton = SkeletonRedesigned;
 
 export interface ArticleRatingProps {
     className?: string;

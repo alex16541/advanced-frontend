@@ -8,8 +8,6 @@ import { NotificationsButton } from '@/features/NotificationsButton';
 import LoginIcon from '@/shared/assets/svg/login.svg';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
@@ -27,65 +25,32 @@ export const Navbar = memo((props: NavbarProps) => {
 
     if (authData) {
         return (
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <header className={classNames(cls.Navbar, {}, [className])}>
-                        <nav className={cls.links}>
-                            <Button theme={ButtonThemes.PRIMARY}>/</Button>
-                            <HStack gap="10">
-                                <NotificationsButton direction="bottom left" />
-                                <AvatarButton />
-                            </HStack>
-                        </nav>
-                    </header>
-                }
-                on={
-                    <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
-                        <nav className={cls.links}>
-                            <HStack gap="10">
-                                <NotificationsButton direction="bottom left" />
-                                <AvatarButton />
-                            </HStack>
-                        </nav>
-                    </header>
-                }
-            />
+            
+                                <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+                                    <nav className={cls.links}>
+                                        <HStack gap="10">
+                                            <NotificationsButton direction="bottom left" />
+                                            <AvatarButton />
+                                        </HStack>
+                                    </nav>
+                                </header>
+                            
         );
     }
 
     return (
-        <FeatureToggle
-            feature="isRedesignedApp"
-            off={
-                <header className={classNames(cls.Navbar, {}, [className])}>
-                    <nav className={cls.links}>
-                        <div>/</div>
-                        <Button theme={ButtonThemes.PRIMARY} onClick={() => setIsAuthModal(true)}>
-                            {t('login')}
-                        </Button>
+        
+                        <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+                            <nav className={cls.links}>
+                                <Icon Svg={LoginIcon} clickable onClick={() => setIsAuthModal(true)} />
 
-                        <LoginModal
-                            isOpen={isAuthModal}
-                            onClose={() => setIsAuthModal(false)}
-                            onSuccess={() => setIsAuthModal(false)}
-                        />
-                    </nav>
-                </header>
-            }
-            on={
-                <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
-                    <nav className={cls.links}>
-                        <Icon Svg={LoginIcon} clickable onClick={() => setIsAuthModal(true)} />
-
-                        <LoginModal
-                            isOpen={isAuthModal}
-                            onClose={() => setIsAuthModal(false)}
-                            onSuccess={() => setIsAuthModal(false)}
-                        />
-                    </nav>
-                </header>
-            }
-        />
+                                <LoginModal
+                                    isOpen={isAuthModal}
+                                    onClose={() => setIsAuthModal(false)}
+                                    onSuccess={() => setIsAuthModal(false)}
+                                />
+                            </nav>
+                        </header>
+                    
     );
 });

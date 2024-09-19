@@ -8,6 +8,7 @@ type SvgProps = Omit<SVGAttributes<SVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
     className?: string;
+    dataTestid?: string;
     Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 }
 
@@ -23,19 +24,24 @@ interface NonClickableIconProps extends IconBaseProps {
 type IconProps = ClickableIconProps | NonClickableIconProps;
 
 const Icon = (props: IconProps) => {
-    const { className, Svg, clickable, ...otherProps } = props;
+    const { className, Svg, clickable, dataTestid, ...otherProps } = props;
 
     if (clickable) {
         const { onClick } = props;
 
         return (
-            <button className={classNames(cls.Icon, {}, [className])} type="button" onClick={onClick}>
+            <button
+                className={classNames(cls.Icon, {}, [className])}
+                data-testid={dataTestid}
+                type="button"
+                onClick={onClick}
+            >
                 <Svg className={cls.wrappedIcon} {...otherProps} onClick={undefined} />
             </button>
         );
     }
 
-    return <Svg className={classNames(cls.Icon, {}, [className])} {...otherProps} />;
+    return <Svg className={classNames(cls.Icon, {}, [className])} data-testid={dataTestid} {...otherProps} />;
 };
 
 const Memoized = memo(Icon);

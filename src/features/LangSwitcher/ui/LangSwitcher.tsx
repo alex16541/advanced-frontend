@@ -2,8 +2,6 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button as ButtonDeprecated, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 
 import cls from './LangSwitcher.module.scss';
@@ -22,27 +20,15 @@ const TranslateSwitcher = (props: LangSwitcherProps) => {
     }
 
     return (
-        <FeatureToggle
-            feature="isRedesignedApp"
-            off={
-                <ButtonDeprecated
-                    className={classNames(cls.LangSwitcher, {}, [className])}
-                    theme={ButtonThemes.CLEAR}
-                    onClick={toggleTranslate}
-                >
-                    {t('language')}
-                </ButtonDeprecated>
-            }
-            on={
-                <Button
-                    className={classNames(cls.LangSwitcherRedesigned, {}, [className])}
-                    theme="clear"
-                    onClick={toggleTranslate}
-                >
-                    <span className={cls.text}>{t('language')}</span>
-                </Button>
-            }
-        />
+        
+                        <Button
+                            className={classNames(cls.LangSwitcherRedesigned, {}, [className])}
+                            theme="clear"
+                            onClick={toggleTranslate}
+                        >
+                            <span className={cls.text}>{t('language')}</span>
+                        </Button>
+                    
     );
 };
 

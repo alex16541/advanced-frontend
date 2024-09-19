@@ -11,8 +11,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Text } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -48,44 +46,24 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <Page
-                        className={classNames(cls.ArticlesPage, {}, [className])}
-                        data-testid="articles-page"
-                        onEndOfPage={loadNextPage}
-                    >
-                        <div className={cls.header}>
-                            <Text title={t('Article list')} />
-                            <ArticlesViewSwitcherContainer />
-                        </div>
-                        <div className={cls.filters}>
-                            <ArticlesFilters />
-                        </div>
-                        <ArticlesInfiniteList />
-                        <ArticlesPageGreeting />
-                    </Page>
-                }
-                on={
-                    <Page
-                        className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
-                        data-testid="articles-page"
-                        onEndOfPage={loadNextPage}
-                    >
-                        <StikyContentLayout
-                            left={<ArticlesViewSwitcherContainer />}
-                            right={<ArticlesFilters />}
-                            content={
-                                <div className={cls.content}>
-                                    <ArticlesInfiniteList />
-                                    <ArticlesPageGreeting />
-                                </div>
-                            }
-                        />
-                    </Page>
-                }
-            />
+            
+                                <Page
+                                    className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
+                                    data-testid="articles-page"
+                                    onEndOfPage={loadNextPage}
+                                >
+                                    <StikyContentLayout
+                                        left={<ArticlesViewSwitcherContainer />}
+                                        right={<ArticlesFilters />}
+                                        content={
+                                            <div className={cls.content}>
+                                                <ArticlesInfiniteList />
+                                                <ArticlesPageGreeting />
+                                            </div>
+                                        }
+                                    />
+                                </Page>
+                            
         </DynamicModuleLoader>
     );
 };

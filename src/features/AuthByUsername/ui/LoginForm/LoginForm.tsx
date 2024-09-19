@@ -5,14 +5,6 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import {
-    Text as TextDeprecated,
-    TextAlign as TextAlignDeprecated,
-    TextThemes as TextThemesDeprecated,
-} from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -67,75 +59,37 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReucers}>
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <div className={classNames(cls.LoginForm, {}, [className])}>
-                        <TextDeprecated
-                            align={TextAlignDeprecated.CENTER}
-                            className={cls.title}
-                            title={t('authorization')}
-                        />
-                        <div className={cls.inputs}>
-                            <InputDeprecated
-                                className={cls.input}
-                                placeholder={t('username')}
-                                value={username}
-                                autoFocus
-                                onChange={onChangeUsername}
-                            />
-                            <InputDeprecated
-                                className={cls.input}
-                                placeholder={t('password')}
-                                type="password"
-                                value={password}
-                                onChange={onChangePassword}
-                            />
-                        </div>
-                        <ButtonDeprecated className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
-                            {t('login')}
-                        </ButtonDeprecated>
-                        {error !== undefined && (
-                            <TextDeprecated
-                                className={cls.errorMsg}
-                                text={error === 0 ? t('wrong login or password') : t('unknow auth error')}
-                                theme={TextThemesDeprecated.ERROR}
-                            />
-                        )}
-                    </div>
-                }
-                on={
-                    <div className={classNames(cls.LoginForm, {}, [className])}>
-                        <Text align="center" className={cls.title} title={t('authorization')} />
-                        <div className={cls.inputs}>
-                            <Input
-                                className={cls.input}
-                                placeholder={t('username')}
-                                value={username}
-                                autoFocus
-                                onChange={onChangeUsername}
-                            />
-                            <Input
-                                className={cls.input}
-                                placeholder={t('password')}
-                                type="password"
-                                value={password}
-                                onChange={onChangePassword}
-                            />
-                        </div>
-                        <Button className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
-                            {t('login')}
-                        </Button>
-                        {error !== undefined && (
-                            <Text
-                                className={cls.errorMsg}
-                                text={error === 0 ? t('wrong login or password') : t('unknow auth error')}
-                                theme="error"
-                            />
-                        )}
-                    </div>
-                }
-            />
+            
+                                <div className={classNames(cls.LoginForm, {}, [className])}>
+                                    <Text align="center" className={cls.title} title={t('authorization')} />
+                                    <div className={cls.inputs}>
+                                        <Input
+                                            className={cls.input}
+                                            placeholder={t('username')}
+                                            value={username}
+                                            autoFocus
+                                            onChange={onChangeUsername}
+                                        />
+                                        <Input
+                                            className={cls.input}
+                                            placeholder={t('password')}
+                                            type="password"
+                                            value={password}
+                                            onChange={onChangePassword}
+                                        />
+                                    </div>
+                                    <Button className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
+                                        {t('login')}
+                                    </Button>
+                                    {error !== undefined && (
+                                        <Text
+                                            className={cls.errorMsg}
+                                            text={error === 0 ? t('wrong login or password') : t('unknow auth error')}
+                                            theme="error"
+                                        />
+                                    )}
+                                </div>
+                            
         </DynamicModuleLoader>
     );
 });

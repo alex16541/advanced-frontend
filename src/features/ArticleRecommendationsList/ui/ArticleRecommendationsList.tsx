@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticlesList, ArticlesListView } from '@/entity/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 import { useFetchArticleRecommendationsQuery } from '../api/recommendationsApi';
@@ -28,17 +26,15 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             className={classNames(cls.ArticleRecommendationsList, {}, [className])}
             data-testid="ArticleRecommendationsList"
         >
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={<TextDeprecated title={t('recommendations')} />}
-                on={<Text size="l" title={t('recommendations')} weight="bold" />}
-            />
-            <ArticlesList
-                articles={recommendations}
-                isLoading={isLoading}
-                target="_blank"
-                view={ArticlesListView.CARUSEL}
-            />
+            <Text size="l" title={t('recommendations')} weight="bold" />
+            <div className={cls.list}>
+                <ArticlesList
+                    articles={recommendations}
+                    isLoading={isLoading}
+                    target="_blank"
+                    view={ArticlesListView.CARUSEL}
+                />
+            </div>
         </div>
     );
 });

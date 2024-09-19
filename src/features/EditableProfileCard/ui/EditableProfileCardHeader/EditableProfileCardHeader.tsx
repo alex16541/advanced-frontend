@@ -5,9 +5,6 @@ import { useSelector } from 'react-redux';
 import { getAuthData } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button as ButtonDeprecated, ButtonColor, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -48,81 +45,42 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
     }, [dispatch, profileData?.id]);
 
     return (
-        <FeatureToggle
-            feature="isRedesignedApp"
-            off={
-                <div className={classNames(cls.EditableProfileCardHeader, {}, [className, 'title'])}>
-                    <TextDeprecated title={t('profile')} />
-                    {canBeEdit && (
-                        <div className={cls.actions}>
-                            {readonly ? (
-                                <ButtonDeprecated
-                                    data-testid="EditableProfileCardHeader.EditButton"
-                                    theme={ButtonThemes.OUTLINED}
-                                    onClick={onEdit}
-                                >
-                                    {t('edit')}
-                                </ButtonDeprecated>
-                            ) : (
+        
+                        <HStack
+                            className={classNames(cls.EditableProfileCardHeaderRedesigned, {}, [className])}
+                            gap="32"
+                            justify="SpaceBetween"
+                            maxWidth
+                        >
+                            <Text size="l" title={t('profile')} weight="bold" />
+                            {canBeEdit && (
                                 <>
-                                    <ButtonDeprecated
-                                        data-testid="EditableProfileCardHeader.SaveButton"
-                                        theme={ButtonThemes.OUTLINED}
-                                        onClick={onSave}
-                                    >
-                                        {t('Save')}
-                                    </ButtonDeprecated>
-                                    <ButtonDeprecated
-                                        color={ButtonColor.RED}
-                                        data-testid="EditableProfileCardHeader.CancelButton"
-                                        theme={ButtonThemes.OUTLINED}
-                                        onClick={onCalcelEdit}
-                                    >
-                                        {t('Cancel')}
-                                    </ButtonDeprecated>
+                                    {readonly ? (
+                                        <Button data-testid="EditableProfileCardHeader.EditButton" onClick={onEdit}>
+                                            {t('edit')}
+                                        </Button>
+                                    ) : (
+                                        <HStack gap="8">
+                                            <Button
+                                                color="save"
+                                                data-testid="EditableProfileCardHeader.SaveButton"
+                                                onClick={onSave}
+                                            >
+                                                {t('Save')}
+                                            </Button>
+                                            <Button
+                                                color="cancel"
+                                                data-testid="EditableProfileCardHeader.CancelButton"
+                                                onClick={onCalcelEdit}
+                                            >
+                                                {t('Cancel')}
+                                            </Button>
+                                        </HStack>
+                                    )}
                                 </>
                             )}
-                        </div>
-                    )}
-                </div>
-            }
-            on={
-                <HStack
-                    className={classNames(cls.EditableProfileCardHeaderRedesigned, {}, [className])}
-                    gap="32"
-                    justify="SpaceBetween"
-                    maxWidth
-                >
-                    <Text size="l" title={t('profile')} weight="bold" />
-                    {canBeEdit && (
-                        <>
-                            {readonly ? (
-                                <Button data-testid="EditableProfileCardHeader.EditButton" onClick={onEdit}>
-                                    {t('edit')}
-                                </Button>
-                            ) : (
-                                <HStack gap="8">
-                                    <Button
-                                        color="save"
-                                        data-testid="EditableProfileCardHeader.SaveButton"
-                                        onClick={onSave}
-                                    >
-                                        {t('Save')}
-                                    </Button>
-                                    <Button
-                                        color="cancel"
-                                        data-testid="EditableProfileCardHeader.CancelButton"
-                                        onClick={onCalcelEdit}
-                                    >
-                                        {t('Cancel')}
-                                    </Button>
-                                </HStack>
-                            )}
-                        </>
-                    )}
-                </HStack>
-            }
-        />
+                        </HStack>
+                    
     );
 };
 

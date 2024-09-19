@@ -4,12 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRouteArticles } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
 
-import { ArticleEditButton } from '../ArticleEditButton/ArticleEditButton';
 
 import cls from './ArticleDetailsPageHeader.module.scss';
 
@@ -28,19 +25,10 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [navigate]);
 
     return (
-        <FeatureToggle
-            feature="isRedesignedApp"
-            off={
-                <header className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
-                    <ButtonDeprecated onClick={onBack}>{t('back')}</ButtonDeprecated>
-                    <ArticleEditButton />
-                </header>
-            }
-            on={
-                <Card className={classNames(cls.ArticleDetailsPageHeaderRedesigned, {}, [className])}>
-                    <Button onClick={onBack}>{t('back')}</Button>
-                </Card>
-            }
-        />
+        
+                        <Card className={classNames(cls.ArticleDetailsPageHeaderRedesigned, {}, [className])}>
+                            <Button onClick={onBack}>{t('back')}</Button>
+                        </Card>
+                    
     );
 });

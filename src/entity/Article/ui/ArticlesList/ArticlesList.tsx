@@ -2,7 +2,6 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { featureToggle } from '@/shared/lib/features';
 
 import { ArticlesListView } from '../../model/consts/article';
 import { Article } from '../../model/types/article';
@@ -54,11 +53,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         <div
             data-testid="ArticlesList"
             className={classNames(
-                featureToggle({
-                    name: 'isRedesignedApp',
-                    on: () => cls.ArticlesListRedesigned,
-                    off: () => cls.ArticlesList,
-                }),
+                cls.ArticlesListRedesigned,
                 {},
                 [className, cls[view]],
             )}

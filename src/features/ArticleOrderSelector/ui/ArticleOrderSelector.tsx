@@ -2,9 +2,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { SortOrder } from '@/shared/types/sort';
-import { ListBox as ListBoxDeprecated, ListBoxOption } from '@/shared/ui/deprecated/Popups';
+import { ListBoxOption } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import cls from './ArticleOrderSelector.module.scss';
@@ -26,27 +25,15 @@ const ArticleOrderSelector = (props: ArticleOrderSelectorProps) => {
 
     return (
         <div className={classNames(cls.ArticleOrderSelector, {}, [className])}>
-            <FeatureToggle
-                feature="isRedesignedApp"
-                off={
-                    <ListBoxDeprecated
-                        classNameWrapper={cls.field}
-                        label={t('Sort by')}
-                        options={orderOptions}
-                        value={value}
-                        onChange={onChange}
-                    />
-                }
-                on={
-                    <ListBox
-                        classNameWrapper={cls.field}
-                        options={orderOptions}
-                        size="s"
-                        value={value}
-                        onChange={onChange}
-                    />
-                }
-            />
+            
+                                <ListBox
+                                    classNameWrapper={cls.field}
+                                    options={orderOptions}
+                                    size="s"
+                                    value={value}
+                                    onChange={onChange}
+                                />
+                            
         </div>
     );
 };

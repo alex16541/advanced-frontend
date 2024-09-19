@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRouteArticleEdit } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
-import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Button } from '@/shared/ui/redesigned/Button';
 
 import { selectIsUserCanEditArticle } from '../../model/selectors/article';
@@ -33,22 +31,11 @@ const ArticleEditButton = (props: ArticleEditButtonProps) => {
     if (!canEdit) return null;
 
     return (
-        <FeatureToggle
-            feature="isRedesignedApp"
-            off={
-                <ButtonDeprecated
-                    className={classNames(cls.ArticleEditButton, {}, [className])}
-                    onClick={onEdit}
-                >
-                    {t('edit')}
-                </ButtonDeprecated>
-            }
-            on={
-                <Button className={classNames(cls.ArticleEditButton, {}, [className])} onClick={onEdit}>
-                    {t('edit')}
-                </Button>
-            }
-        />
+        
+                        <Button className={classNames(cls.ArticleEditButton, {}, [className])} onClick={onEdit}>
+                            {t('edit')}
+                        </Button>
+                    
     );
 };
 

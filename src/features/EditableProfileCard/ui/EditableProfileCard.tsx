@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { ProfileCard, ProfileCardDeprecated } from '@/entity/Profile';
+import { ProfileCard } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -8,7 +8,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { FeatureToggle } from '@/shared/lib/features/components/FeatureToggle/FeatureToggle';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { useEditableProfileCard } from '../model/hooks/useEditableProfileCard';
@@ -79,11 +78,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
             <VStack className={classNames(cls.EditableProfileCard, {}, [className])} gap="10" maxWidth>
                 <EditableProfileCardHeader />
                 <EditableProfileCardErrors validationErrors={validationErrors} />
-                <FeatureToggle
-                    feature="isRedesignedApp"
-                    off={<ProfileCardDeprecated {...profileProps} />}
-                    on={<ProfileCard {...profileProps} />}
-                />
+                <ProfileCard {...profileProps} />
             </VStack>
         </DynamicModuleLoader>
     );

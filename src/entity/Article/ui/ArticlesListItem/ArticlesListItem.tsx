@@ -1,12 +1,9 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
-import { featureToggle } from '@/shared/lib/features';
 
 import { Article } from '../../model/types/article';
 import { LargeArticleCard as LargeArticleCardRedesigned } from '../LargeArticleCard/LargeArticleCard';
-import { LargeArticleCard as LargeArticleCardDeprecated } from '../LargeArticleCardDeprecated/LargeArticleCard';
 import { SmallArticleCard as SmallArticleCardRedesigned } from '../SmallArticleCard/SmallArticleCard';
-import { SmallArticleCard as SmallArticleCardDeprecated } from '../SmallArticleCardDeprecated/SmallArticleCard';
 
 export enum ArticlesListItemSize {
     S = 'size_s',
@@ -24,16 +21,8 @@ interface ArticlesListItemProps {
 export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     const { className, size = ArticlesListItemSize.S, article, isLoading = false, target } = props;
 
-    const SmallArticleCard = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => SmallArticleCardRedesigned,
-        off: () => SmallArticleCardDeprecated,
-    });
-    const LargeArticleCard = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => LargeArticleCardRedesigned,
-        off: () => LargeArticleCardDeprecated,
-    });
+    const SmallArticleCard = SmallArticleCardRedesigned;
+    const LargeArticleCard = LargeArticleCardRedesigned;
 
     if (!SmallArticleCard || !LargeArticleCard) return null;
 

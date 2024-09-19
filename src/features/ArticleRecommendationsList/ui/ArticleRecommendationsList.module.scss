@@ -3,4 +3,9 @@
     flex-direction: column;
     gap: 16px;
     margin-bottom: 1rem;
+
+    .list {
+        display: grid;
+        grid-template: auto / minmax(100px, auto);
+    }
 }

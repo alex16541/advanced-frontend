@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 import { useModal } from '@/shared/hooks/useModal';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { featureToggle } from '@/shared/lib/features';
 
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
@@ -32,11 +31,7 @@ export const Modal = (props: ModalProps) => {
         [cls.isClosing]: isClosing,
     };
 
-    const contentCls = featureToggle({
-        name: 'isRedesignedApp',
-        on: () => cls.contentNew,
-        off: () => cls.contentOld,
-    });
+    const contentCls = cls.contentNew;
 
     if (lazy && !isMounted) return null;
 
