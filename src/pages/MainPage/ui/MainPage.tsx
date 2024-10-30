@@ -7,9 +7,10 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
 
 import cls from './MainPage.module.scss';
+import '../i18n/i18n';
 
 const MainPage = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('MainPage');
     return (
         <Page className="page" data-testid="main-page">
             <StikyContentLayout

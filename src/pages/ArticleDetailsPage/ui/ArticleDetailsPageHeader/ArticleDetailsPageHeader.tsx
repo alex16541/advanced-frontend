@@ -7,7 +7,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
 
-
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
@@ -17,7 +16,7 @@ interface ArticleDetailsPageHeaderProps {
 
 export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleDetailsPage');
     const navigate = useNavigate();
 
     const onBack = useCallback(() => {
@@ -25,10 +24,8 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [navigate]);
 
     return (
-        
-                        <Card className={classNames(cls.ArticleDetailsPageHeaderRedesigned, {}, [className])}>
-                            <Button onClick={onBack}>{t('back')}</Button>
-                        </Card>
-                    
+        <Card className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+            <Button onClick={onBack}>{t('back')}</Button>
+        </Card>
     );
 });

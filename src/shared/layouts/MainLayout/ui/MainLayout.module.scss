@@ -1,7 +1,7 @@
 .MainLayout {
     display: grid;
     grid-template-areas: "sidebar content rightbar";
-    grid-template-columns: 280px 1fr 180px;
+    grid-template-columns: auto 1fr auto;
     column-gap: 20px;
 
     height: 100%;
@@ -10,6 +10,7 @@
 
 .sidebar {
     position: sticky;
+    z-index: 5;
     top: 30px;
 
     grid-area: sidebar;
@@ -23,11 +24,12 @@
     grid-area: content;
     justify-self: center;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1200px;
 }
 
 .rightbar {
     position: sticky;
+    z-index: 5;
     top: 30px;
 
     display: flex;

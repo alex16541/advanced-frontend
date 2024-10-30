@@ -58,7 +58,12 @@ export const editableProfileCardSlice = createSlice({
             })
             .addCase(updateProfileData.rejected, (state, actions) => {
                 state.isLoading = false;
-                state.validateErrors = actions.payload;
+
+                if (Array.isArray(actions.payload)) {
+                    state.validateErrors = actions.payload;
+                } else {
+                    state.error = actions.payload;
+                }
             });
     },
 });

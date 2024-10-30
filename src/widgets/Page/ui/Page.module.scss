@@ -1,16 +1,10 @@
-.Page {
-    overflow-y: scroll;
-    flex-grow: 1;
-
-    width: 100%;
-    height: calc(100vh - var(--navbar-height));
-    padding: 20px;
-}
-
 .trigger {
     width: 100%;
     height: 10px;
 }
 
-.PageRedesigned {
+.Page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }

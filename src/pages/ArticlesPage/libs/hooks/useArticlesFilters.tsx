@@ -20,7 +20,7 @@ import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 export const useArticlesFilters = () => {
     const dispatch = useAppDispatch();
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticlesPage');
     const order = useAppSelector(selectArticlesFiltersOrder);
     const sort = useAppSelector(selectArticlesFiltersSort);
     const type = useAppSelector(selectArticlesFiltersType);

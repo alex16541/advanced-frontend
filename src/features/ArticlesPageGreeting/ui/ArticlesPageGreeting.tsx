@@ -1,15 +1,17 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
 import { useJsonSettings, changeUserJsonSettings } from '@/entity/User';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Text } from '@/shared/ui/deprecated/Text';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-const ArticlesPageGreeting = () => {
-    const { t } = useTranslation('article');
+import '../i18n/i18n';
+
+export const ArticlesPageGreeting = () => {
+    const { t } = useTranslation('ArticlePageGreeting');
     const [isOpen, setIsOpen] = useState(false);
     const { isArticlesPageGreetingShown: isModalShown } = useJsonSettings();
     const dispatch = useAppDispatch();
@@ -21,11 +23,11 @@ const ArticlesPageGreeting = () => {
         }
     }, [dispatch, isModalShown]);
 
-    const onClose = useCallback(() => {
+    const onClose = () => {
         setIsOpen(false);
-    }, []);
+    };
 
-    const text = <Text text={t('Greeting text')} title={t('Greeting title')} />;
+    const text = <Text text={t('text')} title={t('title')} />;
 
     if (isMobile) {
         return (
@@ -41,7 +43,3 @@ const ArticlesPageGreeting = () => {
         </Modal>
     );
 };
-
-const Memoized = memo(ArticlesPageGreeting);
-
-export { Memoized as ArticlesPageGreeting };

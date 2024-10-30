@@ -1,9 +1,8 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
-
 import { Article } from '../../model/types/article';
-import { LargeArticleCard as LargeArticleCardRedesigned } from '../LargeArticleCard/LargeArticleCard';
-import { SmallArticleCard as SmallArticleCardRedesigned } from '../SmallArticleCard/SmallArticleCard';
+import { LargeArticleCard } from '../LargeArticleCard/LargeArticleCard';
+import { SmallArticleCard } from '../SmallArticleCard/SmallArticleCard';
 
 export enum ArticlesListItemSize {
     S = 'size_s',
@@ -20,9 +19,6 @@ interface ArticlesListItemProps {
 
 export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     const { className, size = ArticlesListItemSize.S, article, isLoading = false, target } = props;
-
-    const SmallArticleCard = SmallArticleCardRedesigned;
-    const LargeArticleCard = LargeArticleCardRedesigned;
 
     if (!SmallArticleCard || !LargeArticleCard) return null;
 

@@ -18,7 +18,7 @@ interface ArticleEditButtonProps {
 
 const ArticleEditButton = (props: ArticleEditButtonProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleDetailsPage');
     const navigate = useNavigate();
     const canEdit = useSelector(selectIsUserCanEditArticle);
 
@@ -31,11 +31,9 @@ const ArticleEditButton = (props: ArticleEditButtonProps) => {
     if (!canEdit) return null;
 
     return (
-        
-                        <Button className={classNames(cls.ArticleEditButton, {}, [className])} onClick={onEdit}>
-                            {t('edit')}
-                        </Button>
-                    
+        <Button className={classNames(cls.ArticleEditButton, {}, [className])} onClick={onEdit}>
+            {t('edit')}
+        </Button>
     );
 };
 

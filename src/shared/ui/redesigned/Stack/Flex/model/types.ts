@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type FlexAlign = 'Start' | 'Center' | 'End' | 'Stretch';
-export type FlexJustify = 'Start' | 'Center' | 'End' | 'SpaceBetween';
+export type FlexJustify = 'Start' | 'Center' | 'End' | 'SpaceBetween' | 'Stretch';
 export type FlexDirection = 'Row' | 'Column';
 export type FlexGap =
     | '0'

@@ -5,6 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 import cls from './AdminPage.module.scss';
+import '../i18n/i18n';
 
 interface AdminPageProps {
     className?: string;
@@ -12,11 +13,11 @@ interface AdminPageProps {
 
 const AdminPage = (props: AdminPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('admin');
+    const { t } = useTranslation('AdminPage');
 
     return (
         <Page className={classNames(cls.AdminPage, {}, [className])} data-testid="admin-page">
-            <div className="title">{t('admin page')}</div>
+            <div className="title">{t('title')}</div>
         </Page>
     );
 };

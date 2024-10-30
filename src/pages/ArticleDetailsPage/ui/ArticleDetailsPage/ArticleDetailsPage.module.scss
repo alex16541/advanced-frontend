@@ -1,15 +1,6 @@
 .ArticleDetailsPage {
-    min-height: 100%;
-
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-}
-
-.ArticleDetailsPageRedesigned {
-    .container {
-        max-width: 790px;
+    .content {
+        max-width: var(--page-content-max-width);
         margin: 0 auto;
     }
 }

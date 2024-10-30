@@ -1,9 +1,7 @@
 .ArticlesFilters {
-    .field {
-        width: 100%;
-    }
-}
-
-.ArticlesFiltersRedesigned {
     width: 270px;
+
+    .search {
+        border-radius: var(--border-radius-xl);
+    }
 }

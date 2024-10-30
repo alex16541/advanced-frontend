@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +13,7 @@ import { StarRating } from '@/shared/ui/redesigned/StarRating';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './RatingCard.module.scss';
+import '../../i18n/i18n';
 
 interface RatingCardProps {
     className?: string;
@@ -30,8 +31,8 @@ interface RatingCardProps {
     onAccept?: (starsCount: number, feedback?: string) => void;
 }
 
-const RatingCard = (props: RatingCardProps) => {
-    const { t } = useTranslation('rating');
+export const RatingCard = (props: RatingCardProps) => {
+    const { t } = useTranslation('RatingCard');
 
     const {
         className,
@@ -54,55 +55,48 @@ const RatingCard = (props: RatingCardProps) => {
     const [starRating, setStarRating] = useState(rating);
     const [feedback, setFeedback] = useState('');
 
-    const cancelHendler = useCallback(() => {
+    const cancelHendler = () => {
         onCancel?.(starRating);
         setIsOpen(false);
-    }, [onCancel, starRating]);
+    };
 
-    const acceptHendler = useCallback(() => {
+    const acceptHendler = () => {
         onAccept?.(starRating, feedback);
         if (!editable) {
             setIsEditable(false);
         }
         setIsOpen(false);
-    }, [feedback, onAccept, starRating, editable]);
+    };
 
-    const onChangeStarRating = useCallback(
-        (rating: number) => {
-            setStarRating(rating);
+    const onChangeStarRating = (rating: number) => {
+        setStarRating(rating);
 
-            if (hasFeedback) {
-                setIsOpen(true);
-            } else {
-                acceptHendler();
-            }
-        },
-        [acceptHendler, hasFeedback],
-    );
+        if (hasFeedback) {
+            setIsOpen(true);
+        } else {
+            acceptHendler();
+        }
+    };
 
-    const onChangeFeedback = useCallback((feedback: string) => {
+    const onChangeFeedback = (feedback: string) => {
         setFeedback(feedback);
-    }, []);
+    };
 
-    const ModalContent = useMemo(
-        () => (
-            <VStack gap="16">
-                <Text size="l" title={feedbackTitle} />
-                {/* TODO: Заменить на textarea */}
-                <Input
-                    className={cls.Input}
-                    data-testid="RatingCard.FeedbackInput"
-                    placeholder={feedbackPlaceholder}
-                    onChange={onChangeFeedback}
-                />
-            </VStack>
-        ),
-        [feedbackPlaceholder, feedbackTitle, onChangeFeedback],
+    const ModalContent = (
+        <VStack gap="16">
+            <Text size="l" title={feedbackTitle} />
+            {/* TODO: Заменить на textarea */}
+            <Input
+                className={cls.Input}
+                data-testid="RatingCard.FeedbackInput"
+                placeholder={feedbackPlaceholder}
+                onChange={onChangeFeedback}
+            />
+        </VStack>
     );
 
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
-            {' '}
             <>
                 <VStack align="Center" gap="10">
                     <Text
@@ -178,7 +172,3 @@ const RatingCard = (props: RatingCardProps) => {
         </Card>
     );
 };
-
-const Memoized = memo(RatingCard);
-
-export { Memoized as RatingCard };

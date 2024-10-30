@@ -17,23 +17,21 @@ export const PageLoader = (props: PageLoaderProps) => {
     const { t } = useTranslation();
 
     return (
-        
-                        <Card className={classNames(cls.PageLoader, {}, [className])}>
-                            <VStack gap="20">
-                                <Skeleton height="38px" width="40%" />
-                                <VStack gap="16">
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="100%" />
-                                    <Skeleton height="24px" width="30%" />
-                                </VStack>
-                            </VStack>
-                        </Card>
-                    
+        <Card className={classNames(cls.PageLoader, {}, [className])}>
+            <VStack gap="20">
+                <Skeleton height="38px" width="40%" />
+                <VStack gap="16">
+                    <Skeleton height="300px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="100%" />
+                    <Skeleton height="24px" width="30%" />
+                </VStack>
+            </VStack>
+        </Card>
     );
 };

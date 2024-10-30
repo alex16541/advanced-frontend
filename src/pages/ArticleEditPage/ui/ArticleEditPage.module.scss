@@ -1,2 +1,29 @@
+.ContentCard {
+    width: 100%;
+    max-width: var(--page-content-max-width);
+    margin: 0 auto;
+}
+
+.HeaderCard {
+    display: flex;
+    align-items: center;
+    height: 65px;
+}
+
 .ArticleEditPage {
+    .header {
+        padding: 0 26px;
+    }
+
+    .Button {
+        border-radius: var(--border-radius-m);
+    }
+}
+
+.leftMenu {
+    width: max-content;
+}
+
+.onSave {
+    text-wrap: nowrap;
 }

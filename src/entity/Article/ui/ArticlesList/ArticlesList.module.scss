@@ -22,34 +22,6 @@
         justify-content: flex-start;
 
         width: 100%;
-        padding: 15px 10px;
-    }
-}
-
-.ArticlesListRedesigned {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-
-    margin: 0 auto;
-
-    .card {
-    }
-
-    &.grid_view {
-    }
-
-    &.list_view {
-        max-width: 900px;
-    }
-
-    &.carusel_view {
-        overflow: auto hidden;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-
-        width: 100%;
         padding: 0 0 16px;
     }
 }

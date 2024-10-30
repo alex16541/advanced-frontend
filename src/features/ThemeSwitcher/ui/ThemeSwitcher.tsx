@@ -26,16 +26,14 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
     }, [dispatch, toggleTheme]);
 
     return (
-        
-                        <Button
-                            className={classNames(cls.ThemeSwitcherRedesigned, {}, [className])}
-                            theme="clear"
-                            onClick={changeTheme}
-                            {...otherProps}
-                        >
-                            <PaintRoller />
-                        </Button>
-                    
+        <Button
+            className={classNames(cls.ThemeSwitcherRedesigned, {}, [className])}
+            theme="clear"
+            onClick={changeTheme}
+            {...otherProps}
+        >
+            <PaintRoller />
+        </Button>
     );
 };
 

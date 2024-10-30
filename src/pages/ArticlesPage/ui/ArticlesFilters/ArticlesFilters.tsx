@@ -25,31 +25,26 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
         useArticlesFilters();
 
     return (
-        
-                        <Card className={classNames(cls.ArticlesFiltersRedesigned, {}, [className])}>
-                            <VStack gap="32" maxWidth>
-                                <Input
-                                    addonLeft={<Icon Svg={SearchIcon} />}
-                                    isLoading={isLoading}
-                                    placeholder={t('Find')}
-                                    size="s"
-                                    value={search}
-                                    fullWidth
-                                    onChange={searchChange}
-                                />
-                                <ArticleTypeChips value={type} onChange={typeChange} />
-                                <VStack gap="8">
-                                    <Text text={`${t('Sort by')}:`} />
-                                    <ArticleSortSelector className={cls.field} value={sort} onChange={sortChange} />
-                                    <ArticleOrderSelector
-                                        className={cls.field}
-                                        value={order}
-                                        onChange={orderChange}
-                                    />
-                                </VStack>
-                            </VStack>
-                        </Card>
-                    
+        <Card className={classNames(cls.ArticlesFilters, {}, [className])}>
+            <VStack gap="32" maxWidth>
+                <Input
+                    addonLeft={<Icon Svg={SearchIcon} />}
+                    className={cls.search}
+                    isLoading={isLoading}
+                    placeholder={t('Find')}
+                    size="s"
+                    value={search}
+                    fullWidth
+                    onChange={searchChange}
+                />
+                <ArticleTypeChips direction="Column" value={type} withAll onClick={typeChange} />
+                <VStack gap="8">
+                    <Text text={`${t('Sort by')}:`} />
+                    <ArticleSortSelector className={cls.field} value={sort} onChange={sortChange} />
+                    <ArticleOrderSelector className={cls.field} value={order} onChange={orderChange} />
+                </VStack>
+            </VStack>
+        </Card>
     );
 };
 

@@ -1,0 +1,61 @@
+.DraggableBlockMenu {
+    will-change: transform;
+
+    position: absolute;
+    top: 4px;
+    left: 0;
+
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px 1px;
+
+    opacity: 0;
+    background-color: var(--dark-bg-color-redesigned);
+    border-radius: var(--border-radius-s);
+}
+
+.itemAdd {
+    cursor: pointer;
+}
+
+.itemDrag {
+    cursor: grab;
+    width: auto;
+    height: auto;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.item {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+
+    opacity: 0.8;
+    border-radius: 4px;
+}
+
+.item:hover {
+    opacity: 1;
+    background-color: var(--bg-color-redesigned);
+}
+
+.TargetLine {
+    pointer-events: none;
+    will-change: transform;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 4px;
+
+    opacity: 0;
+    background: var(--accent-color-redesigned);
+    border-radius: 1px;
+}

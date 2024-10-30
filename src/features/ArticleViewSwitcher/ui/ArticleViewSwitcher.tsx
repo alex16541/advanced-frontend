@@ -33,18 +33,16 @@ export const ArticleViewSwitcher = memo((props: ArticleViewSwitcherProps) => {
     };
 
     return (
-        
-                        <div className={classNames(cls.ArticleViewSwitcherRedesigned, {}, [className])}>
-                            {viewTypes.map((viewType) => (
-                                <Icon
-                                    className={classNames(cls.button, { [cls.selected]: view === viewType.view })}
-                                    key={viewType.view}
-                                    Svg={viewType.icon}
-                                    clickable
-                                    onClick={onViewSwitchHandler(viewType.view)}
-                                />
-                            ))}
-                        </div>
-                    
+        <div className={classNames(cls.ArticleViewSwitcher, {}, [className])}>
+            {viewTypes.map((viewType) => (
+                <Icon
+                    className={classNames(cls.button, { [cls.selected]: view === viewType.view })}
+                    key={viewType.view}
+                    Svg={viewType.icon}
+                    clickable
+                    onClick={onViewSwitchHandler(viewType.view)}
+                />
+            ))}
+        </div>
     );
 });

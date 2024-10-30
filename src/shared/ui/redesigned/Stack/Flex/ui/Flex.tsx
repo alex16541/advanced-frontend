@@ -18,6 +18,7 @@ const FlexJustifyClassNames: Record<FlexJustify, string> = {
     Center: cls.JustifyCenter,
     End: cls.JustifyEnd,
     SpaceBetween: cls.JustifySpaceBetween,
+    Stretch: cls.JustifyStretch,
 };
 
 const FlexDirectionClassNames: Record<FlexDirection, string> = {

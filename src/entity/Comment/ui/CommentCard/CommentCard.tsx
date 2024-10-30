@@ -21,21 +21,19 @@ export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment } = props;
 
     return (
-        
-                        <Card className={classNames(cls.CommentCard, {}, [className])} data-testid="CommentCard">
-                            <VStack gap="12">
-                                <AppLink to={getRouteProfile(comment.user.id)}>
-                                    <HStack gap="8">
-                                        {comment.user.avatar && (
-                                            <Avatar alt={comment.user.username} size={32} src={comment.user.avatar} />
-                                        )}
-                                        <Text size="l" text={comment.user.username} weight="bold" />
-                                    </HStack>
-                                </AppLink>
+        <Card className={classNames(cls.CommentCard, {}, [className])} data-testid="CommentCard">
+            <VStack gap="12">
+                <AppLink to={getRouteProfile(comment.user.id)}>
+                    <HStack gap="8">
+                        {comment.user.avatar && (
+                            <Avatar alt={comment.user.username} size={32} src={comment.user.avatar} />
+                        )}
+                        <Text size="l" text={comment.user.username} weight="bold" />
+                    </HStack>
+                </AppLink>
 
-                                <Text text={comment.text} />
-                            </VStack>
-                        </Card>
-                    
+                <Text text={comment.text} />
+            </VStack>
+        </Card>
     );
 });

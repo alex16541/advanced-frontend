@@ -1,7 +1,18 @@
 .StikyContentLayout {
     display: grid;
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-areas: "left content right";
+    grid-template-columns: min-content var(--page-content-max-width) min-content;
     gap: 16px;
+
+    margin: 0 auto;
+
+    .left {
+        grid-area: left;
+    }
+
+    .right {
+        grid-area: right;
+    }
 
     .left,
     .right {
@@ -11,6 +22,7 @@
     }
 
     .content {
+        grid-area: content;
         width: 100%;
         min-height: calc(100vh - 70px);
     }

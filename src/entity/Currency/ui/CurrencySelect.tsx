@@ -1,9 +1,10 @@
-import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ListBoxOption } from '@/shared/ui/deprecated/Popups/types/listBox';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import { Currency } from '../model/consts/currency';
+import '../i18n/i18n';
 
 interface CurrencySelectProps {
     className?: string;
@@ -14,37 +15,29 @@ interface CurrencySelectProps {
     onChangeValue?: (value: Currency) => void;
 }
 
-const currencyOptions: ListBoxOption<Currency>[] = [
-    { value: Currency.RUB, content: Currency.RUB },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
-];
-
-const CurrencySelect = (props: CurrencySelectProps) => {
+export const CurrencySelect = (props: CurrencySelectProps) => {
     const { className, label, placeholder, readonly, value, onChangeValue } = props;
+    const { t } = useTranslation('CurrencySelect');
 
-    const onChangeHendler = useCallback(
-        (value: Currency) => {
-            onChangeValue?.(value);
-        },
-        [onChangeValue],
-    );
+    const onChangeHendler = (value: Currency) => {
+        onChangeValue?.(value);
+    };
+
+    const currencyOptions: ListBoxOption<Currency, string>[] = [
+        { value: Currency.RUB, content: t(Currency.RUB) },
+        { value: Currency.EUR, content: t(Currency.EUR) },
+        { value: Currency.USD, content: t(Currency.USD) },
+    ];
 
     return (
-        
-                        <ListBox
-                            className={className}
-                            defaultValue={placeholder}
-                            disabled={readonly}
-                            label={label}
-                            options={currencyOptions}
-                            value={value}
-                            onChange={onChangeHendler}
-                        />
-                    
+        <ListBox
+            className={className}
+            defaultValue={placeholder}
+            disabled={readonly}
+            label={label}
+            options={currencyOptions}
+            value={value}
+            onChange={onChangeHendler}
+        />
     );
 };
-
-const Memoized = memo(CurrencySelect);
-
-export { Memoized as CurrencySelect };

@@ -16,10 +16,9 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        "typeRoots": [
-          "./node_modules/@types"
-        ],
-        "isolatedModules": true
+        "typeRoots": ["./node_modules/@types"],
+        "isolatedModules": true,
+        "resolveJsonModule": true
     },
     "ts-node": {
         "compilerOptions": {

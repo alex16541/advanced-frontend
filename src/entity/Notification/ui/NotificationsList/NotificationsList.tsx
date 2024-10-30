@@ -35,17 +35,11 @@ const NotificationsList = (props: NotificationsListProps) => {
     // TODO: Если notifications.length === 0 => Уведомлений нет.
 
     return (
-        
-                        <VStack
-                            className={classNames(cls.NotificationsListRedesigned, {}, [className])}
-                            gap="0"
-                            maxWidth
-                        >
-                            {notifications.map((n) => (
-                                <NotificationsItem className={cls.Item} key={n.id} notification={n} />
-                            ))}
-                        </VStack>
-                    
+        <VStack className={classNames(cls.NotificationsListRedesigned, {}, [className])} gap="0" maxWidth>
+            {notifications.map((n) => (
+                <NotificationsItem className={cls.Item} key={n.id} notification={n} />
+            ))}
+        </VStack>
     );
 };
 

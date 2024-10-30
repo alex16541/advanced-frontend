@@ -10,6 +10,7 @@ import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 import cls from './AvatarButton.module.scss';
+import '../i18n/i18n';
 
 interface AvatarButtonProps {
     className?: string;
@@ -18,7 +19,7 @@ interface AvatarButtonProps {
 
 const AvatarButton = (props: AvatarButtonProps) => {
     const { className, direction = 'bottom left' } = props;
-    const { t } = useTranslation('navbar');
+    const { t } = useTranslation('AvatarButton');
     const authData = useAppSelector(getAuthData);
     const isUserAdmin = useAppSelector(getIsUserAdmin);
     const isUserManager = useAppSelector(getIsUserManager);
@@ -31,20 +32,18 @@ const AvatarButton = (props: AvatarButtonProps) => {
     if (!authData) return null;
 
     return (
-        
-                        <Dropdown
-                            button={<Avatar alt={authData.username} size={50} src={authData.avatar ?? ''} />}
-                            className={classNames(cls.AvatarButton, {}, [className])}
-                            direction={direction}
-                            items={[
-                                { content: t('profile'), href: `/profile/${authData.id}` },
-                                { content: t('Settings'), href: '/settings' },
-                                ...(isShowAdminButton ? [{ content: t('admin'), href: '/admin' }] : []),
-                                { isDelimiter: true },
-                                { content: t('logout'), onClick: logout },
-                            ]}
-                        />
-                    
+        <Dropdown
+            button={<Avatar alt={authData.username} size={50} src={authData.avatar ?? ''} />}
+            className={classNames(cls.AvatarButton, {}, [className])}
+            direction={direction}
+            items={[
+                { content: t('Profile'), href: `/profile/${authData.id}` },
+                { content: t('Settings'), href: '/settings' },
+                ...(isShowAdminButton ? [{ content: t('Admin'), href: '/admin' }] : []),
+                { isDelimiter: true },
+                { content: t('Logout'), onClick: logout },
+            ]}
+        />
     );
 };
 

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-export interface ListBoxOption<T> {
+export interface ListBoxOption<T, V extends ReactNode = ReactNode> {
     value: T;
-    content: ReactNode;
+    content: V;
     disabled?: boolean;
 }

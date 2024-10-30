@@ -5,20 +5,10 @@ export enum ArticleType {
     LIFE = 'life',
 }
 
-export enum ArticleErrors {
-    SERVER_ERROR = 'SERVER_ERROR',
-}
-
 export enum ArticleSortField {
     VIEWS = 'views',
     TITLE = 'title',
     CREATED = 'createdAt',
-}
-
-export enum ArticleBlockType {
-    TEXT = 'TEXT',
-    IMAGE = 'IMAGE',
-    CODE = 'CODE',
 }
 
 export enum ArticlesListView {

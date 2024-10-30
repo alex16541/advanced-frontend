@@ -18,7 +18,7 @@ interface ArticleInfoProps {
 
 const ArticleInfo = (props: ArticleInfoProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleDetailsPage');
 
     const articleData = useSelector(getArticleDetailsData);
 

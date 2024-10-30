@@ -8,10 +8,7 @@ import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import cls from './ArticleOrderSelector.module.scss';
 
-const orderOptions: ListBoxOption<SortOrder>[] = [
-    { value: 'asc', content: 'Возрастанию' },
-    { value: 'desc', content: 'Убыванию' },
-];
+import '../i18n/i18n';
 
 interface ArticleOrderSelectorProps {
     className?: string;
@@ -21,19 +18,21 @@ interface ArticleOrderSelectorProps {
 
 const ArticleOrderSelector = (props: ArticleOrderSelectorProps) => {
     const { className, onChange, value } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleOrder');
 
+    const orderOptions: ListBoxOption<SortOrder, string>[] = [
+        { value: 'asc', content: t('ORDER_ASC') },
+        { value: 'desc', content: t('ORDER_DESC') },
+    ];
     return (
         <div className={classNames(cls.ArticleOrderSelector, {}, [className])}>
-            
-                                <ListBox
-                                    classNameWrapper={cls.field}
-                                    options={orderOptions}
-                                    size="s"
-                                    value={value}
-                                    onChange={onChange}
-                                />
-                            
+            <ListBox
+                classNameWrapper={cls.field}
+                options={orderOptions}
+                size="s"
+                value={value}
+                onChange={onChange}
+            />
         </div>
     );
 };

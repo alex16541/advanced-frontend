@@ -1,4 +1,4 @@
-import { ReactElement, memo } from 'react';
+import { ReactElement } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -12,7 +12,7 @@ interface MainLayoutProps {
     toolbar?: ReactElement;
 }
 
-const MainLayout = (props: MainLayoutProps) => {
+export const MainLayout = (props: MainLayoutProps) => {
     const { className, content, navbar, sidebar, toolbar } = props;
 
     return (
@@ -26,7 +26,3 @@ const MainLayout = (props: MainLayoutProps) => {
         </div>
     );
 };
-
-const Memoized = memo(MainLayout);
-
-export { Memoized as MainLayout };

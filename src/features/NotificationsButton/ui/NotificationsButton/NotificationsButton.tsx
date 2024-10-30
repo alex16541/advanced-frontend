@@ -35,25 +35,23 @@ const NotificationsButton = (props: NotificationsButtonProps) => {
     if (!authData) return null;
 
     return (
-        
-                        <div className={cls.NotificationsButtonWrapperRedesigned}>
-                            <BrowserView>
-                                <Popover
-                                    button={<Icon className={cls.Icon} Svg={bell} clickable onClick={() => {}} />}
-                                    className={classNames(cls.NotificationsButtonRedesigned, {}, [className])}
-                                    direction={direction}
-                                >
-                                    <NotificationsList userId={authData.id} />
-                                </Popover>
-                            </BrowserView>
-                            <MobileView>
-                                <Icon className={`${cls.Icon}`} Svg={bell} clickable onClick={onOpen} />
-                                <DrawerDeprecated isOpen={isOpen} onClose={onClose}>
-                                    <NotificationsList userId={authData.id} />
-                                </DrawerDeprecated>
-                            </MobileView>
-                        </div>
-                    
+        <div className={cls.NotificationsButtonWrapperRedesigned}>
+            <BrowserView>
+                <Popover
+                    button={<Icon className={cls.Icon} Svg={bell} clickable onClick={() => {}} />}
+                    className={classNames(cls.NotificationsButtonRedesigned, {}, [className])}
+                    direction={direction}
+                >
+                    <NotificationsList userId={authData.id} />
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                <Icon className={`${cls.Icon}`} Svg={bell} clickable onClick={onOpen} />
+                <DrawerDeprecated isOpen={isOpen} onClose={onClose}>
+                    <NotificationsList userId={authData.id} />
+                </DrawerDeprecated>
+            </MobileView>
+        </div>
     );
 };
 

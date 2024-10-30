@@ -4,11 +4,15 @@
 @import "themes/green";
 @import "variables/global";
 
+body {
+    overflow-y: scroll;
+}
+
 .root {
     min-height: 100vh;
-    font: var(--font-m);
-    color: var(--secondary-color);
-    background-color: var(--primary-bg-color);
+    font: var(--font-m-redesigned);
+    color: var(--text-color-redesigned);
+    background-color: var(--bg-color-redesigned);
 }
 
 .root:has(.app_redesigned),

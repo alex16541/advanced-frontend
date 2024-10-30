@@ -29,6 +29,11 @@
         object-fit: cover;
     }
 
+    .fallback {
+        height: 100%;
+        background-color: var(--light-bg-color-redesigned);
+    }
+
     .user {
         margin-bottom: 4px;
     }

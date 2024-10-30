@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 import cls from './PageError.module.scss';
 
@@ -21,9 +21,7 @@ export const PageError = (props: PageErrorProps) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             {t('page logading error text')}
-            <Button theme={ButtonThemes.PRIMARY} onClick={reloadPage}>
-                {t('reload page')}
-            </Button>
+            <Button onClick={reloadPage}>{t('reload page')}</Button>
         </div>
     );
 };

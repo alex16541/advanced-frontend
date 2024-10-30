@@ -1,0 +1,63 @@
+.editor-image .image-resizer {
+    position: absolute;
+
+    display: none;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: var(--accent-color-redesigned);
+    border-radius: var(--border-radius-s);
+}
+
+.editor-image .image-resizer.image-resizer-n {
+    cursor: n-resize;
+    top: -8px;
+    left: 47%;
+    width: 21px;
+}
+
+.editor-image .image-resizer.image-resizer-ne {
+    cursor: ne-resize;
+    top: -8px;
+    right: -6px;
+}
+
+.editor-image .image-resizer.image-resizer-e {
+    cursor: e-resize;
+    right: -6px;
+    bottom: 47%;
+    height: 21px;
+}
+
+.editor-image .image-resizer.image-resizer-se {
+    cursor: nwse-resize;
+    right: -6px;
+    bottom: -8px;
+}
+
+.editor-image .image-resizer.image-resizer-s {
+    cursor: s-resize;
+    bottom: -8px;
+    left: 47%;
+    width: 21px;
+}
+
+.editor-image .image-resizer.image-resizer-sw {
+    cursor: sw-resize;
+    bottom: -8px;
+    left: -6px;
+}
+
+.editor-image .image-resizer.image-resizer-w {
+    cursor: w-resize;
+    bottom: 47%;
+    left: -6px;
+    height: 21px;
+}
+
+.editor-image .image-resizer.image-resizer-nw {
+    cursor: nw-resize;
+    top: -8px;
+    left: -6px;
+}

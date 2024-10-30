@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { ProfileCard } from '@/entity/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useOnInit } from '@/shared/hooks/useOnInit';
@@ -17,6 +15,7 @@ import { editableProfileCardReducer } from '../model/slices/editableProfileCardS
 import cls from './EditableProfileCard.module.scss';
 import { EditableProfileCardErrors } from './EditableProfileCardErrors/EditableProfileCardErrors';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
+import '../i18n/i18n';
 
 const reducers: ReducersList = {
     editableProfileCard: editableProfileCardReducer,
@@ -27,7 +26,7 @@ interface EditableProfileCardProps {
     profileId?: number | string;
 }
 
-const EditableProfileCard = (props: EditableProfileCardProps) => {
+export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const { className, profileId } = props;
     const dispatch = useAppDispatch();
 
@@ -36,8 +35,8 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
         isLoading,
         error,
         validationErrors,
-        profileError,
         readonly,
+        getErrorText,
         onChangeAge,
         onChangeCity,
         onChangeCountry,
@@ -58,7 +57,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     const profileProps = {
         data: form,
-        error: error && profileError[error],
+        error: error && getErrorText(error),
         isLoading,
         readonly,
         onChangeAge,
@@ -83,7 +82,3 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
         </DynamicModuleLoader>
     );
 };
-
-const Memoized = memo(EditableProfileCard);
-
-export { Memoized as EditableProfileCard };

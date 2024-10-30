@@ -6,6 +6,7 @@ import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 import { selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 interface ArticlesViewSwitcherContainerProps {
@@ -20,6 +21,7 @@ const ArticlesViewSwitcherContainer = (props: ArticlesViewSwitcherContainerProps
     const onViewSwitch = useCallback(
         (view: ArticlesListView) => {
             dispatch(articlesPageActions.setView(view));
+            dispatch(fetchNextArticlesPage({ replace: true }));
         },
         [dispatch],
     );

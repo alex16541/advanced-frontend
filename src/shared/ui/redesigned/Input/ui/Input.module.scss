@@ -7,7 +7,11 @@
 
     background-color: var(--dark-bg-color-redesigned);
     border: 2px solid var(--icon-color-redesigned);
-    border-radius: var(--border-radius-xl);
+
+    &:has(input[type="file"]) {
+        overflow: hidden;
+        width: 100%;
+    }
 
     &.readonly {
         border-color: var(--hint-color-redesigned);
@@ -32,6 +36,16 @@
     }
 }
 
+.Label {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    text-wrap: nowrap;
+
+    &:has(input[type="file"]) {
+    }
+}
+
 .Input {
     width: 100%;
 
@@ -44,6 +58,17 @@
     &::placeholder {
         color: var(--hint-color-redesigned);
     }
+
+    &[type="file"] {
+        content: "";
+        display: none;
+    }
+}
+
+.fileName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .fullWidth {
@@ -56,8 +81,10 @@
 
 .s {
     height: 32px;
+    border-radius: var(--border-radius-s);
 }
 
 .m {
     height: 38px;
+    border-radius: var(--border-radius-l);
 }

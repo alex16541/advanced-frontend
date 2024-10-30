@@ -1,4 +1,3 @@
-import { ProfileErrors } from '@/entity/Profile';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 import { featchProfileData } from './featchProfileData';
@@ -30,6 +29,6 @@ describe('featchProfileData', () => {
         const actionResult = await thunk.callThunk('1');
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual(ProfileErrors.UNKNOWN_ERROR);
+        expect(actionResult.payload).toEqual('UNKNOWN_ERROR');
     });
 });

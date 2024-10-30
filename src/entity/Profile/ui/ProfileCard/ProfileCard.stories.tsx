@@ -5,8 +5,6 @@ import { Currency } from '@/entity/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
 
-import { ProfileErrors } from '../../model/consts/profile';
-
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -38,7 +36,7 @@ export const Dark: Story = {
 
 export const WithError: Story = {
     args: {
-        error: ProfileErrors.SERVER_ERROR,
+        error: 'error',
     },
 };
 

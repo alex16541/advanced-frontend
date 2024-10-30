@@ -1,12 +1,12 @@
-import { Profile, ProfileErrors } from '@/entity/Profile';
+import { Profile, ProfileError } from '@/entity/Profile';
 
-import { ProfileValidateErrors } from '../consts/profile';
+import { ProfileValidateError } from '../consts/profile';
 
 export interface EditableProfileCardSchema {
     data?: Profile;
     form?: Profile;
     isLoading: boolean;
-    error?: ProfileErrors;
+    error?: ProfileError;
     readonly: boolean;
-    validateErrors?: ProfileValidateErrors[];
+    validateErrors?: ProfileValidateError[];
 }

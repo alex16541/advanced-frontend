@@ -2,12 +2,12 @@ import { ImgHTMLAttributes, ReactElement, useLayoutEffect, useState } from 'reac
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
-    fallbeck?: ReactElement;
+    fallback?: ReactElement;
     errorFallback?: ReactElement;
 }
 
 export const AppImage = (props: AppImageProps) => {
-    const { className, src, alt = 'image', fallbeck, errorFallback, ...otherProps } = props;
+    const { className, src, alt = 'image', fallback, errorFallback, ...otherProps } = props;
 
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -25,7 +25,7 @@ export const AppImage = (props: AppImageProps) => {
         };
     }, [src]);
 
-    if (isLoading && fallbeck) return fallbeck;
+    if (isLoading && fallback) return fallback;
 
     if (isError && errorFallback) return errorFallback;
 

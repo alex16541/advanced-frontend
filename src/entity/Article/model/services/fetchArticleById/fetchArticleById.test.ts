@@ -1,7 +1,5 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { ArticleErrors } from '../../consts/article';
-
 import { fetchArticleById } from './fetchArticleById';
 
 describe('fetchProfileData', () => {
@@ -14,6 +12,7 @@ describe('fetchProfileData', () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockResolvedValue({
             data: returnValue,
+            status: 200,
         });
         const actionResult = await thunk.callThunk('1');
 
@@ -30,6 +29,6 @@ describe('fetchProfileData', () => {
         const actionResult = await thunk.callThunk('1');
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([ArticleErrors.SERVER_ERROR]);
+        expect(actionResult.payload).toEqual(['FORBIDDEN']);
     });
 });
