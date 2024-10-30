@@ -1,6 +1,6 @@
-import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { DescriptionTextEditor } from '@/entity/TextEditor';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -14,11 +14,11 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
-import { ArticleBlockType } from '../../model/consts/article';
-import { Article, ArticleTextBlock } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 
 import cls from './LargeArticleCard.module.scss';
 import { LargeArticleCardSkeleton } from './LargeArticleCardSkeleton';
+import './LargeArticleCard.i18n';
 
 interface LargeArticleCardProps {
     className?: string;
@@ -26,18 +26,9 @@ interface LargeArticleCardProps {
     isLoading?: boolean;
 }
 
-export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
+export const LargeArticleCard = (props: LargeArticleCardProps) => {
     const { className, article, isLoading = false } = props;
-    const { t } = useTranslation('article');
-    const firstParagraph = useMemo(() => {
-        const textBlock = (
-            article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
-        )?.paragraphs
-            .slice(0, 2)
-            .join(' ');
-
-        return textBlock;
-    }, [article?.blocks]);
+    const { t } = useTranslation('LargeArticleCard');
 
     if (isLoading) {
         return <LargeArticleCardSkeleton />;
@@ -55,29 +46,36 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
                         <Avatar alt={article.user.username} size={32} src={article.user.avatar} />
                         <div className={cls.headerText}>
                             <Text text={article.user.username} weight="bold" />
-                            <Text size="s" text={article.createdAt} />
+                            <Text size="s" text={article.publishedAt} />
                         </div>
                     </HStack>
                     <Text className={cls.title} size="l" title={article.title} weight="black" />
                 </VStack>
-                <Text className={cls.description} HeaderTag="p" title={article.subtitle} />
-                <div className={cls.imageWrapper}>
-                    <AppImage
-                        alt="test mountains"
-                        className={cls.img}
-                        fallbeck={<Skeleton height="100%" width="100%" />}
-                        src={article.img}
-                    />
+                {!!article.type.length && (
                     <div className={cls.tags}>
                         {article.type.map((tag) => (
-                            <Button key={tag}>{tag}</Button>
+                            <Button key={tag} size="xs">
+                                {tag}
+                            </Button>
                         ))}
                     </div>
-                </div>
-                {firstParagraph && <Text className={cls.text} text={firstParagraph} />}
+                )}
+                {article.img && (
+                    <div className={cls.imageWrapper}>
+                        <AppImage
+                            alt="test mountains"
+                            className={cls.img}
+                            fallback={<Skeleton height="100%" width="100%" />}
+                            src={article.img}
+                        />
+                    </div>
+                )}
+                {article.description && (
+                    <DescriptionTextEditor className={cls.description} content={article.description} />
+                )}
                 <div className={cls.actions}>
                     <AppLink hover={false} to={getRouteArticleDetails(article.id)}>
-                        <Button className={cls.button}>{t('read more')}</Button>
+                        <Button className={cls.button}>{t('Read more')}</Button>
                     </AppLink>
                     <div className={cls.views}>
                         <Icon className={cls.icon} Svg={EyeIcon} />
@@ -87,4 +85,4 @@ export const LargeArticleCard = memo((props: LargeArticleCardProps) => {
             </VStack>
         </Card>
     );
-});
+};

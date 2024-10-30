@@ -1,54 +1,59 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { RatingCard } from '@/entity/Rating';
 import { getAuthData } from '@/entity/User';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../api/articleRating';
 
 import cls from './ArticleRating.module.scss';
-
-const Skeleton = SkeletonRedesigned;
+import '../i18n/i18n';
 
 export interface ArticleRatingProps {
     className?: string;
-    articleId: string | number;
+    articleId: string;
 }
 
 const ArticleRating = (props: ArticleRatingProps & { userId: string | number }) => {
     const { className, articleId, userId } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleRating');
 
     const [rateArticle] = useRateArticleMutation();
-    const { data = [], isLoading } = useGetArticleRatingQuery({ articleId, userId });
-    const rating = Number(data[0]?.rating);
+
+    const { data = [], isLoading, error } = useGetArticleRatingQuery({ articleId, userId });
 
     const onAccept = useCallback(
-        (rating: number, feedback?: string) => {
-            rateArticle({
-                articleId,
-                userId,
-                rating,
-                feedback: feedback ?? '',
-            }).catch((e) => console.log(e));
+        async (rating: number, feedback?: string) => {
+            try {
+                await rateArticle({
+                    articleId,
+                    userId,
+                    rating,
+                    feedback: feedback ?? '',
+                });
+            } catch (e) {
+                console.log(e);
+            }
         },
         [articleId, rateArticle, userId],
     );
 
-    if (isLoading) {
-        return <Skeleton className={cls.Skeleton} height="150px" width="100%" />;
-    }
+    const rate = useMemo(() => Number(data[0]?.rating), [data]);
+
+    if (error) return null;
+
+    if (isLoading) return <Skeleton className={cls.Skeleton} height="150px" width="100%" />;
 
     return (
         <RatingCard
             acceptText={t('Rate')}
             className={classNames(cls.ArticleRating, {}, [className])}
-            disabled={Boolean(rating)}
+            disabled={Boolean(rate)}
             feedbackPlaceholder={t('Feedback placeholder')}
-            rating={rating}
+            rating={rate}
             title={t('Rate this article')}
             onAccept={onAccept}
         />

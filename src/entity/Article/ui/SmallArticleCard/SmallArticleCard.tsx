@@ -1,5 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
+import ImageIcon from '@/shared/assets/svg/awesome_icons/image-solid.svg';
 import EyeIcon from '@/shared/assets/svg/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -47,8 +48,13 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
                     <AppImage
                         alt="test mountains"
                         className={cls.img}
-                        fallbeck={<Skeleton height="100%" width="100%" />}
+                        fallback={<Skeleton height="100%" width="100%" />}
                         src={article.img}
+                        errorFallback={
+                            <VStack align="Center" className={cls.fallback}>
+                                <Icon Svg={ImageIcon} />
+                            </VStack>
+                        }
                     />
                 </div>
                 <VStack className={cls.content} gap="0">
@@ -58,7 +64,7 @@ export const SmallArticleCard = memo((props: SmallArticleCardProps) => {
                     </HStack>
                     <Text className={cls.title} size="m" title={article.title} />
                     <HStack gap="8" justify="SpaceBetween">
-                        <Text text={article.createdAt} />
+                        <Text text={article.publishedAt} />
                         <HStack gap="8">
                             <Icon Svg={EyeIcon} />
                             <Text text={article.views.toString()} />

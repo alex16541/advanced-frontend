@@ -22,13 +22,11 @@ export const Code = memo((props: CodeProps) => {
     }, [codeText]);
 
     return (
-        
-                        <div className={cls.CodeWrapper}>
-                            <pre className={classNames(cls.Code, {}, [className])}>
-                                <code>{codeText}</code>
-                            </pre>
-                            <Icon className={cls.copy} Svg={CopyIcon} clickable onClick={onCopy} />
-                        </div>
-                    
+        <div className={cls.CodeWrapper}>
+            <pre className={classNames(cls.Code, {}, [className])}>
+                <code>{codeText}</code>
+            </pre>
+            <Icon className={cls.copy} Svg={CopyIcon} clickable onClick={onCopy} />
+        </div>
     );
 });

@@ -1,0 +1,37 @@
+.componentPickerMenu {
+    overflow: hidden auto;
+
+    width: 200px;
+    max-height: 200px;
+    padding: 10px;
+
+    background-color: var(--dark-bg-color-redesigned);
+    border-radius: var(--border-radius-m);
+    box-shadow: var(--popup-shadow);
+
+    .item {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        width: 100%;
+        height: auto;
+        padding: 10px 4px;
+
+        border-radius: var(--border-radius-s);
+
+        &.selected,
+        &:hover {
+            background-color: var(--light-bg-color-redesigned);
+        }
+    }
+
+    .text{
+
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+}

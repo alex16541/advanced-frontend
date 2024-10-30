@@ -19,8 +19,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
     addonLeft?: ReactElement;
     addonRight?: ReactElement;
+    fullWidth?: boolean;
 }
-
+// todo: отделить стили от логики
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         className,
@@ -34,16 +35,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         disabled,
         addonLeft,
         addonRight,
+        fullWidth,
         ...otherProps
     } = props;
 
     const mods = {
         [cls.loading]: isLoading,
+        [cls.fullWidth]: fullWidth,
     };
 
     return (
         <button
-            className={classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[color]])}
+            className={classNames(cls.Button, mods, [cls[theme], cls[size], cls[color], className])}
             disabled={disabled || isLoading}
             ref={ref}
             type="button"

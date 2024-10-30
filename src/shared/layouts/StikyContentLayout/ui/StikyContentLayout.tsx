@@ -1,4 +1,4 @@
-import { ReactElement, memo } from 'react';
+import { ReactElement } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -11,18 +11,14 @@ interface StikyContentLayoutProps {
     right?: ReactElement;
 }
 
-const StikyContentLayout = (props: StikyContentLayoutProps) => {
+export const StikyContentLayout = (props: StikyContentLayoutProps) => {
     const { className, content, left, right } = props;
 
     return (
         <div className={classNames(cls.StikyContentLayout, {}, [className])}>
-            <div className={cls.left}>{left}</div>
+            {left && <div className={cls.left}>{left}</div>}
             <div className={cls.content}>{content}</div>
-            <div className={cls.right}>{right}</div>
+            {right && <div className={cls.right}>{right}</div>}
         </div>
     );
 };
-
-const Memoized = memo(StikyContentLayout);
-
-export { Memoized as StikyContentLayout };

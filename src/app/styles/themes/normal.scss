@@ -25,11 +25,18 @@
     // redesigned
     --dark-bg-color-redesigned: #fff;
     --bg-color-redesigned: #eff5f6;
-    --light-bg-color-redesigned: #e2eef1;
+    --light-bg-color-redesigned: #e0edf0;
     --text-color-redesigned: #141c1f;
     --hint-color-redesigned: #adbcc0;
     --cancel-color-redesigned: #f77;
     --save-color-redesigned: #62de85;
     --icon-color-redesigned: #5ed3f3;
     --accent-color-redesigned: #00c8ff;
+
+    // code editor
+    --code-text-color: var(--text-color-redesigned);
+    --code-text-alt-color: #777;
+    --code-bg-color: var(--bg-color-redesigned);
+    --code-accent-color: var(--accent-color-redesigned);
+    --code-accent-alt-color: var(--cancel-color-redesigned);
 }

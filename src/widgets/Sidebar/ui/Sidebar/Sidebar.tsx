@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { TranslateSwitcher } from '@/features/LangSwitcher';
@@ -14,11 +14,13 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import cls from './Sidebar.module.scss';
 
+import '../../i18n/i18n';
+
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = memo((props: SidebarProps) => {
+export const Sidebar = (props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
     const sidebarItems = useSelector(selectSidebarItems);
@@ -57,4 +59,4 @@ export const Sidebar = memo((props: SidebarProps) => {
             </div>
         </aside>
     );
-});
+};

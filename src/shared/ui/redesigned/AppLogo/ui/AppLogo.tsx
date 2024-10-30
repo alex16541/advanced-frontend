@@ -20,7 +20,13 @@ const AppLogo = (props: AppLogoProps) => {
 
     return (
         <HStack className={classNames(cls.AppLogo, {}, [className])} justify="Center" maxWidth>
-            <AppImage className={cls.logo} height={size} src={logo} width={size} />
+            <AppImage
+                className={cls.logo}
+                errorFallback={<div className={cls.logoFallback} />}
+                height={size}
+                src={logo}
+                width={size}
+            />
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
         </HStack>

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Profile, ProfileErrors } from '@/entity/Profile';
+import { Profile, ProfileError } from '@/entity/Profile';
 
-export const featchProfileData = createAsyncThunk<Profile, string | number, ThunkConfig<ProfileErrors>>(
+export const featchProfileData = createAsyncThunk<Profile, string | number, ThunkConfig<ProfileError>>(
     'profile/fetchProfileData',
     async (id, thunkAPI) => {
         const { rejectWithValue, extra } = thunkAPI;
@@ -17,7 +17,7 @@ export const featchProfileData = createAsyncThunk<Profile, string | number, Thun
 
             return response.data;
         } catch (error) {
-            return rejectWithValue(ProfileErrors.UNKNOWN_ERROR);
+            return rejectWithValue('UNKNOWN_ERROR');
         }
     },
 );

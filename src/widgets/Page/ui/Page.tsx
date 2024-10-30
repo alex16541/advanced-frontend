@@ -44,13 +44,9 @@ export const Page = (props: PageProps) => {
 
     return (
         <main
+            className={classNames(cls.Page ?? '', {}, [className])}
             data-testid={dataTestId}
             ref={wrapperRef}
-            className={classNames(
-                cls.PageRedesigned ?? '',
-                {},
-                [className],
-            )}
             onScroll={onScroll}
         >
             {children}

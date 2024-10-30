@@ -19,7 +19,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         ...config!.resolve!.alias,
         '@': paths.src,
     };
-    config.module!.rules!.push(buildCssLoader(true, /\.scss$/i));
+    config.module!.rules!.push(...buildCssLoader(true, false));
 
     // eslint-disable-next-line no-param-reassign
     config.module!.rules = config.module!.rules!.map(

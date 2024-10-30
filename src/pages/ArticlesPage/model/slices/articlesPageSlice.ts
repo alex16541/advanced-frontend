@@ -2,11 +2,11 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article,
     ArticlesListCountPeerView,
     ArticlesListView,
     ArticleSortField,
     ArticleType,
+    Article,
 } from '@/entity/Article';
 import { ArticleTypeChip, ArticleTypeChipOptions } from '@/features/ArticleTypeChips';
 import { ARTICLES_PAGE_VIEW } from '@/shared/consts/localstorage';
@@ -28,7 +28,7 @@ const initialState: ArticlesPageSchema = {
     _inited: false,
     sort: ArticleSortField.CREATED,
     order: 'asc',
-    type: { value: ArticleType.ALL, label: 'Все темы', selected: true },
+    type: { value: ArticleType.ALL, label: ArticleType.ALL, selected: true },
     search: '',
 };
 
@@ -56,10 +56,8 @@ export const articlesPageSlice = createSlice({
         },
         setView(state, { payload }: PayloadAction<ArticlesListView>) {
             state.view = payload;
-            state.limit = ArticlesListCountPeerView[payload];
-            state.page = 0;
-            articlesPageAdapter.removeAll(state);
             localStorage.setItem(ARTICLES_PAGE_VIEW, payload);
+            state.limit = ArticlesListCountPeerView[payload];
         },
         initState(
             state,
@@ -120,7 +118,6 @@ export const articlesPageSlice = createSlice({
                 articlesPageAdapter.addMany(state, action.payload);
                 state.page += 1;
                 state.hasMore = action.payload.length === state.limit;
-                console.log(state.hasMore, state.limit);
                 state.isLoading = false;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {

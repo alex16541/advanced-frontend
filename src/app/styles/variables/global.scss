@@ -21,6 +21,16 @@
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+    // XX large
+    --font-size-xxl: 40px;
+    --font-line-xxl: 48px;
+    --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
+
+    // XXX large
+    --font-size-xxxl: 48px;
+    --font-line-xxxl: 56px;
+    --font-xxxl: var(--font-size-xxxl) / var(--font-line-xxxl) var(--font-family-main);
+
     // Размеры
     --navbar-height: 50px;
     --sidebar-width: 300px;
@@ -33,6 +43,7 @@
     --drawer-z-index: 15;
     --drawer-content-z-index: 10;
     --overlay-z-index: 5;
+    --page-header-z-index: 5;
 
     // transition
     --transition: background-color, color, border, opacity;
@@ -84,4 +95,24 @@
     --font-xl-title-redesigned:
         400 var(--font-size-xl-redesigned) / var(--font-line-xl-redesigned)
         var(--font-family-title-redesigned);
+
+    // XX large
+    --font-size-xxl-redesigned: 48px;
+    --font-line-xxl-redesigned: 56px;
+    --font-xxl-redesigned:
+        400 var(--font-size-xxl-redesigned) / var(--font-line-xxl-redesigned)
+        var(--font-family-redesigned);
+
+    // XXX large
+    --font-size-xxxl-redesigned: 64px;
+    --font-line-xxxl-redesigned: 72px;
+    --font-xxxl-redesigned:
+        400 var(--font-size-xxxl-redesigned) / var(--font-line-xxxl-redesigned)
+        var(--font-family-redesigned);
+
+    // Shadows
+    --popup-shadow: 0 5px 10px rgba(0, 0, 0, 30%);
+
+    // Sizes
+    --page-content-max-width: 790px;
 }

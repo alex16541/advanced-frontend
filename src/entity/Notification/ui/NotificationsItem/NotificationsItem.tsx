@@ -15,11 +15,9 @@ interface NotificationsItemProps {
 const NotificationsItem = (props: NotificationsItemProps) => {
     const { className, notification } = props;
     const content = (
-        
-                        <div className={classNames(cls.NotificationsItemRedesigned, {}, [className])}>
-                            <Text text={notification.text} title={notification.title} />
-                        </div>
-                    
+        <div className={classNames(cls.NotificationsItemRedesigned, {}, [className])}>
+            <Text text={notification.text} title={notification.title} />
+        </div>
     );
 
     if (notification.href) {

@@ -1,0 +1,111 @@
+.FloatingTextFormatToolbar {
+    will-change: transform;
+
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    gap: 2px;
+
+    padding: 4px;
+
+    vertical-align: middle;
+
+    opacity: 0;
+    background: var(--light-bg-color-redesigned);
+    border-radius: 8px;
+    box-shadow: var(--popup-shadow);
+
+    transition: opacity 0.5s;
+
+    // divider
+    .item:nth-child(6) {
+        position: relative;
+        margin-right: 10px;
+
+        &::after {
+            content: "";
+
+            position: absolute;
+            top: 4px;
+            right: -10px;
+
+            width: 1px;
+            height: 24px;
+            margin: 0 4px;
+
+            opacity: 0.5;
+            background-color: var(--accent-color-redesigned);
+        }
+    }
+
+    button.item {
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 8px;
+
+        vertical-align: middle;
+
+        opacity: 0.6;
+        background: none;
+        border: 0;
+        border-radius: 10px;
+    }
+
+    button.item:disabled {
+        cursor: not-allowed;
+        opacity: 0.2;
+    }
+
+    button.item.active {
+        opacity: 1;
+        background-color: var(--dark-bg-color-redesigned);
+    }
+
+    .item:hover:not([disabled]) {
+        background-color: var(--dark-bg-color-redesigned);
+    }
+
+    select.item {
+        display: flex;
+
+        width: 70px;
+        padding: 8px;
+
+        font-size: 14px;
+        color: #777;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+
+        appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 10px;
+    }
+
+    select.language {
+        width: 130px;
+        text-transform: capitalize;
+    }
+
+    .item .text {
+        overflow: hidden;
+        display: flex;
+
+        width: 70px;
+        height: 20px;
+
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        text-align: left;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+}

@@ -1,4 +1,3 @@
-export enum ProfileErrors {
-    UNKNOWN_ERROR = 'UNKNOWN_ERROR',
-    SERVER_ERROR = 'SERVER_ERROR',
-}
+import { AppErrorType } from '@/shared/types/errors';
+
+export type ProfileError = AppErrorType;

@@ -1,4 +1,4 @@
-import { ReactElement, memo, useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -10,7 +10,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -28,6 +27,7 @@ import {
 import { ArticleCommentsListForm } from '../ArticleCommentsListForm/ArticleCommentsListForm';
 
 import cls from './ArticleCommentsList.module.scss';
+import '../../i18n/i18n';
 
 export interface ArticleCommentsListProps {
     className?: string;
@@ -40,7 +40,7 @@ const reducers: ReducersList = {
 
 const ArticleCommentsList = (props: ArticleCommentsListProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleCommentsList');
     const dispatch = useAppDispatch();
 
     const isLoading = useSelector(getArticleCommentsListIsLoading);
@@ -54,21 +54,11 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
         [dispatch],
     );
 
-    const onCommentAdded = useCallback(() => fetchComments(articleId), [articleId, fetchComments]);
+    const onCommentAdded = () => fetchComments(articleId);
 
     useOnInit(() => {
         fetchComments(articleId);
     });
-
-    const CommentSkeletonOld = (
-        <HStack className={cls.loader} gap="10">
-            <SkeletonDeprecated height={70} width={70} />
-            <VStack gap="10">
-                <SkeletonDeprecated height={35} width={170} />
-                <SkeletonDeprecated height={25} width={350} />
-            </VStack>
-        </HStack>
-    );
 
     const CommentSkeleton = (
         <HStack className={cls.loader} gap="10">
@@ -84,28 +74,22 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
 
     if (isLoading) {
         content = (
-            
-                                <>
-                                    {CommentSkeleton}
-                                    {CommentSkeleton}
-                                    {CommentSkeleton}
-                                </>
-                            
+            <>
+                {CommentSkeleton}
+                {CommentSkeleton}
+                {CommentSkeleton}
+            </>
         );
     } else if (error.length > 0) {
-        content = (
-            <Text text={t('Article commets loading error')} theme="error" />
-        );
+        content = <Text text={t('COMMENTS_LOADING_ERROR')} theme="error" />;
     } else {
         content = (
-            
-                                <VStack gap="16">
-                                    <Card>
-                                        <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
-                                    </Card>
-                                    <CommentList comments={commentsData} />
-                                </VStack>
-                            
+            <VStack gap="16">
+                <Card>
+                    <ArticleCommentsListForm onCommentAdded={onCommentAdded} />
+                </Card>
+                <CommentList comments={commentsData} />
+            </VStack>
         );
     }
 
@@ -123,6 +107,4 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
     );
 };
 
-const MemoizedComponent = memo(ArticleCommentsList);
-
-export default MemoizedComponent;
+export default ArticleCommentsList;

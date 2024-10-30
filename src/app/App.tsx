@@ -12,6 +12,8 @@ import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router/ui/AppRouter';
 import { withTheme } from './providers/ThemeProvider';
 
+import './i18n/i18n';
+
 const App = () => {
     const dispatch = useDispatch();
     const inited = useSelector(getUserInited);
@@ -24,26 +26,22 @@ const App = () => {
 
     if (!inited)
         return (
-            
-                                <div className="app_redesigned">
-                                    <AppLoaderLayout />
-                                </div>
-                            
+            <div className="app_redesigned">
+                <AppLoaderLayout />
+            </div>
         );
 
     return (
-        
-                        <div className={classNames('app_redesigned', {})}>
-                            <Suspense fallback="">
-                                <MainLayout
-                                    content={<AppRouter />}
-                                    navbar={<Navbar />}
-                                    sidebar={<Sidebar />}
-                                    toolbar={toolbar}
-                                />
-                            </Suspense>
-                        </div>
-                    
+        <div className={classNames('app_redesigned', {})}>
+            <Suspense fallback="">
+                <MainLayout
+                    content={<AppRouter />}
+                    navbar={<Navbar />}
+                    sidebar={<Sidebar />}
+                    toolbar={toolbar}
+                />
+            </Suspense>
+        </div>
     );
 };
 

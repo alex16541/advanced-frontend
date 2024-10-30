@@ -1,0 +1,63 @@
+.ArticlePublishPage {
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .tags {
+        padding: 10px;
+        background: var(--bg-color-redesigned);
+        border-radius: 16px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 40px 50px;
+    }
+
+    .descriptionCard {
+        width: 100%;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 0;
+
+        & > * {
+            padding: 0 50px;
+
+            &:last-child {
+                padding-bottom: 40px;
+            }
+
+            &:first-child {
+                padding-top: 40px;
+            }
+        }
+    }
+
+    .header {
+        padding: 0 26px;
+    }
+
+    .title {
+        margin-bottom: 16px;
+    }
+
+    .button {
+        border-radius: var(--border-radius-m);
+    }
+}
+
+.ContentCard {
+    width: 100%;
+    max-width: var(--page-content-max-width);
+    margin: 0 auto;
+}
+
+.HeaderCard {
+    display: flex;
+    align-items: center;
+    height: 65px;
+}

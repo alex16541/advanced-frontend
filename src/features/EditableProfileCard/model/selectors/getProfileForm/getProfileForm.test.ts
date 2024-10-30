@@ -1,5 +1,4 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ProfileErrors } from '@/entity/Profile';
 
 import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
 
@@ -11,7 +10,7 @@ describe('getProfileForm', () => {
             username: 'user123',
         },
         readonly: true,
-        error: ProfileErrors.SERVER_ERROR,
+        error: 'SERVER_ERROR',
         form: {
             username: 'user321',
         },

@@ -1,22 +1,27 @@
-import i18n from 'i18next';
+/* eslint-disable max-len */
+import { DefaultNS } from '.';
+
+import i18n, { InitOptions } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-i18n.use(Backend)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        fallbackLng: 'ru',
-        debug: __IS_DEV__,
+const initOptions: InitOptions = {
+    fallbackLng: 'ru',
+    fallbackNS: 'translation',
+    debug: __IS_DEV__,
 
-        interpolation: {
-            escapeValue: false,
-        },
+    interpolation: {
+        escapeValue: false,
+    },
+    ns: ['translation'],
+    resources: { ru: { translation: {} }, en: { translation: {} } },
+};
 
-        backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
-        },
-    });
+i18n.use(LanguageDetector).use(initReactI18next).init(initOptions);
+
+declare module 'react-i18next' {
+    type ComponentResource<T> = T & DefaultNS;
+    interface Resources extends AppResources {}
+}
 
 export default i18n;

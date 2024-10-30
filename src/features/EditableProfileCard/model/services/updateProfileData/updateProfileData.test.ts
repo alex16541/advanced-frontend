@@ -1,7 +1,4 @@
-import { ProfileErrors } from '@/entity/Profile';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-
-import { ProfileValidateErrors } from '../../consts/profile';
 
 import { updateProfileData } from './updateProfileData';
 
@@ -15,6 +12,7 @@ describe('updateProfileData', () => {
         city: 'City123',
         email: 'user@mail.com',
     };
+
     test('update success', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             editableProfileCard: {
@@ -24,6 +22,7 @@ describe('updateProfileData', () => {
 
         thunk.api.put.mockResolvedValue({
             data,
+            status: 200,
         });
         const actionResult = await thunk.callThunk();
 
@@ -31,8 +30,13 @@ describe('updateProfileData', () => {
         expect(actionResult.payload).toEqual(data);
     });
 
-    test('update error', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData);
+    test('with status code error', async () => {
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            editableProfileCard: {
+                form: data,
+            },
+        });
+
         thunk.api.put.mockResolvedValue({
             status: 403,
         });
@@ -40,7 +44,33 @@ describe('updateProfileData', () => {
         const actionResult = await thunk.callThunk();
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([ProfileErrors.SERVER_ERROR]);
+        expect(actionResult.payload).toEqual('FORBIDDEN');
+    });
+
+    test('with any error ', async () => {
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            editableProfileCard: {
+                form: data,
+            },
+        });
+
+        thunk.api.put.mockResolvedValue({
+            status: 666,
+        });
+
+        const actionResult = await thunk.callThunk();
+
+        expect(actionResult.meta.requestStatus).toBe('rejected');
+        expect(actionResult.payload).toEqual('UNKNOWN_ERROR');
+    });
+
+    test('no data error', async () => {
+        const thunk = new TestAsyncThunk(updateProfileData);
+
+        const actionResult = await thunk.callThunk();
+
+        expect(actionResult.meta.requestStatus).toBe('rejected');
+        expect(actionResult.payload).toEqual(['NO_DATA']);
     });
 
     test('validate error', async () => {
@@ -53,6 +83,6 @@ describe('updateProfileData', () => {
         const actionResult = await thunk.callThunk();
 
         expect(actionResult.meta.requestStatus).toBe('rejected');
-        expect(actionResult.payload).toEqual([ProfileValidateErrors.INCORRECT_EMAIL]);
+        expect(actionResult.payload).toEqual(['INCORRECT_EMAIL']);
     });
 });

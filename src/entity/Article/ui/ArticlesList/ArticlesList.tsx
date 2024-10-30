@@ -8,6 +8,7 @@ import { Article } from '../../model/types/article';
 import { ArticlesListItem, ArticlesListItemSize } from '../ArticlesListItem/ArticlesListItem';
 
 import cls from './ArticlesList.module.scss';
+import './ArticlesList.i18n';
 
 export const ArticlesListCountPeerView: Record<ArticlesListView, number> = {
     [ArticlesListView.GRID]: 12,
@@ -37,7 +38,7 @@ const getSkeleton = (size: ArticlesListItemSize) =>
 export const ArticlesList = memo((props: ArticlesListProps) => {
     const { className, view = ArticlesListView.LIST, articles, isLoading = false, target } = props;
     const listItemSize: ArticlesListItemSize = itemSizeByView[view];
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticlesList');
 
     const renderArticle = (article: Article) => (
         <ArticlesListItem
@@ -50,15 +51,8 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
     );
 
     return (
-        <div
-            data-testid="ArticlesList"
-            className={classNames(
-                cls.ArticlesListRedesigned,
-                {},
-                [className, cls[view]],
-            )}
-        >
-            {articles.length > 0 ? articles.map(renderArticle) : !isLoading && t('no articles')}
+        <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])} data-testid="ArticlesList">
+            {articles.length > 0 ? articles.map(renderArticle) : !isLoading && t('NO_DATA')}
             {isLoading && getSkeleton(listItemSize)}
         </div>
     );

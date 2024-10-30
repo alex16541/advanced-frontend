@@ -1,4 +1,5 @@
-import { ProfileValidateErrors } from '../../consts/profile';
+import { Profile } from '@/entity/Profile';
+
 import { EditableProfileCardSchema } from '../../types/editableProfileCardSchema';
 
 import { validateProfileData } from './validateProfileData';
@@ -7,7 +8,7 @@ describe('validateProfileData', () => {
     test('should work with empty state', async () => {
         const result = validateProfileData();
 
-        expect(result).toEqual([ProfileValidateErrors.NO_DATA]);
+        expect(result).toEqual(['NO_DATA']);
     });
 
     test('valid value', async () => {
@@ -38,11 +39,7 @@ describe('validateProfileData', () => {
 
         const result = validateProfileData(profile as EditableProfileCardSchema);
 
-        expect(result).toEqual([
-            ProfileValidateErrors.INCORRECT_USER_DATA,
-            ProfileValidateErrors.INCORRECT_AGE,
-            ProfileValidateErrors.INCORRECT_EMAIL,
-        ]);
+        expect(result).toEqual(['INCORRECT_USER_DATA', 'INCORRECT_AGE', 'INCORRECT_EMAIL']);
     });
 
     test('incorrect firstname', async () => {
@@ -59,7 +56,7 @@ describe('validateProfileData', () => {
 
         const result = validateProfileData(profile as EditableProfileCardSchema);
 
-        expect(result).toEqual([ProfileValidateErrors.INCORRECT_USER_DATA]);
+        expect(result).toEqual(['INCORRECT_USER_DATA']);
     });
 
     test('incorrect lastname', async () => {
@@ -76,7 +73,7 @@ describe('validateProfileData', () => {
 
         const result = validateProfileData(profile as EditableProfileCardSchema);
 
-        expect(result).toEqual([ProfileValidateErrors.INCORRECT_USER_DATA]);
+        expect(result).toEqual(['INCORRECT_USER_DATA']);
     });
 
     test('incorrect age', async () => {
@@ -93,23 +90,26 @@ describe('validateProfileData', () => {
 
         const result = validateProfileData(profile as EditableProfileCardSchema);
 
-        expect(result).toEqual([ProfileValidateErrors.INCORRECT_AGE]);
+        expect(result).toEqual(['INCORRECT_AGE']);
     });
 
     test('incorrect email', async () => {
+        const profileData: Profile = {
+            username: 'user123',
+            firstname: 'firstname',
+            lastname: 'lastname',
+            age: 32,
+            city: 'City123',
+            email: '',
+        };
         const profile: DeepPartial<EditableProfileCardSchema> = {
             form: {
-                username: 'user123',
-                firstname: 'firstname',
-                lastname: 'lastname',
-                age: 32,
-                city: 'City123',
-                email: '',
+                ...profileData,
             },
         };
 
         const result = validateProfileData(profile as EditableProfileCardSchema);
 
-        expect(result).toEqual([ProfileValidateErrors.INCORRECT_EMAIL]);
+        expect(result).toEqual(['INCORRECT_EMAIL']);
     });
 });

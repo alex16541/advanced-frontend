@@ -28,8 +28,15 @@
     --light-bg-color-redesigned: #f2d791;
     --text-color-redesigned: #1b1311;
     --hint-color-redesigned: #b8b2a2;
-    --cancel-color-redesigned: #ff5e5e;
+    --cancel-color-redesigned: #cf1a1a;
     --save-color-redesigned: #52fa81;
     --icon-color-redesigned: #4875f0;
     --accent-color-redesigned: #1d59ff;
+
+    // code editor
+    --code-text-color: var(--text-color-redesigned);
+    --code-text-alt-color: #777;
+    --code-bg-color: var(--bg-color-redesigned);
+    --code-accent-color: var(--accent-color-redesigned);
+    --code-accent-alt-color: var(--cancel-color-redesigned);
 }

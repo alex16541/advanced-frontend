@@ -18,8 +18,7 @@ export const changeUserJsonSettings = createAsyncThunk<JsonSettings, JsonSetting
 
             const userId = state.user.authData?.id;
 
-            if (!userId) return rejectWithValue({});
-
+            if (!userId) throw new Error();
             const response = await dispatch(
                 setJsonSettings({
                     userId,
@@ -33,7 +32,7 @@ export const changeUserJsonSettings = createAsyncThunk<JsonSettings, JsonSetting
             localStorage.setItem(LAST_USED_THEME, JSON.stringify(response.jsonSettings?.theme));
 
             if (!response.jsonSettings) {
-                return rejectWithValue({});
+                throw new Error();
             }
 
             return response.jsonSettings;

@@ -1,0 +1,127 @@
+.ArticleEditor {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+    max-width: var(--page-content-max-width);
+    margin: 0 auto;
+    padding: 0 0 40px;
+
+    .coverControls {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+
+        display: none;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .removeCover {
+        width: 22px;
+    }
+
+    .removeCover,
+    .setCover {
+        display: flex;
+        align-items: center;
+
+        height: 22px;
+        padding: 4px;
+
+        font-size: 10px;
+        color: var(--text-color-redesigned);
+        text-transform: uppercase;
+
+        background: none;
+        background-color: var(--bg-color-redesigned);
+        border-radius: var(--border-radius-s);
+
+        &:hover {
+            opacity: 0.8;
+            background-color: var(--light-bg-color-redesigned);
+        }
+
+        &:active {
+            background-color: var(--bg-color-redesigned);
+        }
+    }
+
+    .coverContainer {
+        overflow: hidden;
+
+        aspect-ratio: 16/9;
+        margin: -40px -50px 0;
+
+        border-radius: var(--border-radius-xl);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .coverFallback {
+        width: 100%;
+        height: 100%;
+
+        background-color: var(--light-bg-color-redesigned);
+        border-radius: var(--border-radius-m);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .header {
+        position: relative;
+        padding: 40px 50px 0;
+
+        &:hover {
+            .coverControls {
+                display: flex;
+            }
+        }
+    }
+
+    .title {
+        font: var(--font-xl-title-redesigned);
+        font-weight: bold;
+    }
+
+    .editor {
+        padding: 0 50px;
+    }
+}
+
+.modal {
+    width: 100%;
+    min-width: 320px;
+    max-width: 790px;
+
+    .actions {
+
+    }
+
+    .coverInput {
+        flex: 1;
+    }
+
+    .randomButton {
+    }
+}
+
+@media (max-width: 460px) {
+    .modal {
+        .content {
+            flex-direction: column;
+        }
+
+        .randomButton {
+            box-sizing: border-box;
+            width: 100%;
+        }
+    }
+}

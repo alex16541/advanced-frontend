@@ -15,7 +15,7 @@ interface ArticleRecommendationsListProps {
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleDetailsPage');
 
     const { data: recommendations = [], isLoading, isError } = useFetchArticleRecommendationsQuery();
 
@@ -26,7 +26,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             className={classNames(cls.ArticleRecommendationsList, {}, [className])}
             data-testid="ArticleRecommendationsList"
         >
-            <Text size="l" title={t('recommendations')} weight="bold" />
+            <Text size="l" title={t('Recommendations')} weight="bold" />
             <div className={cls.list}>
                 <ArticlesList
                     articles={recommendations}

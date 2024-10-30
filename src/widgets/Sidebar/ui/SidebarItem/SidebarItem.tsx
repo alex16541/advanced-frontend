@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -17,10 +16,10 @@ interface SidebarItemProps {
     collapsed: boolean;
 }
 
-export const SidebarItem = memo((props: SidebarItemProps) => {
+export const SidebarItem = (props: SidebarItemProps) => {
     const { className, item, collapsed } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('Sidebar');
     const isAuth = useSelector(getAuthData);
 
     if (item.authOnly && !isAuth) return null;
@@ -38,4 +37,4 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             <div className={cls.link}>{t(item.text)}</div>
         </NavLink>
     );
-});
+};

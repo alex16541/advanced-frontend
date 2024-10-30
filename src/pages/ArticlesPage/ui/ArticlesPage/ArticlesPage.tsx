@@ -1,5 +1,4 @@
 import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
 import { ArticlesPageGreeting } from '@/features/ArticlesPageGreeting';
@@ -11,6 +10,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -21,6 +21,7 @@ import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteLi
 import { ArticlesViewSwitcherContainer } from '../ArticlesViewSwitcherContainer/ArticlesViewSwitcherContainer';
 
 import cls from './ArticlesPage.module.scss';
+import '../../i18n/i18n';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -32,7 +33,6 @@ interface ArticlesPageProps {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
 
@@ -46,24 +46,26 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmout={false}>
-            
-                                <Page
-                                    className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
-                                    data-testid="articles-page"
-                                    onEndOfPage={loadNextPage}
-                                >
-                                    <StikyContentLayout
-                                        left={<ArticlesViewSwitcherContainer />}
-                                        right={<ArticlesFilters />}
-                                        content={
-                                            <div className={cls.content}>
-                                                <ArticlesInfiniteList />
-                                                <ArticlesPageGreeting />
-                                            </div>
-                                        }
-                                    />
-                                </Page>
-                            
+            <Page
+                className={classNames(cls.ArticlesPage, {}, [className])}
+                data-testid="articles-page"
+                onEndOfPage={loadNextPage}
+            >
+                <StikyContentLayout
+                    content={
+                        <div className={cls.content}>
+                            <ArticlesInfiniteList />
+                            <ArticlesPageGreeting />
+                        </div>
+                    }
+                    right={
+                        <VStack gap="16">
+                            <ArticlesViewSwitcherContainer />
+                            <ArticlesFilters />
+                        </VStack>
+                    }
+                />
+            </Page>
         </DynamicModuleLoader>
     );
 };

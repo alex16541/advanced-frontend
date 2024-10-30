@@ -1,4 +1,4 @@
 import { ArticleType } from '@/entity/Article';
-import { ChipListOption } from '@/shared/ui/deprecated/Chip';
+import { ChipListOption } from '@/shared/ui/redesigned/Chip';
 
-export type ArticleTypeChip = ChipListOption<ArticleType>;
+export type ArticleTypeChip = ChipListOption<ArticleType, ArticleType>;

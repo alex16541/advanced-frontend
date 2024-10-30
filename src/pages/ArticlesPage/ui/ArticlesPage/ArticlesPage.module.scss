@@ -1,20 +1,4 @@
 .ArticlesPage {
-    .header {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-        justify-content: space-between;
-
-        margin-bottom: 20px;
-    }
-
-    .filters {
-        max-width: 900px;
-        margin: 0 auto 30px;
-    }
-}
-
-.ArticlesPageRedesigned {
     .content {
         width: 100%;
     }

@@ -10,7 +10,7 @@ declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.png';
 declare module '*.svg' {
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+    const content: React.FunctionComponent<React.SVGAttributes<SVGElement> & { ref?: React.Ref<SVGElement> }>;
     export default content;
 }
 

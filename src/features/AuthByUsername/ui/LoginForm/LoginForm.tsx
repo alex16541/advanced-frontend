@@ -59,37 +59,35 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReucers}>
-            
-                                <div className={classNames(cls.LoginForm, {}, [className])}>
-                                    <Text align="center" className={cls.title} title={t('authorization')} />
-                                    <div className={cls.inputs}>
-                                        <Input
-                                            className={cls.input}
-                                            placeholder={t('username')}
-                                            value={username}
-                                            autoFocus
-                                            onChange={onChangeUsername}
-                                        />
-                                        <Input
-                                            className={cls.input}
-                                            placeholder={t('password')}
-                                            type="password"
-                                            value={password}
-                                            onChange={onChangePassword}
-                                        />
-                                    </div>
-                                    <Button className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
-                                        {t('login')}
-                                    </Button>
-                                    {error !== undefined && (
-                                        <Text
-                                            className={cls.errorMsg}
-                                            text={error === 0 ? t('wrong login or password') : t('unknow auth error')}
-                                            theme="error"
-                                        />
-                                    )}
-                                </div>
-                            
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text align="center" className={cls.title} title={t('authorization')} />
+                <div className={cls.inputs}>
+                    <Input
+                        className={cls.input}
+                        placeholder={t('username')}
+                        value={username}
+                        autoFocus
+                        onChange={onChangeUsername}
+                    />
+                    <Input
+                        className={cls.input}
+                        placeholder={t('password')}
+                        type="password"
+                        value={password}
+                        onChange={onChangePassword}
+                    />
+                </div>
+                <Button className={cls.btn} disabled={isLoading} onClick={onLoginClick}>
+                    {t('login')}
+                </Button>
+                {error !== undefined && (
+                    <Text
+                        className={cls.errorMsg}
+                        text={error === 0 ? t('WRONG_LOGIN_OR_PASSWORD') : t('UNKNOW_AUTH_ERROR')}
+                        theme="error"
+                    />
+                )}
+            </div>
         </DynamicModuleLoader>
     );
 });

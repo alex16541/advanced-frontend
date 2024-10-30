@@ -10,5 +10,5 @@
     "yaml.schemas": {
         "https://json.schemastore.org/github-workflow.json": "file:///Users/main/projects/advanced-frontend/.github/workflows/actions.yaml"
     },
-    "svg.preview.background": "editor"
+    "svg.preview.background": "dark-transparent"
 }

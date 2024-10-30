@@ -32,4 +32,11 @@
     --save-color-redesigned: #6cd98b;
     --icon-color-redesigned: #74a2b2;
     --accent-color-redesigned: #5ed3f3;
+
+    // code editor
+    --code-text-color: var(--text-color-redesigned);
+    --code-text-alt-color: #777;
+    --code-bg-color: var(--bg-color-redesigned);
+    --code-accent-color: var(--accent-color-redesigned);
+    --code-accent-alt-color: var(--cancel-color-redesigned);
 }

@@ -1,8 +1,10 @@
 import { UserRoles } from '@/entity/User';
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPage } from '@/pages/AdminPage';
+import { ArticleCreatePage } from '@/pages/ArticleCreatePage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlePublishPage } from '@/pages/ArticlePublishPage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
@@ -16,6 +18,7 @@ import {
     getRouteArticleCreate,
     getRouteArticleDetails,
     getRouteArticleEdit,
+    getRouteArticlePublish,
     getRouteArticles,
     getRouteForbidden,
     getRouteMain,
@@ -46,12 +49,17 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.ARTICLE_CREATE]: {
         path: getRouteArticleCreate(),
-        element: <ArticleEditPage />,
+        element: <ArticleCreatePage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
         path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_PUBLISH]: {
+        path: getRouteArticlePublish(':id'),
+        element: <ArticlePublishPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {

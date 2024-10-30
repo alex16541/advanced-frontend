@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { ArticlesList } from '@/entity/Article';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { Button } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import {
     selectArticlesPageErrors,
@@ -22,7 +22,7 @@ interface ArticlesInfiniteListProps {
 
 const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticlesPage');
     const dispatch = useAppDispatch();
     const articles = useSelector(articlesPageSelectors.selectAll);
     const isLoading = useSelector(selectArticlesPageIsLoading);
@@ -37,7 +37,7 @@ const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
     if (errors.length > 0) {
         return (
             <VStack align="Center" gap="16" maxWidth>
-                <Text title={t('Articles page loading error')} />
+                <Text title={t('PAGE_LOADIN_UNKNOWN_ERROR')} />
                 <Button onClick={onReload}>{t('Try agen')}</Button>
             </VStack>
         );

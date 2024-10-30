@@ -38,7 +38,7 @@ export const Avatar = (props: AvatarProps) => {
             alt={alt}
             className={classNames(cls.Avatar, { [cls.rounded]: rounded }, [className])}
             errorFallback={defaultAvatar}
-            fallbeck={skeleton}
+            fallback={skeleton}
             src={src}
             style={avatarStyle}
         />

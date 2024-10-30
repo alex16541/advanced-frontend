@@ -1,33 +1,21 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileErrors } from '@/entity/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TextThemes, Text } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-import { ProfileValidateErrors } from '../../model/consts/profile';
+import { ProfileValidateError } from '../../model/consts/profile';
 
 import cls from './EditableProfileCardErrors.module.scss';
 
 interface EditableProfileCardErrorsProps {
     className?: string;
-    validationErrors?: ProfileValidateErrors[];
+    validationErrors?: ProfileValidateError[];
 }
 
 const EditableProfileCardErrors = (props: EditableProfileCardErrorsProps) => {
     const { className, validationErrors = [] } = props;
-    const { t } = useTranslation('profile');
-
-    const errors = useMemo(
-        () => ({
-            [ProfileValidateErrors.NO_DATA]: t('profile no data'),
-            [ProfileErrors.SERVER_ERROR]: t('server error'),
-            [ProfileValidateErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
-            [ProfileValidateErrors.INCORRECT_AGE]: t('incorrect age'),
-            [ProfileValidateErrors.INCORRECT_EMAIL]: t('incorrect email'),
-        }),
-        [t],
-    );
+    const { t } = useTranslation('EditableProfileCard');
 
     if (!validationErrors.length) return null;
 
@@ -37,12 +25,7 @@ const EditableProfileCardErrors = (props: EditableProfileCardErrorsProps) => {
             data-testid="EditableProfileCardErrors"
         >
             {validationErrors.map((err) => (
-                <Text
-                    dataTestId="EditableProfileCardErrors.Error"
-                    key={err}
-                    text={errors[err]}
-                    theme={TextThemes.ERROR}
-                />
+                <Text dataTestId="EditableProfileCardErrors.Error" key={err} text={t(err)} theme="error" />
             ))}
         </div>
     );

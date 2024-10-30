@@ -7,12 +7,7 @@ import { ListBoxOption } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import cls from './ArticleSortSelector.module.scss';
-
-const sortOptions: ListBoxOption<ArticleSortField>[] = [
-    { value: ArticleSortField.CREATED, content: 'Дате создания' },
-    { value: ArticleSortField.TITLE, content: 'Названию' },
-    { value: ArticleSortField.VIEWS, content: 'Просмотрам' },
-];
+import '../i18n/i18n';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -22,18 +17,22 @@ interface ArticleSortSelectorProps {
 
 const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     const { className, onChange, value } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('ArticleSort');
+
+    const sortOptions: ListBoxOption<ArticleSortField, string>[] = [
+        { value: ArticleSortField.CREATED, content: t('SORT_CREATED_AT') },
+        { value: ArticleSortField.TITLE, content: t('SORT_TITLE') },
+        { value: ArticleSortField.VIEWS, content: t('SORT_VIEWS') },
+    ];
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            
-                                <ListBox
-                                    classNameWrapper={cls.field}
-                                    options={sortOptions}
-                                    size="s"
-                                    value={value}
-                                    onChange={onChange}
-                                />
-                            
+            <ListBox
+                classNameWrapper={cls.field}
+                options={sortOptions}
+                size="s"
+                value={value}
+                onChange={onChange}
+            />
         </div>
     );
 };

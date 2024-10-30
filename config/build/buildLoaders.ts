@@ -26,7 +26,7 @@ function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     //     exclude: /node_modules/,
     // };
 
-    return [babelTsxLoader, babelCodeLoader, cssLoader, svgLoader, fileLoader];
+    return [babelTsxLoader, babelCodeLoader, ...cssLoader, svgLoader, fileLoader];
 }
 
 export default buildLoaders;

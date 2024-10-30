@@ -6,15 +6,18 @@ import { Button, ButtonVariant } from '../../../Button';
 
 import cls from './Chip.module.scss';
 
-export interface ChipProps<T> {
+export interface ChipPropsBase<T, V = string> {
     className?: string;
     value: T;
-    label: string;
+    label: V;
     selected?: boolean;
+}
+
+export interface ChipProps<T, V = string> extends ChipPropsBase<T, V> {
     onClick?: (key: T) => void;
 }
 
-function Chip<T extends string>(props: ChipProps<T>) {
+function Chip<T extends string, V extends string = string>(props: ChipProps<T, V>) {
     const { className, selected = false, label, value: key, onClick } = props;
     const theme: ButtonVariant = selected ? 'primary' : 'transparent';
 

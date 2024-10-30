@@ -14,6 +14,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';
+import './i18n/i18n';
 
 interface ProfileCardProps {
     className?: string;
@@ -52,7 +53,7 @@ const ProfileCard = (props: ProfileCardProps) => {
         onChangeCurrency,
     } = props;
 
-    const { t } = useTranslation('profile');
+    const { t } = useTranslation('ProfileCard');
 
     const mods: Mods = {
         [cls.readonly]: readonly,
@@ -87,7 +88,7 @@ const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
-                <Text align="center" text={error} title={`${t('profile error')}`} />
+                <Text align="center" text={error} title={`${t('PROFILE_ERROR')}`} />
             </div>
         );
     }

@@ -1,6 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import { ArticleErrors } from '../consts/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 import { getArticleDetailsData, getArticleDetailsErrors, getArticleDetailsIsLoading } from './articleDetails';
@@ -10,7 +9,7 @@ describe('getArticleDetailsData', () => {
         data: {
             id: '1',
             title: 'title',
-            subtitle: 'subtitle',
+            description: 'description',
         },
     };
 
@@ -47,7 +46,7 @@ describe('getArticleDetailsIsLoading', () => {
 
 describe('getArticleDetailsError', () => {
     const data: DeepPartial<ArticleDetailsSchema> = {
-        error: [ArticleErrors.SERVER_ERROR],
+        error: ['SERVER_ERROR'],
     };
 
     test('should return article errors', () => {

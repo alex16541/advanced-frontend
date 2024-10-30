@@ -1,14 +1,20 @@
 .LargeArticleCard {
     width: 100%;
 
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        transition-duration: var(--transition-duration);
+    }
+
     .imageWrapper {
         position: relative;
 
         overflow: hidden;
 
-        aspect-ratio: 16/9;
+        aspect-ratio: 16 / 9;
         width: 100%;
-        margin-bottom: 10px;
 
         border-radius: 7px;
     }
@@ -40,20 +46,6 @@
         transition-duration: var(--transition-duration);
     }
 
-    .tags {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-
-        opacity: 0;
-
-        transition-duration: var(--transition-duration);
-    }
-
     .text {
         overflow: hidden;
         max-height: calc(var(--font-line-m-redesigned) * 3);
@@ -64,8 +56,9 @@
         gap: 20px;
         align-items: center;
         justify-content: space-between;
+    }
 
-        margin-top: 10px;
+    .description {
     }
 
     .views {
@@ -81,21 +74,9 @@
 }
 
 @media (pointer: fine) {
-    .LargeArticleCard:hover {
-        .tags {
-            opacity: 1;
-        }
-
+    .LargeArticleCard:hover:has(img) {
         .img {
             transform: scale(1.05);
-        }
-    }
-}
-
-@media (pointer: coarse) {
-    .ArticlesListItem {
-        .tags {
-            opacity: 1;
         }
     }
 }

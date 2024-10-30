@@ -1,27 +1,26 @@
-import React, { InputHTMLAttributes, memo, ReactElement } from 'react';
+import React, { InputHTMLAttributes, memo, ReactElement, useState } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import { Loader } from '../../../deprecated/Loader';
-import { HStack } from '../../Stack';
 
 import cls from './Input.module.scss';
 
 export enum InputThemes {
     PRIMARY = 'primary',
+    CLEAR = 'clear',
 }
 
 type InputSize = 's' | 'm';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly' | 'size'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly' | 'size' | 'type'>;
 
-interface InputProps extends HTMLInputProps {
+interface InputPropsBase extends HTMLInputProps {
     className?: string;
     classNameInput?: string;
     theme?: InputThemes;
     value?: string | number;
     readonly?: boolean;
-    onChange?: (value: string) => void;
     isLoading?: boolean;
     fullWidth?: boolean;
     addonLeft?: ReactElement;
@@ -30,13 +29,24 @@ interface InputProps extends HTMLInputProps {
     label?: string;
 }
 
+interface StringInputProps extends InputPropsBase {
+    type?: 'text' | 'number' | 'password';
+    onChange?: (value: string) => void;
+}
+
+interface FileInputProps extends InputPropsBase {
+    type: 'file';
+    onChange?: (files: FileList | null) => void;
+}
+
+type InputProps = StringInputProps | FileInputProps;
+
 const Input = (props: InputProps) => {
     const {
         className,
         classNameInput,
         theme = InputThemes.PRIMARY,
         value,
-        onChange,
         readonly = false,
         type = 'text',
         isLoading,
@@ -44,12 +54,22 @@ const Input = (props: InputProps) => {
         addonLeft,
         addonRight,
         size = 'm',
-        label,
+        label = type === 'file' ? 'Upload file' : undefined,
         ...otherProps
     } = props;
 
+    const [fileName, setFileName] = useState('');
+
     function onChangeHendler(e: React.ChangeEvent<HTMLInputElement>) {
-        onChange?.(e.target.value);
+        if (type === 'file') {
+            const { onChange } = props as FileInputProps;
+            const pathParts = e.target.value.split('\\');
+            setFileName(pathParts[pathParts.length - 1]);
+            onChange?.(e.target.files);
+        } else {
+            const { onChange } = props as StringInputProps;
+            onChange?.(e.target.value);
+        }
     }
 
     const mods: Mods = {
@@ -71,21 +91,26 @@ const Input = (props: InputProps) => {
                         readOnly={readonly}
                         type={type}
                         value={value}
-                        onChange={onChangeHendler}
                         {...otherProps}
+                        onChange={onChangeHendler}
                     />
+                    {type === 'file' && fileName && <div className={cls.fileName}>{fileName}</div>}
                     {addonRight}
                 </>
             )}
         </div>
     );
 
-    if (label) {
+    if (label || type === 'file') {
         return (
-            <HStack>
-                {label && <div className={cls.label}>{`${label}:`}</div>}
-                {input}
-            </HStack>
+            <>
+                {label && (
+                    <label className={cls.Label}>
+                        {`${label}:`}
+                        {input}
+                    </label>
+                )}
+            </>
         );
     }
 

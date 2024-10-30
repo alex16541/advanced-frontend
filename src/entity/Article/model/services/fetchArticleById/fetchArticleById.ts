@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { AppError } from '@/shared/types/AppError';
 
-import { ArticleErrors } from '../../consts/article';
 import { Article } from '../../types/article';
+import { ArticleError, ArticleErrorType } from '../../types/articleError';
 
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<ArticleErrors[]>>(
+export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<ArticleErrorType[]>>(
     'articleDetails/getArticleById',
     async (id, thunkAPI) => {
         const { rejectWithValue, extra, getState } = thunkAPI;
@@ -19,13 +20,17 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<Ar
                 },
             });
 
-            if (!response.data) {
-                throw new Error();
+            if (response.status !== 200) {
+                throw new ArticleError(response.status);
             }
 
             return response.data;
-        } catch (error) {
-            return rejectWithValue([ArticleErrors.SERVER_ERROR]);
+        } catch (e) {
+            if (AppError.isApiError(e)) {
+                return rejectWithValue([e.code]);
+            }
+
+            return rejectWithValue(['UNKNOWN_ERROR']);
         }
     },
 );

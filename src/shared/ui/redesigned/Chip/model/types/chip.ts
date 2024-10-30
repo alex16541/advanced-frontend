@@ -1,3 +1,3 @@
-import { ChipProps } from '../../ui/Chip/Chip';
+import { ChipPropsBase } from '../../ui/Chip/Chip';
 
-export type ChipListOption<T> = Omit<ChipProps<T>, 'onClick'>;
+export type ChipListOption<T, V = string> = ChipPropsBase<T, V>;
