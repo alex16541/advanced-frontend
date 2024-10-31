@@ -6,9 +6,11 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleTextEditor } from './ArticleTextEditor';
 
 export default {
-    title: 'folder/TextEditor',
+    title: 'entity/TextEditor/ArticleTextEditor',
     component: ArticleTextEditor,
-    args: {},
+    args: {
+        editable: true,
+    },
 } as Meta<typeof ArticleTextEditor>;
 
 type Story = StoryObj<typeof ArticleTextEditor>;

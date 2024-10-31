@@ -34,6 +34,7 @@ const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
         dispatch(fetchNextArticlesPage({ replace: true }));
     }, [dispatch]);
 
+    // todo: refactor
     if (errors.length > 0) {
         return (
             <VStack align="Center" gap="16" maxWidth>

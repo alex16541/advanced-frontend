@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { article } from '@/entity/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -20,7 +20,7 @@ export default {
     parameters: {
         mockData: [
             {
-                url: `${__API__}/articles?_page=1&_limit=6&_extend=user`,
+                url: `${__API__}/articles?_page=1&_limit=6&_expand=user`,
                 method: 'GET',
                 status: 200,
                 response: articles,
@@ -29,11 +29,10 @@ export default {
     },
 } as Meta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
-    <ArticleRecommendationsList {...args} />
-);
+type Story = StoryObj<typeof ArticleRecommendationsList>;
 
-export const Light = Template.bind({});
+export const Light: Story = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+};

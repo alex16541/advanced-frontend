@@ -2,30 +2,26 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 import { MainLayout } from './MainLayout';
 
 const styles = {
-    background: '#444',
-    color: '#fff',
     width: '100%',
     height: '100%',
-    borderRadius: '8px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '10px',
-    flex: '1 1 auto',
 };
 
 export default {
     title: 'shared/layouts/MainLayout',
     component: MainLayout,
     args: {
-        content: <div style={styles}>Content</div>,
-        sidebar: <div style={styles}>Sidebar</div>,
-        navbar: <div style={styles}>Navbar</div>,
-        toolbar: <div style={styles}>Toolbar</div>,
+        content: <Card style={{ ...styles, height: '300vh', alignItems: 'flex-start' }}>Content</Card>,
+        sidebar: <Card style={styles}>Sidebar</Card>,
+        navbar: <Card style={styles}>Navbar</Card>,
+        toolbar: <Card style={styles}>Toolbar</Card>,
     },
 } as Meta<typeof MainLayout>;
 

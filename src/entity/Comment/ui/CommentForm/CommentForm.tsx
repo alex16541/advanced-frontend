@@ -16,13 +16,13 @@ import '../../i18n/i18n';
 interface CommentFormProps {
     className?: string;
     onSubmit?: () => void;
-    comment: string;
+    comment?: string;
     onChangeComment: (text: string) => void;
     isLoading?: boolean;
 }
 
 export const CommentForm = memo((props: CommentFormProps) => {
-    const { className, onSubmit, comment, onChangeComment, isLoading } = props;
+    const { className, onSubmit, comment = '', onChangeComment, isLoading } = props;
     const { t } = useTranslation('CommentForm');
 
     const authData = useSelector(getAuthData);

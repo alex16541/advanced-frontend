@@ -17,7 +17,6 @@ export const article: Article = {
         avatar: 'tests/Avatar.jpeg',
     },
     createdAt: '10.10.2000',
-    description: '{}',
     updatedAt: '11.10.2024, 15:41:56',
     publishedAt: '11.10.2024, 15:41:56',
 };

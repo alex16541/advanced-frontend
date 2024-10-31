@@ -7,7 +7,7 @@ const ru = {
     SERVER_ERROR: 'Ошибка сервера',
     INVALID_DATA: 'Некорректные данные',
     INVALID_VALIDATION: 'Некорректная валидация',
-    FORBIDDEN: 'У вас недостаточно прав для редактирования этого профиля',
+    FORBIDDEN: 'У вас недостаточно прав для редактирования этой статьи',
     NOT_FOUND: 'Страница не найдена',
 };
 
@@ -18,7 +18,7 @@ const en = {
     SERVER_ERROR: 'Server error',
     INVALID_DATA: 'Invalid data',
     INVALID_VALIDATION: 'Invalid validation',
-    FORBIDDEN: 'You do not have permission to edit this profile',
+    FORBIDDEN: 'You do not have permission to edit this article',
     NOT_FOUND: 'Page not found',
 };
 

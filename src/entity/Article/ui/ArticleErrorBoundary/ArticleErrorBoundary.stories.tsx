@@ -6,9 +6,11 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleErrorBoundary } from './ArticleErrorBoundary';
 
 export default {
-    title: 'folder/ArticleErrorBoundary',
+    title: 'entity/Article/ArticleErrorBoundary',
     component: ArticleErrorBoundary,
-    args: {},
+    args: {
+        error: 'FORBIDDEN',
+    },
 } as Meta<typeof ArticleErrorBoundary>;
 
 type Story = StoryObj<typeof ArticleErrorBoundary>;

@@ -122,7 +122,9 @@ interface ArticlePublishPageProps {
     className?: string;
 }
 const ArticlePublishPage = (props: ArticlePublishPageProps) => {
-    const { id } = useParams<{ id: string }>();
+    let { id } = useParams<{ id: string }>();
+
+    if (__PROJECT__ === 'storybook') id = '1';
 
     const { articleData, isLoading, errors, reducers } = useArticleData({ articleId: id, ownerOnly: true });
 

@@ -6,9 +6,9 @@ import { Theme } from '@/shared/consts/theme';
 import { Textarea } from './Textarea';
 
 export default {
-    title: 'folder/Textarea',
+    title: 'shared/Textarea',
     component: Textarea,
-    args: {},
+    args: { placeholder: 'Placeholder...' },
 } as Meta<typeof Textarea>;
 
 type Story = StoryObj<typeof Textarea>;

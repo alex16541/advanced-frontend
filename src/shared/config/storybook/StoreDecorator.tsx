@@ -5,6 +5,7 @@ import { articleDetailsReducer } from '@/entity/Article/testing';
 import { articleCommentsReducer } from '@/features/ArticleCommentsList/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { editableProfileCardReducer } from '@/features/EditableProfileCard/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultReducers: ReducersList = {
@@ -12,6 +13,7 @@ const defaultReducers: ReducersList = {
     editableProfileCard: editableProfileCardReducer,
     articleDetails: articleDetailsReducer,
     articleComments: articleCommentsReducer,
+    articlesPage: articlesPageReducer,
 };
 export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => {
     const ComponentWithStoreDecorator = (StoryComponent: StoryFn) => (

@@ -2,29 +2,27 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 import { StikyContentLayout } from './StikyContentLayout';
 
 const styles = {
-    background: '#444',
-    color: '#fff',
     width: '100%',
     height: '100%',
-    borderRadius: '8px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '10px',
-    flex: '1 1 auto',
 };
 
 export default {
     title: 'shared/layouts/StikyContentLayout',
     component: StikyContentLayout,
     args: {
-        content: <div style={styles}>Content</div>,
-        left: <div style={styles}>Left</div>,
-        right: <div style={styles}>Right</div>,
+        content: (
+            <Card style={{ ...styles, height: '300vh', alignItems: 'flex-start' }}>Scrollable content</Card>
+        ),
+        left: <Card style={styles}>Left</Card>,
+        right: <Card style={styles}>Right</Card>,
     },
 } as Meta<typeof StikyContentLayout>;
 

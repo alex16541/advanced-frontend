@@ -1,4 +1,4 @@
-.app-dark-theme {
+body:has(.app-dark-theme) {
     // background
     --primary-bg-color: #222;
     --secondary-bg-color: #111;

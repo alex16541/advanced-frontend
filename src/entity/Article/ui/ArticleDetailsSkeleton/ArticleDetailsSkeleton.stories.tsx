@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 
 export default {
-    title: 'folder/ArticleDetailsSkeleton',
+    title: 'entity/Article/ArticleDetailsSkeleton',
     component: ArticleDetailsSkeleton,
     args: {},
 } as Meta<typeof ArticleDetailsSkeleton>;

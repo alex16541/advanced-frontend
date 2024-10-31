@@ -20,9 +20,14 @@ interface SidebarProps {
     className?: string;
 }
 
+const SIDEBAR_STATE_KEY = 'sidebar_state';
+
+const setSidebarState = (value: boolean) => localStorage.setItem(SIDEBAR_STATE_KEY, String(value));
+const getSidebarState = () => localStorage.getItem(SIDEBAR_STATE_KEY) === 'true';
+
 export const Sidebar = (props: SidebarProps) => {
     const { className } = props;
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(getSidebarState());
     const sidebarItems = useSelector(selectSidebarItems);
 
     const itemList = useMemo(
@@ -32,6 +37,7 @@ export const Sidebar = (props: SidebarProps) => {
 
     function onToggle() {
         setCollapsed((value) => !value);
+        setSidebarState(!collapsed);
     }
 
     return (
