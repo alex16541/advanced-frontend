@@ -1,7 +1,15 @@
-import { FormEventHandler, HTMLAttributes, memo, useCallback, useEffect, useRef } from 'react';
+import {
+    FormEventHandler,
+    HTMLAttributes,
+    memo,
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+} from 'react';
 
-import { useDebounce } from '@/shared/hooks/useDebounce';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import debounce from '@/shared/lib/debounce';
 
 import cls from './Textarea.module.scss';
 
@@ -32,26 +40,27 @@ const Textarea = (props: TextareaProps) => {
         [onInput],
     );
 
-    const resizeTextarea = useDebounce(() => {
+    const resizeTextarea = useCallback(() => {
         if (typeof ref === 'object' && ref?.current) {
             ref.current.style.height = '1px';
             ref.current.style.height = `${ref.current.scrollHeight}px`;
         }
-    }, 10);
+    }, [ref]);
 
     useEffect(() => {
-        setTimeout(() => {
-            resizeTextarea();
-        }, 50);
+        resizeTextarea();
     }, [resizeTextarea]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        const resizeTextareaDebounced = debounce(resizeTextarea);
+
         window.addEventListener('resize', () => {
-            resizeTextarea();
+            resizeTextareaDebounced();
         });
 
         return () => {
             window.removeEventListener('resize', () => {});
+            resizeTextareaDebounced.clear();
         };
     }, [resizeTextarea]);
 
