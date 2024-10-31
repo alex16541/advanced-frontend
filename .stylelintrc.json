@@ -5,7 +5,8 @@
   ],
   "ignoreFiles": [
     "build/**/*.css",
-    "src/app/styles/reset.scss"
+    "src/app/styles/reset.scss",
+    "node_modules/**.css"
   ],
   "rules": {
     "indentation": 4,

@@ -18,7 +18,6 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Textarea } from '@/shared/ui/redesigned/Textarea';
 
 import cls from './ArticleEditor.module.scss';
-import html from './text.json';
 import '../i18n/i18n';
 
 interface ArticleEditorProps {
@@ -124,7 +123,7 @@ const ArticleEditor = (props: ArticleEditorProps) => {
             </VStack>
             <ArticleTextEditor
                 className={cls.editor}
-                content={article?.editorState ?? JSON.stringify(html)}
+                content={article?.editorState}
                 editable={editable}
                 onChange={onChangeHandler}
             />

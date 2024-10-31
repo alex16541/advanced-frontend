@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { CreateArticleButton } from './CreateArticleButton';
 
 export default {
-    title: 'folder/CreateArticleButton',
+    title: 'features/CreateArticleButton',
     component: CreateArticleButton,
     args: {},
 } as Meta<typeof CreateArticleButton>;

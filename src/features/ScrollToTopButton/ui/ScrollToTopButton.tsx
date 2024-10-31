@@ -2,6 +2,7 @@ import { memo } from 'react';
 
 import ArrowCircleIcon from '@/shared/assets/svg/arrow-circle.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import cls from './ScrollToTopButton.module.scss';
@@ -18,13 +19,14 @@ const ScrollToTopButton = (props: ScrollToTopButtonProps) => {
     };
 
     return (
-        <button
+        <Button
             className={classNames(cls.ScrollToTopButton, {}, [className])}
+            theme="clear"
             type="button"
             onClick={scrollTop}
         >
             <Icon Svg={ArrowCircleIcon} />
-        </button>
+        </Button>
     );
 };
 

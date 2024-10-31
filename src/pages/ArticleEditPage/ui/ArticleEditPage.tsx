@@ -170,7 +170,9 @@ interface ArticleEditPageProps {
 }
 
 const ArticleEditPage = (props: ArticleEditPageProps) => {
-    const { id } = useParams();
+    let { id } = useParams();
+
+    if (__PROJECT__ === 'storybook') id = '1';
 
     const userData = useAppSelector(getAuthData);
     const { articleData, isLoading, errors, reducers } = useArticleData({

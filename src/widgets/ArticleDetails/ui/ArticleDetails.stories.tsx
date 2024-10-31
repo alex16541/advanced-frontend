@@ -11,7 +11,6 @@ const articleDetails = {
     data: {
         id: '1',
         title: 'Декларативный подход к программированию на примере RxJs',
-        description: '{}',
         img: 'tests/Background.jpg',
         views: 37483,
         user: {
@@ -32,17 +31,18 @@ const articleDetails = {
 export default {
     title: 'entity/Article/ArticleDetails',
     component: ArticleDetails,
-    args: {},
+    decorators: [StoreDecorator({ articleDetails })],
+    args: {
+        articleId: '1',
+    },
 } as Meta<typeof ArticleDetails>;
 
 type Story = StoryObj<typeof ArticleDetails>;
 
-export const Light: Story = {
-    decorators: [StoreDecorator({ articleDetails })],
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [StoreDecorator({ articleDetails }), ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Loading: Story = {

@@ -9,7 +9,9 @@ import { CommentForm } from './CommentForm';
 export default {
     title: 'entity/Comment/CommentForm',
     component: CommentForm,
-    args: {},
+    args: {
+        comment: 'Nice try!',
+    },
     decorators: [
         StoreDecorator({
             user: {

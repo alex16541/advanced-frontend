@@ -19,7 +19,7 @@ export const AppImage = (props: AppImageProps) => {
         img.onload = () => {
             setIsLoading(false);
         };
-        img.onerror = () => {
+        img.onerror = (e) => {
             setIsLoading(false);
             setIsError(true);
         };

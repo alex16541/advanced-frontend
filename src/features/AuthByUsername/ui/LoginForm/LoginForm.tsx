@@ -67,6 +67,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                         placeholder={t('username')}
                         value={username}
                         autoFocus
+                        fullWidth
                         onChange={onChangeUsername}
                     />
                     <Input
@@ -74,6 +75,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                         placeholder={t('password')}
                         type="password"
                         value={password}
+                        fullWidth
                         onChange={onChangePassword}
                     />
                 </div>
