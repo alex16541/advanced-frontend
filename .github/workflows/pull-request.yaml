@@ -1,10 +1,8 @@
-name: CI
-
 on:
-  push:
+  pull_request:
     branches: [ main ]
 permissions:
-  contents: write
+  contents: write 
   pages: write
   id-token: write
 concurrency:
@@ -14,9 +12,6 @@ jobs:
   build-and-ui-testing:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [ 17.x ]
@@ -46,18 +41,7 @@ jobs:
       - name: Move .loki
         run: mv .loki reports/
         if: always()
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-        if: always()
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        if: always()
-        with:
-          path: 'reports'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        if: always()
-        uses: actions/deploy-pages@v1
+
 
   checks:
     runs-on: ubuntu-latest

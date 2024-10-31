@@ -42,7 +42,7 @@ export const Sidebar = (props: SidebarProps) => {
 
     return (
         <aside
-            className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
             data-testid="sidebar"
         >
             <AppLogo className={cls.logo} />
