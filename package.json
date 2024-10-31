@@ -9,7 +9,7 @@
     "start:vite": "vite",
     "webpack:app": "webpack serve --env port=3000 apiUrl=http://localhost:3001",
     "webpack:db": "node ./json-server/index.js",
-    "build:prod": "webpack --env mode=production",
+    "build:prod": "webpack --env mode=production apiUrl=https://advanced-frontend-seven.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "format": "prettier-eslint \"**/*.{ts,tsx}\" --write",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
