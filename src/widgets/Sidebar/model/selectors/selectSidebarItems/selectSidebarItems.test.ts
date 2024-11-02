@@ -7,7 +7,7 @@ describe('selectSidebarItems', () => {
         const state: DeepPartial<StateSchema> = {
             user: {},
         };
-        expect(selectSidebarItems(state as StateSchema)).toHaveLength(2);
+        expect(selectSidebarItems(state as StateSchema)).toHaveLength(1);
     });
 
     test('should return sidebar items with auth', () => {
@@ -18,6 +18,6 @@ describe('selectSidebarItems', () => {
                 },
             },
         };
-        expect(selectSidebarItems(state as StateSchema)).toHaveLength(4);
+        expect(selectSidebarItems(state as StateSchema)).toHaveLength(3);
     });
 });

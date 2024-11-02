@@ -1,11 +1,11 @@
 import i18n from '@/shared/config/i18n';
 
 const ru = {
-    title: 'О нас',
+    title: 'Обо мне',
 };
 
 const en = {
-    title: 'About us',
+    title: 'About me',
 };
 
 i18n.addResourceBundle('ru', 'AboutPage', ru);

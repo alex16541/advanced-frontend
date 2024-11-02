@@ -3,9 +3,8 @@ import { createSelector } from 'reselect';
 import { getAuthData } from '@/entity/User';
 import ArticleIcon from '@/shared/assets/svg/article.svg';
 import HomeIcon from '@/shared/assets/svg/home.svg';
-import InfoIcon from '@/shared/assets/svg/info.svg';
 import ProfileIcon from '@/shared/assets/svg/profile.svg';
-import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
+import { getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
 
 import { SidebarItemType } from '../../types/sidebarItem';
 
@@ -16,11 +15,11 @@ export const selectSidebarItems = createSelector(getAuthData, (authData) => {
             path: getRouteMain(),
             text: 'main page title',
         },
-        {
-            Icon: InfoIcon,
-            path: getRouteAbout(),
-            text: 'about page title',
-        },
+        // {
+        //     Icon: InfoIcon,
+        //     path: getRouteAbout(),
+        //     text: 'about page title',
+        // },
     ];
 
     if (authData) {

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { TranslateSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import ArrowIcon from '@/shared/assets/svg/arrow.svg';
+import { SIDEBAR_STATE_KEY } from '@/shared/consts/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -19,8 +20,6 @@ import '../../i18n/i18n';
 interface SidebarProps {
     className?: string;
 }
-
-const SIDEBAR_STATE_KEY = 'sidebar_state';
 
 const setSidebarState = (value: boolean) => localStorage.setItem(SIDEBAR_STATE_KEY, String(value));
 const getSidebarState = () => localStorage.getItem(SIDEBAR_STATE_KEY) === 'true';
