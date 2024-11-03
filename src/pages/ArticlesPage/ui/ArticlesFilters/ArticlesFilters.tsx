@@ -4,6 +4,7 @@ import { ArticleOrderSelector } from '@/features/ArticleOrderSelector';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeChips } from '@/features/ArticleTypeChips';
 import SearchIcon from '@/shared/assets/svg/search.svg';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -12,6 +13,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 import { useArticlesFilters } from '../../libs/hooks/useArticlesFilters';
+import { selectArticlesPageInited } from '../../model/selectors/articlesPageSelectors';
 
 import cls from './ArticlesFilters.module.scss';
 
@@ -23,6 +25,11 @@ const ArticlesFilters = (props: ArticlesFilterProps) => {
     const { className } = props;
     const { t, order, sort, type, search, isLoading, searchChange, sortChange, orderChange, typeChange } =
         useArticlesFilters();
+    const inited = useAppSelector(selectArticlesPageInited);
+    // console.log(type);
+    if (!inited) {
+        return null;
+    }
 
     return (
         <Card className={classNames(cls.ArticlesFilters, {}, [className])}>

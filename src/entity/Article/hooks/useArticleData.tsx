@@ -24,10 +24,11 @@ const reducers: ReducersList = {
 interface UseArticleDataOptions {
     articleId?: string;
     ownerOnly?: boolean;
+    refetch?: boolean;
 }
 
 export const useArticleData = (options: UseArticleDataOptions) => {
-    const { articleId, ownerOnly } = options;
+    const { articleId, ownerOnly, refetch = true } = options;
     const dispatch = useAppDispatch();
 
     const articleData = useAppSelector(getArticleDetailsData);
@@ -43,7 +44,7 @@ export const useArticleData = (options: UseArticleDataOptions) => {
     );
 
     useOnInit(() => {
-        if (!articleId || (articleData && articleData.id === articleId)) return;
+        if (!articleId || (articleData && articleData.id === articleId && !refetch)) return;
 
         fetchArticle(articleId);
     });

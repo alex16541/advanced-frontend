@@ -27,11 +27,13 @@
     "test:ui:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "storybook dev -p 3003 -c config/storybook/",
     "storybook:build": "storybook build -c config/storybook/",
+    "build-storybook": "storybook build -c config/storybook/",
     "prepare": "husky install",
     "gen": "node scripts/generate-feature-slice/index.js",
     "gen:doc": "ts-node scripts/generate-doc.ts",
     "remove:feature": "ts-node scripts/refactoring/remove-feature.ts",
-    "postinstall": "node scripts/clear-cache.js"
+    "postinstall": "node scripts/clear-cache.js",
+    "chromatic": "npx chromatic --project-token=chpt_e88d7791fab0022"
   },
   "keywords": [],
   "devDependencies": {
@@ -67,6 +69,7 @@
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
     "babel-loader": "^8.2.3",
+    "chromatic": "^11.16.3",
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^8.0.1",
     "copy-webpack-plugin": "^12.0.2",

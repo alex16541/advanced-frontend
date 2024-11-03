@@ -26,8 +26,8 @@ const initialState: ArticlesPageSchema = {
     limit: 3,
     hasMore: true,
     _inited: false,
-    sort: ArticleSortField.CREATED,
-    order: 'asc',
+    sort: ArticleSortField.VIEWS,
+    order: 'desc',
     type: { value: ArticleType.ALL, label: ArticleType.ALL, selected: true },
     search: '',
 };

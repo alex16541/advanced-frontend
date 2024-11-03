@@ -20,7 +20,7 @@ const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     const { t } = useTranslation('ArticleSort');
 
     const sortOptions: ListBoxOption<ArticleSortField, string>[] = [
-        { value: ArticleSortField.CREATED, content: t('SORT_CREATED_AT') },
+        { value: ArticleSortField.PUBLISHED, content: t('SORT_PUBLISHED_AT') },
         { value: ArticleSortField.TITLE, content: t('SORT_TITLE') },
         { value: ArticleSortField.VIEWS, content: t('SORT_VIEWS') },
     ];

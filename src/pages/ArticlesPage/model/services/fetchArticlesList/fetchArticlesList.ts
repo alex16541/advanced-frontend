@@ -17,6 +17,11 @@ interface FetchArticlesListOptions {
     type?: ArticleType;
 }
 
+const isDateOrdering = (sort: ArticleSortField) =>
+    sort === ArticleSortField.CREATED ||
+    sort === ArticleSortField.PUBLISHED ||
+    sort === ArticleSortField.UPDATED;
+
 export const fetchArticlesList = createAsyncThunk<
     Article[],
     FetchArticlesListOptions,

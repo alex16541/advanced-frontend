@@ -59,7 +59,7 @@ const ArticleEditPageWithData = (props: ArticlePublishWithDataPageProps) => {
                 ...article,
                 type: tags.map((tag) => tag.value),
                 description: isDescriptionEmpty ? undefined : JSON.stringify(editorState),
-                publishedAt: article.publishedAt ?? new Date().toLocaleString(),
+                publishedAt: article.publishedAt ?? new Date().toLocaleDateString(),
             };
 
             const result = await dispatch(saveArticle(changedArticle)).unwrap();
@@ -126,7 +126,10 @@ const ArticlePublishPage = (props: ArticlePublishPageProps) => {
 
     if (__PROJECT__ === 'storybook') id = '1';
 
-    const { articleData, isLoading, errors, reducers } = useArticleData({ articleId: id, ownerOnly: true });
+    const { articleData, isLoading, errors, reducers } = useArticleData({
+        articleId: id,
+        ownerOnly: true,
+    });
 
     let content!: ReactElement<any, any>;
 

@@ -35,12 +35,11 @@
 
     width: auto;
     min-width: 100%;
-    padding: 0 0 10px;
 
     background-color: var(--dark-bg-color-redesigned);
     border: 2px solid var(--accent-color-redesigned);
     border-top: none;
-    border-radius: 0 0 21px 21px;
+    border-radius: 0 0 var(--border-radius-m) var(--border-radius-m);
 }
 
 .Option {

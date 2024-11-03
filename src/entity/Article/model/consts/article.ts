@@ -9,6 +9,8 @@ export enum ArticleSortField {
     VIEWS = 'views',
     TITLE = 'title',
     CREATED = 'createdAt',
+    PUBLISHED = 'publishedAt',
+    UPDATED = 'updatedAt',
 }
 
 export enum ArticlesListView {

@@ -18,12 +18,23 @@ describe('updateProfileData', () => {
             editableProfileCard: {
                 form: data,
             },
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
         });
 
         thunk.api.put.mockResolvedValue({
             data,
             status: 200,
         });
+
+        thunk.api.patch.mockResolvedValue({
+            data,
+            status: 200,
+        });
+
         const actionResult = await thunk.callThunk();
 
         expect(actionResult.meta.requestStatus).toBe('fulfilled');
@@ -35,9 +46,19 @@ describe('updateProfileData', () => {
             editableProfileCard: {
                 form: data,
             },
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
         });
 
         thunk.api.put.mockResolvedValue({
+            status: 403,
+        });
+
+        thunk.api.patch.mockResolvedValue({
+            data,
             status: 403,
         });
 
@@ -52,9 +73,19 @@ describe('updateProfileData', () => {
             editableProfileCard: {
                 form: data,
             },
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
         });
 
         thunk.api.put.mockResolvedValue({
+            status: 666,
+        });
+
+        thunk.api.patch.mockResolvedValue({
+            data,
             status: 666,
         });
 
@@ -64,8 +95,28 @@ describe('updateProfileData', () => {
         expect(actionResult.payload).toEqual('UNKNOWN_ERROR');
     });
 
-    test('no data error', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData);
+    test('no profile data error', async () => {
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
+        });
+
+        const actionResult = await thunk.callThunk();
+
+        expect(actionResult.meta.requestStatus).toBe('rejected');
+        expect(actionResult.payload).toEqual(['NO_DATA']);
+    });
+
+    test('no auth data error', async () => {
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            user: {},
+            editableProfileCard: {
+                form: data,
+            },
+        });
 
         const actionResult = await thunk.callThunk();
 
@@ -77,6 +128,11 @@ describe('updateProfileData', () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             editableProfileCard: {
                 form: { ...data, email: 'email' },
+            },
+            user: {
+                authData: {
+                    id: '1',
+                },
             },
         });
 

@@ -21,14 +21,14 @@ export const createArticle = createAsyncThunk<Article, ArticleContent | void, Th
             }
 
             const articleBase: ArticleContent = {
-                createdAt: new Date().toLocaleString(),
+                createdAt: new Date().toLocaleDateString(),
                 views: 0,
                 title: 'New article',
                 editorState:
                     // eslint-disable-next-line max-len
                     '{"root":{"children":[{"children":[],"direction":null,"format":"left","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}',
                 img: '',
-                updatedAt: new Date().toLocaleString(),
+                updatedAt: new Date().toLocaleDateString(),
                 type: [],
             };
 

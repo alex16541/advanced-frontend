@@ -87,7 +87,7 @@ const ArticleEditPageWithData = (props: ArticleEditPageWithDataProps) => {
                 title: editorArticle.title,
                 img: editorArticle.img,
                 description: editorArticle.description,
-                updatedAt: new Date().toLocaleString(),
+                updatedAt: new Date().toLocaleDateString(),
 
                 editorState:
                     typeof editorArticle.editorState === 'string'

@@ -56,7 +56,9 @@ function ChipList<T extends string, V extends string = string>(props: ChipListPr
     const chips = options?.map((opt) => (
         <Chip
             key={opt.value}
-            selected={Array.isArray(value) ? !!value.find((v) => v.value === opt.value) : value === opt}
+            selected={
+                Array.isArray(value) ? !!value.find((v) => v.value === opt.value) : value.value === opt.value
+            }
             onClick={onClickHandler}
             {...opt}
             label={tLabel ? tLabel(opt.label) : opt.label}

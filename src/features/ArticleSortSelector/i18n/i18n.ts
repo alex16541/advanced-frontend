@@ -1,13 +1,13 @@
 import i18n from '@/shared/config/i18n';
 
 const ru = {
-    SORT_CREATED_AT: 'Дате публикации',
+    SORT_PUBLISHED_AT: 'Дате публикации',
     SORT_TITLE: 'Названию',
     SORT_VIEWS: 'Просмотрам',
 };
 
 const en = {
-    SORT_CREATED_AT: 'Date of publication',
+    SORT_PUBLISHED_AT: 'Date of publication',
     SORT_TITLE: 'Title',
     SORT_VIEWS: 'Views',
 };

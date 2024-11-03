@@ -43,6 +43,9 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
         if: always()
+      - name: Move stroybook
+        run: mv storybook-static reports/ 
+        if: always()
       - name: unit testing
         run: npm run test:unit
         if: always()

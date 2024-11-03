@@ -29,6 +29,10 @@ const ru = {
 
     'welcome text 2':
         'Forkat – это лишь одна из многих страниц моей профессиональной истории. Если вам нужен специалист, готовый брать на себя сложные задачи и добиваться результатов, давайте обсудим, как я могу помочь вашему проекту!',
+    'welcome subtitle 3': '🧠 Чтобы узнать больше можете:',
+    login: '» Войти под тестовым пользователем',
+    github: '» Посетить репозиторий проекта на GitHub',
+    storybook: '» Посетить библиотеку компонентов Storybook',
 };
 
 const en = {
@@ -59,6 +63,10 @@ const en = {
 
     'welcome text 2':
         'Forkat is a part of my professional and personal history. If you need a specialist, ready to take on the tasks and achieve results, let us discuss how I can help your project!',
+    'welcome subtitle 3': '🧠 To learn more, you can:',
+    login: '» Login as a test user',
+    github: '» Visit the project repository on GitHub',
+    storybook: '» Visit the Storybook library',
 };
 
 i18n.addResourceBundle('ru', 'MainPage', ru);
